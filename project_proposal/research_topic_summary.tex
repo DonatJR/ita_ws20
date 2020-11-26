@@ -2,10 +2,10 @@
 In order to get an overview of a research field without extensive research and reading countless papers, there are various approaches to simplify this. By browsing through digital libraries and search engines you can find papers by matching search strings, but to get an overview of an entire research field this is not enough.
 In \cite{Rapid_understanding_of_scientific_paper_collections} a tool is presented that uses different methods to gain insights into research fields.
 Through the citation network, papers can be divided into clusters. Furthermore, trends, gaps and outliers can be identified.
-Another possibility to get insights is the citation context, because the key statements of the paper are often summarized concisely.  To know the key statements of the paper, it is still necessary to read the whole paper or at least all citation contexts. For many papers this is still a very large amount of work. To solve this problem Multi-Document Summarization is used here. This summarization is only applied to abstract and citation context. The dataset used is ACL Anthology Network (AAN).\cite{aan} The dataset contains the network of citations, as well as the full text of each article, its metadata, summary, references and citation sentences. 
+Another possibility to get insights is the citation context, because the key statements of the paper are often summarized concisely. To know the key statements of the paper, it is still necessary to read the whole paper or at least all citation contexts. For many papers this is still a very large amount of work. To solve this problem Multi-Document Summarization is used here. This summarization is only applied to abstract and citation context. The dataset used is ACL Anthology Network (AAN).\cite{aan} The dataset contains the network of citations, as well as the full text of each article, its metadata, summary, references and citation sentences. 
 
 With the help of the techniques mentioned, it should be possible to gain insight into an entire research field more quickly.
-In this project we will concentrate on only one method, the clustering.
+In this project we will concentrate on only one method: the clustering.
 For many years, attempts have been made to cluster papers in order to simplify research. In 1973, for example, it had already been tried to cluster journals by comparing reference patterns and looking at mutual references \cite{Clustering_of_scientific_journals}.
 
 In \cite{Document_clustering_of_scientific_texts_using_citation_contexts} the context of the citations is used in addition to the citations to cluster.
@@ -13,7 +13,7 @@ First a citation has to be recognized and the text has to be extracted on both s
 
 But there are also approaches where citations are not used.
 In \cite{Clustering_scientific_documents_with_topic_modeling} abstracts and titles are used.
-For this purpose the bibliography with various queries is downloaded from Web of Science\cite{web_of_science}.  
+For this purpose the bibliography with various queries is downloaded from Web of Science \cite{web_of_science}.  
 Two types of pre-processing are then performed on the texts. The first method treats each word as a token, and stopwords are deleted. The second method uses term-clumping to find noun phrases with significant commonality.
 In addition, several topic modeling algorithms are used. 
 The Latent Dirichlet allocation(LDA), Correlated Topic Models (CTM), Hierarchical Latent Dirichlet Allocation (Hierarchical LDA) and Hierarchical Dirichlet Process (HDP) are tested.

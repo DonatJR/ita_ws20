@@ -1,0 +1,32 @@
+\newpage %TODO Delete me!
+\section{Evaluation}
+\ref{sec:eval}
+In this section, several evaluation approaches will be presented. Furthermore the whole processing pipeline is illustrated.
+
+\subsection{Goal}
+What is the goal of this work? Do we do unsupervised clustering of papers? Then we will have different evaluations on cluster statistics, number of clusters etc. 
+
+Do we do supervised clustering/classification? Then we could compute something like a cross entropy loss, Kullback-Leibler divergence, etc.
+
+I remember thatx our original idea was to utilize the existing key words to supervise our feature pipeline/ clustering algorithm. That means, that we define broader categories before and then compare relationships that we identify with the ones from the key words? We could also compute a similarity measure based on our ground truth and then compute a difference with the prediction.
+
+\subsection{What evaluation losses are possible?}
+When evaluating, we mean the direct comparison between our work and other works or the comparison of a ground truth and predictions. What metrics can be used for the task of key word generation? What losses are possible to compute for key word classification, general assignment problem?
+
+Unsupervised: Label density, cluster variances, number of clusters, etc.
+
+Supervised: Precision, Recall, F1-Score, KL-divergence, etc.
+
+\subsection{Overall processing pipeline}
+What is the overall processing pipeline? After identifying this, we can draw a nice picture. 
+
+%NOTE Christian
+% Do you use tikz for generatnig such charts or programs like inkspace. This is open for discussion and I would be glad for feedback how you do this in your own work. I personally, usually use inkscape and only tikz for very simple process flows. Alternatively I have all licenses you could possibly need (powerpoint , etc.).
+
+\subsection{Outlook}
+Outlook to evaluation on other tasks, that benefit from our task. This should be reorganized into the other .tex file in the end I guess. What I mean by this, is that we could evaluate our computed clusters on other tasks. Sort of how good recommended key words based on the classification are compared to ground truth key words. However, depending on how we organize our approach, this seems sort of like a full circle.
+
+%NOTE Christian
+% I will present some ideas on what else we can do with such a system to sell this to the TA's. Generating key words or clustering/assigning the text to some other sub category is the immediate goal/step. We can paint the bigger picture, where for a hot research topic, we can use this system to improve organizing research papers/trends into a better tree structure. Our system is a stepping stone into organizing the flood of papers in areas, such as Covid, Deep Learning, ..., you name it. After automatically assigning good key words to each paper/abstract, we can create a grouping/tree to link papers against each others. Direct contributions to our subtask are benefitting parent tasks, e.g. paper recommendation engines of journal hosts (arxiv, google scholar, etc.) and more. 
+
+\newpage %TODO Delete me!
