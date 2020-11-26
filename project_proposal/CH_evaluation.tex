@@ -1,7 +1,7 @@
 \newpage %TODO Delete me!
 % TODO @Chen: Give an illustration maybe?
-\section{Evaluation}
-\label{sec:eval}
+\subsection{Evaluation}
+\label{subsec:eval}
 In this section, several evaluation approaches will be presented. We can distinguish between unsupervised and supervised clustering and will explore the implications for the evaluation. The overall processing pipeline was illustrated in the last section. Due to the inherent feedback loop between evaluation and processing, several consequences for the in detail processing pipeline will be drawn.
 
 % TODO this will be moved
@@ -14,7 +14,7 @@ In this section, several evaluation approaches will be presented. We can disting
 
 % 3. we generate hard assignments based on given key words. If we do not know hard clusters, but only key words. We can generate clusters based on key word similarities. The clustering algorithm does not know the key words, but can be supervised by the key word clustering. This introduces an additional algoritm in our pipeline.
 
-\subsection{Unsupervised Clustering}
+\subsubsection{Unsupervised Clustering}
 Unsupervised clustering denotes dividing data into clusters without supervision from a ground truth. Given a dataset $ \mathcal{D} $, our goal is to generate $ n $ separate clusters for each datum $ x \in \mathcal{D} $, where data within a cluster has \textit{maximal} similarity w.r.t. a specific data attribute. Clustering shares an inherent analogy to classification/assignment problem, as we are trying to find label, that assign each datum to a cluster/class. We can distinguish between \textit{hard} and \textit{soft} labels, depending on whether we would like to assign a single or multiple labels. Classification requires knowing the label set $ \mathcal{L} $, which may not be given for our project. We will first assume this to be true and perform unsupervised clustering. 
 
 In order to separate elements $ x_{i},\; x_{j} \in \mathcal{D} $, a distance function is needed. 
@@ -41,7 +41,7 @@ For example, \textit{Expectation maximization} uses an underlying distributional
 \textbf{TODO}: Add references to literature, etc.
 \textbf{TODO}: Elaborate more on metrics with equations.
 
-\subsection{Supervised Clustering}
+\subsubsection{Supervised Clustering}
 Generating a supervision for clustering research papers is not a trivial task. There are several possible solutions for computing a supervisory signal. One of the general ideas of this project was to exploit the standardized submission process in academic journals/conferences. Oftentimes (/always?) authors need to submit a list of key words that best describe their work. On top, all documents follow structural guidelines for their specific journal/conference. This gives us the chance to use the standardized format to simplify processing. Furthermore, we can exploit the labels of platforms hosting our data. Articles are usually already grouped according to their topics. We propose two supervision modes that we want to try out: 
 \begin{itemize}
 	\item Create hard labels, by using the preexisting group assignments of hosting websites
