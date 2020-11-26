@@ -1,5 +1,5 @@
 \section{Research Topic Summary}
-In order to get an overview of a research field without extensive research and reading countless papers, there are various approaches to simplify this. By browsing through digital libraries and search engines you can find papers by matching search strings, but to get an overview of an entire research field this is not enough.
+There exist various approaches to simplify getting an overview of a research field without extensive research and reading countless papers. By browsing through digital libraries and search engines you can find papers by matching search strings, but to get an overview of an entire research field this is not enough.
 In \cite{Rapid_understanding_of_scientific_paper_collections} a tool is presented that uses different methods to gain insights into research fields.
 Through the citation network, papers can be divided into clusters. Furthermore, trends, gaps and outliers can be identified.
 Another possibility to get insights is the citation context, because the key statements of the paper are often summarized concisely. To know the key statements of the paper, it is still necessary to read the whole paper or at least all citation contexts. For many papers this is still a very large amount of work. To solve this problem Multi-Document Summarization is used here. This summarization is only applied to abstract and citation context. The dataset used is ACL Anthology Network (AAN).\cite{aan} The dataset contains the network of citations, as well as the full text of each article, its metadata, summary, references and citation sentences. 
@@ -20,6 +20,11 @@ The Latent Dirichlet allocation(LDA), Correlated Topic Models (CTM), Hierarchica
 The clusters created by the algorithms have to be named manually.
 Abstracts are also used in \cite{An_Approach_to_Clustering_Abstracts} to perform clustering.
 First tokenization is used, then stopwords are removed and a stemming algorithm is performed.
-Because of the shortness of abstracts, the words must have a higher frequency than in a general balanced corpus of the given language. Then the keywords are grouped and weighted and the closeness of two documents is calculated using cosine measure. 
+Because of the shortness of abstracts, the words must have a higher frequency than in a general balanced corpus of the given language. Then the keywords are grouped and weighted and the closeness of two documents is calculated using cosine similarity measure. 
 Additionally, clustering methods are applied to the whole abstract. Three algorithms from three different approaches are used: the k-medoid method from the example-based approach, the nearest neighbor method from the hierarchy-based approach and the MajorClust method from the density-based approach.
 As data source 48 abstracts from \cite{cicling} are used, which have been classified by a human.
+
+With these information in mind there are multiple approaches we could take in our own project. The final goal is of course to achieve a better clustering than previous attempts.
+In regards to \cite{An_Approach_to_Clustering_Abstracts}, \cite{Document_clustering_of_scientific_texts_using_citation_contexts} and \cite{Clustering_scientific_documents_with_topic_modeling} there is the possibility to not only use abstracts or citation contexts for the clusters but combine both information sources into the same process.
+There is also an opportunity in taking different clustering techniques (e.g. k-means, hierarchical clustering or one of the ones mentioned above) and comparing their respective performance with each other.
+In addition to all of the methods mentioned above we could also use a neural network architecture to either automate the process of generating word vectors from the texts or to automate the clustering from word vectors that are obtained in a more traditional fashion, but we are not yet sure if this will be possible considering the time constraints.
