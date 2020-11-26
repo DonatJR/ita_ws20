@@ -1,30 +1,39 @@
 \newpage %TODO Delete me!
 \section{Evaluation}
 \ref{sec:eval}
-In this section, several evaluation approaches will be presented. Furthermore the whole processing pipeline is illustrated.
+In this section, several evaluation approaches will be presented. We can distinguish between unsupervised and supervised clustering and will explore the implications for the evaluation. The overall processing pipeline was illustrated in the last section. Due to the inherent feedback loop between evaluation and processing, several consequences for the in detail processing pipeline will be drawn.
 
-\subsection{Goal}
-What is the goal of this work? Do we do unsupervised clustering of papers? Then we will have different evaluations on cluster statistics, number of clusters etc. 
+% TODO this will be moved
+%\subsection{Goal}
+%What is the goal of this work? Do we do unsupervised clustering of papers? Then we will have different evaluations on cluster statistics, number of clusters etc. 
 
-Do we do supervised clustering/classification? Then we could compute something like a cross entropy loss, Kullback-Leibler divergence, etc.
+\subsection{Unsupervised Clustering}
+Unsupervised clustering denotes dividing data into clusters without supervision from a ground truth. Given a dataset $ \mathcal{D} $, our goal is to generate $ n $ separate clusters for each datum $ x \in \mathcal{D} $. Clustering shares an inherent analogy to classification/assignment problem, as we are trying to find label, that assign each datum to a cluster/class. We can distinguish between \textit{hard} and \textit{soft} labels, depending on whether we would like to assign a single or multiple labels. Classification requires knowing the label set, which may not be given for our project.
 
-I remember thatx our original idea was to utilize the existing key words to supervise our feature pipeline/ clustering algorithm. That means, that we define broader categories before and then compare relationships that we identify with the ones from the key words? We could also compute a similarity measure based on our ground truth and then compute a difference with the prediction.
+% 1. We want to vanilla cluster text into segments and check whether this matches the host sites classification
 
-\subsection{What evaluation losses are possible?}
-When evaluating, we mean the direct comparison between our work and other works or the comparison of a ground truth and predictions. What metrics can be used for the task of key word generation? What losses are possible to compute for key word classification, general assignment problem?
+% 2. We use a fixed set of label given by key word associations. We can classify each text and assign soft labels. Key word generation is then the process of e.g. taking the first k labels with highest classification score.
 
-Unsupervised: Label density, cluster variances, number of clusters, etc.
+% 3. we generate hard assignments based on given key words. If we do not know hard clusters, but only key words. We can generate clusters based on key word similarities. The clustering algorithm does not know the key words, but can be supervised by the key word clustering. This introduces an additional algoritm in our pipeline.
 
+Label density, cluster variances, number of clusters, etc.
+
+
+\subsection{Supervised Clustering}
 Supervised: Precision, Recall, F1-Score, KL-divergence, etc.
 
-\subsection{Overall processing pipeline}
-What is the overall processing pipeline? After identifying this, we can draw a nice picture. 
 
-%NOTE Christian
-% Do you use tikz for generatnig such charts or programs like inkspace. This is open for discussion and I would be glad for feedback how you do this in your own work. I personally, usually use inkscape and only tikz for very simple process flows. Alternatively I have all licenses you could possibly need (powerpoint , etc.).
+\subsection{Data Considerations}
+Generating a supervision for clustering research papers is not a trivial task. There are several possible solutions for computing a supervisory signal. One of the general ideas of this project was to exploit the standardized submission process in academic journals/conferences. Oftentimes (/always?) authors need to submit a list of key words that best describe their work. On top, all documents follow structural guidelines for their specific journal/conference. This gives us the chance to use the standardized format to simplify processing. Furthermore, we can exploit the labels of platforms hosting our data. Articles are usually already grouped according to their topics. 
+
+
+\subsection{Possible Changes Pipeline}
+This illustrates implicit changes to our processing pipeline, where we talk about \textbf{details}.
+
 
 \subsection{Outlook}
-Outlook to evaluation on other tasks, that benefit from our task. This should be reorganized into the other .tex file in the end I guess. What I mean by this, is that we could evaluate our computed clusters on other tasks. Sort of how good recommended key words based on the classification are compared to ground truth key words. However, depending on how we organize our approach, this seems sort of like a full circle.
+Outlook to evaluation on other tasks, that benefit from our task. This should be reorganized into the other .tex file in the end I guess. What I mean by this, is that we could evaluate our computed clusters on other tasks. Sort of how good recommended key words based on the classification are compared to ground truth key words. This needs to be put into Research summary! 
+% NOTE @Jessica: I can help you with your research summary and improve the section.
 
 %NOTE Christian
 % I will present some ideas on what else we can do with such a system to sell this to the TA's. Generating key words or clustering/assigning the text to some other sub category is the immediate goal/step. We can paint the bigger picture, where for a hot research topic, we can use this system to improve organizing research papers/trends into a better tree structure. Our system is a stepping stone into organizing the flood of papers in areas, such as Covid, Deep Learning, ..., you name it. After automatically assigning good key words to each paper/abstract, we can create a grouping/tree to link papers against each others. Direct contributions to our subtask are benefitting parent tasks, e.g. paper recommendation engines of journal hosts (arxiv, google scholar, etc.) and more. 
