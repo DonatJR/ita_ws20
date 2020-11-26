@@ -1,14 +1,12 @@
 \newpage %TODO Delete me!
+% TODO @Chen: Give an illustration maybe?
 \section{Evaluation}
-\ref{sec:eval}
+\label{sec:eval}
 In this section, several evaluation approaches will be presented. We can distinguish between unsupervised and supervised clustering and will explore the implications for the evaluation. The overall processing pipeline was illustrated in the last section. Due to the inherent feedback loop between evaluation and processing, several consequences for the in detail processing pipeline will be drawn.
 
 % TODO this will be moved
 %\subsection{Goal}
 %What is the goal of this work? Do we do unsupervised clustering of papers? Then we will have different evaluations on cluster statistics, number of clusters etc. 
-
-\subsection{Unsupervised Clustering}
-Unsupervised clustering denotes dividing data into clusters without supervision from a ground truth. Given a dataset $ \mathcal{D} $, our goal is to generate $ n $ separate clusters for each datum $ x \in \mathcal{D} $. Clustering shares an inherent analogy to classification/assignment problem, as we are trying to find label, that assign each datum to a cluster/class. We can distinguish between \textit{hard} and \textit{soft} labels, depending on whether we would like to assign a single or multiple labels. Classification requires knowing the label set, which may not be given for our project.
 
 % 1. We want to vanilla cluster text into segments and check whether this matches the host sites classification
 
@@ -16,26 +14,46 @@ Unsupervised clustering denotes dividing data into clusters without supervision 
 
 % 3. we generate hard assignments based on given key words. If we do not know hard clusters, but only key words. We can generate clusters based on key word similarities. The clustering algorithm does not know the key words, but can be supervised by the key word clustering. This introduces an additional algoritm in our pipeline.
 
-Label density, cluster variances, number of clusters, etc.
+\subsection{Unsupervised Clustering}
+Unsupervised clustering denotes dividing data into clusters without supervision from a ground truth. Given a dataset $ \mathcal{D} $, our goal is to generate $ n $ separate clusters for each datum $ x \in \mathcal{D} $, where data within a cluster has \textit{maximal} similarity w.r.t. a specific data attribute. Clustering shares an inherent analogy to classification/assignment problem, as we are trying to find label, that assign each datum to a cluster/class. We can distinguish between \textit{hard} and \textit{soft} labels, depending on whether we would like to assign a single or multiple labels. Classification requires knowing the label set $ \mathcal{L} $, which may not be given for our project. We will first assume this to be true and perform unsupervised clustering. 
 
+In order to separate elements $ x_{i},\; x_{j} \in \mathcal{D} $, a distance function is needed. 
+\textbf{TODO}: Axioms distance function
+
+%TODO (Chen): A large focus of this work will lie in the underlying vector embedding of the data. Clustering performance mainly depends on this
+The choice for a distance function is as critical as the choice for an underlying metric space for the data. We believe that a large portion of our project will be spent with \textit{feature engineering}, where we compare clustering algorithms on different data representations. We will propose a learning based approach in the supervised scenario for a given clustering algorithm. To the best of our knowledge, this may not have been done for our project and is an interesting direction for future work.
+
+Example algorithms for unsupervised clustering are:
+\begin{itemize}
+	\item K-Means
+	\item Mean shift
+	\item Spectral clustering, Graph cuts
+	\item Agglomerative (/hierarchical) clustering
+	\item Expectation-Maximization algorithm
+	\item ...
+\end{itemize}
+We plan on trying out multiple algorithms for the text representations in the literature before going to the supervised scenario and creating our own representations. Efficient implementations of these algorithms exist in \textit{sklearn} and similar Python libraries. 
+
+It is non-trivial to characterize clustering metrics. In general we can distinguish between \textit{internal} and \textit{external} measures. This directly corresponds to degrees of supervision. Because no ground truth exists, internal measures are highly dependent on the application. Typical internal measures depend on the number of clusters, intra- and inter-cluster distance distributions. Examples are the \textit{Davies-Bouldin index}, \textit{Dunn index} or the \textit{Silhouette coefficient}. However, we usually do not know much about the underlying data, which makes it hard to compare algorithms this way. This is also the case for this project. 
+
+For example, \textit{Expectation maximization} uses an underlying distributional model to compare clusters, with which we can compute different distances than for a heuristic \textit{K-means} algorithm. But how would we know, that the underlying model assumptions are valid for our data type? Consequently, internal measures only indicate if one algorithms is better than another in some situations. In the end, we might however not know if an algorithms produces more valid results than another. If such a measure existed, we would have a priori knowledge that makes a comparison obsolete. Example: If we knew beforehand that our data has non-convex clusters, we would not need to use the K-means algorithm, which can only find convex clusters.
+
+\textbf{TODO}: Add references to literature, etc.
+\textbf{TODO}: Elaborate more on metrics with equations.
 
 \subsection{Supervised Clustering}
-Supervised: Precision, Recall, F1-Score, KL-divergence, etc.
+Generating a supervision for clustering research papers is not a trivial task. There are several possible solutions for computing a supervisory signal. One of the general ideas of this project was to exploit the standardized submission process in academic journals/conferences. Oftentimes (/always?) authors need to submit a list of key words that best describe their work. On top, all documents follow structural guidelines for their specific journal/conference. This gives us the chance to use the standardized format to simplify processing. Furthermore, we can exploit the labels of platforms hosting our data. Articles are usually already grouped according to their topics. We propose two supervision modes that we want to try out: 
+\begin{itemize}
+	\item Create hard labels, by using the preexisting group assignments of hosting websites
+	\item Create labels from provided key words upon submission. We could create a label set across the data and perform classification on our training set. This would allow to a) assign likely key words to papers b) cluster papers according to assigned key words. A down-stream task that benefits from our improvements would be key word generation. This would make the need for key word submission obsolete and researchers could focus on research.
+	\item Generate hard assignments based on key words. By assigning cluster labels to key words, we could compute a hard cluster from a combination of key words for a given paper. This boils down to 1. and is sort of meta, as we cluster the supervision in order to get supervision for our actual task. Let $ \mathcal{K} $ denote the set of key words, $ \mathcal{N} $ the set of clusters and the function $ f\colon \mathcal{K} \mapsto \mathcal{N} $ our supervisory mapping function. If we invert $ f $, we can again generate key words similar to 2.
+\end{itemize}
 
+Supervised clustering allows validating an algorithm based on a training, test and validation split. Typical evaluation metrics include: \textit{Precision}, \textit{Recall}, \textit{F1-score}, \textit{Jaccard index}, \textit{confusion matrix}, etc.
 
-\subsection{Data Considerations}
-Generating a supervision for clustering research papers is not a trivial task. There are several possible solutions for computing a supervisory signal. One of the general ideas of this project was to exploit the standardized submission process in academic journals/conferences. Oftentimes (/always?) authors need to submit a list of key words that best describe their work. On top, all documents follow structural guidelines for their specific journal/conference. This gives us the chance to use the standardized format to simplify processing. Furthermore, we can exploit the labels of platforms hosting our data. Articles are usually already grouped according to their topics. 
+With a supervision, we can further implement a learning algorithm. For example we could use the \textit{cross entropy} for our training loss (this is not directly evaluation, but closely related). We would like to find out how a neural network performs compared to traditional clustering algorithms on this task, as we did not found many papers that do so. Another possible direction in our project would be to use a learning algorithm to design the features, that we could cluster with a traditional algorithm and see whether we can find better features for our task. This point has not been explored much yet and is of utter importance.
 
-
-\subsection{Possible Changes Pipeline}
-This illustrates implicit changes to our processing pipeline, where we talk about \textbf{details}.
-
-
-\subsection{Outlook}
-Outlook to evaluation on other tasks, that benefit from our task. This should be reorganized into the other .tex file in the end I guess. What I mean by this, is that we could evaluate our computed clusters on other tasks. Sort of how good recommended key words based on the classification are compared to ground truth key words. This needs to be put into Research summary! 
+%NOTE Some needs to be put into Research summary! 
 % NOTE @Jessica: I can help you with your research summary and improve the section.
-
-%NOTE Christian
-% I will present some ideas on what else we can do with such a system to sell this to the TA's. Generating key words or clustering/assigning the text to some other sub category is the immediate goal/step. We can paint the bigger picture, where for a hot research topic, we can use this system to improve organizing research papers/trends into a better tree structure. Our system is a stepping stone into organizing the flood of papers in areas, such as Covid, Deep Learning, ..., you name it. After automatically assigning good key words to each paper/abstract, we can create a grouping/tree to link papers against each others. Direct contributions to our subtask are benefitting parent tasks, e.g. paper recommendation engines of journal hosts (arxiv, google scholar, etc.) and more. 
 
 \newpage %TODO Delete me!
