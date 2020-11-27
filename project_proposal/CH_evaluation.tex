@@ -1,59 +1,18 @@
-\newpage %TODO Delete me!
-% TODO @Chen: Give an illustration maybe?
 \subsection{Evaluation}
 \label{subsec:eval}
-In this section, several evaluation approaches will be presented. We can distinguish between unsupervised and supervised clustering and will explore the implications for the evaluation. The overall processing pipeline was illustrated in the last section. Due to the inherent feedback loop between evaluation and processing, several consequences for the in detail processing pipeline will be drawn.
+It is non-trivial to characterize clustering metrics for evaluation. In general we can distinguish between \textit{internal} and \textit{external} measures. This directly corresponds to degrees of supervision. 
 
-% TODO this will be moved
-%\subsection{Goal}
-%What is the goal of this work? Do we do unsupervised clustering of papers? Then we will have different evaluations on cluster statistics, number of clusters etc. 
+\paragraph{Unsupervised Clustering.}
+Data is divided into clusters without knowing ground truth clusters, such that data inside share max. similarity w.r.t. a specific data attribute. Classification requires knowing the label set $ \mathcal{L} $, which we do not know in this case. Example algorithms for unsupervised clustering are: \textit{K-Means}, \textit{Mean shift}, \textit{Expectation-Maximization} and many more. Efficient implementations exist in \textit{sklearn} and similar Python libraries. %TODO sources
 
-% 1. We want to vanilla cluster text into segments and check whether this matches the host sites classification
+Because no ground truth exists, internal measures are highly dependent on the application. Typical internal measures depend on the number of clusters, intra- and inter-cluster distance distributions. Examples are the \textit{Davies-Bouldin index}, \textit{Dunn index} or the \textit{Silhouette coefficient}. However, we usually do not know much about the underlying data, which makes it hard to compare algorithms this way as internal measures only indicate if one algorithms is better than another in some situations. In the end, we might however not know if an algorithms produces more valid results than another. %TODO source
 
-% 2. We use a fixed set of label given by key word associations. We can classify each text and assign soft labels. Key word generation is then the process of e.g. taking the first k labels with highest classification score.
-
-% 3. we generate hard assignments based on given key words. If we do not know hard clusters, but only key words. We can generate clusters based on key word similarities. The clustering algorithm does not know the key words, but can be supervised by the key word clustering. This introduces an additional algoritm in our pipeline.
-
-\subsubsection{Unsupervised Clustering}
-Unsupervised clustering denotes dividing data into clusters without supervision from a ground truth. Given a dataset $ \mathcal{D} $, our goal is to generate $ n $ separate clusters for each datum $ x \in \mathcal{D} $, where data within a cluster has \textit{maximal} similarity w.r.t. a specific data attribute. Clustering shares an inherent analogy to classification/assignment problem, as we are trying to find label, that assign each datum to a cluster/class. We can distinguish between \textit{hard} and \textit{soft} labels, depending on whether we would like to assign a single or multiple labels. Classification requires knowing the label set $ \mathcal{L} $, which may not be given for our project. We will first assume this to be true and perform unsupervised clustering. 
-
-In order to separate elements $ x_{i},\; x_{j} \in \mathcal{D} $, a distance function is needed. 
-\textbf{TODO}: Axioms distance function
-
-%TODO (Chen): A large focus of this work will lie in the underlying vector embedding of the data. Clustering performance mainly depends on this
-The choice for a distance function is as critical as the choice for an underlying metric space for the data. We believe that a large portion of our project will be spent with \textit{feature engineering}, where we compare clustering algorithms on different data representations. We will propose a learning based approach in the supervised scenario for a given clustering algorithm. To the best of our knowledge, this may not have been done for our project and is an interesting direction for future work.
-
-Example algorithms for unsupervised clustering are:
-\begin{itemize}
-	\item K-Means
-	\item Mean shift
-	\item Spectral clustering, Graph cuts
-	\item Agglomerative (/hierarchical) clustering
-	\item Expectation-Maximization algorithm
-	\item ...
-\end{itemize}
-We plan on trying out multiple algorithms for the text representations in the literature before going to the supervised scenario and creating our own representations. Efficient implementations of these algorithms exist in \textit{sklearn} and similar Python libraries. 
-
-It is non-trivial to characterize clustering metrics. In general we can distinguish between \textit{internal} and \textit{external} measures. This directly corresponds to degrees of supervision. Because no ground truth exists, internal measures are highly dependent on the application. Typical internal measures depend on the number of clusters, intra- and inter-cluster distance distributions. Examples are the \textit{Davies-Bouldin index}, \textit{Dunn index} or the \textit{Silhouette coefficient}. However, we usually do not know much about the underlying data, which makes it hard to compare algorithms this way. This is also the case for this project. 
-
-For example, \textit{Expectation maximization} uses an underlying distributional model to compare clusters, with which we can compute different distances than for a heuristic \textit{K-means} algorithm. But how would we know, that the underlying model assumptions are valid for our data type? Consequently, internal measures only indicate if one algorithms is better than another in some situations. In the end, we might however not know if an algorithms produces more valid results than another. If such a measure existed, we would have a priori knowledge that makes a comparison obsolete. Example: If we knew beforehand that our data has non-convex clusters, we would not need to use the K-means algorithm, which can only find convex clusters.
-
-\textbf{TODO}: Add references to literature, etc.
-\textbf{TODO}: Elaborate more on metrics with equations.
-
-\subsubsection{Supervised Clustering}
-Generating a supervision for clustering research papers is not a trivial task. There are several possible solutions for computing a supervisory signal. One of the general ideas of this project was to exploit the standardized submission process in academic journals/conferences. Oftentimes (/always?) authors need to submit a list of key words that best describe their work. On top, all documents follow structural guidelines for their specific journal/conference. This gives us the chance to use the standardized format to simplify processing. Furthermore, we can exploit the labels of platforms hosting our data. Articles are usually already grouped according to their topics. We propose two supervision modes that we want to try out: 
-\begin{itemize}
+\paragraph{Supervised Clustering.}
+Supervision for clustering research papers is non-trivial. There are several possible solutions for computing a supervisory signal. One of the general ideas of this project was to exploit the standardized submission process in academic journals/conferences. Authors need to submit a list of key words that best describe their work. On top, all documents follow structural guidelines for their specific journal/conference. This gives us the chance to use the standardized format to simplify processing. Furthermore, we can exploit the labels of platforms hosting our data. Articles are usually already grouped according to their topics. We propose three supervision modes that we are planning to try out: 
+\begin{enumerate}
 	\item Create hard labels, by using the preexisting group assignments of hosting websites
-	\item Create labels from provided key words upon submission. We could create a label set across the data and perform classification on our training set. This would allow to a) assign likely key words to papers b) cluster papers according to assigned key words. A down-stream task that benefits from our improvements would be key word generation. This would make the need for key word submission obsolete and researchers could focus on research.
-	\item Generate hard assignments based on key words. By assigning cluster labels to key words, we could compute a hard cluster from a combination of key words for a given paper. This boils down to 1. and is sort of meta, as we cluster the supervision in order to get supervision for our actual task. Let $ \mathcal{K} $ denote the set of key words, $ \mathcal{N} $ the set of clusters and the function $ f\colon \mathcal{K} \mapsto \mathcal{N} $ our supervisory mapping function. If we invert $ f $, we can again generate key words similar to 2.
-\end{itemize}
+	\item Create labels from provided key words upon submission. We could create a label set across the data and perform classification on our training set. This would allow to a) assign likely key words to papers b) cluster papers according to assigned key words. A down-stream task that benefits from our improvements would be key word generation.
+	\item Generate hard assignments based on key words. By assigning cluster labels to key words, we could compute a hard cluster from a combination of key words for a given paper
+\end{enumerate}
 
-Supervised clustering allows validating an algorithm based on a training, test and validation split. Typical evaluation metrics include: \textit{Precision}, \textit{Recall}, \textit{F1-score}, \textit{Jaccard index}, \textit{confusion matrix}, etc.
-
-With a supervision, we can further implement a learning algorithm. For example we could use the \textit{cross entropy} for our training loss (this is not directly evaluation, but closely related). We would like to find out how a neural network performs compared to traditional clustering algorithms on this task, as we did not found many papers that do so. Another possible direction in our project would be to use a learning algorithm to design the features, that we could cluster with a traditional algorithm and see whether we can find better features for our task. This point has not been explored much yet and is of utter importance.
-
-%NOTE Some needs to be put into Research summary! 
-% NOTE @Jessica: I can help you with your research summary and improve the section.
-
-\newpage %TODO Delete me!
+Supervised clustering allows validating an algorithm based on a dataset split and the ground truth labels. Typical evaluation metrics include: \textit{Precision}, \textit{Recall}, \textit{F1-score}, \textit{Jaccard index} or a \textit{confusion matrix}. The supervision would be needed to achieve our bonus goal with a learning algorithm. We will compare our algorithms with baselines from the related works w.r.t to the mentioned metrics.
