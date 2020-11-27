@@ -2,7 +2,7 @@
 \label{subsec:data}
 We have two main and one backup source of scientific papers:
 \begin{itemize}
-	\item Crossref \cite{crossref} is an official Digital Object Identifier Registration Agency that provides access to the full text of its registered research papers through their own API. Sending a HTTP request with "deep learning" as a query returns a JSON object with all the URLs to the PDFs of the registered papers found in Crossref's data base containing the terms "deep learning" in their title. The PDFs will then have to converted into plain text.
+	\item Crossref \cite{crossref} is an official Digital Object Identifier Registration Agency that provides access to the full text of its registered research papers through their own API. Sending a HTTP request with "deep learning" as a query returns a JSON object with all the URLs to the PDFs of the registered papers found in Crossref's data base containing the terms "deep learning" in their title. The PDFs will then have to be converted into plain text.
 	\item All About NLP \cite{aan} is a website maintained by Yale University's Learning and Information Group that provides a corpus consisting of over 400 scientific papers on NLP in plain text. Closer examination of the text files has, however, shown that most of them contain spelling mistakes.
-	\item Journal of Machine Learning Research \cite{jmlr} is an international forum for the electronic and paper publication of scholarly articles in all areas of machine learning. The papers are available in pdf format, while the abstracts in html format.
+	\item Journal of Machine Learning Research \cite{jmlr} is an international forum for the electronic and paper publication of scholarly articles in all areas of machine learning. The papers are available in pdf format, while the abstracts are in html format.
 \end{itemize}
