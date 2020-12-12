@@ -1,0 +1,145 @@
+{
+  "papers": [
+    {
+      "title": "A Model of Fake Data in Data-driven Analysis",
+      "abstract": "Data-driven analysis has been increasingly used in various decision making processes. With more sources, including reviews, news, and pictures, can now be used for data analysis, the authenticity of data sources is in doubt. While previous literature attempted to detect fake data piece by piece, in the current work, we try to capture the fake data sender's strategic behavior to detect the fake data source. Specifically, we model the tension between a data receiver who makes data-driven decisions and a fake data sender who benefits from misleading the receiver. We propose a potentially infinite horizon continuous time game-theoretic model with asymmetric information to capture the fact that the receiver does not initially know the existence of fake data and learns about it during the course of the game. We use point processes to model the data traffic, where each piece of data can occur at any discrete moment in a continuous time flow. We fully solve the model and employ numerical examples to illustrate the players' strategies and payoffs for insights. Specifically, our results show that maintaining some suspicion about the data sources and understanding that the sender can be strategic are very helpful to the data receiver. In addition, based on our model, we propose a methodology of detecting fake data that is complementary to the previous studies on this topic, which suggested various approaches on analyzing the data piece by piece. We show that after analyzing each piece of data, understanding a source by looking at the its whole history of pushing data can be helpful.",
+      "keywords": [
+        "data-driven analysis",
+        "fake data",
+        "game theory",
+        "point process"
+      ],
+      "author": [
+        "Xiaofan Li",
+        "Andrew B. Whinston"
+      ],
+      "ref": "https://jmlr.csail.mit.edu/papers/volume21/17-360/17-360.pdf",
+      "datasource": "Journal of Machine Learning Research",
+      "datasource_url": "https://jmlr.csail.mit.edu/"
+    },
+    {
+      "title": "Online Sufficient Dimension Reduction Through Sliced Inverse Regression",
+      "abstract": "Sliced inverse regression is an effective paradigm that achieves the goal of dimension reduction through replacing high dimensional covariates with a small number of linear combinations. It does not impose parametric assumptions on the dependence structure. More importantly, such a reduction of dimension is sufficient in that it does not cause loss of information. In this paper, we adapt the stationary sliced inverse regression to cope with the rapidly changing environments. We propose to implement sliced inverse regression in an online fashion. This online learner consists of two steps. In the first step we construct an online estimate for the kernel matrix; in the second step we propose two online algorithms, one is motivated by the perturbation method and the other is originated from the gradient descent optimization, to perform online singular value decomposition. The theoretical properties of this online learner are established. We demonstrate the numerical performance of this online learner through simulations and real world applications. All numerical studies confirm that this online learner performs as well as the batch learner.",
+      "keywords": [
+        "Dimension reduction",
+        "online learning",
+        "perturbation",
+        "singular value decomposition",
+        "sliced inverse regression",
+        "gradient descent"
+      ],
+      "author": [
+        "Zhanrui Cai",
+        "Runze Li",
+        "Liping Zhu"
+      ],
+      "ref": "https://jmlr.csail.mit.edu/papers/volume21/18-567/18-567.pdf",
+      "datasource": "Journal of Machine Learning Research",
+      "datasource_url": "https://jmlr.csail.mit.edu/"
+    },
+    {
+      "title": "Expectation Propagation as a Way of Life: A Framework for Bayesian Inference on Partitioned Data",
+      "abstract": "A common divide-and-conquer approach for Bayesian computation with big data is to partition the data, perform local inference for each piece separately, and combine the results to obtain a global posterior approximation. While being conceptually and computationally appealing, this method involves the problematic need to also split the prior for the local inferences; these weakened priors may not provide enough regularization for each separate computation, thus eliminating one of the key advantages of Bayesian methods. To resolve this dilemma while still retaining the generalizability of the underlying local inference method, we apply the idea of expectation propagation (EP) as a framework for distributed Bayesian inference. The central idea is to iteratively update approximations to the local likelihoods given the state of the other approximations and the prior. The present paper has two roles: we review the steps that are needed to keep EP algorithms numerically stable, and we suggest a general approach, inspired by EP, for approaching data partitioning problems in a way that achieves the computational benefits of parallelism while allowing each local update to make use of relevant information from the other sites. In addition, we demonstrate how the method can be applied in a hierarchical context to make use of partitioning of both data and parameters. The paper describes a general algorithmic framework, rather than a specific algorithm, and presents an example implementation for it.",
+      "author": [
+        "Aki Vehtari",
+        "Andrew Gelman",
+        "Tuomas Sivula",
+        "Pasi Jylänki",
+        "Dustin Tran",
+        "Swupnil Sahai",
+        "Paul Blomstedt",
+        "John P. Cunningham",
+        "David Schiminovich",
+        "Christian P. Robert"
+      ],
+      "keywords": [
+        "Bayesian computation",
+        "data partitioning",
+        "expectation propagation",
+        "hierarchical models",
+        "statistical computing"
+      ],
+      "ref": "https://jmlr.csail.mit.edu/papers/volume21/18-817/18-817.pdf",
+      "datasource": "Journal of Machine Learning Research",
+      "datasource_url": "https://jmlr.csail.mit.edu/"
+    },
+    {
+      "title": "Generalized Nonbacktracking Bounds on the Influence",
+      "abstract": "This paper develops deterministic upper and lower bounds on the influence measure in a network, more precisely, the expected number of nodes that a seed set can influence in the independent cascade model. In particular, our bounds exploit r-nonbacktracking walks and Fortuin-Kasteleyn-Ginibre (FKG) type inequalities, and are computed by message passing algorithms. Further, we provide parameterized versions of the bounds that control the trade-off between efficiency and accuracy. Finally, the tightness of the bounds is illustrated on various network models.",
+      "author": [
+        "Emmanuel Abbe",
+        "Sanjeev Kulkarni",
+        "Eun Jee Lee"
+      ],
+      "keywords": [
+        "Influence Estimation",
+        "Nonbacktracking Walk",
+        "Message Passing",
+        "Social Networks",
+        "Independent Cascade Model"
+      ],
+      "ref": "https://jmlr.csail.mit.edu/papers/volume21/18-112/18-112.pdf",
+      "datasource": "Journal of Machine Learning Research",
+      "datasource_url": "https://jmlr.csail.mit.edu/"
+    },
+    {
+      "title": "Cross-language and Cross-encyclopedia Article Linking Using Mixed-language Topic Model and Hypernym Translation",
+      "abstract": "Creating cross-language article links among different online encyclopedias is now an important task in the unification of multilingual knowledge bases. In this paper, we propose a cross-language article linking method using a mixed-language topic model and hypernym translation features based on an SVM model to link English Wikipedia and Chinese Baidu Baike, the most widely used Wiki-like encyclopedia in China. To evaluate our approach, we compile a data set from the top 500 Baidu Baike articles and their corresponding English Wiki articles. The evaluation results show that our approach achieves 80.95% in MRR and 87.46% in recall. Our method does not heavily depend on linguistic characteristics and can be easily extended to generate crosslanguage article links among different online encyclopedias in other languages.",
+      "author": [
+        "Tsai, Richard Tzong-Han",
+        "Wang, Yu-Chun",
+        "Wu, Chun-Kai"
+      ],
+      "keywords": [],
+      "ref": "https://www.aclweb.org/anthology/P14-2096.pdf",
+      "datasource": "All About NLP (AAN)",
+      "datasource_url": "http://aan.how/"
+    },
+    {
+      "title": "Unsupervised Domain Tuning to Improve Word Sense Disambiguation",
+      "abstract": "The topic of a document can prove to be useful information for Word Sense Disambiguation (WSD) since certain meanings tend to be associated with particular topics. This paper presents an LDA-based approach for WSD, which is trained using any available WSD system to establish a sense per (Latent Dirichlet allocation based) topic. The technique is tested using three unsupervised and one supervised WSD algorithms within the SPORT and FINANCE domains giving a performance increase each time, suggesting that the technique may be useful to improve the performance of any available WSD system.",
+      "author": [
+        "Judita Preiss",
+        "Mark Stevenson"
+      ],
+      "keywords": [],
+      "ref": "https://www.aclweb.org/anthology/N13-1079.pdf",
+      "datasource": "All About NLP (AAN)",
+      "datasource_url": "http://aan.how/"
+    },
+    {
+      "title": "From Words to Senses: A Case Study of Subjectivity Recognition",
+      "abstract": "We determine the subjectivity of word senses. To avoid costly annotation, we evaluate how useful existing resources established in opinion mining are for this task. We show that results achieved with existing resources that are not tailored towards word sense subjectivity classification can rival results achieved with supervision on a manually annotated training set. However, results with different resources vary substantially and are dependent on the different definitions of subjectivity used in the establishment of the resources.",
+      "author": [
+        "Fangzhong Su",
+        "Katja Markert"
+      ],
+      "keywords": [],
+      "ref": "https://www.aclweb.org/anthology/C08-1104.pdf",
+      "datasource": "All About NLP (AAN)",
+      "datasource_url": "http://aan.how/"
+    },
+    {
+      "title": "Rule-based lexical modelling of foreign-accented pronunciation variants",
+      "abstract": "This paper describes a novel approach to generate potential foreign-accented phonetic transcriptions using phonological rewrite rules. For each pair of a native language (L1) and a target language (L2), a set of postlexical rules is designed to transform canonical phonetic dictionaries of L2 into adapted dictionaries for native L1 speakers. Some general considerations on the design of such a rule-based system are presented.",
+      "author": [
+        "Stefan Schaden"
+      ],
+      "keywords": [],
+      "ref": "https://www.aclweb.org/anthology/E03-1045.pdf",
+      "datasource": "All About NLP (AAN)",
+      "datasource_url": "http://aan.how/"
+    },
+    {
+      "title": "A Best-Match Algorithm for Broad-Coverage Example-Based Disambiguation",
+      "abstract": "To improve coverage of example-bases, two methods are introduced into the best-match algorithm. The first is for acquiring conjunctive relationships from corpora, as measures of word similarity that can be used in addition to thesauruses. The Second, used when a word does not appear in an example-base or a thesaurus, is for inferring links to words in the example-base by comparing the usage of the word in the text and that of words in the example-base.",
+      "author": [
+        "Naohiko Uramoto"
+      ],
+      "keywords": [],
+      "ref": "https://www.aclweb.org/anthology/C94-2114.pdf",
+      "datasource": "All About NLP (AAN)",
+      "datasource_url": "http://aan.how/"
+    }
+  ]
+}
