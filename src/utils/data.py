@@ -63,6 +63,7 @@ def preprocessing(
             abstract = gensim.parsing.preprocessing.strip_non_alphanum(abstract)
             abstract = nlp(abstract)
             tokens = []
+
             for doc in abstract:
                 if lemmatization:
                     token = doc.lemma_
@@ -72,6 +73,14 @@ def preprocessing(
                     token = stemmer.stem(token)
                 if not token in all_stopwords:
                     tokens.append(token)
+
+            #            if lemmatization:
+            #                tokens = [doc.lemma_ for doc in abstract]
+            #            else:
+            #                tokens = [doc.text for doc in abstract]
+            #            if stemming:
+            #                tokens = [stemmer.stem(token) for token in tokens]
+
             tokens = [word for word in tokens if not len(word) < min_word_len]
             tokens = [word for word in tokens if not len(word) > max_word_len]
             tokenized.append(tokens)
@@ -112,11 +121,11 @@ def preprocessing(
         return tokenized
 
     assert isinstance(text, pd.Series), "Please pass panda data series for text"
-    ipdb.set_trace()
     text.replace("", np.nan, inplace=True)
     num_nan = text.isna().sum()
     print("Dropping %d entries of corpus, due to nan ..." % num_nan)
     text.dropna(inplace=True)
+    text = text.reset_index(drop=True)
 
     if stemming:
         from nltk.stem.snowball import SnowballStemmer
