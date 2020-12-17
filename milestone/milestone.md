@@ -59,6 +59,25 @@ ann - why it wasn't used
 ### Preprocessing
 TODO: Detail any preprocessing steps you have taken to ensure proper data quality. This can include unicode normalization, length normalization, text sanitizing, etc
 
+We do standard preprocessing before clustering. We tried out the three libarries: ```gensim```, ```spacy``` 
+and ```nltk```. After dealing with some problems regarding lemmatization in ```gensim``` (and the depending 
+```pattern```, we found out in an issue on their official github repository, 
+that the library was not intended for preprocessing. We therefore dropped this one.  
+Our preprocessing consists of:
+1. Removal non-alphabetic characters
+2. Tokenization
+3. Lemmatization
+4. Stemming
+5. Removal too short/long words.
+6. Stop word removal
+We use the respective standard models for the english language of the libaries.
+
+The pipeline is in part configurable, because we want to compare our results towards raw text inputs. 
+After taking a first look at the resulting token for our example data, we realized the following:
+- Most papers share very common words for their common denominator field. Since we tried this out on 
+machine learning papers, all tokenized abstracts include e.g. _data_ with a high frequency.
+We believe that it might be benificial to include words like these and buzzwords in the stop word list, since they give no informative characterization of the paper topics.
+
 ### Basic Statistics
 TODO: Daniela - expand on the observations
 
