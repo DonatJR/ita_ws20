@@ -4,6 +4,8 @@ This contains all relevant I/O operations.
 
 import json
 import pandas as pd
+import ipdb
+import numpy as np
 
 
 def load_json(fpath, use_title=False):
@@ -107,6 +109,10 @@ def preprocessing(
         return tokenized
 
     assert isinstance(text, pd.Series), "Please pass panda data series for text"
+    text.replace("", np.nan, inplace=True)
+    num_nan = text.isna().sum()
+    print("Dropping %d entries of corpus, due to nan ..." % num_nan)
+    text.dropna(inplace=True)
 
     if stemming:
         from nltk.stem.snowball import SnowballStemmer
