@@ -52,13 +52,36 @@ TODO: In case that you already have some results from initial experiments, you m
 ## Data Analysis
 
 ### Data Sources
-TODO: list all data sources we are using (should be the same as in proposal if we don't run into any problems over the next few days)
+TODO: Daniela 
+jmlr - reason for choice + process of extracting the data; mention scraping script
+ann - why it wasn't used
 
 ### Preprocessing
 TODO: Detail any preprocessing steps you have taken to ensure proper data quality. This can include unicode normalization, length normalization, text sanitizing, etc
 
 ### Basic Statistics
-TODO: List basic information, such as, number of samples, mean, median & standard deviation. You may utilize plots similar to ones presented during the tutorials to support your description.
+TODO: Daniela - expand on the observations
+
+
+No of samples: 1261
+
+No of papers without keywords: 153
+
+ Reason: no keywords present in the papers
+ 
+No of papers without abstract: 
+
+ Reason: we have to sources for the abstract: 
+ 
+  i) a html page where the abstract is in a meta tag
+  
+  ii) the pdf, could be extracted using regex (cumbersome)
+  
+ After checking, it seems that for 36/1261 papers the abstract is under a different h3 tag
+
+![](images/keywords.png)
+![](images/abstract_words.png)
+
 
 ### Examples
-TODO: Give at least one example of a data sample from your collection. You can additionally provide edge cases where additional assumptions about the data are necessary
+TODO: Daniela - paste an example 
