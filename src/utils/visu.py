@@ -6,10 +6,16 @@ This contains all relevant visualization routines.
 
 # TODO remove unnecessary dependencies
 import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.use("TkAgg")
 from gensim.utils import simple_preprocess
 from gensim import corpora, models
 from sklearn.manifold import TSNE
 import pyLDAvis.gensim
+
+import pandas as pd
+import numpy as np
 
 
 # TODO
@@ -25,6 +31,7 @@ def project_to_lower(vectors, k_components=2):
 # TODO make this self contained
 # TODO make this more flexible to take just numpy feature vectors
 # TODO refactor projection
+# TODO make save option configurable
 def plot_2d_space(corpus, method, use_tsne=False):
     """
     This projects higher dimensional features on a kD space using the
@@ -63,9 +70,11 @@ def plot_2d_space(corpus, method, use_tsne=False):
         documents_2d_2 = tsne[:, 1]
 
     ax.scatter(documents_2d_1, documents_2d_2, c=topic_num, s=80, alpha=0.8)
-    print(data_df["title"])
+    #    print(corpus["title"])
     for i, data in enumerate(corpus):
         ax.annotate(i, (documents_2d_1[i] + 0.01, documents_2d_2[i]))
+
+    plt.show()
 
 
 def plot_segmentation():
