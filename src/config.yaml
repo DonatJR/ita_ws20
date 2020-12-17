@@ -1,0 +1,8 @@
+input_file: "data/data_jmlr_vol13-21.json"
+output_dir: "results/"
+preprocessing:
+  - stemming: True
+  - lemmatization: True
+  - lib: "spacy" 
+vectorization: "lsi"
+clustering: "kmeans"
