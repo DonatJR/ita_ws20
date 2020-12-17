@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-This collects routines for vectorizing text data, so we can perform similarity 
+This collects routines for vectorizing text data, so we can perform similarity
 and clustering computations on it.
 
 author: Chen
@@ -11,18 +11,16 @@ author: Chen
 # this may not PEP8 conform I believe, so resolve dependencies!
 
 import json
-import ipdb
-
-from gensim import corpora, models
-from sklearn.manifold import TSNE
-import pyLDAvis.gensim
-
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 
 import data as io
+import ipdb
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import pyLDAvis.gensim
 import visu
+from gensim import corpora, models
+from sklearn.manifold import TSNE
 
 
 # TODO docstr
@@ -33,20 +31,18 @@ def compute_tfidf(text, dictionary, return_bow=True):
 
     if return_bow:
         return corpus_tfidf, bow_corpus
-    else
+    else:
         return corpus_tfidf
+
 
 # TODO docstr
 def lsi(corpus, dictionary, num_topics=3):
     """ """
     # train model
-    lsi_model = models.LsiModel(
-        corpus, id2word=dictionary, num_topics=num_topics
-    )  
+    lsi_model = models.LsiModel(corpus, id2word=dictionary, num_topics=num_topics)
     # apply model to  document
-    lsi_model[corpus[1]]  
+    lsi_model[corpus[1]]
     return lsi_model
-
 
 
 # TODO this is kinda uselessly wrapped
