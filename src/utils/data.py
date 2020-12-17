@@ -6,6 +6,7 @@ import json
 import pandas as pd
 import ipdb
 import numpy as np
+from tqdm import tqdm
 
 
 def load_json(fpath, use_title=False):
@@ -57,7 +58,8 @@ def preprocessing(
         all_stopwords = nlp.Defaults.stop_words
 
         tokenized = []
-        for abstract in text:
+        print("Starting tokenization ...")
+        for _, abstract in tqdm(enumerate(text)):
             abstract = gensim.parsing.preprocessing.strip_non_alphanum(abstract)
             abstract = nlp(abstract)
             tokens = []
@@ -93,7 +95,8 @@ def preprocessing(
         STOPWORDS = set(stopwords.words("english"))
 
         tokenized = []
-        for abstract in text:
+        print("Starting tokenization ...")
+        for _, abstract in tqdm(enumerate(text)):
             abstract = gensim.parsing.preprocessing.strip_non_alphanum(abstract)
             text_tokens = word_tokenize(abstract)
             if stemming:
@@ -109,6 +112,7 @@ def preprocessing(
         return tokenized
 
     assert isinstance(text, pd.Series), "Please pass panda data series for text"
+    ipdb.set_trace()
     text.replace("", np.nan, inplace=True)
     num_nan = text.isna().sum()
     print("Dropping %d entries of corpus, due to nan ..." % num_nan)
