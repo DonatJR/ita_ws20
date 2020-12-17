@@ -25,13 +25,14 @@ import data as io
 import visu
 
 
-# TODO define vectorizer class to get all different methods and better data flow
 # TODO what are good values for num_topics?
 # TODO not all arguments are passable, this should be a class structure
 def compute_text_vector(tokenized, num_topics=3, method="tfidf"):
     """
     Computing feature vectors for tokenized paper abstracts.
     """
+
+    # TODO does this work only on pandas?
 
     dictionary = corpora.Dictionary(tokenized)
     BoW_corpus = [dictionary.doc2bow(text) for text in tokenized]
@@ -95,119 +96,17 @@ def compute_text_vector(tokenized, num_topics=3, method="tfidf"):
     visu.plot_2d_space(corpus_tfidf, lda_model, use_tsne=True)
 
 
-def preprocessing(
-    text,
-    lib="gensim",
-    stemming=False,
-    lemmatization=False,
-    min_word_len=2,
-    max_word_len=15,
-):
-    """
-    Perform tokenization, stop word removal and optionally stemming, lemmatization.
-    These steps are crucial to get meaningful clusters.
-
-    args:
-    ---
-    text [pd.Series]: pandas series of paper abstracts
-    lib [str]: library to use for processing. options: gensim, spacy, nltk
-
-    returns:
-    ---
-    tokenized [pd.Series]: Tokenized paper abstracts
-    """
-
-    import gensim.parsing.preprocessing
-
-    if stemming:
-        from nltk.stem.snowball import SnowballStemmer
-
-        stemmer = SnowballStemmer(language="english")
-
-    if lib == "gensim":
-        from gensim.utils import simple_preprocess
-
-        if lemmatization:
-            from gensim.utils import lemmatize
-            import pattern3
-
-        tokenized = []
-        for abstract in text:
-            no_numbers = gensim.parsing.preprocessing.strip_non_alphanum(abstract)
-            clean = gensim.parsing.preprocessing.remove_stopwords(no_numbers)
-            token = simple_preprocess(clean, min_len=min_word_len, max_len=max_word_len)
-            if lemmatization:
-                token = lemmatize(token)
-            if stemming:
-                token = stemmer.stem(token)
-            tokenized.append(token)
-
-    elif lib == "spacy":
-        import spacy
-
-        nlp = spacy.load("en_core_web_sm")
-        all_stopwords = nlp.Defaults.stop_words
-
-        tokenized = []
-        for abstract in text:
-            abstract = gensim.parsing.preprocessing.strip_non_alphanum(abstract)
-            abstract = nlp(abstract)
-            tokens = []
-            for doc in abstract:
-                if lemmatization:
-                    token = doc.lemma_
-                else:
-                    token = doc.text
-
-                if stemming:
-                    token = stemmer.stem(token)
-                if not token in all_stopwords:
-                    tokens.append(token)
-            tokens = [word for word in tokens if not len(word) < min_word_len]
-            tokens = [word for word in tokens if not len(word) > max_word_len]
-            tokenized.append(tokens)
-
-    elif lib == "nltk":
-        import nltk
-
-        nltk.download("stopwords")
-        nltk.download("punkt")
-        from nltk.corpus import stopwords
-        from nltk.tokenize import word_tokenize
-
-        STOPWORDS = set(stopwords.words("english"))
-
-        tokenized = []
-        for abstract in text:
-            abstract = gensim.parsing.preprocessing.strip_non_alphanum(abstract)
-            text_tokens = word_tokenize(abstract)
-            if stemming:
-                text_tokens = [stemmer.stem(word) for word in text_tokens]
-            if lemmatization:
-                from nltk.stem import WordNetLemmatizer
-
-                lemmatizer = WordNetLemmatizer()
-
-                text_tokens = [lemmatizer.lemmatize(word) for word in text_tokens]
-
-            tokens = [word for word in text_tokens if not word in STOPWORDS]
-            tokens = [word for word in tokens if not len(word) < min_word_len]
-            tokens = [word for word in tokens if not len(word) > max_word_len]
-            tokenized.append(tokens)
-
-    return tokenized
-
-
 def test(test_path):
     """ Testout processing for debugging, etc. """
     corpus = io.load_json(test_path)
-    tokenized = preprocessing(corpus, lib="spacy")
+    corpus_with_token = io.preprocessing(
+        corpus, lib="spacy", stemming=True, lemmatization=True
+    )
 
     ipdb.set_trace()
 
-    # TODO Jessica use pandas frames
-    # TODO convert list of lists to new column in corpus
-    compute_text_vector(tokenized, num_topics=3, method="tfidf")
+    # TODO pass whole corpus or only token columns?
+    compute_text_vector(corpus_with_token, num_topics=3, method="tfidf")
 
     # TODO debug jessicas try
     #    vis = pyLDAvis.gensim.prepare(
@@ -216,5 +115,5 @@ def test(test_path):
 
 
 if __name__ == "__main__":
-    test_path = "data/manual_datasource.json"
+    test_path = "data/data_jmlr_vol17.json"
     test(test_path)
