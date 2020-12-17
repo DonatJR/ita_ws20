@@ -23,11 +23,12 @@ We will configure this via yaml configs later.
 """
 
 # TODO think about saving results
+# TODO think about configuration
 
 
 def get_parser():
     """ Parser to configure main script via command line """
-    parser = ArgumentParser(description="scientific paper clustering")
+    parser = argparse.ArgumentParser(description="scientific paper clustering")
     parser.add_argument("--option1", type=str, help="Example option")
     parser.add_argument(
         "--option2",
@@ -47,11 +48,11 @@ def save_results(results):
 # The run.py script can be used to parse the configuration files to this file
 if __name__ == "__main__":
 
-    global args, logger
-    args = get_parser().parse_args()
-    logger = helper.get_logger(args.save_folder)
-    logger.info(args)
-    logger.info("=> Starting new experiment ...")
+    #    global args, logger
+    #    args = get_parser().parse_args()
+    #    logger = helper.get_logger(args.save_folder)
+    #    logger.info(args)
+    #    logger.info("=> Starting new experiment ...")
 
     test_path = Path("data/data_jmlr_vol13-21.json")
     corpus = io.load_json(test_path)
