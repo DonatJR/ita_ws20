@@ -81,8 +81,13 @@ We believe that it might be benificial to include words like these and buzzwords
 ### Basic Statistics
 TODO: Daniela - expand on the observations
 
-
 No of samples: 1261
+
+996 papers - no keywords in top 10 (a keyword can contain multiple "words")
+
+249 papers - 1 keyword in top 10
+
+16 papers - 2 top 10 keywords (max/paper)
 
 No of papers without keywords: 153
 
@@ -100,6 +105,10 @@ No of papers without abstract:
 
 ![](images/keywords.png)
 ![](images/abstract_words.png)
+![](images/top_keywords.png)
+![](images/top_keywords_wordcloud.png)
+![](images/distribution_keywords.png)
+
 
 
 ### Examples
