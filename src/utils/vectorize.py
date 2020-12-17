@@ -3,22 +3,12 @@
 """
 This collects routines for vectorizing text data, so we can perform similarity
 and clustering computations on it.
-
-author: Chen
 """
 
-# TODO right now we import only when needed
-# this may not PEP8 conform I believe, so resolve dependencies!
-
-import json
-
-import data as io
 import ipdb
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import pyLDAvis.gensim
-import visu
 from gensim import corpora, models
 from sklearn.manifold import TSNE
 

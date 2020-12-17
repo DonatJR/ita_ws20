@@ -4,6 +4,7 @@ import os
 import argparse
 import ipdb
 from pathlib import Path
+from time import time
 
 import utils.helper as helper
 import utils.data as io
@@ -48,7 +49,7 @@ def save_results(results):
 # TODO test how to pass data
 # TODO refactor
 # TODO can we run this on the vectors from other libs?
-def sklearn_clustering(data, n_components=None):
+def sklearn_clustering(data, n_components=None, n_features=10000, n_clusters=5):
     """ From the online doc: https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html """
     from sklearn.decomposition import TruncatedSVD
     from sklearn.feature_extraction.text import TfidfVectorizer
@@ -56,18 +57,25 @@ def sklearn_clustering(data, n_components=None):
     from sklearn.feature_extraction.text import TfidfTransformer
     from sklearn.pipeline import make_pipeline
     from sklearn.preprocessing import Normalizer
+
+    # NOTE we do not have ground truth labels right now
     from sklearn import metrics
     from sklearn.cluster import KMeans
 
-    ipdb.set_trace()
+    def convert_list_to_str(x):
+        return " ".join(x)
 
     vectorizer = TfidfVectorizer(
         max_df=0.5,
-        max_features=opts.n_features,
+        max_features=n_features,
         min_df=2,
-        stop_words="english",
-        use_idf=opts.use_idf,
+        use_idf=True,
     )
+    data = data.apply(convert_list_to_str)
+    # TODO this combines some techniques from preprocessing
+    # sklearn cant handle list of tokens, but works on raw data
+    # sklearn can apply methods of preprocessing as well
+    t0 = time()
     X = vectorizer.fit_transform(data)
 
     print("done in %fs" % (time() - t0))
@@ -97,7 +105,7 @@ def sklearn_clustering(data, n_components=None):
         print()
 
     km = KMeans(
-        n_clusters=5,
+        n_clusters=n_clusters,
         init="k-means++",
         max_iter=100,
         n_init=1,
@@ -108,10 +116,11 @@ def sklearn_clustering(data, n_components=None):
     print("done in %0.3fs" % (time() - t0))
     print()
 
-    print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels, km.labels_))
-    print("Completeness: %0.3f" % metrics.completeness_score(labels, km.labels_))
-    print("V-measure: %0.3f" % metrics.v_measure_score(labels, km.labels_))
-    print("Adjusted Rand-Index: %.3f" % metrics.adjusted_rand_score(labels, km.labels_))
+    # TODO we do not have labels, so we cannot evaluate here
+    #    print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels, km.labels_))
+    #    print("Completeness: %0.3f" % metrics.completeness_score(labels, km.labels_))
+    #    print("V-measure: %0.3f" % metrics.v_measure_score(labels, km.labels_))
+    #    print("Adjusted Rand-Index: %.3f" % metrics.adjusted_rand_score(labels, km.labels_))
     print(
         "Silhouette Coefficient: %0.3f"
         % metrics.silhouette_score(X, km.labels_, sample_size=1000)
@@ -128,7 +137,7 @@ def sklearn_clustering(data, n_components=None):
         order_centroids = km.cluster_centers_.argsort()[:, ::-1]
 
     terms = vectorizer.get_feature_names()
-    for i in range(true_k):
+    for i in range(n_clusters):
         print("Cluster %d:" % i, end="")
         for ind in order_centroids[i, :10]:
             print(" %s" % terms[ind], end="")
@@ -165,13 +174,16 @@ if __name__ == "__main__":
     lda_tfidf = utils.vectorize.lda(corpus_tfidf, dictionary, num_topics=3)
     lda_bow = utils.vectorize.lda(bow_corpus, dictionary, num_topics=3)
 
-    # TODO Use sklearn clustering to cluster these
+    # TODO make algorithm options passable
+    # TODO clean this shit up
+    sklearn_clustering(corpus["token"], n_components=4)
 
     # TODO debug jessicas try
     #    vis = pyLDAvis.gensim.prepare(
     #        lda_model, corpus_tfidf, dictionary=lda_model.id2word, mds="mmds"
     #    )
 
+    # TODO clean this mess up
     # Visualize
 
     print(dictionary.token2id)  # token -> tokenId.
@@ -188,5 +200,5 @@ if __name__ == "__main__":
 
     visu.plot_2d_space(bow_corpus, lsi_bow)
     visu.plot_2d_space(corpus_tfidf, lsi_tfidf)
-    visu.plot_2d_space(corpus_tfidf, lda_model)
-    visu.plot_2d_space(corpus_tfidf, lda_model, use_tsne=True)
+    visu.plot_2d_space(corpus_tfidf, lda_tfidf)
+    visu.plot_2d_space(corpus_tfidf, lda_tfidf, use_tsne=True)

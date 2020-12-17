@@ -53,10 +53,12 @@ def preprocessing(
         min_word_len=2,
         max_word_len=15,
     ):
-
+        # TODO this is the only things that works for Jessica
         import en_core_web_sm
+        import spacy
 
         nlp = en_core_web_sm.load()
+        #        nlp = spacy.load("en_core_web_sm")
         all_stopwords = nlp.Defaults.stop_words
 
         tokenized = []
