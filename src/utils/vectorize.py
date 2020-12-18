@@ -1,18 +1,16 @@
 #! /usr/bin/env python3
 
 """
-This collects routines for vectorizing text data, so we can perform similarity 
+This collects routines for vectorizing text data, so we can perform similarity
 and clustering computations on it.
 """
 
 import ipdb
-
-from gensim import corpora, models
-from sklearn.manifold import TSNE
-import pyLDAvis.gensim
-
 import numpy as np
 import pandas as pd
+import pyLDAvis.gensim
+from gensim import corpora, models
+from sklearn.manifold import TSNE
 
 
 # TODO docstr

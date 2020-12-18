@@ -91,8 +91,13 @@ Currently our clustering performance will be suboptimal since we might not have 
 ### Basic Statistics
 TODO: Daniela - expand on the observations
 
-
 No of samples: 1261
+
+996 papers - no keywords in top 10 (a keyword can contain multiple "words")
+
+249 papers - 1 keyword in top 10
+
+16 papers - 2 top 10 keywords (max/paper)
 
 No of papers without keywords: 153
 
@@ -108,8 +113,11 @@ No of papers without abstract:
   
  After checking, it seems that for 36/1261 papers the abstract is under a different h3 tag
 
-![](:/85e6f6bdec124985bc991ee9d9c1c00f)
-![](:/a013002319ca444ba1876730e1ec20fe)
+![](images/keywords.png)
+![](images/abstract_words.png)
+![](images/top_keywords.png)
+![](images/top_keywords_wordcloud.png)
+![](images/distribution_top_keywords.png)
 
 
 ### Examples

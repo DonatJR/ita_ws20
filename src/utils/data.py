@@ -3,9 +3,10 @@ This contains all relevant I/O operations.
 """
 
 import json
-import pandas as pd
+
 import ipdb
 import numpy as np
+import pandas as pd
 from tqdm import tqdm
 
 
@@ -52,10 +53,9 @@ def preprocessing(
         min_word_len=2,
         max_word_len=15,
     ):
-        import spacy
-
         # TODO this is the only things that works for Jessica
         import en_core_web_sm
+        import spacy
 
         nlp = en_core_web_sm.load()
         #        nlp = spacy.load("en_core_web_sm")
@@ -75,7 +75,7 @@ def preprocessing(
                     token = doc.text
                 if stemming:
                     token = stemmer.stem(token)
-                if not token in all_stopwords:
+                if token not in all_stopwords:
                     tokens.append(token)
 
             #            if lemmatization:
@@ -102,8 +102,8 @@ def preprocessing(
         nltk.download("stopwords")
         nltk.download("punkt")
         from nltk.corpus import stopwords
-        from nltk.tokenize import word_tokenize
         from nltk.stem import WordNetLemmatizer
+        from nltk.tokenize import word_tokenize
 
         STOPWORDS = set(stopwords.words("english"))
 
@@ -118,7 +118,7 @@ def preprocessing(
                 lemmatizer = WordNetLemmatizer()
                 text_tokens = [lemmatizer.lemmatize(word) for word in text_tokens]
 
-            tokens = [word for word in text_tokens if not word in STOPWORDS]
+            tokens = [word for word in text_tokens if word not in STOPWORDS]
             tokens = [word for word in tokens if not len(word) < min_word_len]
             tokens = [word for word in tokens if not len(word) > max_word_len]
             tokenized.append(tokens)
