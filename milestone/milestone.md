@@ -32,6 +32,8 @@ TODO: we are not using any existing code, right? --> replace with "No existing c
 ### Utilized libraries
 TODO: Provide a list of all required libraries to successfully run your system. Ideally, this comes in the __form of a separate requirements.txt file__.
 
+TODO: Should we list this here or does the requirements file speak for itself?
+
 ### Contributions
 We had some issues with non-matching email addresses in commits. This results in some team members not showing up as project contributors (or with reduced contributions), as their GitHub profile cannot be linked to the git user used to make the commits. The commit history nevertheless reflects all contributions correctly, just without a direct link to the respective GitHub profile.
 
@@ -49,6 +51,12 @@ TODO: high level description of _project structure_ and _pipeline_.
 ### Experiments
 TODO: In case that you already have some results from initial experiments, you may detail the results and implications. We strongly encourage you to already provide simple baselines.
 
+We decided to perform initial clustering experiments on the dataset we gathered in order to sketch out the overall algorithmic pipeline. For these experiments we performed the following steps:
+1. Preprocessing to exctract informative tokens
+2. Vectorization into TFIDF and bag of words
+3. Clustering using algorithms from ```gensim``` and ```sklearn```
+4. Visualization with projected data.
+
 ## Data Analysis
 
 ### Data Sources
@@ -61,22 +69,24 @@ TODO: Detail any preprocessing steps you have taken to ensure proper data qualit
 
 We do standard preprocessing before clustering. We tried out the three libarries: ```gensim```, ```spacy``` 
 and ```nltk```. After dealing with some problems regarding lemmatization in ```gensim``` (and the depending 
-```pattern```, we found out in an issue on their official github repository, 
+```pattern```, we found out in an [issue](https://github.com/RaRe-Technologies/gensim/issues/2716) on their official github repository, 
 that the library was not intended for preprocessing. We therefore dropped this one.  
 Our preprocessing consists of:
 1. Removal non-alphabetic characters
 2. Tokenization
 3. Lemmatization
 4. Stemming
-5. Removal too short/long words.
+5. Length normalization
 6. Stop word removal
 We use the respective standard models for the english language of the libaries.
 
 The pipeline is in part configurable, because we want to compare our results towards raw text inputs. 
-After taking a first look at the resulting token for our example data, we realized the following:
-- Most papers share very common words for their common denominator field. Since we tried this out on 
-machine learning papers, all tokenized abstracts include e.g. _data_ with a high frequency.
-We believe that it might be benificial to include words like these and buzzwords in the stop word list, since they give no informative characterization of the paper topics.
+After taking a first look at the resulting tokens for our first data, we realized the following:
+- Most papers share very common words for their common denominator field. 
+- Since we tried this out on  machine learning papers, all tokenized abstracts include e.g."_data_" with a high frequency. 
+- It should be benificial to include such common words and buzzwords in the stop word list
+
+Currently our clustering performance will be suboptimal since we might not have very informative tokens for the respective topics.
 
 ### Basic Statistics
 TODO: Daniela - expand on the observations
@@ -98,9 +108,10 @@ No of papers without abstract:
   
  After checking, it seems that for 36/1261 papers the abstract is under a different h3 tag
 
-![](images/keywords.png)
-![](images/abstract_words.png)
+![](:/85e6f6bdec124985bc991ee9d9c1c00f)
+![](:/a013002319ca444ba1876730e1ec20fe)
 
 
 ### Examples
 TODO: Daniela - paste an example 
+
