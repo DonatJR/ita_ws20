@@ -20,8 +20,7 @@ import numpy as np
 import ipdb
 
 
-# TODO TEST 3d
-# TODO pass top key words for each topic
+# TODO pass top key words for each cluster as label
 def plot_tsne(corpus, model, dim=2, save_path=None):
     """
     This projects higher dimensional features on a kD space using the TSNE algorithm.
@@ -59,11 +58,9 @@ def plot_tsne(corpus, model, dim=2, save_path=None):
     if dim == 2:
         fig, ax = plt.subplots(figsize=(10, 10))
     elif dim == 3:
-        fig, ax = plt.subplots(111, figsize=(10, 10), projection="3d")
+        fig = plt.figure(figsize=(10, 10))
+        ax = fig.add_subplot(111, projection="3d")
     ax.scatter(*zip(*tsne), c=topic_num, s=80, alpha=0.8)
-    # TODO include labels for cluster that show their topics
-    # How to get top key words for num topics
-    ipdb.set_trace()
     ax.legend()
 
     if save_path:
@@ -76,14 +73,12 @@ def plot_tsne(corpus, model, dim=2, save_path=None):
 def plot_lda(corpus, model, dim=2):
 
     # TODO why is this only 2d?
-    # TODO could we check for 3d?
     projection = []
     for i in range(dim):
         if isinstance(model, models.ldamodel.LdaModel):
-            # TODO why list(model[corpus]) for i > 0?
-            projection.append([x[0][i][1] for x in model[corpus]])
+            projection.append([x[0][i][1] for x in list(model[corpus])])
         else:
-            projection.append([x[i][1] for x in model[corpus]])
+            projection.append([x[i][1] for x in list(model[corpus])])
 
     #    if dim == 2:
     #        if isinstance(model, models.ldamodel.LdaModel):
@@ -109,11 +104,12 @@ def plot_lda(corpus, model, dim=2):
     if dim == 2:
         fig, ax = plt.subplots(figsize=(10, 10))
     elif dim == 3:
-        fig, ax = plt.subplots(111, figsize=(10, 10), projection="3d")
+        fig = plt.figure(figsize=(10, 10))
+        ax = fig.add_subplot(111, projection="3d")
     else:
         raise Exception("Higher dimensions not supported")
 
-    ax.scatter(*zip(*tsne), c=topic_num, s=80, alpha=0.8)
+    ax.scatter(*zip(projection), c=topic_num, s=80, alpha=0.8)
 
     if save_path:
         plt.savefig(save_path, bbox_inches="tight")
