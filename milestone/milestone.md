@@ -38,17 +38,46 @@ We had some issues with non-matching email addresses in commits. This results in
 ## Project State
 
 ### Planning State
-TODO: brief overview of everything we have done until now
+Up until now we managed to write code for data retrieval and preprocessing (for the main data source we intend to use) for bringing the data into a format which can easily be used to do further analysis on it.
+We also did some preliminary analysis of this preprocessed data which can be found in the respective data section below.
+Furthermore we did some initial experiments on the limited data we had available to this point to gain some insights into results from different libraries. These can be found in the `Experiments` section.
 
 ### Future Planing
-TODO: brief timeline of tasks to be done in second phase of project
+From this point on we intend to put less focus on data gathering and preprocessing (at least once we gathered a sufficient amount of it with our current or slightly modified pipeline) and instead focus on the clustering of the data and the evaluation methods / processes. Even though we did not write any tests for now, we of course also intend to have a proper test coverage in the future.
+
+We currently have decided to store data from different sources in a single JSON file and plan on continuing using this format, but if we encounter any problems with it could become necessary to rethink this approach. 
+
+In the initial meeting with our teaching assistant we got the tip to use data from [ACM]() as these papers contain `CCS` tags which could be used for clustering. We had a look at this data source via the `Crossref API`, but papers from `ACM` did not include any abstracts. Because of this we did not pursue this source of data any further, but we might come back to it in the second phase of the project if we are in need for more data (more details on data below).
 
 ### High-level Architecture Description
-TODO: high level description of _project structure_ and _pipeline_.
+The project structure is not final yet, as we pretty much used single files with some helper file includes for every step in the pipeline we have programmed this far. Nevertheless, this is the current structure of files that are relevant for the milestone:
+
+```
+project
+│
+└───milestone
+│   │   milestone.md    <-- the current document
+│   │
+│   └───images          <-- images used in the milestone document
+│       │   ...
+│   
+└───src                 <-- main entry point for the project / code
+    │   main.py
+    │   run.py
+    │   requirements.txt
+    │
+    └───results         <-- results from experiments
+    │   │   ...
+    │
+    └───utils           <-- utility code files for downloading / scraping / processing data and serialization
+    │   │   ...
+    │
+    └───data            <-- preprocessed data we have gathered up until now
+        │   ...
+```
+
 
 ### Experiments
-TODO: In case that you already have some results from initial experiments, you may detail the results and implications. We strongly encourage you to already provide simple baselines.
-
 We decided to perform initial clustering experiments on the dataset we gathered in order to sketch out the overall algorithmic pipeline. For these experiments we performed the following steps:
 1. Preprocessing to extract informative tokens
 2. Vectorization into TF-IDF and bag of words
