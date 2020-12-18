@@ -107,7 +107,7 @@ No of papers without abstract:
 ![](images/abstract_words.png)
 ![](images/top_keywords.png)
 ![](images/top_keywords_wordcloud.png)
-![](images/distribution_keywords.png)
+![](images/distribution_top_keywords.png)
 
 
 
