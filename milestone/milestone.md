@@ -26,13 +26,11 @@
 
 
 ### Existing Code Fragments
-In case you are choosing a project for which there exists code that you are using, you must clearly indicate those parts of your project and link to them.
-TODO: we are not using any existing code, right? --> replace with "No existing code fragments used." 
+Code fragments from the tutorial were used.
 
 ### Utilized libraries
-TODO: Provide a list of all required libraries to successfully run your system. Ideally, this comes in the __form of a separate requirements.txt file__.
-
-TODO: Should we list this here or does the requirements file speak for itself?
+The used libraries can be seen in the requirments.txt file:
+https://github.com/DonatJR/ita_ws20/blob/main/src/requirements.txt
 
 ### Contributions
 We had some issues with non-matching email addresses in commits. This results in some team members not showing up as project contributors (or with reduced contributions), as their GitHub profile cannot be linked to the git user used to make the commits. The commit history nevertheless reflects all contributions correctly, just without a direct link to the respective GitHub profile.
