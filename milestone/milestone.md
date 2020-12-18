@@ -126,7 +126,7 @@ Topic 4:
 ```
 Also, the words related to the topic do not seem to be very meaningful and do not help to understand what defines this topic.
 
-The following figures show the LDA clusterization with 2 and with 5 clusters in 2D space.
+The following figures show the LDA clustering with 2 and with 5 clusters in 2D space.
 With two clusters, an almost linear line is created, which is divided into two parts by the clusters.
 ![](images/LDA_TF-IDF_preprocessing_spacy_stemming_True_lemmatization_True_num_topics_2.png)
 
@@ -143,13 +143,15 @@ However, the output of T-SNE strongly depends on the parameters used. To interpr
 ## Data Analysis
 
 ### Data Sources
-We mentioned two data sources for research papers in our project proposal:
+We mentioned three data sources for research papers in our project proposal:
 
 - [jmlr](https://jmlr.csail.mit.edu) - an international forum for the electronic and paper publication of scholarly articles in all areas of machine learning
 
 - [ann](http://aan.how) - a website maintained by Yale University's Learning and Information Group that provides a corpus consisting of over 400 scientific papers on NLP in plain text.
 
-We ended up using only the former source.
+- [Crossref](https://crossref.org/) and their [API](https://api.crossref.org/) - an official Digital Object Identifer Registration Agency that provides access to the full text of its registered research papers through their own API.
+
+We ended up using only the first source.
 
 [ann](http://aan.how) proved an unreliable data source because: 
 
@@ -157,6 +159,8 @@ We ended up using only the former source.
 - the quality of the files made it hard to find regex for information extraction
 - even though [ann](http://aan.how) has to each paper a html page where the abstract could be found, after examination, we were once again facing the problem of an error-ridden abstract
 
+[Crossref](https://crossref.org/) provides a reliable way to access data, but filtering for specific topics and extracting URLs to PDFs as well as keywords is more difficult than initially assumed. For now, we don't intend to use `Crossref` as a data source. If we were to face problems with not having enough data in the future we can still fall back to using it.
+ 
 [jmlr](https://jmlr.csail.mit.edu) proved an excellent data source because: 
 
 - the research papers are ordered in volumes. There are currently 21 volumes available. Each volume has its own website, i.e. https://jmlr.csail.mit.edu/papers/v18/
@@ -166,7 +170,7 @@ We ended up using only the former source.
    - the URL to the pdf
 - almost all the PDFs have the same structure: 
 
-Abstact
+Abstract
 
 <abstract_text>
 
@@ -184,7 +188,6 @@ We decided to use the following information from a research paper:
 
 Based on this, we scraped the html page of the research paper and converted the pdf into a txt file to extract the keywords using regex. The extracted information was saved in a json.
    
-
 ### Preprocessing
 TODO: Detail any preprocessing steps you have taken to ensure proper data quality. This can include unicode normalization, length normalization, text sanitizing, etc
 
@@ -247,9 +250,10 @@ Reason: no keywords present in the papers
 
 The maximum no of top 10 keywords contained by a single papers is 2
 
-![r](images/distribution_top_keywords.png)
+The distribution of keywords can be seen in the [plot](#distribution-top-keywords) below:
+<a id="distribution-top-keywords" alt="Distribution of top keywords">![](images/distribution_top_keywords.png)</a>
 
-![](images/top_keywords_wordcloud.png)
+<a id="wordcloud-plot" alt="Wordcloud">![](images/top_keywords_wordcloud.png)</a>
 
 #### Abstract Statistics:
 No of papers without abstract: 36
@@ -294,4 +298,4 @@ scraping script, but we found the observation interesting, because it shows that
 While doing the first assignment we kept asking ourselves why: why should we spend so much time looking for a conversion library or come up with regex expressions.
 We take it all back: *now* we understand why. By working with regex in the first assignment, it seemed natural to use this newly acquired knowledge for information extraction. Furthermore, after having tested out so many conversion libraries, we already knew which ones we could trust.
 
-We also believe in the power of recycling - this is where the second assignment comes into play. For the wordcloud of keywords and the top 10 keywords plot, we slightly modify our code from the simpsons' assignment.
+We also believe in the power of recycling - this is where the second assignment comes into play. For the wordcloud of keywords, which can be seen in [this plot](#wordcloud-plot), and the top 10 keywords plot , we slightly modify our code from the simpsons' assignment.
