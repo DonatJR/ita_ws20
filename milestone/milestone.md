@@ -189,12 +189,10 @@ We decided to use the following information from a research paper:
 Based on this, we scraped the html page of the research paper and converted the pdf into a txt file to extract the keywords using regex. The extracted information was saved in a json.
    
 ### Preprocessing
-TODO: Detail any preprocessing steps you have taken to ensure proper data quality. This can include unicode normalization, length normalization, text sanitizing, etc
-
-We do standard preprocessing before clustering. We tried out the three libraries: ```gensim```, ```spacy``` 
-and ```nltk```. After dealing with some problems regarding lemmatization in ```gensim``` (and the depending 
-```pattern```, we found out in an [issue](https://github.com/RaRe-Technologies/gensim/issues/2716) on their official github repository, 
-that the library was not intended for preprocessing. We therefore dropped this one.  
+We do standard preprocessing before clustering. We tried out the three libraries: ```gensim```, ```spacy```
+and ```nltk```. After dealing with some problems regarding lemmatization in ```gensim``` (and the depending
+```pattern```, we found out in an [issue](https://github.com/RaRe-Technologies/gensim/issues/2716) on their official github repository,
+that the library was not intended for preprocessing. We therefore dropped this one.
 Our preprocessing consists of:
 1. Removal non-alphabetic characters
 2. Tokenization
@@ -205,7 +203,7 @@ Our preprocessing consists of:
 We use the respective standard models for the english language of the libraries.
 
 The following figures show the top 10 words of the abstracts.
-Without stemming or lemmatization, the top words include ```we```, ```the``` and ```in```. These words are unnecessary for clustering. 
+Without stemming or lemmatization, the top words include ```we```, ```the``` and ```in```. These words are unnecessary for clustering.
 
 ![](images/top_words_Bow_preprocessing_nltk_stemming_False_lemmatization_False_num_topics_2.png)
 
@@ -219,46 +217,46 @@ Weighting using tf-idf makes it more obvious that these are papers with a machin
 
 The choice of the library used for preprocessing only marginally affects the top words.
 
-The pipeline is in part configurable, because we want to compare our results towards raw text inputs. 
-After taking a first look at the resulting tokens for our first data, we realized the following:
-- Most papers share very common words for their common denominator field. 
-- Since we tried this out on  machine learning papers, all tokenized abstracts include e.g."_data_" with a high frequency. 
+The pipeline is in part configurable, because we want to compare our results towards raw text inputs.
+In order to take a quick look at our data after preprocessing, we plotted a word cloud of the tokens in the following figure:
+![](images/wordcloud_tokens.png)
+It can be seen, that our preprocessing does not remove very general words that probably apply to most papers.
+We realized the following:
+- Most papers share very common words for their common denominator field.
+- Since we tried this out on machine learning papers, all tokenized abstracts include e.g."_data_", "model", etc. with a high frequency.
 - It should be beneficial to include such common words and buzzwords in the stop word list
 
 Currently our clustering performance will be suboptimal since we might not have very informative tokens for the respective topics.
 
 
 ### Basic Statistics
-No. of samples: 1261
+- No. of samples: 1261
 
 #### Keywords Statistics:
-A keyword can contain multiple words, i.e, *bayesian statistics*.
+- A keyword can contain multiple words, i.e, *bayesian statistics*.
 
-No of papers without keywords: 153
-
+- No of papers without keywords: 153
 Reason: no keywords present in the papers
 
 ![](images/keywords.png)
 
 ![](images/top_keywords.png)
 
-996 papers have no keywords in top 10 
+- 996 papers have no keywords in top 10
 
-249 papers have 1 keyword in top 10
+- 249 papers have 1 keyword in top 10
 
-16 papers have 2 keywords in top 10 
+- 16 papers have 2 keywords in top 10
 
-The maximum no of top 10 keywords contained by a single papers is 2
+- The maximum no of top 10 keywords contained by a single papers is 2
 
-The distribution of keywords can be seen in the [plot](#distribution-top-keywords) below:
-<a id="distribution-top-keywords" alt="Distribution of top keywords">![](images/distribution_top_keywords.png)</a>
+![r](images/distribution_top_keywords.png)
 
-<a id="wordcloud-plot" alt="Wordcloud">![](images/top_keywords_wordcloud.png)</a>
+![](images/top_keywords_wordcloud.png)
 
 #### Abstract Statistics:
-No of papers without abstract: 36
-
-Reason: we have two sources for the abstract: 
+- No of papers without abstract: 36
+Reason: we have two sources for the abstract:
  
 i) a html page where the abstract is in a meta tag. This abstract contains inline math latex notation.
   
@@ -266,11 +264,10 @@ ii) the pdf where the abstract doesn't contain any latex notation
 
 We extract them both (with the intention to later compare the quality), but only use the one from the html page in our data files.
   
-After investigating why 36 papers seemingly have no abstract, it seems that for them the abstract is under a different html tag. We intend to correct this in the 
+After investigating why 36 papers seemingly have no abstract, it seems that for them the abstract is under a different html tag. We intend to correct this in the
 scraping script, but we found the observation interesting, because it shows that scraping is very specific to the website we intend to extract information from.
 
 ![](images/abstract_words.png)
-
 
 ### Examples
  
@@ -298,4 +295,4 @@ scraping script, but we found the observation interesting, because it shows that
 While doing the first assignment we kept asking ourselves why: why should we spend so much time looking for a conversion library or come up with regex expressions.
 We take it all back: *now* we understand why. By working with regex in the first assignment, it seemed natural to use this newly acquired knowledge for information extraction. Furthermore, after having tested out so many conversion libraries, we already knew which ones we could trust.
 
-We also believe in the power of recycling - this is where the second assignment comes into play. For the wordcloud of keywords, which can be seen in [this plot](#wordcloud-plot), and the top 10 keywords plot , we slightly modify our code from the simpsons' assignment.
+Thanks to the 2nd assignment, we could reuse our code for the wordcloud of keywords and the top 10 keywords plot.
