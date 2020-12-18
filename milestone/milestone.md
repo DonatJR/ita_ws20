@@ -279,9 +279,21 @@ Reason: no keywords present in the papers
 
 - The maximum no of top 10 keywords contained by a single papers is 2
 
+The distribution of the top keywords can be found in the [plot](#distribution-top-keywords) below:
+<a id="distribution-top-keywords" alt="Distribution of top keywords">
+
 ![r](images/distribution_top_keywords.png)
 
+</a>
+
+<a id="top-keywords-wordcloud" alt="Wordcloud of top keywords">
+
 ![](images/top_keywords_wordcloud.png)
+
+</a>
+
+
+
 
 #### Abstract Statistics:
 - No of papers without abstract: 36
@@ -324,4 +336,4 @@ scraping script, but we found the observation interesting, because it shows that
 While doing the first assignment we kept asking ourselves why: why should we spend so much time looking for a conversion library or come up with regex expressions.
 We take it all back: *now* we understand why. By working with regex in the first assignment, it seemed natural to use this newly acquired knowledge for information extraction. Furthermore, after having tested out so many conversion libraries, we already knew which ones we could trust.
 
-Thanks to the 2nd assignment, we could reuse our code for the wordcloud of keywords and the top 10 keywords plot.
+Thanks to the 2nd assignment, we could reuse our code for the wordcloud of keywords, which can be found in [this plot](#top-keywords-wordcloud), and the top 10 keywords plot.
