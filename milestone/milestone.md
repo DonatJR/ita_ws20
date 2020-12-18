@@ -52,8 +52,8 @@ TODO: high level description of _project structure_ and _pipeline_.
 TODO: In case that you already have some results from initial experiments, you may detail the results and implications. We strongly encourage you to already provide simple baselines.
 
 We decided to perform initial clustering experiments on the dataset we gathered in order to sketch out the overall algorithmic pipeline. For these experiments we performed the following steps:
-1. Preprocessing to exctract informative tokens
-2. Vectorization into TFIDF and bag of words
+1. Preprocessing to extract informative tokens
+2. Vectorization into TF-IDF and bag of words
 3. Clustering using algorithms from ```gensim``` and ```sklearn```
 4. Visualization with projected data.
 
@@ -70,18 +70,18 @@ We ended up using only the former source.
 
 [ann](http://aan.how) proved an unreliable data source because: 
 
-- we downloaded about 200 papers in txt format from [ann](http://aan.how) and randomly examinted 10 of them: they all contained spelling/formating mistakes, i.e. *Abstra-           ct* as a paragraph title
+- we downloaded about 200 papers in txt format from [ann](http://aan.how) and randomly examined 10 of them: they all contained spelling/formatting mistakes, i.e. *Abstra-           ct* as a paragraph title
 - the quality of the files made it hard to find regex for information extraction
-- even though [ann](http://aan.how) has to each paper a html page where the abstract could be found, after examination, we were once again facing the problem of an error-riden abstract
+- even though [ann](http://aan.how) has to each paper a html page where the abstract could be found, after examination, we were once again facing the problem of an error-ridden abstract
 
 [jmlr](https://jmlr.csail.mit.edu) proved an excellent data source because: 
 
-- the research papers are ordered in volumes. There are currenlty 21 volumes available. Each volume has its own website, i.e. https://jmlr.csail.mit.edu/papers/v18/
+- the research papers are ordered in volumes. There are currently 21 volumes available. Each volume has its own website, i.e. https://jmlr.csail.mit.edu/papers/v18/
 - the volumes' URL differ only by the number of the volume
 - to each research paper there are three links, two of them being:
    - a html page containing the abstract, names of the authors, title of the paper
    - the URL to the pdf
-- almost all the pdf's have the same structure: 
+- almost all the PDFs have the same structure: 
 
 Abstact
 
@@ -89,7 +89,7 @@ Abstact
 
 Keywords: <list_of_keywords>
 
-- having a rigid strcuture allowed us to use regex to extract information
+- having a rigid structure allowed us to use regex to extract information
 
 We decided to use the following information from a research paper: 
 - title
@@ -105,7 +105,7 @@ Based on this, we scraped the html page of the research paper and converted the 
 ### Preprocessing
 TODO: Detail any preprocessing steps you have taken to ensure proper data quality. This can include unicode normalization, length normalization, text sanitizing, etc
 
-We do standard preprocessing before clustering. We tried out the three libarries: ```gensim```, ```spacy``` 
+We do standard preprocessing before clustering. We tried out the three libraries: ```gensim```, ```spacy``` 
 and ```nltk```. After dealing with some problems regarding lemmatization in ```gensim``` (and the depending 
 ```pattern```, we found out in an [issue](https://github.com/RaRe-Technologies/gensim/issues/2716) on their official github repository, 
 that the library was not intended for preprocessing. We therefore dropped this one.  
@@ -116,13 +116,13 @@ Our preprocessing consists of:
 4. Stemming
 5. Length normalization
 6. Stop word removal
-We use the respective standard models for the english language of the libaries.
+We use the respective standard models for the english language of the libraries.
 
 The pipeline is in part configurable, because we want to compare our results towards raw text inputs. 
 After taking a first look at the resulting tokens for our first data, we realized the following:
 - Most papers share very common words for their common denominator field. 
 - Since we tried this out on  machine learning papers, all tokenized abstracts include e.g."_data_" with a high frequency. 
-- It should be benificial to include such common words and buzzwords in the stop word list
+- It should be beneficial to include such common words and buzzwords in the stop word list
 
 Currently our clustering performance will be suboptimal since we might not have very informative tokens for the respective topics.
 
@@ -130,7 +130,7 @@ Currently our clustering performance will be suboptimal since we might not have 
 No. of samples: 1261
 
 #### Keywords Statistics:
-A keyword can contain mutiple words, i.e, *bayesian statistics*.
+A keyword can contain multiple words, i.e, *bayesian statistics*.
 
 No of papers without keywords: 153
 
@@ -161,7 +161,7 @@ i) a html page where the abstract is in a meta tag. This abstract contains inlin
   
 ii) the pdf where the abstract doesn't contain any latex notation
 
-We extract them both (with the intetion to later compare the quality), but only use the one from the html page in our data files.
+We extract them both (with the intention to later compare the quality), but only use the one from the html page in our data files.
   
 After investigating why 36 papers seemingly have no abstract, it seems that for them the abstract is under a different html tag. We intend to correct this in the 
 scraping script, but we found the observation interesting, because it shows that scraping is very specific to the website we intend to extract information from.
@@ -193,6 +193,6 @@ scraping script, but we found the observation interesting, because it shows that
 
 #### Data - Reflection
 While doing the first assignment we kept asking ourselves why: why should we spend so much time looking for a conversion library or come up with regex expressions.
-We take it all back: *now* we understand why. By working with regex in the first assignment, it seemed natural to use this newly acquired knowledge for information extraction. Furthemore, after having tested out so many conversion libraries, we already knew which ones we could trust.
+We take it all back: *now* we understand why. By working with regex in the first assignment, it seemed natural to use this newly acquired knowledge for information extraction. Furthermore, after having tested out so many conversion libraries, we already knew which ones we could trust.
 
-We also believe in the power of recycling - this is where the second assignment comes into play. For the worldcloud of keywords and the top 10 keywords plot, we slightly modify our code from the simpsons' assignment.
+We also believe in the power of recycling - this is where the second assignment comes into play. For the wordcloud of keywords and the top 10 keywords plot, we slightly modify our code from the simpsons' assignment.
