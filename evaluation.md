@@ -1,13 +1,14 @@
-title: Evaluation pipeline
+Evaluation pipeline
 ---
 # Problem
 - We want to create supervision for clustering research papers
 - We currently have only papers from 1 superclass, i.e. "machine learning"
-- we have access to key words for each paper
+- We have access to key words for each paper:
     - these are 4 to 7 in total, but can consist of multiple words
     - this means we actually have 10 words max per paper
-How to get supervising labels for this kind of data without manually labeling? How can you objectively determine the 
-overall number of clusters?
+How to get supervising labels for this kind of data without manually labeling?
+
+How can you objectively determine the overall number of clusters?
 
 # Naive approach
 - Create super set of all key words
@@ -33,6 +34,6 @@ under the umbrella "optimization".
 - will take quite some time
 
 
-# Hybrid
+# Hybrid Solution
 - Use on of the automatic techniques from above and manually check for correctness
 - Make case decisions for individual "problematic" papers
