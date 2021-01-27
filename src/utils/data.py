@@ -12,7 +12,7 @@ from tqdm import tqdm
 
 def load_json(fpath, use_title=False):
     """ Loading the manual json files prepared for the time being  """
-    with open(fpath) as f:
+    with open(fpath, encoding="utf-8") as f:
         data = json.load(f)
         data_df = pd.json_normalize(data["papers"])
         corpus = data_df["abstract"]
@@ -59,8 +59,8 @@ def preprocessing(
 
         nlp = en_core_web_sm.load()
         #        nlp = spacy.load("en_core_web_sm")
-        all_stopwords = nlp.Defaults.stop_words
-
+        # all_stopwords = nlp.Defaults.stop_words
+        all_stopwords = spacy.lang.en.stop_words.STOP_WORDS
         tokenized = []
         print("Starting tokenization ...")
         for _, abstract in tqdm(enumerate(text)):
@@ -110,7 +110,7 @@ def preprocessing(
         tokenized = []
         print("Starting tokenization ...")
         for _, abstract in tqdm(enumerate(text)):
-            abstract = gensim.parsing.preprocessing.strip_non_alphanum(abstract)
+            abstract = gensim.parsing.preprocessing.strip_non_alphanum(abstract).lower()
             text_tokens = word_tokenize(abstract)
             if stemming:
                 text_tokens = [stemmer.stem(word) for word in text_tokens]
