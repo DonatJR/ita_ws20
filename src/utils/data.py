@@ -30,6 +30,7 @@ def preprocessing(
     lemmatization=False,
     min_word_len=2,
     max_word_len=15,
+    custom_stopwords=[],
 ):
     """
     Perform tokenization, stop word removal and optionally stemming, lemmatization.
@@ -52,6 +53,7 @@ def preprocessing(
         lemmatization=False,
         min_word_len=2,
         max_word_len=15,
+        custom_stopwords=[],
     ):
         # TODO this is the only things that works for Jessica
         import en_core_web_sm
@@ -61,6 +63,7 @@ def preprocessing(
         #        nlp = spacy.load("en_core_web_sm")
         # all_stopwords = nlp.Defaults.stop_words
         all_stopwords = spacy.lang.en.stop_words.STOP_WORDS
+        all_stopwords.update(custom_stopwords)
         tokenized = []
         print("Starting tokenization ...")
         for _, abstract in tqdm(enumerate(text)):
@@ -96,6 +99,7 @@ def preprocessing(
         lemmatization=False,
         min_word_len=2,
         max_word_len=15,
+        custom_stopwords=[],
     ):
         import nltk
 
@@ -106,7 +110,7 @@ def preprocessing(
         from nltk.tokenize import word_tokenize
 
         STOPWORDS = set(stopwords.words("english"))
-
+        STOPWORDS.update(custom_stopwords)
         tokenized = []
         print("Starting tokenization ...")
         for _, abstract in tqdm(enumerate(text)):
@@ -143,6 +147,7 @@ def preprocessing(
             lemmatization=lemmatization,
             min_word_len=2,
             max_word_len=15,
+            custom_stopwords=custom_stopwords,
         )
 
     elif lib == "nltk":
@@ -152,6 +157,7 @@ def preprocessing(
             lemmatization=lemmatization,
             min_word_len=2,
             max_word_len=15,
+            custom_stopwords=custom_stopwords,
         )
     else:
         raise Exception("Invalid library choice!")
