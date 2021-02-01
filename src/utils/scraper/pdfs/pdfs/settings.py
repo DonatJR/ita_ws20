@@ -13,7 +13,8 @@ SPIDER_MODULES = ['pdfs.spiders']
 NEWSPIDER_MODULE = 'pdfs.spiders'
 
 
-FILES_STORE = '../../../data/'
+FILES_STORE = '../../../data/pdfs/'
+MEDIA_ALLOW_REDIRECTS = True
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'pdfs (+http://www.yourdomain.com)'
@@ -65,8 +66,8 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'pdfs.pipelines.PdfsPipeline': 1,
-    'scrapy.pipelines.files.FilesPipeline': 2
+    'pdfs.pipelines.PdfsPipeline': 1
+    #'scrapy.pipelines.files.FilesPipeline': 2
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
