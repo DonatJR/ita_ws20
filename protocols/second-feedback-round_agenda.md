@@ -45,3 +45,8 @@ Is this approach okay?
 
 
 # Meeting notes
+
+- presentation and code deadline: 25.02.
+  - we can send an outline / plan of our presentation up to 18.02. to get feedback on it
+
+- project state is average / good
