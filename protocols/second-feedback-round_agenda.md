@@ -47,6 +47,16 @@ Is this approach okay?
 # Meeting notes
 
 - presentation and code deadline: 25.02.
-  - we can send an outline / plan of our presentation up to 18.02. to get feedback on it
+  - we can send an outline / plan / idea of our presentation up to 18.02. to get feedback on it
+  - submit presentation via Moodle
 
 - project state is average / good
+
+- presentation:
+    mention problems and insights  -> e.g. PDFs are difficult to process, what did we do in our project
+
+- report:
+    - each 3-5 pages what you have contributed to the project
+    
+- idea to scrape for a certain keyword quite nice -> maybe a keyword that already comes here very often
+
