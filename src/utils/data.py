@@ -131,8 +131,7 @@ def preprocessing(
                 text_tokens = [stemmer.stem(word) for word in text_tokens]
             if lemmatization:
                 lemmatizer = WordNetLemmatizer()
-                text_tokens = [lemmatizer.lemmatize(
-                    word) for word in text_tokens]
+                text_tokens = [lemmatizer.lemmatize(word) for word in text_tokens]
 
             tokens = [word for word in text_tokens if word not in STOPWORDS]
             tokens = [word for word in tokens if not len(word) < min_word_len]
@@ -156,8 +155,7 @@ def preprocessing(
                 tokenized.append(token_kwords)
         return tokenized
 
-    assert isinstance(
-        text, pd.Series), "Please pass panda data series for text"
+    assert isinstance(text, pd.Series), "Please pass panda data series for text"
     text.replace("", np.nan, inplace=True)
     num_nan = text.isna().sum()
     print("Dropping %d entries of corpus, due to nan ..." % num_nan)
