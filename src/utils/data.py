@@ -4,6 +4,7 @@ This contains all relevant I/O operations.
 
 import json
 
+import gensim.parsing.preprocessing
 import ipdb
 import numpy as np
 import pandas as pd
@@ -25,93 +26,98 @@ def load_json(fpath, return_data="abstract", append_title=False):
     return corpus
 
 
-def preprocessing(
-    text,
-    lib="gensim",
-    stemming=False,
-    lemmatization=False,
-    min_word_len=2,
-    max_word_len=15,
-    custom_stopwords=[],
-    datatype="abstract",
-):
-    """
-    Perform tokenization, stop word removal and optionally stemming, lemmatization.
-    These steps are crucial to get meaningful clusters.
-
-    args:
-    ---
-    text [pd.Series]: pandas series of paper abstracts or key_words
-    lib [str]: library to use for processing. options: spacy, nltk
-
-    returns:
-    ---
-    tokenized [pd.DataFrame]: Data frame with both abstracts and related tokens
-    """
-    import gensim.parsing.preprocessing
-
-    def spacy_preprocess(
+class Preprocessing:
+    def __init__(
+        self,
         text,
-        datatype,
+        lib="gensim",
         stemming=False,
         lemmatization=False,
         min_word_len=2,
         max_word_len=15,
         custom_stopwords=[],
+        datatype="abstract",
     ):
-        def process(data):
-            data = gensim.parsing.preprocessing.strip_non_alphanum(data)
-            data = nlp(data)
-            tokens = []
+        self.datatype = datatype
+        self.custom_stopwords = custom_stopwords
+        self.max_word_len = max_word_len
+        self.min_word_len = min_word_len
+        self.lemmatization = lemmatization
+        self.stemming = stemming
+        self.lib = lib
+        self.text = text
 
-            if lemmatization:
-                tokens = [doc.lemma_ for doc in data]
-            else:
-                tokens = [doc.text for doc in data]
-            if stemming:
-                tokens = [stemmer.stem(token) for token in tokens]
+        if self.stemming:
+            from nltk.stem.snowball import SnowballStemmer
 
-            tokens = [word for word in tokens if word not in STOPWORDS]
-            tokens = [word for word in tokens if not len(word) < min_word_len]
-            tokens = [word for word in tokens if not len(word) > max_word_len]
-            return tokens
+            self.stemmer = SnowballStemmer(language="english")
 
-        # NOTE this is the only import that works for Jessica
+    def apply_preprocessing(self):
+        """
+        Perform tokenization, stop word removal and optionally stemming, lemmatization.
+        These steps are crucial to get meaningful clusters.
+
+        args:
+        ---
+        text [pd.Series]: pandas series of paper abstracts or key_words
+        lib [str]: library to use for processing. options: spacy, nltk
+
+        returns:
+        ---
+        tokenized [pd.DataFrame]: Data frame with both abstracts and related tokens
+        """
+        assert isinstance(
+            self.text, pd.Series
+        ), "Please pass panda data series for text"
+        self.text.replace("", np.nan, inplace=True)
+
+        num_nan = self.text.isna().sum()
+        print("Dropping %d entries of corpus, due to nan ..." % num_nan)
+        self.text.dropna(inplace=True)
+        self.text = self.text.reset_index(drop=True)
+
+        if self.lib == "spacy":
+            tokenized = self.spacy_preprocess()
+
+        elif self.lib == "nltk":
+            tokenized = self.nltk_preprocess()
+        else:
+            raise Exception("Invalid library choice!")
+
+        tokenized = pd.Series(tokenized)
+        df_text = pd.concat([self.text, tokenized], axis=1)
+        df_text.columns = ["abstract", "token"]
+
+        return df_text
+
+    def spacy_preprocess(self):
         import en_core_web_sm
         import spacy
 
+        def process_spacy(data):
+            data = gensim.parsing.preprocessing.strip_non_alphanum(data)
+            data = nlp(data)
+
+            if self.lemmatization:
+                tokens = [doc.lemma_ for doc in data]
+            else:
+                tokens = [doc.text for doc in data]
+            if self.stemming:
+                tokens = [self.stemmer.stem(token) for token in tokens]
+
+            tokens = self.remove_words(tokens, STOPWORDS)
+
+            return tokens
+
         nlp = en_core_web_sm.load()
-        #        nlp = spacy.load("en_core_web_sm")
 
-        # all_stopwords = nlp.Defaults.stop_words
         STOPWORDS = spacy.lang.en.stop_words.STOP_WORDS
-        STOPWORDS.update(custom_stopwords)
+        STOPWORDS.update(self.custom_stopwords)
 
-        tokenized = []
-        print("Starting tokenization ...")
-        if datatype == "abstract":
-            for _, abstract in tqdm(enumerate(text)):
-                tokens = process(abstract)
-                tokenized.append(tokens)
-        elif datatype == "keywords":
-            for _, kword_list in tqdm(enumerate(text)):
-                token_kwords = []
-                # NOTE kword does not mean a single word, but a specific combination
-                for kword in kword_list:
-                    tokens = process(kword)
-                    token_kwords.append(tokens)
-                tokenized.append(token_kwords)
+        tokenized = self.process(process_spacy)
         return tokenized
 
-    def nltk_preprocess(
-        text,
-        datatype,
-        stemming=False,
-        lemmatization=False,
-        min_word_len=2,
-        max_word_len=15,
-        custom_stopwords=[],
-    ):
+    def nltk_preprocess(self):
         import nltk
 
         nltk.download("stopwords")
@@ -120,33 +126,40 @@ def preprocessing(
         from nltk.stem import WordNetLemmatizer
         from nltk.tokenize import word_tokenize
 
-        STOPWORDS = set(stopwords.words("english"))
-        STOPWORDS.update(custom_stopwords)
-
-        def process(data):
-            data = gensim.parsing.preprocessing.strip_non_alphanum(data)
+        def process_nltk(data):
+            data = gensim.parsing.preprocessing.strip_non_alphanum(data).lower()
             text_tokens = word_tokenize(data)
 
-            if stemming:
-                text_tokens = [stemmer.stem(word) for word in text_tokens]
-            if lemmatization:
+            if self.stemming:
+                text_tokens = [self.stemmer.stem(word) for word in text_tokens]
+            if self.lemmatization:
                 lemmatizer = WordNetLemmatizer()
                 text_tokens = [lemmatizer.lemmatize(word) for word in text_tokens]
 
-            tokens = [word for word in text_tokens if word not in STOPWORDS]
-            tokens = [word for word in tokens if not len(word) < min_word_len]
-            tokens = [word for word in tokens if not len(word) > max_word_len]
+            tokens = self.remove_words(text_tokens, STOPWORDS)
             return tokens
 
+        STOPWORDS = set(stopwords.words("english"))
+        STOPWORDS.update(self.custom_stopwords)
+
+        tokenized = self.process(process_nltk)
+        return tokenized
+
+    def remove_words(self, tokens, STOPWORDS):
+        tokens = [word for word in tokens if word not in STOPWORDS]
+        tokens = [word for word in tokens if not len(word) < self.min_word_len]
+        tokens = [word for word in tokens if not len(word) > self.max_word_len]
+        return tokens
+
+    def process(self, process):
         tokenized = []
         print("Starting tokenization ...")
-        print("Starting tokenization ...")
-        if datatype == "abstract":
-            for _, abstract in tqdm(enumerate(text)):
+        if self.datatype == "abstract":
+            for _, abstract in tqdm(enumerate(self.text)):
                 tokens = process(abstract)
                 tokenized.append(tokens)
-        elif datatype == "keywords":
-            for _, kword_list in tqdm(enumerate(text)):
+        elif self.datatype == "keywords":
+            for _, kword_list in tqdm(enumerate(self.text)):
                 token_kwords = []
                 # NOTE kword does not mean a single word, but a specific combination
                 for kword in kword_list:
@@ -154,45 +167,3 @@ def preprocessing(
                     token_kwords.append(tokens)
                 tokenized.append(token_kwords)
         return tokenized
-
-    assert isinstance(text, pd.Series), "Please pass panda data series for text"
-    text.replace("", np.nan, inplace=True)
-    num_nan = text.isna().sum()
-    print("Dropping %d entries of corpus, due to nan ..." % num_nan)
-    text.dropna(inplace=True)
-    text = text.reset_index(drop=True)
-
-    if stemming:
-        from nltk.stem.snowball import SnowballStemmer
-
-        stemmer = SnowballStemmer(language="english")
-
-    if lib == "spacy":
-        tokenized = spacy_preprocess(
-            text,
-            stemming=stemming,
-            lemmatization=lemmatization,
-            min_word_len=2,
-            max_word_len=15,
-            custom_stopwords=custom_stopwords,
-            datatype=datatype,
-        )
-
-    elif lib == "nltk":
-        tokenized = nltk_preprocess(
-            text,
-            stemming=stemming,
-            lemmatization=lemmatization,
-            min_word_len=2,
-            max_word_len=15,
-            custom_stopwords=custom_stopwords,
-            datatype=datatype,
-        )
-    else:
-        raise Exception("Invalid library choice!")
-
-    tokenized = pd.Series(tokenized)
-    df_text = pd.concat([text, tokenized], axis=1)
-    df_text.columns = ["abstract", "token"]
-
-    return df_text
