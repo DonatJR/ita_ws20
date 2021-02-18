@@ -32,6 +32,7 @@ def preprocessing(
     lemmatization=False,
     min_word_len=2,
     max_word_len=15,
+    custom_stopwords=[],
     datatype="abstract",
 ):
     """
@@ -56,6 +57,7 @@ def preprocessing(
         lemmatization=False,
         min_word_len=2,
         max_word_len=15,
+        custom_stopwords=[],
     ):
         def process(data):
             data = gensim.parsing.preprocessing.strip_non_alphanum(data)
@@ -80,7 +82,10 @@ def preprocessing(
 
         nlp = en_core_web_sm.load()
         #        nlp = spacy.load("en_core_web_sm")
-        STOPWORDS = nlp.Defaults.stop_words
+
+        # all_stopwords = nlp.Defaults.stop_words
+        STOPWORDS = spacy.lang.en.stop_words.STOP_WORDS
+        STOPWORDS.update(custom_stopwords)
 
         tokenized = []
         print("Starting tokenization ...")
@@ -105,6 +110,7 @@ def preprocessing(
         lemmatization=False,
         min_word_len=2,
         max_word_len=15,
+        custom_stopwords=[],
     ):
         import nltk
 
@@ -115,10 +121,12 @@ def preprocessing(
         from nltk.tokenize import word_tokenize
 
         STOPWORDS = set(stopwords.words("english"))
+        STOPWORDS.update(custom_stopwords)
 
         def process(data):
             data = gensim.parsing.preprocessing.strip_non_alphanum(data)
             text_tokens = word_tokenize(data)
+
             if stemming:
                 text_tokens = [stemmer.stem(word) for word in text_tokens]
             if lemmatization:
@@ -166,6 +174,7 @@ def preprocessing(
             lemmatization=lemmatization,
             min_word_len=2,
             max_word_len=15,
+            custom_stopwords=custom_stopwords,
             datatype=datatype,
         )
 
@@ -176,6 +185,7 @@ def preprocessing(
             lemmatization=lemmatization,
             min_word_len=2,
             max_word_len=15,
+            custom_stopwords=custom_stopwords,
             datatype=datatype,
         )
     else:
