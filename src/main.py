@@ -23,9 +23,6 @@ and cluster with selected algorithm.
 We will configure this via yaml configs later.
 """
 
-# TODO think about saving results
-# TODO think about configuration
-
 
 def get_parser():
     """ Parser to configure main script via command line """
@@ -44,10 +41,6 @@ def save_results(results):
     raise NotImplementedError()
 
 
-# TODO more algorithms
-# TODO clearer options
-# TODO test how to pass data
-# TODO refactor
 # TODO can we run this on the vectors from other libs?
 def sklearn_clustering(data, n_components=None, n_features=10000, n_clusters=5):
     """ From the online doc: https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html """
@@ -145,9 +138,6 @@ def sklearn_clustering(data, n_components=None, n_features=10000, n_clusters=5):
     return
 
 
-# NOTE CHEN: this is only a prototype
-# NOTE CHEN: I like to configure my experiments via yaml files
-# The run.py script can be used to parse the configuration files to this file
 if __name__ == "__main__":
 
     #    global args, logger
@@ -156,13 +146,14 @@ if __name__ == "__main__":
     #    logger.info(args)
     #    logger.info("=> Starting new experiment ...")
 
-    test_path = Path("data/data_jmlr_vol13-21.json")
-    corpus = io.load_json(test_path)
-    corpus = io.preprocessing(corpus, lib="spacy", stemming=True, lemmatization=True)
+    dpath = Path("data/data_2021-02-01_22:27:13.862993_labeled.json")
+    data = io.load_json(dpath)
+    data_df = pd.json_normalize(data["papers"])
+    data_df.sort_values(by="label", inplace=True)
 
-    # TODO JESSICA: further filter and clean data by using functions such as filter_extremes (remove all tokens that are less frequent or more frequent than a number),
-    # filter_n_most_frequent(filter out the ‘remove_n’ most frequent tokens),
-    # merge_with (to merge multiple dictionaries)
+    ipdb.set_trace()
+
+    corpus = io.preprocessing(corpus, lib="spacy", stemming=True, lemmatization=True)
 
     dictionary = corpora.Dictionary(corpus["token"])
     corpus_tfidf, bow_corpus = utils.vectorize.compute_tfidf(
@@ -174,17 +165,7 @@ if __name__ == "__main__":
     lda_tfidf = utils.vectorize.lda(corpus_tfidf, dictionary, num_topics=3)
     lda_bow = utils.vectorize.lda(bow_corpus, dictionary, num_topics=3)
 
-    # TODO make algorithm options passable
-    # TODO clean this shit up
     sklearn_clustering(corpus["token"], n_components=4)
-
-    # TODO debug jessicas try
-    #    vis = pyLDAvis.gensim.prepare(
-    #        lda_model, corpus_tfidf, dictionary=lda_model.id2word, mds="mmds"
-    #    )
-
-    # TODO clean this mess up
-    # Visualize
 
     print(dictionary.token2id)  # token -> tokenId.
     print(dictionary.dfs)  # token_id -> how many documents contain this token.
