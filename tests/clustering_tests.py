@@ -1,9 +1,6 @@
 import unittest
-import sys
-import os
 from sklearn.cluster import KMeans
 
-sys.path.append(os.path.abspath("../src"))
 from utils.clustering import Clustering
 from utils.preprocessing import Preprocessing
 from utils.config import (
