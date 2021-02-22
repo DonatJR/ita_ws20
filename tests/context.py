@@ -1,9 +1,9 @@
 import os
 import sys
-sys.path.append(os.path.abspath("../src/"))
+sys.path.append(os.path.abspath("../src/utils"))
 
-import utils.clustering as clustering_module
-import utils.preprocessing as preprocessing_module
-import utils.data as data_module
-import utils.config as config_module
-import utils.helper as helper_module
+import clustering as clustering_module
+import preprocessing as preprocessing_module
+import data as data_module
+import config as config_module
+import helper as helper_module
