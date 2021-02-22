@@ -3,11 +3,11 @@ This contains all relevant I/O operations.
 """
 
 import json
+import pickle
 
 import numpy as np
 import pandas as pd
-import pickle
-from helper import write_pickle
+from utils.helper import write_pickle
 
 
 def load_json(fpath, return_data="abstract", append_title=False):

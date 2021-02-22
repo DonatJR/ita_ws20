@@ -1,9 +1,9 @@
 #! /usr/bin/env python3
 
-from utils.config import Config
 import utils.data as io
-from utils.helper import get_logger, get_parser
 from utils.clustering import Clustering
+from utils.config import Config
+from utils.helper import get_logger, get_parser
 from utils.preprocessing import Preprocessing
 
 """
@@ -15,7 +15,7 @@ and cluster with selected algorithm.
 def main():
     args = get_parser().parse_args()
 
-    config = Config(args.config)
+    config = Config.from_file(args.config)
 
     logger = get_logger(config.output_path)
     logger.info(args)
@@ -26,15 +26,17 @@ def main():
 
     logger.info("Perform preprocessing")
     preprocessed_corpus = Preprocessing(
-        corpus["abstract"], logger=logger, config=config.preprocessing
+        corpus["abstract"],
+        config=config.preprocessing,
+        logger=logger,
     ).apply_preprocessing()
 
     logger.info("Start clustering")
     clustering = Clustering(
         preprocessed_corpus,
-        logger=logger,
         clustering_config=config.clustering,
         dim_reduction_config=config.dim_reduction,
+        logger=logger,
     )
     model = clustering.perform_clustering()
     top_words_per_cluster = clustering.get_top_words()

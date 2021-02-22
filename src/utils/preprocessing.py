@@ -2,12 +2,12 @@ import gensim.parsing.preprocessing
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
+from utils.config import ClusteringMethod, DimReduction, PreprocessingLib
 from utils.helper import get_logger
-from utils.config import PreprocessingLib, DimReduction, ClusteringMethod
 
 
 class Preprocessing:
-    def __init__(self, text, logger, config, datatype="abstract"):
+    def __init__(self, text, config, datatype="abstract", logger=None):
         self.__datatype = datatype
         self.__custom_stopwords = config.custom_stopwords
         self.__max_word_len = config.max_word_len
@@ -45,7 +45,7 @@ class Preprocessing:
         self.__text.replace("", np.nan, inplace=True)
 
         num_nan = self.__text.isna().sum()
-        self.__logger.info("Dropping %d entries of corpus, due to nan ..." % num_nan)
+        self.__log("Dropping %d entries of corpus, due to nan ..." % num_nan)
         self.__text.dropna(inplace=True)
         self.__text = self.__text.reset_index(drop=True)
 
@@ -125,7 +125,7 @@ class Preprocessing:
 
     def __process(self, process):
         tokenized = []
-        self.__logger.info("Starting tokenization ...")
+        self.__log("Starting tokenization ...")
         if self.__datatype == "abstract":
             for _, abstract in tqdm(enumerate(self.__text)):
                 tokens = process(abstract)
@@ -139,3 +139,7 @@ class Preprocessing:
                     token_kwords.append(tokens)
                 tokenized.append(token_kwords)
         return tokenized
+
+    def __log(self, message):
+        if self.__logger is not None:
+            self.__logger.info(message)

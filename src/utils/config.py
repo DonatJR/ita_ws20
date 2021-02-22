@@ -1,5 +1,6 @@
-import yaml
 from enum import Enum
+
+import yaml
 
 
 class PreprocessingLib(Enum):
@@ -78,47 +79,50 @@ class ClusteringConfig:
 
 
 class Config:
-    def __init__(self, config_path):
+    def __init__(self, config):
+        self.input_path = config["input_path"]
+        self.output_path = config["output_path"]
+        self.use_title = config["use_title"]
+
+        # preprocessing arguments
+        lib = PreprocessingLib.from_str(config["preprocessing"]["lib"])
+        use_stemming = config["preprocessing"]["stemming"]
+        use_lemmatization = config["preprocessing"]["lemmatization"]
+        min_word_len = config["preprocessing"]["min_word_len"]
+        max_word_len = config["preprocessing"]["max_word_len"]
+        custom_stopwords = config["preprocessing"]["custom_stopwords"]
+
+        self.preprocessing = PreprocessingConfig(
+            lib,
+            use_stemming,
+            use_lemmatization,
+            min_word_len,
+            max_word_len,
+            custom_stopwords,
+        )
+
+        # dimensionality reduction
+        dim_reduction_method = DimReduction.from_str(
+            config["embedding"]["dimensionality_reduction"]
+        )
+        n_components = config["embedding"]["n_components"]
+        self.dim_reduction = DimReductionConfig(dim_reduction_method, n_components)
+
+        # clustering
+        clustering_method = ClusteringMethod.from_str(config["clustering"]["model"])
+        n_clusters = config["clustering"]["n_clusters"]
+
+        agglomerative_linkage = config["clustering"].get(
+            "agglomerative_linkage", None
+        )  # only used for AgglomerativeClustering -> optional param for other methods
+
+        self.clustering = ClusteringConfig(
+            clustering_method, n_clusters, agglomerative_linkage
+        )
+
+    @staticmethod
+    def from_file(config_path):
         # Read YAML file
         with open(config_path) as stream:
             config = yaml.safe_load(stream)
-
-            self.input_path = config["input_path"]
-            self.output_path = config["output_path"]
-            self.use_title = config["use_title"]
-
-            # preprocessing arguments
-            lib = PreprocessingLib.from_str(config["preprocessing"]["lib"])
-            use_stemming = config["preprocessing"]["stemming"]
-            use_lemmatization = config["preprocessing"]["lemmatization"]
-            min_word_len = config["preprocessing"]["min_word_len"]
-            max_word_len = config["preprocessing"]["max_word_len"]
-            custom_stopwords = config["preprocessing"]["custom_stopwords"]
-
-            self.preprocessing = PreprocessingConfig(
-                lib,
-                use_stemming,
-                use_lemmatization,
-                min_word_len,
-                max_word_len,
-                custom_stopwords,
-            )
-
-            # dimensionality reduction
-            dim_reduction_method = DimReduction.from_str(
-                config["embedding"]["dimensionality_reduction"]
-            )
-            n_components = config["embedding"]["n_components"]
-            self.dim_reduction = DimReductionConfig(dim_reduction_method, n_components)
-
-            # clustering
-            clustering_method = ClusteringMethod.from_str(config["clustering"]["model"])
-            n_clusters = config["clustering"]["n_clusters"]
-
-            agglomerative_linkage = config["clustering"].get(
-                "agglomerative_linkage", None
-            )  # only used for AgglomerativeClustering -> optional param for other methods
-
-            self.clustering = ClusteringConfig(
-                clustering_method, n_clusters, agglomerative_linkage
-            )
+            return Config(config)

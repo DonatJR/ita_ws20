@@ -5,13 +5,14 @@
 This is a collection of useful functions.
 """
 
+import argparse
 import logging
 import os
 import pickle
-import yaml
-import argparse
-from pathlib import Path
 from logging.handlers import TimedRotatingFileHandler
+from pathlib import Path
+
+import yaml
 
 
 def get_logger(save_path, name=None):
@@ -46,6 +47,7 @@ def get_logger(save_path, name=None):
 
     return logger
 
+
 def get_parser():
     """ Parser to configure main script via command line """
     parser = argparse.ArgumentParser(description="scientific paper clustering")
@@ -54,9 +56,12 @@ def get_parser():
     )
     return parser
 
+
 # TODO: needed?
 # NOTE this can be used in combination with argparse and yaml config files
 # the execution is then carried out using two scripts
+
+
 def execute_shell_script(command, config):
     """
     Execute shell script with config options using os.

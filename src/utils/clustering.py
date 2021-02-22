@@ -1,20 +1,19 @@
 import numpy as np
-from sklearn.cluster import Birch, KMeans
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.cluster import AgglomerativeClustering, KMeans
 from sklearn.decomposition import TruncatedSVD
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.manifold import SpectralEmbedding
-from utils.config import DimReduction, ClusteringMethod
-from sklearn.cluster import KMeans, AgglomerativeClustering
-from sklearn.preprocessing import Normalizer
 from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import Normalizer
+from utils.config import ClusteringMethod, DimReduction
 
 
 class Clustering:
-    def __init__(self, corpus, logger, clustering_config, dim_reduction_config):
+    def __init__(self, corpus, clustering_config, dim_reduction_config, logger=None):
         self.__corpus = corpus
-        self.__logger = logger
         self.__clustering_config = clustering_config
         self.__dim_reduction_config = dim_reduction_config
+        self.__logger = logger
 
     def perform_clustering(self):
         vectorizer, tfidf_corpus = self.__get_tfidf_corpus(self.__corpus)
@@ -49,7 +48,7 @@ class Clustering:
 
     def __get_tfidf_corpus(self, corpus, silent=False):
         if not silent:
-            self.__logger.info("applying TD-IDF")
+            self.__log("applying TD-IDF")
         vectorizer = TfidfVectorizer(
             tokenizer=self.__identity_tokenizer, lowercase=False
         )
@@ -57,10 +56,10 @@ class Clustering:
 
     def __get_model(self, config):
         if config.method == ClusteringMethod.KMEANS:
-            self.__logger.info("using KMeans-Model")
+            self.__log("using KMeans-Model")
             return KMeans(n_clusters=config.n_clusters)
         elif config.method == ClusteringMethod.AGGLOMERATIVE:
-            self.__logger.info("using AgglomerativeClustering-Model")
+            self.__log("using AgglomerativeClustering-Model")
             return AgglomerativeClustering(
                 n_clusters=config.n_clusters, linkage=config.agglomerative_linkage
             )
@@ -69,13 +68,13 @@ class Clustering:
 
     def __perform_dim_reduction(self, corpus, dim_reduction_method, n_components):
         if dim_reduction_method == DimReduction.LSA:
-            self.__logger.info("performing lsa embedding")
+            self.__log("performing lsa embedding")
             return self.__get_lsa_transformation(n_components, corpus)
         elif dim_reduction_method == DimReduction.SPECTRAL:
-            self.__logger.info("performing spectral embedding")
+            self.__log("performing spectral embedding")
             return self.__get_spectral_transformation(n_components, corpus)
         else:
-            self.__logger.info("performing no dimensionality reduction")
+            self.__log("performing no dimensionality reduction")
             return corpus.toarray()
 
     def __get_lsa_transformation(self, n_components, corpus):
@@ -86,3 +85,7 @@ class Clustering:
 
     def __get_spectral_transformation(self, n_components, corpus):
         return SpectralEmbedding(n_components).fit_transform(corpus)
+
+    def __log(self, message):
+        if self.__logger is not None:
+            self.__logger.info(message)
