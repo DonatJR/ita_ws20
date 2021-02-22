@@ -20,7 +20,10 @@ class Clustering:
         vectorizer, tfidf_corpus = self.__get_tfidf_corpus(self.__corpus)
 
         corpus = self.__perform_dim_reduction(
-            tfidf_corpus, self.__dim_reduction_config.method, self.__dim_reduction_config.n_components)
+            tfidf_corpus,
+            self.__dim_reduction_config.method,
+            self.__dim_reduction_config.n_components,
+        )
 
         self.model = self.__get_model(self.__clustering_config)
         self.model.fit(corpus)
@@ -30,15 +33,13 @@ class Clustering:
         clusters = []
         for i in range(np.max(self.model.labels_) + 1):
             vectorizer, tfidf_corpus = self.__get_tfidf_corpus(
-                self.__corpus.iloc[np.where(self.model.labels_ == i)],
-                True
+                self.__corpus.iloc[np.where(self.model.labels_ == i)], True
             )
             scores = zip(
                 vectorizer.get_feature_names(),
                 np.asarray(tfidf_corpus.sum(axis=0)).ravel(),
             )
-            sorted_scores = list(
-                zip(*sorted(scores, key=lambda x: x[1], reverse=True)))
+            sorted_scores = list(zip(*sorted(scores, key=lambda x: x[1], reverse=True)))
             top_words = sorted_scores[0][:10]
             clusters.append(top_words)
         return clusters
@@ -50,7 +51,8 @@ class Clustering:
         if not silent:
             self.__logger.info("applying TD-IDF")
         vectorizer = TfidfVectorizer(
-            tokenizer=self.__identity_tokenizer, lowercase=False)
+            tokenizer=self.__identity_tokenizer, lowercase=False
+        )
         return vectorizer, vectorizer.fit_transform(corpus["token"])
 
     def __get_model(self, config):
@@ -59,7 +61,9 @@ class Clustering:
             return KMeans(n_clusters=config.n_clusters)
         elif config.method == ClusteringMethod.AGGLOMERATIVE:
             self.__logger.info("using AgglomerativeClustering-Model")
-            return AgglomerativeClustering(n_clusters=config.n_clusters, linkage=config.agglomerative_linkage)
+            return AgglomerativeClustering(
+                n_clusters=config.n_clusters, linkage=config.agglomerative_linkage
+            )
         else:
             raise NotImplementedError("Unknown clustering method")
 

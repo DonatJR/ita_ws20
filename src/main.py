@@ -18,8 +18,9 @@ and cluster with selected algorithm.
 def get_parser():
     """ Parser to configure main script via command line """
     parser = argparse.ArgumentParser(description="scientific paper clustering")
-    parser.add_argument("--config", type=str,
-                        default="./config.yaml", help="Path to the config file")
+    parser.add_argument(
+        "--config", type=str, default="./config.yaml", help="Path to the config file"
+    )
     return parser
 
 
@@ -37,29 +38,30 @@ def main():
 
     logger.info("Perform preprocessing")
     preprocessed_corpus = Preprocessing(
-        corpus["abstract"],
-        logger=logger,
-        config=config.preprocessing
+        corpus["abstract"], logger=logger, config=config.preprocessing
     ).apply_preprocessing()
 
     logger.info("Start clustering")
-    clustering = Clustering(preprocessed_corpus,
-                            logger=logger,
-                            clustering_config=config.clustering,
-                            dim_reduction_config=config.dim_reduction)
+    clustering = Clustering(
+        preprocessed_corpus,
+        logger=logger,
+        clustering_config=config.clustering,
+        dim_reduction_config=config.dim_reduction,
+    )
     model = clustering.perform_clustering()
     top_words_per_cluster = clustering.get_top_words()
 
     logger.info(f"Save results to {config.output_path}")
     io.save_results(
-        config.output_path +
-        "cluster.json", corpus, preprocessed_corpus, model, top_words_per_cluster
+        config.output_path + "cluster.json",
+        corpus,
+        preprocessed_corpus,
+        model,
+        top_words_per_cluster,
     )
 
     logger.info(f"Saving model to {config.output_path}")
-    io.save_model(
-        config.output_path + "model.pickle", model
-    )
+    io.save_model(config.output_path + "model.pickle", model)
 
 
 if __name__ == "__main__":

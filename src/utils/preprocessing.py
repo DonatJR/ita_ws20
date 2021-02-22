@@ -7,13 +7,7 @@ from utils.config import PreprocessingLib, DimReduction, ClusteringMethod
 
 
 class Preprocessing:
-    def __init__(
-        self,
-        text,
-        logger,
-        config,
-        datatype="abstract"
-    ):
+    def __init__(self, text, logger, config, datatype="abstract"):
         self.__datatype = datatype
         self.__custom_stopwords = config.custom_stopwords
         self.__max_word_len = config.max_word_len
@@ -51,8 +45,7 @@ class Preprocessing:
         self.__text.replace("", np.nan, inplace=True)
 
         num_nan = self.__text.isna().sum()
-        self.__logger.info(
-            "Dropping %d entries of corpus, due to nan ..." % num_nan)
+        self.__logger.info("Dropping %d entries of corpus, due to nan ..." % num_nan)
         self.__text.dropna(inplace=True)
         self.__text = self.__text.reset_index(drop=True)
 
@@ -106,16 +99,14 @@ class Preprocessing:
         from nltk.tokenize import word_tokenize
 
         def process_nltk(data):
-            data = gensim.parsing.preprocessing.strip_non_alphanum(
-                data).lower()
+            data = gensim.parsing.preprocessing.strip_non_alphanum(data).lower()
             text_tokens = word_tokenize(data)
 
             if self.__stemming:
                 text_tokens = [self.stemmer.stem(word) for word in text_tokens]
             if self.__lemmatization:
                 lemmatizer = WordNetLemmatizer()
-                text_tokens = [lemmatizer.lemmatize(
-                    word) for word in text_tokens]
+                text_tokens = [lemmatizer.lemmatize(word) for word in text_tokens]
 
             tokens = self.__remove_words(text_tokens, STOPWORDS)
             return tokens
@@ -128,10 +119,8 @@ class Preprocessing:
 
     def __remove_words(self, tokens, STOPWORDS):
         tokens = [word for word in tokens if word not in STOPWORDS]
-        tokens = [word for word in tokens if not len(
-            word) < self.__min_word_len]
-        tokens = [word for word in tokens if not len(
-            word) > self.__max_word_len]
+        tokens = [word for word in tokens if not len(word) < self.__min_word_len]
+        tokens = [word for word in tokens if not len(word) > self.__max_word_len]
         return tokens
 
     def __process(self, process):

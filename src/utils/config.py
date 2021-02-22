@@ -46,8 +46,16 @@ class ClusteringMethod(Enum):
             raise NotImplementedError("Invalid clustering method")
 
 
-class PreprocessingConfig():
-    def __init__(self, lib, use_stemming, use_lemmatization, min_word_len, max_word_len, custom_stopwords):
+class PreprocessingConfig:
+    def __init__(
+        self,
+        lib,
+        use_stemming,
+        use_lemmatization,
+        min_word_len,
+        max_word_len,
+        custom_stopwords,
+    ):
         self.lib = lib
         self.use_stemming = use_stemming
         self.use_lemmatization = use_lemmatization
@@ -56,20 +64,20 @@ class PreprocessingConfig():
         self.custom_stopwords = custom_stopwords
 
 
-class DimReductionConfig():
+class DimReductionConfig:
     def __init__(self, method, n_components):
         self.method = method
         self.n_components = n_components
 
 
-class ClusteringConfig():
+class ClusteringConfig:
     def __init__(self, method, n_clusters, agglomerative_linkage):
         self.method = method
         self.n_clusters = n_clusters
         self.agglomerative_linkage = agglomerative_linkage
 
 
-class Config():
+class Config:
     def __init__(self, config_path):
         # Read YAML file
         with open(config_path) as stream:
@@ -80,8 +88,7 @@ class Config():
             self.use_title = config["use_title"]
 
             # preprocessing arguments
-            lib = PreprocessingLib.from_str(
-                config["preprocessing"]["lib"])
+            lib = PreprocessingLib.from_str(config["preprocessing"]["lib"])
             use_stemming = config["preprocessing"]["stemming"]
             use_lemmatization = config["preprocessing"]["lemmatization"]
             min_word_len = config["preprocessing"]["min_word_len"]
@@ -89,22 +96,29 @@ class Config():
             custom_stopwords = config["preprocessing"]["custom_stopwords"]
 
             self.preprocessing = PreprocessingConfig(
-                lib, use_stemming, use_lemmatization, min_word_len, max_word_len, custom_stopwords)
+                lib,
+                use_stemming,
+                use_lemmatization,
+                min_word_len,
+                max_word_len,
+                custom_stopwords,
+            )
 
             # dimensionality reduction
             dim_reduction_method = DimReduction.from_str(
-                config["embedding"]["dimensionality_reduction"])
+                config["embedding"]["dimensionality_reduction"]
+            )
             n_components = config["embedding"]["n_components"]
-            self.dim_reduction = DimReductionConfig(
-                dim_reduction_method, n_components)
+            self.dim_reduction = DimReductionConfig(dim_reduction_method, n_components)
 
             # clustering
-            clustering_method = ClusteringMethod.from_str(
-                config["clustering"]["model"])
+            clustering_method = ClusteringMethod.from_str(config["clustering"]["model"])
             n_clusters = config["clustering"]["n_clusters"]
 
             agglomerative_linkage = config["clustering"].get(
-                "agglomerative_linkage", None)  # only used for AgglomerativeClustering -> optional param for other methods
+                "agglomerative_linkage", None
+            )  # only used for AgglomerativeClustering -> optional param for other methods
 
             self.clustering = ClusteringConfig(
-                clustering_method, n_clusters, agglomerative_linkage)
+                clustering_method, n_clusters, agglomerative_linkage
+            )
