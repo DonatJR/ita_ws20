@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(os.path.abspath("../src/utils"))
+sys.path.insert(0, os.path.abspath("../src/utils/"))
 
 import clustering as clustering_module
 import preprocessing as preprocessing_module
