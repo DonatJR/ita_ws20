@@ -9,6 +9,7 @@ import logging
 import os
 import pickle
 import yaml
+import argparse
 from pathlib import Path
 from logging.handlers import TimedRotatingFileHandler
 
@@ -33,9 +34,9 @@ def get_logger(save_path, name=None):
         handler = TimedRotatingFileHandler(
             Path(save_path) / logger_name, interval=1, backupCount=0
         )
-        logger.addHandler(handler)
         fmt = "[%(asctime)s %(levelname)s %(filename)s line %(lineno)d %(process)d] %(message)s"
         handler.setFormatter(logging.Formatter(fmt))
+        logger.addHandler(handler)
 
         # Add console output
         console = logging.StreamHandler()
@@ -45,6 +46,13 @@ def get_logger(save_path, name=None):
 
     return logger
 
+def get_parser():
+    """ Parser to configure main script via command line """
+    parser = argparse.ArgumentParser(description="scientific paper clustering")
+    parser.add_argument(
+        "--config", type=str, default="./config.yaml", help="Path to the config file"
+    )
+    return parser
 
 # TODO: needed?
 # NOTE this can be used in combination with argparse and yaml config files

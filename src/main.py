@@ -1,11 +1,8 @@
 #! /usr/bin/env python3
 
-import argparse
-from pathlib import Path
-
 from utils.config import Config
 import utils.data as io
-from utils.helper import get_logger
+from utils.helper import get_logger, get_parser
 from utils.clustering import Clustering
 from utils.preprocessing import Preprocessing
 
@@ -13,15 +10,6 @@ from utils.preprocessing import Preprocessing
 Load our collected papers as a json file, preprocess, perform vectorization
 and cluster with selected algorithm.
 """
-
-
-def get_parser():
-    """ Parser to configure main script via command line """
-    parser = argparse.ArgumentParser(description="scientific paper clustering")
-    parser.add_argument(
-        "--config", type=str, default="./config.yaml", help="Path to the config file"
-    )
-    return parser
 
 
 def main():
