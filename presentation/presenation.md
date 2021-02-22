@@ -13,7 +13,11 @@
 - Papers organized in 21 (currently 22) 22 volumes ⇒ easy to scrape as almost all pdfs are found under two html tags
 - Each volume contains between 60 and 250 papers
 
+![](img/volumes.png)
+
 # Pipeline
+
+![](img/data_pipeline.jpeg)
 
 - Initial Solution: scrape with own scraping script (requests) and then extract information using Regex → Problem: Find one regex to suit them all
 - Solution: Grobid - machine learning software for extracting information from scholarly documents
@@ -21,6 +25,8 @@
 - Problem: Spider interprets the "/" in ref as folder locations ⇒ Solution: change "/" into ";"
 
 ### General Statistics Dataset:
+
+![](img/paper.png)
 
 - 2230 Research Papers
 - 18 do not have an abstract
