@@ -29,11 +29,14 @@
 ![](img/paper.png)
 
 - 2230 Research Papers
-- 18 do not have an abstract
-- do no have keywords
-- Keywords Wordcloud
+- 20 papers do not have an abstract
+- 159 papers have no keywords
+- Average no. of keywords per research paper is 4.7040358744394615
+
 - Words Wordcloud
-- Average no of Keywords
+![](img/top_words_wordcloud.png)
+- Keywords Wordcloud
+![](img/top_keywords_wordcloud.png)
 
 
 ## Evaluation
