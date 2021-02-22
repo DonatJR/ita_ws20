@@ -1,18 +1,16 @@
 import unittest
-import sys
 import os
 
-sys.path.append(os.path.abspath("../src"))
-from utils.helper import get_logger, get_parser
 from logging.handlers import TimedRotatingFileHandler
 
+from context import helper_module
 
 class HelperTest(unittest.TestCase):
     def test_get_parser(self):
         """ Argument parser knows config argument """
 
         arguments = ["--config", "test.yaml"]
-        parser = get_parser()
+        parser = helper_module.get_parser()
         args = parser.parse_args(arguments)
 
         self.assertTrue(args.config == "test.yaml")
@@ -21,7 +19,7 @@ class HelperTest(unittest.TestCase):
         """ Logger is correctly configured """
 
         logger_name = "testlogger"
-        logger = get_logger("./", name=logger_name)
+        logger = helper_module.get_logger("./", name=logger_name)
 
         self.assertTrue(logger.name == logger_name)
         self.assertTrue(len(logger.handlers) == 2)
@@ -30,6 +28,12 @@ class HelperTest(unittest.TestCase):
         for i in logger.handlers:
             i.flush()
             i.close()
+            
+        try:
+            # file exists sometimes ;/
+            os.remove("./testlogger")
+        except OSError:
+            pass
 
 
 if __name__ == "__main__":
