@@ -1,5 +1,5 @@
 input_path: "data/data_jmlr_vol13-21.json"
-output_path: "results/test.json"
+output_path: "results/"
 use_title: False
 preprocessing:
   stemming: False
@@ -8,7 +8,10 @@ preprocessing:
   min_word_len: 2
   max_word_len: 15
   custom_stopwords: []
-dimensionality_reduction: None
 clustering:
-  model: "kmeans"
+  model: "agglomerative"
   n_clusters: 15
+  agglomerative_linkage: "ward"
+embedding:
+  dimensionality_reduction: "lsa"
+  n_components: 2

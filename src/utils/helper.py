@@ -10,6 +10,7 @@ import os
 import pickle
 import yaml
 from pathlib import Path
+from logging.handlers import TimedRotatingFileHandler
 
 
 def get_logger(save_path, name=None):
@@ -27,22 +28,25 @@ def get_logger(save_path, name=None):
         logger_name = name
     logger = logging.getLogger(logger_name)
     logger.setLevel(logging.INFO)
-    handler = TimedRotatingFileHandler(
-        Path(save_path) / logger_name, interval=1, backupCount=0
-    )
-    logger.addHandler(handler)
-    fmt = "[%(asctime)s %(levelname)s %(filename)s line %(lineno)d %(process)d] %(message)s"
-    handler.setFormatter(logging.Formatter(fmt))
 
-    # Add console output
-    console = logging.StreamHandler()
-    console.setLevel(logging.INFO)
-    console.setFormatter(logging.Formatter(fmt))
-    logger.addHandler(console)
+    if not logger.hasHandlers():
+        handler = TimedRotatingFileHandler(
+            Path(save_path) / logger_name, interval=1, backupCount=0
+        )
+        logger.addHandler(handler)
+        fmt = "[%(asctime)s %(levelname)s %(filename)s line %(lineno)d %(process)d] %(message)s"
+        handler.setFormatter(logging.Formatter(fmt))
+
+        # Add console output
+        console = logging.StreamHandler()
+        console.setLevel(logging.INFO)
+        console.setFormatter(logging.Formatter(fmt))
+        logger.addHandler(console)
 
     return logger
 
 
+# TODO: needed?
 # NOTE this can be used in combination with argparse and yaml config files
 # the execution is then carried out using two scripts
 def execute_shell_script(command, config):

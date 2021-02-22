@@ -6,6 +6,7 @@ import json
 
 import numpy as np
 import pandas as pd
+import pickle
 
 
 def load_json(fpath, return_data="abstract", append_title=False):
@@ -15,7 +16,8 @@ def load_json(fpath, return_data="abstract", append_title=False):
         data_df = pd.json_normalize(data["papers"])
         if return_data == "abstract":
             if append_title:
-                data_df["abstract"] = data_df["title"] + " " + data_df["abstract"]
+                data_df["abstract"] = data_df["title"] + \
+                    " " + data_df["abstract"]
             corpus = data_df
         elif return_data == "keywords":
             corpus = data_df["keywords"]
@@ -36,3 +38,11 @@ def save_results(
 
     with open(output_path, "w") as fp:
         json.dump(results, fp)
+
+
+def save_model(
+    output_path,
+    model
+):
+    with open(output_path, "wb") as fp:
+        pickle.dump(model, fp)
