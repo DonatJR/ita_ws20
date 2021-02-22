@@ -5,6 +5,7 @@ from logging.handlers import TimedRotatingFileHandler
 
 from context import helper_module
 
+
 class HelperTest(unittest.TestCase):
     def test_get_parser(self):
         """ Argument parser knows config argument """
@@ -28,7 +29,7 @@ class HelperTest(unittest.TestCase):
         for i in logger.handlers:
             i.flush()
             i.close()
-            
+
         try:
             # file exists sometimes ;/
             os.remove("./testlogger")

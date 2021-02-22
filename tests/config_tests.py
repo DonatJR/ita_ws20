@@ -4,6 +4,7 @@ import yaml
 
 from context import config_module
 
+
 class ConfigTest(unittest.TestCase):
     def test_config(self):
         """ Config parses yaml file correctly """
@@ -47,7 +48,9 @@ class ConfigTest(unittest.TestCase):
         self.assertTrue(config.dim_reduction.method == config_module.DimReduction.LSA)
         self.assertTrue(config.dim_reduction.n_components == 2)
 
-        self.assertTrue(config.clustering.method == config_module.ClusteringMethod.AGGLOMERATIVE)
+        self.assertTrue(
+            config.clustering.method == config_module.ClusteringMethod.AGGLOMERATIVE
+        )
         self.assertTrue(config.clustering.n_clusters == 15)
         self.assertTrue(config.clustering.agglomerative_linkage == "ward")
 

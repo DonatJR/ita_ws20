@@ -1,16 +1,21 @@
 import unittest
-
+import os
 from pandas import DataFrame
 
 from context import preprocessing_module, data_module, config_module
+
 
 class PreprocessingTest(unittest.TestCase):
     def __init__(self, *args):
         unittest.TestCase.__init__(self, *args)
 
-        self.corpus = data_module.load_json(
-            "../src/data/data_jmlr_vol13-21.json", append_title=False
+        data_path = (
+            "../src/data/data_jmlr_vol13-21.json"
+            if os.path.abspath(".").endswith("ita_ws20\\tests")
+            else "./src/data/data_jmlr_vol13-21.json"
         )
+
+        self.corpus = data_module.load_json(data_path, append_title=False)
 
         self.config = config_module.PreprocessingConfig(
             config_module.PreprocessingLib.NLTK,
