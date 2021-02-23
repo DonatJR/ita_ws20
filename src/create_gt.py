@@ -57,7 +57,6 @@ def main():
     print(np.unique(model.labels_))
     logger.info(f"Save results to {config.output_path}")
     corpus['label'] = model.labels_
-    corpus['toke']
     io.write_json(
         config.input_path + "labels.json",
         corpus
