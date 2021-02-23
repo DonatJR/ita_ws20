@@ -82,7 +82,10 @@ class Clustering:
         elif config.method == ClusteringMethod.DBSCAN:
             self.__log("using DBSCAN-Model")
             return DBSCAN(
-                min_samples=config.min_samples, eps=config.eps, n_jobs=config.n_jobs, metric=config.metric
+                min_samples=config.min_samples,
+                eps=config.eps,
+                n_jobs=config.n_jobs,
+                metric=config.metric,
             )
         elif config.method == ClusteringMethod.MEAN_SHIFT:
             self.__log("using MeanShift-Model")

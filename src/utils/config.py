@@ -102,7 +102,7 @@ class ClusteringConfig:
         n_jobs=None,
         n_components=None,
         covariance_type=None,
-        metric=None
+        metric=None,
     ):
         self.method = method
         self.n_clusters = n_clusters
@@ -188,7 +188,7 @@ class Config:
             n_jobs,
             n_components,
             covariance_type,
-            metric
+            metric,
         )
 
         self.__check_optional_params()
