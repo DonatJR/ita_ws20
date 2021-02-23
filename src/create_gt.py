@@ -1,19 +1,19 @@
 #! /usr/bin/env python3
 
 import os
-import argparse
 import ipdb
 from pathlib import Path
-from time import time
 import itertools
 from collections import Counter
+from utils.config import Config
+from utils.helper import get_logger, get_parser, read_pickle
+from utils.preprocessing import Preprocessing
+
+# FIXME delte after testing
+import utils.data as io
 
 import numpy as np
-import pandas as pd
-from gensim import corpora
 import sklearn
-import utils.helper as helper
-import utils.data as io
 import scipy
 
 import utils.visu as visu
@@ -92,9 +92,6 @@ def naive(data, return_val="distance"):
 
 def visualize_distances(D):
     sns.displot(D, bins=70, kde=True)
-    #    plt.title("Distribution of pairwise binary key word vector hamming distances")
-    #    plt.xlabel("Key word Hamming distance")
-    #    plt.ylabel("#")
     plt.show()
 
 
@@ -119,35 +116,43 @@ def visualize_key_words(data, return_items=True):
         return counts
 
 
-# TODO how many different key words do we have before and after preprocessing?
 def main():
-    #    test_path = Path("data/data_jmlr_vol13-21.json")
-    #    corpus = io.load_json(test_path, return_data="keywords")
+    """
+    Create a ground truth from clustering the key words. This turned out to be the same
+    problem as before, i.e. it is hard to find meaningful words in these sets. Some
+    words are more informative than others and in the end we have a lot of noise that
+    makes paper appear very similar to each other.
+    The naive approach with binary vectors cannot resolve this, so we ran a dbscan on vectorized
+    preprocessed words.
+    """
+    args = get_parser().parse_args()
 
-    # NOTE this preprocessing will tokenize the key words. This way we can capture
-    # similar key words to be the same thing
+    config = Config.from_file(args.config)
+
+    logger = get_logger(config.output_path)
+    logger.info(args)
+    logger.info("=> Starting new experiment ...")
+
+    logger.info("Load data")
+    #    test_path = Path("data/data_jmlr_vol13-21.json")
+    corpus = io.load_json(config.input_path, append_title=config.use_title)
+
     # TODO Problem: if we separate key words, the meaning can change drastically
     # e.g. "dynamic programming" -> "dynamic", "programming" has a complete different semantic meaning
-
-    #    corpus = io.preprocessing(
-    #        corpus,
-    #        lib="spacy",
-    #        datatype="keywords",
-    #        stemming=False,
-    #        lemmatization=True,
-    #    )
-
+    logger.info("Perform preprocessing")
+    preprocessed_corpus = Preprocessing(
+        corpus["keywords"],
+        config=config.preprocessing,
+        logger=logger,
+    ).apply_preprocessing()
     # NOTE with preprocessing we will have 1754 key words in total
-    corpus = helper.read_pickle("data/tokenized_kwords_data_jmlr_vol13-21.pkl")
-    kword_counts = visualize_key_words(corpus)
+    #    preprocessed_corpus = helper.read_pickle("data/tokenized_kwords_data_jmlr_vol13-21.pkl")
+
     ipdb.set_trace()
+
+    kword_counts = visualize_key_words(preprocessed_corpus)
     print(kword_counts.most_common(20))
 
-    # NOTE for the first ~500 kwords do we have several counts
-    # this could actually result in few clusters based on distance
-    # TODO problem: if we naively cluster all keyy words contribute equally to distance
-    # but some words are more descriptive than others, so a weighted contribution would be intuitive
-    # this is however crazy subjective and the core problem
     D = naive(corpus, return_val="distance")
     visualize_distances(np.ravel(D))
 
