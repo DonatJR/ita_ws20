@@ -1,4 +1,4 @@
-# ITA WS20/21
+# Scientific paper clustering - ITA WS20/21
 
 ## Team members
 
@@ -46,28 +46,28 @@ We support a variety of different options for the configuration, but encourage t
 ### Configuration
 The configuration supports these options:
 
-* input_path: path of the (json) data file
-* output_path: path where all results will be saved
-* use_title: whether to include titles of papers when loading data; possible values: True | False
-* preprocessing
-  * stemming: whether to use stemming in preprocessing of data; possible values: True | False
-  * lemmatization: whether to use lemmatization in preprocessing of data; possible values: True | False
-  * lib: library used for preprocessing; possible values: 'spacy' | 'nltk'
-  * min_word_len: minimum length of tokens to include in preprocessing result; possible values: Integer > 0
-  * max_word_len: maximum length of tokens to include in preprocessing result; possible values: Integer > 0 (> min_word_len)
-  * custom_stopwords: stopword to use in addition to standard stopwords; possible values: list of str
-* clustering
-  * model: type of clustering method to use; possible values: 'KMeans' | 'Agglomerative' | 'AffinityPropagation' | 'DBSCAN' | 'MeanShift' | 'OPTICS' | 'Birch' | 'GaussianMixture' | 'Spectral'
-  * n_clusters: model parameter; possible values: Integer > 0; used for 'KMeans' | 'Agglomerative' | 'Birch' | 'Spectral' models
-  * agglomerative_linkage: model parameter; possible values: 'ward' | 'complete' | 'average' | 'single'; used for 'Agglomerative' model
-  * min_samples: model parameter; possible values: Integer > 0; used for 'DBSCAN' model
-  * eps: model parameter; possible values: Float > 0; used for 'DBSCAN' model
-  * n_jobs: model parameter; possible values: Integer > 0 (number of processors to use) or -1 (use all processors); used for 'DBSCAN'| 'MeanShift' | 'OPTICS' models
-  * n_components: model parameter; possible values: Integer > 0; used for 'GaussianMixture' model
-  * covariance_type: model parameter; possible values: 'full' | 'tied' | 'diag' | 'spherical'; used for 'GaussianMixture' model
-* embedding:
-  * dimensionality_reduction: dimensionality reduction method to use on data before attempting to cluster; possible values: None | 'LSA' | 'SPECTRAL'
-  * n_components: parameter for dimensionality reduction (dimension of the projected subspace); possible values: Integer > 1
+* __input_path__: path of the (json) data file
+* __output_path__: path where all results will be saved
+* __use_title__: whether to include titles of papers when loading data; possible values: True | False
+* __preprocessing__:
+  * __stemming__: whether to use stemming in preprocessing of data; possible values: True | False
+  * __lemmatization__: whether to use lemmatization in preprocessing of data; possible values: True | False
+  * __lib__: library used for preprocessing; possible values: 'spacy' | 'nltk'
+  * __min_word_len__: minimum length of tokens to include in preprocessing result; possible values: Integer > 0
+  * __max_word_len__: maximum length of tokens to include in preprocessing result; possible values: Integer > 0 (> min_word_len)
+  * __custom_stopwords__: stopword to use in addition to standard stopwords; possible values: list of str
+* __clustering__:
+  * __model__: type of clustering method to use; possible values: 'KMeans' | 'Agglomerative' | 'AffinityPropagation' | 'DBSCAN' | 'MeanShift' | 'OPTICS' | 'Birch' | 'GaussianMixture' | 'Spectral'
+  * __n_clusters__: model parameter; possible values: Integer > 0; used for 'KMeans' | 'Agglomerative' | 'Birch' | 'Spectral' models
+  * __agglomerative_linkage__: model parameter; possible values: 'ward' | 'complete' | 'average' | 'single'; used for 'Agglomerative' model
+  * __min_samples__: model parameter; possible values: Integer > 0; used for 'DBSCAN' model
+  * __eps__: model parameter; possible values: Float > 0; used for 'DBSCAN' model
+  * __n_jobs__: model parameter; possible values: Integer > 0 (number of processors to use) or -1 (use all processors); used for 'DBSCAN'| 'MeanShift' | 'OPTICS' models
+  * __n_components__: model parameter; possible values: Integer > 0; used for 'GaussianMixture' model
+  * __covariance_type__: model parameter; possible values: 'full' | 'tied' | 'diag' | 'spherical'; used for 'GaussianMixture' model
+* __embedding__:
+  * __dimensionality_reduction__: dimensionality reduction method to use on data before attempting to cluster; possible values: None | 'LSA' | 'SPECTRAL'
+  * __n_components__: parameter for dimensionality reduction (dimension of the projected subspace); possible values: Integer > 1
 
 
 ### Experiments
