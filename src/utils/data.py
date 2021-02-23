@@ -10,9 +10,15 @@ import pandas as pd
 from utils.helper import write_pickle
 
 
+def write_json(fpath, data):
+    new_dict = {"papers": data.to_dict(orient="records")}
+    with open(fpath, "w", encoding="utf-8") as f:
+        json.dump(new_dict, f)
+
+
 def load_json(fpath, return_data="abstract", append_title=False):
     """ Loading the gathered json files """
-    with open(fpath, encoding="utf-8") as f:
+    with open(fpath, "r", encoding="utf-8") as f:
         data = json.load(f)
         data_df = pd.json_normalize(data["papers"])
         if return_data == "abstract":
