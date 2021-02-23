@@ -9,8 +9,9 @@ preprocessing:
   max_word_len: 15
   custom_stopwords: []
 clustering:
-  model: "kmeans"
-  n_clusters: 15
+  model: "GaussianMixture"
+  n_components: 25
+  covariance_type: "tied"
 embedding:
   dimensionality_reduction: "lsa"
   n_components: 2

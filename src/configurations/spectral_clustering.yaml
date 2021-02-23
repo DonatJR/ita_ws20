@@ -9,8 +9,8 @@ preprocessing:
   max_word_len: 15
   custom_stopwords: []
 clustering:
-  model: "kmeans"
-  n_clusters: 15
+  model: "Spectral"
+  n_clusters: 20
 embedding:
   dimensionality_reduction: "lsa"
   n_components: 2

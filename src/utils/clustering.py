@@ -1,5 +1,15 @@
 import numpy as np
-from sklearn.cluster import AgglomerativeClustering, KMeans
+from sklearn.cluster import (
+    AgglomerativeClustering,
+    KMeans,
+    AffinityPropagation,
+    DBSCAN,
+    MeanShift,
+    OPTICS,
+    Birch,
+    SpectralClustering,
+)
+from sklearn.mixture import GaussianMixture
 from sklearn.decomposition import TruncatedSVD
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.manifold import SpectralEmbedding
@@ -63,8 +73,33 @@ class Clustering:
             return AgglomerativeClustering(
                 n_clusters=config.n_clusters, linkage=config.agglomerative_linkage
             )
+        elif config.method == ClusteringMethod.AFFINITY_PROPAGATION:
+            self.__log("using AffinityPropagation-Model")
+            return AffinityPropagation()
+        elif config.method == ClusteringMethod.DBSCAN:
+            self.__log("using DBSCAN-Model")
+            return DBSCAN(
+                min_samples=config.min_samples, eps=config.eps, n_jobs=config.n_jobs
+            )
+        elif config.method == ClusteringMethod.MEAN_SHIFT:
+            self.__log("using MeanShift-Model")
+            return MeanShift(n_jobs=config.n_jobs)
+        elif config.method == ClusteringMethod.OPTICS:
+            self.__log("using OPTICS-Model")
+            return OPTICS(n_jobs=config.n_jobs)
+        elif config.method == ClusteringMethod.BIRCH:
+            self.__log("using Birch-Model")
+            return Birch(n_clusters=config.n_clusters)
+        elif config.method == ClusteringMethod.GAUSSIAN_MIXTURE:
+            self.__log("using GaussianMixture-Model")
+            return GaussianMixture(
+                n_components=config.n_components, covariance_type=config.covariance_type
+            )
+        elif config.method == ClusteringMethod.SPECTRAL:
+            self.__log("using SpectralClustering-Model")
+            return SpectralClustering(n_clusters=config.n_clusters)
         else:
-            raise NotImplementedError("Unknown clustering method")
+            raise NotImplementedError(f"Unknown clustering method: {config.method}")
 
     def __perform_dim_reduction(self, corpus, dim_reduction_method, n_components):
         if dim_reduction_method == DimReduction.LSA:

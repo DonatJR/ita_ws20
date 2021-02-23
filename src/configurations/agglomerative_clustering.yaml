@@ -9,8 +9,9 @@ preprocessing:
   max_word_len: 15
   custom_stopwords: []
 clustering:
-  model: "kmeans"
+  model: "Agglomerative"
   n_clusters: 15
+  agglomerative_linkage: "ward"
 embedding:
   dimensionality_reduction: "lsa"
   n_components: 2

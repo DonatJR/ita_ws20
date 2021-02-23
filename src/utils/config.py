@@ -35,7 +35,13 @@ class DimReduction(Enum):
 class ClusteringMethod(Enum):
     KMEANS = 1
     AGGLOMERATIVE = 2
-    # ...
+    AFFINITY_PROPAGATION = 3
+    DBSCAN = 4
+    MEAN_SHIFT = 5
+    OPTICS = 6
+    BIRCH = 7
+    GAUSSIAN_MIXTURE = 8
+    SPECTRAL = 9
 
     @staticmethod
     def from_str(label):
@@ -43,6 +49,20 @@ class ClusteringMethod(Enum):
             return ClusteringMethod.KMEANS
         elif label.lower() == "agglomerative":
             return ClusteringMethod.AGGLOMERATIVE
+        elif label.lower() == "affinitypropagation":
+            return ClusteringMethod.AFFINITY_PROPAGATION
+        elif label.lower() == "dbscan":
+            return ClusteringMethod.DBSCAN
+        elif label.lower() == "meanshift":
+            return ClusteringMethod.MEAN_SHIFT
+        elif label.lower() == "optics":
+            return ClusteringMethod.OPTICS
+        elif label.lower() == "birch":
+            return ClusteringMethod.BIRCH
+        elif label.lower() == "gaussianmixture":
+            return ClusteringMethod.GAUSSIAN_MIXTURE
+        elif label.lower() == "spectral":
+            return ClusteringMethod.SPECTRAL
         else:
             raise NotImplementedError("Invalid clustering method")
 
@@ -72,10 +92,25 @@ class DimReductionConfig:
 
 
 class ClusteringConfig:
-    def __init__(self, method, n_clusters, agglomerative_linkage):
+    def __init__(
+        self,
+        method,
+        n_clusters=None,
+        agglomerative_linkage=None,
+        min_samples=None,
+        eps=None,
+        n_jobs=None,
+        n_components=None,
+        covariance_type=None,
+    ):
         self.method = method
         self.n_clusters = n_clusters
         self.agglomerative_linkage = agglomerative_linkage
+        self.min_samples = min_samples
+        self.eps = eps
+        self.n_jobs = n_jobs
+        self.n_components = n_components
+        self.covariance_type = covariance_type
 
 
 class Config:
@@ -110,15 +145,75 @@ class Config:
 
         # clustering
         clustering_method = ClusteringMethod.from_str(config["clustering"]["model"])
-        n_clusters = config["clustering"]["n_clusters"]
+        n_clusters = config["clustering"].get(
+            "n_clusters", None
+        )  # only used for some methods -> optional param for other methods
 
         agglomerative_linkage = config["clustering"].get(
             "agglomerative_linkage", None
-        )  # only used for AgglomerativeClustering -> optional param for other methods
+        )  # only used for some methods -> optional param for other methods
+
+        min_samples = config["clustering"].get(
+            "min_samples", None
+        )  # only used for some methods -> optional param for other methods
+
+        eps = config["clustering"].get(
+            "eps", None
+        )  # only used for some methods -> optional param for other methods
+
+        n_jobs = config["clustering"].get(
+            "n_jobs", -1
+        )  # only used for some methods -> optional param for other methods
+
+        n_components = config["clustering"].get(
+            "n_components", None
+        )  # only used for some methods -> optional param for other methods
+
+        covariance_type = config["clustering"].get(
+            "covariance_type", None
+        )  # only used for some methods -> optional param for other methods
 
         self.clustering = ClusteringConfig(
-            clustering_method, n_clusters, agglomerative_linkage
+            clustering_method,
+            n_clusters,
+            agglomerative_linkage,
+            min_samples,
+            eps,
+            n_jobs,
+            n_components,
+            covariance_type,
         )
+
+        self.__check_optional_params()
+
+    def __check_optional_params(self):
+        if (
+            self.clustering.method == ClusteringMethod.KMEANS
+            or self.clustering.method == ClusteringMethod.BIRCH
+            or self.clustering.method == ClusteringMethod.SPECTRAL
+        ):
+            assert self.clustering.n_clusters is not None
+        elif self.clustering.method == ClusteringMethod.AGGLOMERATIVE:
+            assert (
+                self.clustering.n_clusters is not None
+                and self.clustering.agglomerative_linkage is not None
+            )
+        elif self.clustering.method == ClusteringMethod.DBSCAN:
+            assert (
+                self.clustering.min_samples is not None
+                and self.clustering.eps is not None
+                and self.clustering.n_jobs is not None
+            )
+        elif (
+            self.clustering.method == ClusteringMethod.MEAN_SHIFT
+            or self.clustering.method == ClusteringMethod.OPTICS
+        ):
+            assert self.clustering.n_jobs is not None
+        elif self.clustering.method == ClusteringMethod.GAUSSIAN_MIXTURE:
+            assert (
+                self.clustering.n_components is not None
+                and self.clustering.covariance_type is not None
+            )
 
     @staticmethod
     def from_file(config_path):
