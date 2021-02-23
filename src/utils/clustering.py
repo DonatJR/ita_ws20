@@ -25,7 +25,7 @@ class Clustering:
         self.__dim_reduction_config = dim_reduction_config
         self.__logger = logger
 
-    def perform_clustering(self):
+    def perform_clustering(self, return_features=False):
         vectorizer, tfidf_corpus = self.__get_tfidf_corpus(self.__corpus)
 
         corpus = self.__perform_dim_reduction(
@@ -36,7 +36,10 @@ class Clustering:
 
         self.model = self.__get_model(self.__clustering_config)
         self.model.fit(corpus)
-        return self.model
+        if return_features:
+            return self.model, corpus
+        else:
+            return self.model
 
     def get_top_words(self):
         clusters = []
