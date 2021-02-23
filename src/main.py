@@ -1,8 +1,10 @@
 #! /usr/bin/env python3
 
+import pandas as pd
 import utils.data as io
 from utils.clustering import Clustering
 from utils.config import Config
+from utils.eval import Evaluation
 from utils.helper import get_logger, get_parser
 from utils.preprocessing import Preprocessing
 
@@ -25,6 +27,7 @@ def main():
     corpus = io.load_json(config.input_path, append_title=config.use_title)
 
     logger.info("Perform preprocessing")
+    corpus = corpus.drop_duplicates(subset="abstract")
     preprocessed_corpus = Preprocessing(
         corpus["abstract"],
         config=config.preprocessing,
@@ -38,20 +41,25 @@ def main():
         dim_reduction_config=config.dim_reduction,
         logger=logger,
     )
-    model = clustering.perform_clustering()
+    model, features = clustering.perform_clustering(return_features=True)
     top_words_per_cluster = clustering.get_top_words()
+
+    preprocessed_corpus["predicted_labels"] = model.labels_
+    preprocessed_corpus = pd.merge(corpus, preprocessed_corpus, on="abstract")
 
     logger.info(f"Save results to {config.output_path}")
     io.save_results(
         config.output_path + "cluster.json",
-        corpus,
         preprocessed_corpus,
-        model,
         top_words_per_cluster,
     )
 
     logger.info(f"Saving model to {config.output_path}")
     io.save_model(config.output_path + "model.pickle", model)
+
+    logger.info("Evaluate Results")
+    evaluations = Evaluation(features, preprocessed_corpus).evaluate_all()
+    io.save_evaluations(config.output_path + "evaluations.json", evaluations)
 
 
 if __name__ == "__main__":

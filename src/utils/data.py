@@ -31,15 +31,12 @@ def load_json(fpath, return_data="abstract", append_title=False):
     return corpus
 
 
-def save_results(
-    output_path, corpus, preprocessed_corpus, model, top_words_per_cluster
-):
-    corpus = pd.merge(corpus, preprocessed_corpus, on="abstract")
+def save_results(output_path, corpus, top_words_per_cluster):
     results = {}
-    for cluster in range(np.max(model.labels_) + 1):
+    for cluster in range(np.max(corpus["predicted_labels"]) + 1):
         results[cluster] = {
             "top_words": top_words_per_cluster[cluster],
-            "papers": list(corpus["title"][model.labels_ == cluster]),
+            "papers": list(corpus["title"][corpus["predicted_labels"] == cluster]),
         }
 
     with open(output_path, "w") as fp:
@@ -48,3 +45,8 @@ def save_results(
 
 def save_model(output_path, model):
     write_pickle(output_path, model)
+
+
+def save_evaluations(output_path, evaluations):
+    with open(output_path, "w") as fp:
+        json.dump(evaluations, fp)

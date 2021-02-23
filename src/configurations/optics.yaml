@@ -1,4 +1,4 @@
-input_path: "data/data_jmlr_vol13-21.json"
+input_path: "data/data_2021-02-01_22-27-13.862993_labeled.json"
 output_path: "results/"
 use_title: False
 preprocessing:

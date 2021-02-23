@@ -1,4 +1,4 @@
-input_path: "data/data_jmlr_vol13-21.json"
+input_path: "data/data_2021-02-01_22-27-13.862993_labeled.json"
 output_path: "results/"
 use_title: False
 preprocessing:
@@ -10,7 +10,7 @@ preprocessing:
   custom_stopwords: []
 clustering:
   model: "KMeans"
-  n_clusters: 15
+  n_clusters: 38
 embedding:
   dimensionality_reduction: "lsa"
-  n_components: 2
+  n_components: 10

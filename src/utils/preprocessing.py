@@ -47,8 +47,8 @@ class Preprocessing:
         num_nan = self.__text.isna().sum()
         self.__log("Dropping %d entries of corpus, due to nan ..." % num_nan)
         self.__text.dropna(inplace=True)
-        self.__text = self.__text.reset_index(drop=True)
 
+        self.__text = self.__text.reset_index(drop=True)
         if self.__lib == PreprocessingLib.SPACY:
             tokenized = self.__spacy_preprocess()
         elif self.__lib == PreprocessingLib.NLTK:
