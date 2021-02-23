@@ -1,9 +1,9 @@
-from enum import Enum
+from enum import IntEnum
 
 import yaml
 
 
-class PreprocessingLib(Enum):
+class PreprocessingLib(IntEnum):
     NLTK = 1
     SPACY = 2
 
@@ -17,7 +17,7 @@ class PreprocessingLib(Enum):
             raise NotImplementedError("Invalid preprocessing lib")
 
 
-class DimReduction(Enum):
+class DimReduction(IntEnum):
     LSA = 1
     SPECTRAL = 2
     NONE = 3
@@ -32,7 +32,7 @@ class DimReduction(Enum):
             return DimReduction.NONE
 
 
-class ClusteringMethod(Enum):
+class ClusteringMethod(IntEnum):
     KMEANS = 1
     AGGLOMERATIVE = 2
     AFFINITY_PROPAGATION = 3
