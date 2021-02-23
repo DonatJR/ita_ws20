@@ -32,13 +32,16 @@ https://github.com/DonatJR/ita_ws20/blob/main/milestone/milestone.md
 
 ## Project
 
-### Idea
-TODO: include this here?
+### Main project goals
+Our main goal is to make it easier for users to search and explore scientific papers belonging to a specific topic or theme.
+For this we want to specifically arrive at a clustering (representation) that, for one, separates the different documents into correct clusters, but is also easy to work with in downstream tasks (e.g. the mentioned inclusion in some search site).
+To achieve this we basically interpret the steps mentioned in the subsection \ref{subsec:pipeline} as some coarse sub goals, which can then be worked on by different team members.
+Some of these sub goals can also be further divided, for example downloading and preprocessing data from different sources or implementing distinct clustering algorithms can be done by a single team member respectively.
 
-### Run the code
+### Running the code
 The project code can be run by executing the `main.py` script with a `--config` argument pointing to a valid yaml configuration file. If no configuration file is given, the default value `config.yaml` is used and a corresponding file has to exist in the same folder as `main.py`.
 
-We support a variety of different options for the configuration, but encourage the usage of the provided configuration files (TODO: decide which ones to include) as their configuration combinations are (well) tested.
+We support a variety of different options for the configuration, but encourage the usage of the provided configuration files as their configuration combinations are (well) tested.
 
 ### Configuration
 The configuration supports these options:
@@ -58,6 +61,11 @@ TODO: explain them and the supported values!
   * model
   * n_clusters
   * agglomerative_linkage
+  *  min_samples
+  * eps
+  * n_jobs
+  * n_components
+  * covariance_type
 * embedding:
   * dimensionality_reduction
   * n_components
