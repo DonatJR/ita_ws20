@@ -13,7 +13,7 @@ from utils.helper import write_pickle
 def write_json(fpath, data):
     new_dict = {"papers": data.to_dict(orient="records")}
     with open(fpath, "w", encoding="utf-8") as f:
-        json.dump(new_dict, f)
+        json.dump(new_dict, f, ensure_ascii=False, indent=4)
 
 
 def load_json(fpath, return_data="abstract", append_title=False):

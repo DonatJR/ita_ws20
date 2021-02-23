@@ -102,6 +102,7 @@ class ClusteringConfig:
         n_jobs=None,
         n_components=None,
         covariance_type=None,
+        metric=None
     ):
         self.method = method
         self.n_clusters = n_clusters
@@ -111,6 +112,7 @@ class ClusteringConfig:
         self.n_jobs = n_jobs
         self.n_components = n_components
         self.covariance_type = covariance_type
+        self.metric = metric
 
 
 class Config:
@@ -173,6 +175,10 @@ class Config:
             "covariance_type", None
         )  # only used for some methods -> optional param for other methods
 
+        metric = config["clustering"].get(
+            "metric", "euclidean"
+        )  # only used for some methods -> optional param for other methods
+
         self.clustering = ClusteringConfig(
             clustering_method,
             n_clusters,
@@ -182,6 +188,7 @@ class Config:
             n_jobs,
             n_components,
             covariance_type,
+            metric
         )
 
         self.__check_optional_params()
@@ -203,6 +210,7 @@ class Config:
                 self.clustering.min_samples is not None
                 and self.clustering.eps is not None
                 and self.clustering.n_jobs is not None
+                and self.clustering.metric is not None
             )
         elif (
             self.clustering.method == ClusteringMethod.MEAN_SHIFT
