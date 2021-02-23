@@ -35,14 +35,14 @@ def main():
 
     logger.info("Perform preprocessing")
     preprocessed_corpus = Preprocessing(
-        corpus['keywords'],
+        corpus["keywords"],
         config=config.preprocessing,
-        datatype='keywords',
+        datatype="keywords",
         logger=logger,
     ).apply_preprocessing()
 
-    preprocessed_corpus['token'] = preprocessed_corpus['token'].apply(flatten)
-    preprocessed_corpus.drop('abstract', axis=1, inplace=True)
+    preprocessed_corpus["token"] = preprocessed_corpus["token"].apply(flatten)
+    preprocessed_corpus.drop("abstract", axis=1, inplace=True)
 
     logger.info("Start clustering")
     clustering = Clustering(
@@ -56,11 +56,8 @@ def main():
     # TODO: change output path in yaml to data
     print(np.unique(model.labels_))
     logger.info(f"Save results to {config.output_path}")
-    corpus['label'] = model.labels_
-    io.write_json(
-        config.input_path + "labels.json",
-        corpus
-    )
+    corpus["label"] = model.labels_
+    io.write_json(config.input_path + "labels.json", corpus)
 
 if __name__ == "__main__":
     main()
