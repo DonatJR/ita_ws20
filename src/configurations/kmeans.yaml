@@ -1,0 +1,16 @@
+input_path: "data/data_2021-02-01_22-27-13.862993_labeled.json"
+output_path: "results/"
+use_title: False
+preprocessing:
+  stemming: False
+  lemmatization: True
+  lib: "nltk"
+  min_word_len: 2
+  max_word_len: 15
+  custom_stopwords: []
+clustering:
+  model: "KMeans"
+  n_clusters: 38
+embedding:
+  dimensionality_reduction: "lsa"
+  n_components: 10

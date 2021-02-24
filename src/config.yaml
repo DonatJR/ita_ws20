@@ -1,8 +1,16 @@
-input_file: "data/data_jmlr_vol13-21.json"
-output_dir: "results/"
+input_path: "data/data_jmlr_vol13-21.json"
+output_path: "results/"
+use_title: False
 preprocessing:
-  - stemming: True
-  - lemmatization: True
-  - lib: "spacy" 
-vectorization: "lsi"
-clustering: "kmeans"
+  stemming: False
+  lemmatization: True
+  lib: "nltk"
+  min_word_len: 2
+  max_word_len: 15
+  custom_stopwords: []
+clustering:
+  model: "kmeans"
+  n_clusters: 15
+embedding:
+  dimensionality_reduction: "lsa"
+  n_components: 2
