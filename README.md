@@ -38,6 +38,11 @@ For this we want to specifically arrive at a clustering (representation) that, f
 To achieve this we basically interpret the steps mentioned in the subsection \ref{subsec:pipeline} as some coarse sub goals, which can then be worked on by different team members.
 Some of these sub goals can also be further divided, for example downloading and preprocessing data from different sources or implementing distinct clustering algorithms can be done by a single team member respectively.
 
+### Data extraction
+We have also included `extraction.sh`, the script responsible for extracting our data. Once run, the script will automatically start scraping all the PDFs found on https://www.jmlr.org. It will then clone the two GitHub Grobid repositories (https://github.com/kermitt2/grobid.git, and https://github.com/kermitt2/grobid_client_python) needed for setting up the Grobid server. Finally, it will set up the Grobid server, convert the scraped PDFs into XMLs and create a JSON file from the parsed XMLs.
+
+NOTE: If the script throws an error, please make sure that Grobid is installed in a path with no parent directories containing spaces.
+
 ### Running the code
 The project code can be run by executing the `main.py` script with a `--config` argument pointing to a valid yaml configuration file. If no configuration file is given, the default value `config.yaml` is used and a corresponding file has to exist in the same folder as `main.py`.
 
@@ -64,6 +69,7 @@ The configuration supports these options:
   * __eps__: model parameter; possible values: Float > 0; used for 'DBSCAN' model
   * __n_jobs__: model parameter; possible values: Integer > 0 (number of processors to use) or -1 (use all processors); used for 'DBSCAN'| 'MeanShift' | 'OPTICS' models
   * __birch_threshold__: model parameter; default value: 0.5; possible values: Integer > 1
+  * __metric__: model parameter; default value: 'euclidean'; possible values: 'cosine'; used for 'DBSCAN' model
 * __embedding__:
   * __dimensionality_reduction__: dimensionality reduction method to use on data before attempting to cluster; possible values: None | 'LSA' | 'SPECTRAL'
   * __n_components__: parameter for dimensionality reduction (dimension of the projected subspace); possible values: Integer > 1
