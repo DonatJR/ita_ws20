@@ -65,6 +65,7 @@ The configuration supports these options:
   * __n_jobs__: model parameter; possible values: Integer > 0 (number of processors to use) or -1 (use all processors); used for 'DBSCAN'| 'MeanShift' | 'OPTICS' models
   * __n_components__: model parameter; possible values: Integer > 0; used for 'GaussianMixture' model
   * __covariance_type__: model parameter; possible values: 'full' | 'tied' | 'diag' | 'spherical'; used for 'GaussianMixture' model
+  * __birch_threshold__: model parameter; default value: 0.5; possible values: Integer > 1
 * __embedding__:
   * __dimensionality_reduction__: dimensionality reduction method to use on data before attempting to cluster; possible values: None | 'LSA' | 'SPECTRAL'
   * __n_components__: parameter for dimensionality reduction (dimension of the projected subspace); possible values: Integer > 1

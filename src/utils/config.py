@@ -103,6 +103,7 @@ class ClusteringConfig:
         n_components=None,
         covariance_type=None,
         metric=None,
+        birch_threshold=None,
     ):
         self.method = method
         self.n_clusters = n_clusters
@@ -113,6 +114,7 @@ class ClusteringConfig:
         self.n_components = n_components
         self.covariance_type = covariance_type
         self.metric = metric
+        self.birch_threshold = birch_threshold
 
 
 class Config:
@@ -179,6 +181,10 @@ class Config:
             "metric", "euclidean"
         )  # only used for some methods -> optional param for other methods
 
+        birch_threshold = config["clustering"].get(
+            "birch_threshold", 0.5
+        )  # only used for some methods -> optional param for other methods
+
         self.clustering = ClusteringConfig(
             clustering_method,
             n_clusters,
@@ -189,6 +195,7 @@ class Config:
             n_components,
             covariance_type,
             metric,
+            birch_threshold,
         )
 
         # evaluation

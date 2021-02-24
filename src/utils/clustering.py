@@ -1,18 +1,18 @@
 import numpy as np
 from sklearn.cluster import (
-    AgglomerativeClustering,
-    KMeans,
-    AffinityPropagation,
     DBSCAN,
-    MeanShift,
     OPTICS,
+    AffinityPropagation,
+    AgglomerativeClustering,
     Birch,
+    KMeans,
+    MeanShift,
     SpectralClustering,
 )
-from sklearn.mixture import GaussianMixture
 from sklearn.decomposition import TruncatedSVD
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.manifold import SpectralEmbedding
+from sklearn.mixture import GaussianMixture
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import Normalizer
 from utils.config import ClusteringMethod, DimReduction
@@ -95,7 +95,8 @@ class Clustering:
             return OPTICS(n_jobs=config.n_jobs)
         elif config.method == ClusteringMethod.BIRCH:
             self.__log("using Birch-Model")
-            return Birch(n_clusters=config.n_clusters)
+            return Birch(n_clusters=config.n_clusters,
+                         threshold=config.birch_threshold)
         elif config.method == ClusteringMethod.GAUSSIAN_MIXTURE:
             self.__log("using GaussianMixture-Model")
             return GaussianMixture(
