@@ -206,7 +206,6 @@ class Config:
     def __check_optional_params(self):
         if (
             self.clustering.method == ClusteringMethod.KMEANS
-            or self.clustering.method == ClusteringMethod.BIRCH
             or self.clustering.method == ClusteringMethod.SPECTRAL
         ):
             assert self.clustering.n_clusters is not None
@@ -231,6 +230,11 @@ class Config:
             assert (
                 self.clustering.n_components is not None
                 and self.clustering.covariance_type is not None
+            )
+        elif self.clustering.method == ClusteringMethod.BIRCH:
+            assert (
+                self.clustering.n_clusters is not None
+                and self.clustering.birch_threshold is not None
             )
 
     @staticmethod
