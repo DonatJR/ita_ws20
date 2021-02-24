@@ -57,9 +57,10 @@ def main():
     logger.info(f"Saving model to {config.output_path}")
     io.save_model(config.output_path + "model.pickle", model)
 
-    logger.info("Evaluate Results")
-    evaluations = Evaluation(features, preprocessed_corpus).evaluate_all()
-    io.save_evaluations(config.output_path + "evaluations.json", evaluations)
+    if config.evaluate:
+        logger.info("Evaluate Results")
+        evaluations = Evaluation(features, preprocessed_corpus).evaluate_all()
+        io.save_evaluations(config.output_path + "evaluations.json", evaluations)
 
 
 if __name__ == "__main__":

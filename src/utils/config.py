@@ -191,6 +191,9 @@ class Config:
             metric,
         )
 
+        # evaluation
+        self.evaluate = config.get("evaluation", True)
+
         self.__check_optional_params()
 
     def __check_optional_params(self):

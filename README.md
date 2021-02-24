@@ -68,7 +68,7 @@ The configuration supports these options:
 * __embedding__:
   * __dimensionality_reduction__: dimensionality reduction method to use on data before attempting to cluster; possible values: None | 'LSA' | 'SPECTRAL'
   * __n_components__: parameter for dimensionality reduction (dimension of the projected subspace); possible values: Integer > 1
-
+* __evaluation__: whether to calculate evaluations; default value: True; possible values: True | False
 
 ### Experiments
 The [notebooks folder](https://github.com/DonatJR/ita_ws20/tree/main/notebooks) contains a variety of different notebooks used to experiment on data or evaluate methods. They are not part of the final project output, but contain the majority of the code used to get to the current project state and are therefore included in the repository. 

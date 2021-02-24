@@ -96,7 +96,10 @@ class Evaluation:
                 self.prediction
             ), "Groundtruth and predictions must have same length"
             return metrics.recall_score(
-                self.groundtruth, self.prediction, average="weighted"
+                self.groundtruth,
+                self.prediction,
+                average="weighted",
+                zero_division=True,
             )
 
     def f1(self):
