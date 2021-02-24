@@ -9,4 +9,3 @@ import scrapy
 class PdfsItem(scrapy.Item):
     file_urls = scrapy.Field()
     files = scrapy.Field()
-

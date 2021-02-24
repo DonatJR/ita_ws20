@@ -13,7 +13,7 @@ SPIDER_MODULES = ["pdfs.spiders"]
 NEWSPIDER_MODULE = "pdfs.spiders"
 
 
-FILES_STORE = "../../../data/pdfs/"
+FILES_STORE = "../../data/pdfs/"
 MEDIA_ALLOW_REDIRECTS = True
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

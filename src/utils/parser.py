@@ -100,7 +100,9 @@ def parse_xml(root, filename):
 
 def create_data_file():
     """ Create and save JSON with extracted data """
-    with open("../data/data_{}.json".format(datetime.datetime.now()).replace(":", "-"), "w") as f:
+    with open(
+        "../data/data_{}.json".format(datetime.datetime.now()).replace(":", "-"), "w"
+    ) as f:
         json.dump({"papers": papers}, f, ensure_ascii=False, indent=4)
 
 
