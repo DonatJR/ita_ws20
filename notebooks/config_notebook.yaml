@@ -1,0 +1,16 @@
+input_path: "data/data_2021-02-01_22-27-13.862993_labeled.json" # not used in notebook
+output_path: "results/" # not used in notebook
+use_title: False # not used in notebook
+preprocessing:
+  stemming: False
+  lemmatization: True
+  lib: "nltk"
+  min_word_len: 2
+  max_word_len: 15
+  custom_stopwords: []
+clustering: # not used in notebook
+  model: "Birch" # not used in notebook
+  n_clusters: 15 # not used in notebook
+embedding:
+  dimensionality_reduction: "lsa" # not used in notebook
+  n_components: 2 # not used in notebook
