@@ -1,9 +1,14 @@
+"""
+This is a parser for the XMLs created by Grobid.
+It creates the JSON file where we save our data.
+"""
+
 import datetime
-import io
 import json
 import os
 import re
 import xml.etree.ElementTree as ET
+from math import nan
 from pathlib import Path
 
 input_path = Path("../data/tei/")
@@ -22,6 +27,7 @@ papers = []
 
 
 def read_xmls():
+    """ Loading the XML files """
     for filename in os.listdir(input_path):
         if not filename.endswith(".xml"):
             continue
@@ -37,6 +43,7 @@ def read_xmls():
 
 
 def parse_xml(root, filename):
+    """ Parsing the XML files to extract information """
     global keys
     global datasource
     global datasource_url
@@ -66,28 +73,34 @@ def parse_xml(root, filename):
         if tag == "abstract":
             abstract = [p.text for p in child]
 
-        # Ref will be the name of the file
-        filename = (
-            filename.replace(";", r"/")
-            .replace("tei.xml", "pdf")
-            .replace("https///", "https://")
-        )
-        vals = [
-            title,
-            abstract,
-            keywords,
-            authors,
-            filename,
-            datasource,
-            datasource_url,
-        ]
+    # Ref will be the name of the file
+    filename = (
+        filename.replace(";", r"/")
+        .replace("tei.xml", "pdf")
+        .replace("https///", "https://")
+    )
+
+    vals = [
+        title,
+        abstract,
+        keywords,
+        authors,
+        filename,
+        datasource,
+        datasource_url,
+    ]
+
+    if abstract == []:
+        abstract = nan
+    else:
+        abstract = abstract[0]
 
     papers.append(dict(zip(keys, vals)))
 
 
 def create_data_file():
-    print(len(papers))
-    with open("../data/data_{}.json".format(datetime.datetime.now()), "w") as f:
+    """ Create and save JSON with extracted data """
+    with open("../data/data_{}.json".format(datetime.datetime.now()).replace(":", "-"), "w") as f:
         json.dump({"papers": papers}, f, ensure_ascii=False, indent=4)
 
 

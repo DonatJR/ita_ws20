@@ -1,14 +1,5 @@
 #! /usr/bin/env python3
 
-import itertools
-
-import numpy as np
-import utils.data as io
-from utils.clustering import Clustering
-from utils.config import Config
-from utils.helper import get_logger, get_parser
-from utils.preprocessing import Preprocessing
-
 """
 Create a ground truth from clustering the keywords. This turned out to be the same
 problem as before, i.e. it is hard to find meaningful words in these sets. Some
@@ -17,6 +8,15 @@ makes paper appear very similar to each other.
 The naive approach with binary vectors cannot resolve this, so we ran a dbscan on vectorized
 preprocessed words.
 """
+
+import itertools
+
+import numpy as np
+import utils.data as io
+from utils.clustering import Clustering
+from utils.config import Config
+from utils.helper import get_logger, get_parser
+from utils.preprocessing import Preprocessing
 
 
 def flatten(list_of_lists):
@@ -56,7 +56,6 @@ def main():
     )
     model = clustering.perform_clustering()
 
-    # TODO: change output path in yaml to data
     print(np.unique(model.labels_))
     logger.info(f"Save results to {config.output_path}")
     corpus["label"] = model.labels_

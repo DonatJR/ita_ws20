@@ -1,16 +1,23 @@
 """
+December, 2020:
 This is a scraper of information from research papers hosted on https://jmlr.csail.mit.edu.
 The papers are ordered in volumes. Each volume has its own URL where all the papers from the volume are listed.
 
 There are currently 21 (1 - 21) volumes available.
 
+February, 2020:
+This script is no longer in use, but remains out of setimentailty and easiness:
+it is the first piece of code used to obtain our data and, if one doe not want to install GROBID,
+also fully functional.
+
 """
 
 import io
-import re
 import json
-import requests
+import re
+
 import pdftotext
+import requests
 from bs4 import BeautifulSoup
 
 datasource_url = "https://jmlr.csail.mit.edu"
