@@ -1,12 +1,13 @@
 #! /usr/bin/env python3
 
-import utils.data as io
 import itertools
+
+import numpy as np
+import utils.data as io
 from utils.clustering import Clustering
 from utils.config import Config
 from utils.helper import get_logger, get_parser
 from utils.preprocessing import Preprocessing
-import numpy as np
 
 """
 Create a ground truth from clustering the keywords. This turned out to be the same
@@ -17,9 +18,11 @@ The naive approach with binary vectors cannot resolve this, so we ran a dbscan o
 preprocessed words.
 """
 
+
 def flatten(list_of_lists):
     flattened = list(itertools.chain.from_iterable(list_of_lists))
     return flattened
+
 
 def main():
     args = get_parser().parse_args()
@@ -58,6 +61,7 @@ def main():
     logger.info(f"Save results to {config.output_path}")
     corpus["label"] = model.labels_
     io.write_json(config.input_path + "labels.json", corpus)
+
 
 if __name__ == "__main__":
     main()
