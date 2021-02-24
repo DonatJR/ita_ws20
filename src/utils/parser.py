@@ -8,13 +8,13 @@ from pathlib import Path
 
 input_path = Path("../data/tei/")
 keys = [
-    'title',
-    'abstract',
-    'keywords',
-    'author',
-    'ref',
-    'datasource',
-    'datasource_url',
+    "title",
+    "abstract",
+    "keywords",
+    "author",
+    "ref",
+    "datasource",
+    "datasource_url",
 ]
 datasource = "Journal of Machine Learning Research"
 datasource_url = "https://jmlr.csail.mit.edu"
