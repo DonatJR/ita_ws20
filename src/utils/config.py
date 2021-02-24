@@ -40,8 +40,7 @@ class ClusteringMethod(IntEnum):
     MEAN_SHIFT = 5
     OPTICS = 6
     BIRCH = 7
-    GAUSSIAN_MIXTURE = 8
-    SPECTRAL = 9
+    SPECTRAL = 8
 
     @staticmethod
     def from_str(label):
@@ -59,8 +58,6 @@ class ClusteringMethod(IntEnum):
             return ClusteringMethod.OPTICS
         elif label.lower() == "birch":
             return ClusteringMethod.BIRCH
-        elif label.lower() == "gaussianmixture":
-            return ClusteringMethod.GAUSSIAN_MIXTURE
         elif label.lower() == "spectral":
             return ClusteringMethod.SPECTRAL
         else:
@@ -100,8 +97,6 @@ class ClusteringConfig:
         min_samples=None,
         eps=None,
         n_jobs=None,
-        n_components=None,
-        covariance_type=None,
         metric=None,
         birch_threshold=None,
     ):
@@ -111,8 +106,6 @@ class ClusteringConfig:
         self.min_samples = min_samples
         self.eps = eps
         self.n_jobs = n_jobs
-        self.n_components = n_components
-        self.covariance_type = covariance_type
         self.metric = metric
         self.birch_threshold = birch_threshold
 
@@ -169,14 +162,6 @@ class Config:
             "n_jobs", -1
         )  # only used for some methods -> optional param for other methods
 
-        n_components = config["clustering"].get(
-            "n_components", None
-        )  # only used for some methods -> optional param for other methods
-
-        covariance_type = config["clustering"].get(
-            "covariance_type", None
-        )  # only used for some methods -> optional param for other methods
-
         metric = config["clustering"].get(
             "metric", "euclidean"
         )  # only used for some methods -> optional param for other methods
@@ -192,8 +177,6 @@ class Config:
             min_samples,
             eps,
             n_jobs,
-            n_components,
-            covariance_type,
             metric,
             birch_threshold,
         )
@@ -226,11 +209,6 @@ class Config:
             or self.clustering.method == ClusteringMethod.OPTICS
         ):
             assert self.clustering.n_jobs is not None
-        elif self.clustering.method == ClusteringMethod.GAUSSIAN_MIXTURE:
-            assert (
-                self.clustering.n_components is not None
-                and self.clustering.covariance_type is not None
-            )
         elif self.clustering.method == ClusteringMethod.BIRCH:
             assert (
                 self.clustering.n_clusters is not None

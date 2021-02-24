@@ -57,14 +57,12 @@ The configuration supports these options:
   * __max_word_len__: maximum length of tokens to include in preprocessing result; possible values: Integer > 0 (> min_word_len)
   * __custom_stopwords__: stopword to use in addition to standard stopwords; possible values: list of str
 * __clustering__:
-  * __model__: type of clustering method to use; possible values: 'KMeans' | 'Agglomerative' | 'AffinityPropagation' | 'DBSCAN' | 'MeanShift' | 'OPTICS' | 'Birch' | 'GaussianMixture' | 'Spectral'
+  * __model__: type of clustering method to use; possible values: 'KMeans' | 'Agglomerative' | 'AffinityPropagation' | 'DBSCAN' | 'MeanShift' | 'OPTICS' | 'Birch' | 'Spectral'
   * __n_clusters__: model parameter; possible values: Integer > 0; used for 'KMeans' | 'Agglomerative' | 'Birch' | 'Spectral' models
   * __agglomerative_linkage__: model parameter; possible values: 'ward' | 'complete' | 'average' | 'single'; used for 'Agglomerative' model
   * __min_samples__: model parameter; possible values: Integer > 0; used for 'DBSCAN' model
   * __eps__: model parameter; possible values: Float > 0; used for 'DBSCAN' model
   * __n_jobs__: model parameter; possible values: Integer > 0 (number of processors to use) or -1 (use all processors); used for 'DBSCAN'| 'MeanShift' | 'OPTICS' models
-  * __n_components__: model parameter; possible values: Integer > 0; used for 'GaussianMixture' model
-  * __covariance_type__: model parameter; possible values: 'full' | 'tied' | 'diag' | 'spherical'; used for 'GaussianMixture' model
   * __birch_threshold__: model parameter; default value: 0.5; possible values: Integer > 1
 * __embedding__:
   * __dimensionality_reduction__: dimensionality reduction method to use on data before attempting to cluster; possible values: None | 'LSA' | 'SPECTRAL'
