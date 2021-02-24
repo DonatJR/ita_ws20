@@ -7,25 +7,30 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 input_path = Path("../data/tei/")
-
-keys = ['title', 'abstract', 'keywords', 'author',
-        'ref', 'datasource', 'datasource_url']
+keys = [
+    'title',
+    'abstract',
+    'keywords',
+    'author',
+    'ref',
+    'datasource',
+    'datasource_url',
+]
 datasource = "Journal of Machine Learning Research"
 datasource_url = "https://jmlr.csail.mit.edu"
-
 papers = []
 
 
 def read_xmls():
     for filename in os.listdir(input_path):
-        if not filename.endswith('.xml'):
+        if not filename.endswith(".xml"):
             continue
 
         fullname = os.path.join(input_path, filename)
         try:
             tree = ET.parse(fullname)
         except:
-            print('could not parse {}\n'.format(filename))
+            print("could not parse {}\n".format(filename))
         parse_xml(tree.getroot(), filename)
 
     create_data_file()
@@ -63,7 +68,7 @@ def parse_xml(root, filename):
 
         # Ref will be the name of the file
         filename = (
-            filename.replace(";", r'/')
+            filename.replace(";", r"/")
             .replace("tei.xml", "pdf")
             .replace("https///", "https://")
         )
@@ -82,7 +87,7 @@ def parse_xml(root, filename):
 
 def create_data_file():
     print(len(papers))
-    with open("../data/data_{}.json".format(datetime.datetime.now()), 'w') as f:
+    with open("../data/data_{}.json".format(datetime.datetime.now()), "w") as f:
         json.dump({"papers": papers}, f, ensure_ascii=False, indent=4)
 
 
