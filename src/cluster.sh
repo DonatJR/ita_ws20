@@ -7,7 +7,7 @@ do
 
     echo "----- Clustering with configs $file -----"
     for red in "${arr[@]}"
-    do  
+    do
         # if you are not on OS X, remove '' -e
         echo "----- dimensionality_reduction:  $red -----"
         sed -i '' -e "s/dimensionality_reduction:.*/dimensionality_reduction: $red/g" $file
@@ -17,7 +17,7 @@ do
             # if you are not on OS X, remove '' -e
             echo "----- n_components: $n -----"
             sed -i '' -e "s/n_components:.*/n_components: $n/g" $file
-            python3 main.py --config $file
-        done 
+            pipenv run python3 main.py --config $file
+        done
     done
 done

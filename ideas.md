@@ -1,4 +1,4 @@
-# How do we get this shitty evaluation done?!
+# How do we get this evaluation done?!
 
 # Goal
 Compute similarity between papers based on ground truth key words!

@@ -20,7 +20,6 @@ def main():
     config = Config.from_file(args.config)
 
     logger = get_logger(config.output_path)
-    logger.info(args)
     logger.info("=> Starting new experiment ...")
 
     logger.info("Load data")
