@@ -38,7 +38,7 @@ For this we want to specifically arrive at a clustering (representation) that, f
 To achieve this we basically interpret the steps mentioned in the subsection \ref{subsec:pipeline} as some coarse sub goals, which can then be worked on by different team members.
 Some of these sub goals can also be further divided, for example downloading and preprocessing data from different sources or implementing distinct clustering algorithms can be done by a single team member respectively.
 
-## Requirements
+### Requirements
 The requirements can be found in `requirements.txt` and can be installed with
 ```
 pip install -r requirements.txt
@@ -57,7 +57,7 @@ The project code can be run by executing the `main.py` script with a `--config` 
 
 We support a variety of different options for the configuration, but encourage the usage of the provided configuration files as their configuration combinations are (well) tested.
 
-### Configuration
+#### Configuration
 The configuration supports these options:
 
 * __input_path__: path of the (json) data file
