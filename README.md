@@ -1,4 +1,4 @@
-# Scientific paper clustering - ITA WS20/21
+# Scientific Papers Clustering 
 
 ## Team members
 
@@ -39,11 +39,12 @@ Our main goal is to make it easier for users to search and explore scientific pa
 For this we want to specifically arrive at a clustering (representation) that, for one, separates the different documents into correct clusters, but is also easy to work with in downstream tasks (e.g. the mentioned inclusion in some search site).
 
 ## Dataset
-The dataset containing the scraped research papers is saved in the `data_2021-02-01_22-27-13.862993.json` . An example of a research paper can be seen here:
+The dataset containing the scraped research papers is saved in `data_2021-02-01_22-27-13.862993.json`. An example of a research paper can be seen here:
 ``` json
+  {
             "title": "Multiple-Instance Learning from Distributions",
             "abstract": [
-                "We propose a new theoretical framework for analyzing the multiple-instance learning (MIL) setting. In MIL, training examples are provided to a learning algorithm in the form of labeled sets, or \"bags,\" of instances. Applications of MIL include 3-D quantitative structure activity relationship prediction for drug discovery and content-based image retrieval for web search. The goal of an algorithm is to learn a function that correctly labels new bags or a function that correctly labels new instances. We propose that bags should be treated as latent distributions from which samples are observed. We show that it is possible to learn accurate instance-and bag-labeling functions in this setting as well as functions that correctly rank bags or instances under weak assumptions. Additionally, our theoretical results suggest that it is possible to learn to rank efficiently using traditional, well-studied \"supervised\" learning approaches. We perform an extensive empirical evaluation that supports the theoretical predictions entailed by the new framework. The proposed theoretical framework leads to a better understanding of the relationship between the MI and standard supervised learning settings, and it provides new methods for learning from MI data that are more accurate, more efficient, and have better understood theoretical properties than existing MI-specific algorithms."
+                "We propose a new theoretical framework for analyzing the multiple-instance learning (MIL) setting. In MIL, training examples are provided to a learning algorithm in the form of labeled sets, or \"bags,\" of instances. Applications of MIL include 3-D quantitative structureactivity relationship prediction for drug discovery and content-based image retrieval for web search. The goal of an algorithm is to learn a function that correctly labels new bags or a function that correctly labels new instances. We propose that bags should be treated as latent distributions from which samples are observed. We show that it is possible to learn accurate instance-and bag-labeling functions in this setting as well as functions that correctly rank bags or instances under weak assumptions. Additionally, our theoretical results suggest that it is possible to learn to rank efficiently using traditional, well-studied \"supervised\" learning approaches. We perform an extensive empirical evaluation that supports the theoretical predictions entailed by the new framework. The proposed theoretical framework leads to a better understanding of the relationship between the MI and standard supervised learning settings, and it provides new methods for learning from MI data that are more accurate, more efficient, and have better understood theoretical properties than existing MI-specific algorithms."
             ],
             "keywords": [
                 "multiple-instance learning",
@@ -57,6 +58,7 @@ The dataset containing the scraped research papers is saved in the `data_2021-02
             "ref": "https://jmlr.csail.mit.edu//papers/volume17/15-171/15-171.pdf",
             "datasource": "Journal of Machine Learning Research",
             "datasource_url": "https://jmlr.csail.mit.edu"
+        }
 ```
 
 ## Requirements
@@ -74,8 +76,10 @@ NOTE: If you choose to follow all three steps, you should change the `input_path
 * Clustering with the existing data.
 In this case, you should jump to step three.
 
+If you choose to follow all the steps, please note that step one might take a while to complete as scraping all the research papers, downloading Grobid and settig up the Grobid server will take some time.
+
 ### Step one (data extraction):
-We have also included `extraction.sh`, the script responsible for extracting our data. Once run, the script will automatically start scraping all the PDFs found on https://www.jmlr.org. It will then clone the two GitHub Grobid repositories (https://github.com/kermitt2/grobid.git, and https://github.com/kermitt2/grobid_client_python) needed for setting up the Grobid server. Finally, it will set up the Grobid server, convert the scraped PDFs into XMLs and create a JSON file from the parsed XMLs.
+For extractig the data, run `extraction.sh`. The script will automatically start scraping all the PDFs found on https://www.jmlr.org. It will then clone the two GitHub Grobid repositories (https://github.com/kermitt2/grobid.git, and https://github.com/kermitt2/grobid_client_python) needed for setting up the Grobid server. Finally, it will set up the Grobid server, convert the scraped PDFs into XMLs and create a JSON file from the parsed XMLs.
 
 NOTE: If the script throws an error, please make sure that Grobid is installed in a path with no parent directories containing spaces.
 
@@ -114,5 +118,5 @@ The configuration supports these options:
   * __n_components__: parameter for dimensionality reduction (dimension of the projected subspace); possible values: Integer > 1
 * __evaluation__: whether to calculate evaluations; default value: True; possible values: True | False;  used for 'Birch' model
 
-### Experiments
+## Experiments
 The [experiments folder](https://github.com/DonatJR/ita_ws20/tree/main/experiments) contains a variety of different notebooks used to experiment on data or evaluate methods. They are not part of the final project output, but contain the majority of the code used to get to the current project state and are therefore included in the repository. 
