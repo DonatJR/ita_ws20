@@ -38,6 +38,12 @@ For this we want to specifically arrive at a clustering (representation) that, f
 To achieve this we basically interpret the steps mentioned in the subsection \ref{subsec:pipeline} as some coarse sub goals, which can then be worked on by different team members.
 Some of these sub goals can also be further divided, for example downloading and preprocessing data from different sources or implementing distinct clustering algorithms can be done by a single team member respectively.
 
+## Requirements
+The requirements can be found in `requirements.txt` and can be installed with
+```
+pip install -r requirements.txt
+```
+
 ### Data extraction
 We have also included `extraction.sh`, the script responsible for extracting our data. Once run, the script will automatically start scraping all the PDFs found on https://www.jmlr.org. It will then clone the two GitHub Grobid repositories (https://github.com/kermitt2/grobid.git, and https://github.com/kermitt2/grobid_client_python) needed for setting up the Grobid server. Finally, it will set up the Grobid server, convert the scraped PDFs into XMLs and create a JSON file from the parsed XMLs.
 
