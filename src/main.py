@@ -58,7 +58,9 @@ def main():
 
     if config.evaluate:
         logger.info("Evaluate Results")
-        evaluations = Evaluation(features, preprocessed_corpus).evaluate_all()
+        evaluations = Evaluation(
+            features, preprocessed_corpus, logger=logger
+        ).evaluate_all()
         io.save_evaluations(config.output_path + "evaluations.json", evaluations)
 
 

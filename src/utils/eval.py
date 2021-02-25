@@ -11,9 +11,10 @@ class Evaluation:
     Wrapper class for sklearn metrics.
     """
 
-    def __init__(self, features, corpus):
+    def __init__(self, features, corpus, logger):
         self.features = features
         self.prediction = corpus["predicted_labels"]
+        self.logger = logger
 
         if "label" in corpus:
             self.groundtruth = corpus["label"]
@@ -126,15 +127,20 @@ class Evaluation:
 
     def evaluate_all(self):
         all_scores = {}
-        all_scores["silhouette_score"] = self.silhouette_score()
-        all_scores["calinski_harabasz"] = self.calinski_harabasz()
-        all_scores["davies_bouldin_score"] = self.davies_bouldin_score()
-        if self.groundtruth is not None:
-            all_scores["purity"] = self.purity()
-            all_scores["adjusted_rand_score"] = self.adjusted_rand_score()
-            all_scores["adjusted_mutual_info_score"] = self.adjusted_mutual_info_score()
-            all_scores["precision"] = self.precision()
-            all_scores["recall"] = self.recall()
-            all_scores["f1"] = self.f1()
-            all_scores["accuracy"] = self.accuracy()
+        try:
+            all_scores["silhouette_score"] = self.silhouette_score()
+            all_scores["calinski_harabasz"] = self.calinski_harabasz()
+            all_scores["davies_bouldin_score"] = self.davies_bouldin_score()
+            if self.groundtruth is not None:
+                all_scores["purity"] = self.purity()
+                all_scores["adjusted_rand_score"] = self.adjusted_rand_score()
+                all_scores[
+                    "adjusted_mutual_info_score"
+                ] = self.adjusted_mutual_info_score()
+                all_scores["precision"] = self.precision()
+                all_scores["recall"] = self.recall()
+                all_scores["f1"] = self.f1()
+                all_scores["accuracy"] = self.accuracy()
+        except Exception as e:
+            self.logger.error(f"Only one cluster found: {e}")
         return all_scores
