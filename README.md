@@ -40,8 +40,7 @@ For this we want to specifically arrive at a clustering (representation) that, f
 
 ## Dataset
 The dataset containing the scraped research papers is saved in the `data_2021-02-01_22-27-13.862993.json` . An example of a research paper can be seen here:
-''' json
-{
+``` json
             "title": "Multiple-Instance Learning from Distributions",
             "abstract": [
                 "We propose a new theoretical framework for analyzing the multiple-instance learning (MIL) setting. In MIL, training examples are provided to a learning algorithm in the form of labeled sets, or \"bags,\" of instances. Applications of MIL include 3-D quantitative structure activity relationship prediction for drug discovery and content-based image retrieval for web search. The goal of an algorithm is to learn a function that correctly labels new bags or a function that correctly labels new instances. We propose that bags should be treated as latent distributions from which samples are observed. We show that it is possible to learn accurate instance-and bag-labeling functions in this setting as well as functions that correctly rank bags or instances under weak assumptions. Additionally, our theoretical results suggest that it is possible to learn to rank efficiently using traditional, well-studied \"supervised\" learning approaches. We perform an extensive empirical evaluation that supports the theoretical predictions entailed by the new framework. The proposed theoretical framework leads to a better understanding of the relationship between the MI and standard supervised learning settings, and it provides new methods for learning from MI data that are more accurate, more efficient, and have better understood theoretical properties than existing MI-specific algorithms."
@@ -58,8 +57,7 @@ The dataset containing the scraped research papers is saved in the `data_2021-02
             "ref": "https://jmlr.csail.mit.edu//papers/volume17/15-171/15-171.pdf",
             "datasource": "Journal of Machine Learning Research",
             "datasource_url": "https://jmlr.csail.mit.edu"
-        }
-'''
+```
 
 ## Requirements
 The requirements can be found in `requirements.txt` and can be installed with
