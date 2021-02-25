@@ -79,6 +79,11 @@ def parse_xml(root, filename):
         .replace("https///", "https://")
     )
 
+    if abstract == []:
+        abstract = nan
+    else:
+        abstract = abstract[0]
+
     vals = [
         title,
         abstract,
