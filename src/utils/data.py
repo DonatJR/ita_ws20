@@ -3,7 +3,6 @@ This contains all relevant I/O operations.
 """
 
 import json
-import pickle
 
 import numpy as np
 import pandas as pd

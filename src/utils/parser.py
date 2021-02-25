@@ -6,7 +6,6 @@ It creates the JSON file where we save our data.
 import datetime
 import json
 import os
-import re
 import xml.etree.ElementTree as ET
 from math import nan
 from pathlib import Path
@@ -35,7 +34,7 @@ def read_xmls():
         fullname = os.path.join(input_path, filename)
         try:
             tree = ET.parse(fullname)
-        except:
+        except Exception:
             print("could not parse {}\n".format(filename))
         parse_xml(tree.getroot(), filename)
 

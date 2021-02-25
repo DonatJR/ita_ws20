@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 from utils.config import ClusteringMethod, DimReduction, PreprocessingLib
-from utils.helper import get_logger
 
 
 class Preprocessing:
