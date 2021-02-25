@@ -43,6 +43,9 @@ We have also included `extraction.sh`, the script responsible for extracting our
 
 NOTE: If the script throws an error, please make sure that Grobid is installed in a path with no parent directories containing spaces.
 
+### Create ground truth labels
+For generating ground truth labels run the file `create_gt.py` with a `--config` argument pointing to a valid yaml configuration file (`gt.yaml`).
+
 ### Running the code
 The project code can be run by executing the `main.py` script with a `--config` argument pointing to a valid yaml configuration file. If no configuration file is given, the default value `config.yaml` is used and a corresponding file has to exist in the same folder as `main.py`.
 
