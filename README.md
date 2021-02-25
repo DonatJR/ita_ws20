@@ -76,4 +76,4 @@ The configuration supports these options:
 * __evaluation__: whether to calculate evaluations; default value: True; possible values: True | False;  used for 'Birch' model
 
 ### Experiments
-The [notebooks folder](https://github.com/DonatJR/ita_ws20/tree/main/experiments) contains a variety of different notebooks used to experiment on data or evaluate methods. They are not part of the final project output, but contain the majority of the code used to get to the current project state and are therefore included in the repository. 
+The [experiments folder](https://github.com/DonatJR/ita_ws20/tree/main/experiments) contains a variety of different notebooks used to experiment on data or evaluate methods. They are not part of the final project output, but contain the majority of the code used to get to the current project state and are therefore included in the repository. 
