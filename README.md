@@ -58,7 +58,7 @@ The dataset containing the scraped research papers is saved in `data_2021-02-01_
     "ref": "https://jmlr.csail.mit.edu//papers/volume17/15-171/15-171.pdf",
     "datasource": "Journal of Machine Learning Research",
     "datasource_url": "https://jmlr.csail.mit.edu"
- }
+}
 ```
 
 ## Requirements
