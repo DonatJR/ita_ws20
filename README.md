@@ -69,7 +69,7 @@ There are two ways to go about running the project:
 * Extracting the data, creating ground truth labels and then clustering.
 In this case, you must follow all three steps listed bellow.
 
-NOTE: If you choose to follow all three steps, you should change the `input_path` parameter with the name of the newly created __json__ in step one in the __yaml__ configs used for step two and three.
+NOTE: If you choose to follow all three steps, you should change the `input_path` parameter with the name of the newly created `json` in step one in the `yaml` configs used for step two and three.
 
 * Clustering with the existing data
 In this case, you should jump to step three.
