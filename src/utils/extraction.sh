@@ -42,9 +42,9 @@ python3 grobid_client.py --input ../../data/pdfs/ --output ../../data/tei/ proce
 
 # Parse XML's created by Grobid
 echo "Prase XMLs with Grobid..."
-# cd ..
+cd ..
 python3 parser.py
 echo "JSON file with parsed XMLs saved in data..."
 
 echo "Close Grobid server..."
-# kill $GPID
+kill $GPID
