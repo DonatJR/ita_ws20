@@ -1,0 +1,13 @@
+[2021-02-24 11:06:47,670 INFO main.py line 23 13076] Namespace(config='./configurations/affinity_propagation_lsa.yaml')
+[2021-02-24 11:06:47,671 INFO main.py line 24 13076] => Starting new experiment ...
+[2021-02-24 11:06:47,671 INFO main.py line 26 13076] Load data
+[2021-02-24 11:06:47,913 INFO main.py line 29 13076] Perform preprocessing
+[2021-02-24 11:06:47,920 INFO preprocessing.py line 147 13076] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:06:48,115 INFO preprocessing.py line 147 13076] Starting tokenization ...
+[2021-02-24 11:06:52,302 INFO main.py line 37 13076] Start clustering
+[2021-02-24 11:06:52,310 INFO clustering.py line 132 13076] applying TD-IDF
+[2021-02-24 11:06:52,492 INFO clustering.py line 132 13076] performing lsa embedding
+[2021-02-24 11:06:52,551 INFO clustering.py line 132 13076] using AffinityPropagation-Model
+[2021-02-24 11:07:29,638 INFO main.py line 50 13076] Save results to results/affinity_propagation/lsa/
+[2021-02-24 11:07:29,640 INFO main.py line 57 13076] Saving model to results/affinity_propagation/lsa/
+[2021-02-24 11:07:29,714 INFO main.py line 60 13076] Evaluate Results

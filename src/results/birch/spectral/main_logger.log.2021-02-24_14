@@ -1,0 +1,39 @@
+[2021-02-24 13:59:58,125 INFO main.py line 23 7240] Namespace(config='./configurations/birch_spectral.yaml')
+[2021-02-24 13:59:58,129 INFO main.py line 24 7240] => Starting new experiment ...
+[2021-02-24 13:59:58,129 INFO main.py line 26 7240] Load data
+[2021-02-24 13:59:58,489 INFO main.py line 29 7240] Perform preprocessing
+[2021-02-24 13:59:58,503 INFO preprocessing.py line 147 7240] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 13:59:58,739 INFO preprocessing.py line 147 7240] Starting tokenization ...
+[2021-02-24 14:00:04,430 INFO main.py line 37 7240] Start clustering
+[2021-02-24 14:00:04,431 INFO clustering.py line 132 7240] applying TD-IDF
+[2021-02-24 14:00:04,619 INFO clustering.py line 132 7240] performing spectral embedding
+[2021-02-24 14:00:05,738 INFO clustering.py line 132 7240] using Birch-Model
+[2021-02-24 14:00:06,123 INFO main.py line 50 7240] Save results to results/birch/spectral/
+[2021-02-24 14:00:06,160 INFO main.py line 57 7240] Saving model to results/birch/spectral/
+[2021-02-24 14:00:06,163 INFO main.py line 61 7240] Evaluate Results
+[2021-02-24 14:10:12,269 INFO main.py line 23 19128] Namespace(config='./configurations/birch_spectral.yaml')
+[2021-02-24 14:10:12,270 INFO main.py line 24 19128] => Starting new experiment ...
+[2021-02-24 14:10:12,270 INFO main.py line 26 19128] Load data
+[2021-02-24 14:10:12,573 INFO main.py line 29 19128] Perform preprocessing
+[2021-02-24 14:10:12,585 INFO preprocessing.py line 147 19128] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 14:10:12,790 INFO preprocessing.py line 147 19128] Starting tokenization ...
+[2021-02-24 14:10:18,859 INFO main.py line 37 19128] Start clustering
+[2021-02-24 14:10:18,859 INFO clustering.py line 132 19128] applying TD-IDF
+[2021-02-24 14:10:19,037 INFO clustering.py line 132 19128] performing spectral embedding
+[2021-02-24 14:10:20,298 INFO clustering.py line 132 19128] using Birch-Model
+[2021-02-24 14:10:20,615 INFO main.py line 50 19128] Save results to results/birch/spectral/
+[2021-02-24 14:10:20,648 INFO main.py line 57 19128] Saving model to results/birch/spectral/
+[2021-02-24 14:10:20,650 INFO main.py line 61 19128] Evaluate Results
+[2021-02-24 14:56:48,309 INFO main.py line 23 14264] Namespace(config='./configurations/birch_spectral.yaml')
+[2021-02-24 14:56:48,309 INFO main.py line 24 14264] => Starting new experiment ...
+[2021-02-24 14:56:48,309 INFO main.py line 26 14264] Load data
+[2021-02-24 14:56:48,536 INFO main.py line 29 14264] Perform preprocessing
+[2021-02-24 14:56:48,549 INFO preprocessing.py line 147 14264] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 14:56:48,799 INFO preprocessing.py line 147 14264] Starting tokenization ...
+[2021-02-24 14:56:57,482 INFO main.py line 37 14264] Start clustering
+[2021-02-24 14:56:57,482 INFO clustering.py line 132 14264] applying TD-IDF
+[2021-02-24 14:56:57,733 INFO clustering.py line 132 14264] performing spectral embedding
+[2021-02-24 14:56:59,039 INFO clustering.py line 132 14264] using Birch-Model
+[2021-02-24 14:56:59,467 INFO main.py line 50 14264] Save results to results/birch/spectral/
+[2021-02-24 14:56:59,503 INFO main.py line 57 14264] Saving model to results/birch/spectral/
+[2021-02-24 14:56:59,505 INFO main.py line 61 14264] Evaluate Results

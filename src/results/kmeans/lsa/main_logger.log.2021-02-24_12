@@ -1,0 +1,26 @@
+[2021-02-24 12:54:08,767 INFO main.py line 23 6576] Namespace(config='./configurations/kmeans_lsa.yaml')
+[2021-02-24 12:54:08,771 INFO main.py line 24 6576] => Starting new experiment ...
+[2021-02-24 12:54:08,771 INFO main.py line 26 6576] Load data
+[2021-02-24 12:54:09,109 INFO main.py line 29 6576] Perform preprocessing
+[2021-02-24 12:54:09,117 INFO preprocessing.py line 147 6576] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:54:09,343 INFO preprocessing.py line 147 6576] Starting tokenization ...
+[2021-02-24 12:54:18,094 INFO main.py line 37 6576] Start clustering
+[2021-02-24 12:54:18,094 INFO clustering.py line 132 6576] applying TD-IDF
+[2021-02-24 12:54:18,383 INFO clustering.py line 132 6576] performing lsa embedding
+[2021-02-24 12:54:18,478 INFO clustering.py line 132 6576] using KMeans-Model
+[2021-02-24 12:54:19,293 INFO main.py line 50 6576] Save results to results/kmeans/lsa/
+[2021-02-24 12:54:19,340 INFO main.py line 57 6576] Saving model to results/kmeans/lsa/
+[2021-02-24 12:54:19,342 INFO main.py line 60 6576] Evaluate Results
+[2021-02-24 12:56:44,289 INFO main.py line 23 22152] Namespace(config='./configurations/kmeans_lsa.yaml')
+[2021-02-24 12:56:44,290 INFO main.py line 24 22152] => Starting new experiment ...
+[2021-02-24 12:56:44,290 INFO main.py line 26 22152] Load data
+[2021-02-24 12:56:44,572 INFO main.py line 29 22152] Perform preprocessing
+[2021-02-24 12:56:44,590 INFO preprocessing.py line 147 22152] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:56:44,873 INFO preprocessing.py line 147 22152] Starting tokenization ...
+[2021-02-24 12:56:50,214 INFO main.py line 37 22152] Start clustering
+[2021-02-24 12:56:50,214 INFO clustering.py line 132 22152] applying TD-IDF
+[2021-02-24 12:56:50,406 INFO clustering.py line 132 22152] performing lsa embedding
+[2021-02-24 12:56:50,489 INFO clustering.py line 132 22152] using KMeans-Model
+[2021-02-24 12:56:51,191 INFO main.py line 50 22152] Save results to results/kmeans/lsa/
+[2021-02-24 12:56:51,225 INFO main.py line 57 22152] Saving model to results/kmeans/lsa/
+[2021-02-24 12:56:51,227 INFO main.py line 60 22152] Evaluate Results

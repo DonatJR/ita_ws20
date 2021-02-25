@@ -1,5 +1,5 @@
 input_path: "data/data_2021-02-01_22-27-13.862993_labeled.json"
-output_path: "results/"
+output_path: "results/optics/"
 use_title: False
 preprocessing:
   stemming: False
@@ -12,5 +12,5 @@ clustering:
   model: "OPTICS"
   n_jobs: -1
 embedding:
-  dimensionality_reduction: "lsa"
+  dimensionality_reduction: None
   n_components: 2

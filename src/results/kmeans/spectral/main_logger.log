@@ -1,0 +1,12 @@
+[2021-02-25 14:10:19,083 INFO main.py line 23 4932] => Starting new experiment ...
+[2021-02-25 14:10:19,083 INFO main.py line 25 4932] Load data
+[2021-02-25 14:10:19,275 INFO main.py line 28 4932] Perform preprocessing
+[2021-02-25 14:10:19,288 INFO preprocessing.py line 146 4932] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:10:19,501 INFO preprocessing.py line 146 4932] Starting tokenization ...
+[2021-02-25 14:10:23,646 INFO main.py line 36 4932] Start clustering
+[2021-02-25 14:10:23,646 INFO clustering.py line 126 4932] applying TD-IDF
+[2021-02-25 14:10:23,777 INFO clustering.py line 126 4932] performing spectral embedding
+[2021-02-25 14:10:24,944 INFO clustering.py line 126 4932] using KMeans-Model
+[2021-02-25 14:10:25,785 INFO main.py line 49 4932] Save results to results/kmeans/spectral/
+[2021-02-25 14:10:25,842 INFO main.py line 56 4932] Saving model to results/kmeans/spectral/
+[2021-02-25 14:10:25,844 INFO main.py line 60 4932] Evaluate Results

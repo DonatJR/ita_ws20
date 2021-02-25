@@ -1,0 +1,17 @@
+[2021-02-24 14:02:12,247 INFO main.py line 23 3252] Namespace(config='./configurations/optics_spectral.yaml')
+[2021-02-24 14:02:12,251 INFO main.py line 24 3252] => Starting new experiment ...
+[2021-02-24 14:02:12,252 INFO main.py line 26 3252] Load data
+[2021-02-24 14:02:12,574 INFO main.py line 29 3252] Perform preprocessing
+[2021-02-24 14:18:01,441 INFO main.py line 23 13452] Namespace(config='./configurations/optics_spectral.yaml')
+[2021-02-24 14:18:01,442 INFO main.py line 24 13452] => Starting new experiment ...
+[2021-02-24 14:18:01,442 INFO main.py line 26 13452] Load data
+[2021-02-24 14:18:01,699 INFO main.py line 29 13452] Perform preprocessing
+[2021-02-24 14:18:01,714 INFO preprocessing.py line 147 13452] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 14:18:01,974 INFO preprocessing.py line 147 13452] Starting tokenization ...
+[2021-02-24 14:18:06,604 INFO main.py line 37 13452] Start clustering
+[2021-02-24 14:18:06,604 INFO clustering.py line 132 13452] applying TD-IDF
+[2021-02-24 14:18:06,740 INFO clustering.py line 132 13452] performing spectral embedding
+[2021-02-24 14:18:08,224 INFO clustering.py line 132 13452] using OPTICS-Model
+[2021-02-24 14:22:11,376 INFO main.py line 50 13452] Save results to results/optics/spectral/
+[2021-02-24 14:22:11,509 INFO main.py line 57 13452] Saving model to results/optics/spectral/
+[2021-02-24 14:22:11,511 INFO main.py line 61 13452] Evaluate Results

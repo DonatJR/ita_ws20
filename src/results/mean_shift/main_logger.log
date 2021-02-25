@@ -1,0 +1,4 @@
+[2021-02-25 14:23:09,137 INFO main.py line 49 19352] Save results to results/mean_shift/
+[2021-02-25 14:23:09,189 INFO main.py line 56 19352] Saving model to results/mean_shift/
+[2021-02-25 14:23:09,191 INFO main.py line 60 19352] Evaluate Results
+[2021-02-25 14:23:09,240 ERROR eval.py line 145 19352] Only one cluster found: Number of labels is 1. Valid values are 2 to n_samples - 1 (inclusive)

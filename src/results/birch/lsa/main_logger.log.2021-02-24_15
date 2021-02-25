@@ -1,0 +1,161 @@
+[2021-02-24 12:52:27,713 INFO main.py line 23 19940] Namespace(config='./configurations/birch_lsa.yaml')
+[2021-02-24 12:52:27,714 INFO main.py line 24 19940] => Starting new experiment ...
+[2021-02-24 12:52:27,714 INFO main.py line 26 19940] Load data
+[2021-02-24 12:52:27,980 INFO main.py line 29 19940] Perform preprocessing
+[2021-02-24 12:52:27,987 INFO preprocessing.py line 147 19940] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:52:28,178 INFO preprocessing.py line 147 19940] Starting tokenization ...
+[2021-02-24 12:52:32,552 INFO main.py line 37 19940] Start clustering
+[2021-02-24 12:52:32,561 INFO clustering.py line 132 19940] applying TD-IDF
+[2021-02-24 12:52:32,752 INFO clustering.py line 132 19940] performing lsa embedding
+[2021-02-24 12:52:32,835 INFO clustering.py line 132 19940] using Birch-Model
+[2021-02-24 12:52:33,179 INFO main.py line 50 19940] Save results to results/birch/lsa/
+[2021-02-24 12:52:33,215 INFO main.py line 57 19940] Saving model to results/birch/lsa/
+[2021-02-24 12:52:33,226 INFO main.py line 60 19940] Evaluate Results
+[2021-02-24 13:37:02,492 INFO main.py line 23 11936] Namespace(config='C:\\Users\\Jessi\\Documents\\Studium\\WS20_21\\text analytics\\ita_ws20\\src\\configurations\\birch_lsa.yaml')
+[2021-02-24 13:37:02,492 INFO main.py line 24 11936] => Starting new experiment ...
+[2021-02-24 13:37:02,492 INFO main.py line 26 11936] Load data
+[2021-02-24 13:37:02,719 INFO main.py line 29 11936] Perform preprocessing
+[2021-02-24 13:37:02,732 INFO preprocessing.py line 147 11936] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 13:37:03,240 INFO preprocessing.py line 147 11936] Starting tokenization ...
+[2021-02-24 13:37:09,145 INFO main.py line 37 11936] Start clustering
+[2021-02-24 13:37:09,145 INFO clustering.py line 133 11936] applying TD-IDF
+[2021-02-24 13:37:09,261 INFO clustering.py line 133 11936] performing lsa embedding
+[2021-02-24 13:37:09,341 INFO clustering.py line 133 11936] using Birch-Model
+[2021-02-24 13:37:09,620 INFO main.py line 50 11936] Save results to results/birch/lsa/
+[2021-02-24 13:37:09,658 INFO main.py line 57 11936] Saving model to results/birch/lsa/
+[2021-02-24 13:37:09,660 INFO main.py line 61 11936] Evaluate Results
+[2021-02-24 13:37:36,813 INFO main.py line 23 20024] Namespace(config='C:\\Users\\Jessi\\Documents\\Studium\\WS20_21\\text analytics\\ita_ws20\\src\\configurations\\birch_lsa.yaml')
+[2021-02-24 13:37:36,813 INFO main.py line 24 20024] => Starting new experiment ...
+[2021-02-24 13:37:36,813 INFO main.py line 26 20024] Load data
+[2021-02-24 13:37:37,219 INFO main.py line 29 20024] Perform preprocessing
+[2021-02-24 13:37:37,233 INFO preprocessing.py line 147 20024] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 13:37:37,507 INFO preprocessing.py line 147 20024] Starting tokenization ...
+[2021-02-24 13:37:42,646 INFO main.py line 37 20024] Start clustering
+[2021-02-24 13:37:42,646 INFO clustering.py line 133 20024] applying TD-IDF
+[2021-02-24 13:37:42,762 INFO clustering.py line 133 20024] performing lsa embedding
+[2021-02-24 13:37:42,832 INFO clustering.py line 133 20024] using Birch-Model
+[2021-02-24 13:37:43,330 INFO main.py line 50 20024] Save results to results/birch/lsa/
+[2021-02-24 13:37:43,362 INFO main.py line 57 20024] Saving model to results/birch/lsa/
+[2021-02-24 13:37:43,364 INFO main.py line 61 20024] Evaluate Results
+[2021-02-24 13:54:41,351 INFO main.py line 23 17516] Namespace(config='C:\\Users\\Jessi\\Documents\\Studium\\WS20_21\\text analytics\\ita_ws20\\src\\configurations\\birch_lsa.yaml')
+[2021-02-24 13:54:41,352 INFO main.py line 24 17516] => Starting new experiment ...
+[2021-02-24 13:54:41,352 INFO main.py line 26 17516] Load data
+[2021-02-24 13:54:41,603 INFO main.py line 29 17516] Perform preprocessing
+[2021-02-24 13:54:41,608 INFO preprocessing.py line 147 17516] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 13:54:41,811 INFO preprocessing.py line 147 17516] Starting tokenization ...
+[2021-02-24 13:54:46,973 INFO main.py line 37 17516] Start clustering
+[2021-02-24 13:54:46,973 INFO clustering.py line 132 17516] applying TD-IDF
+[2021-02-24 13:54:47,309 INFO clustering.py line 132 17516] performing lsa embedding
+[2021-02-24 13:54:47,443 INFO clustering.py line 132 17516] using Birch-Model
+[2021-02-24 13:54:48,230 INFO main.py line 50 17516] Save results to results/birch/lsa/
+[2021-02-24 13:54:48,301 INFO main.py line 57 17516] Saving model to results/birch/lsa/
+[2021-02-24 13:54:48,305 INFO main.py line 61 17516] Evaluate Results
+[2021-02-24 13:55:29,498 INFO main.py line 23 10776] Namespace(config='C:\\Users\\Jessi\\Documents\\Studium\\WS20_21\\text analytics\\ita_ws20\\src\\configurations\\birch_lsa.yaml')
+[2021-02-24 13:55:29,499 INFO main.py line 24 10776] => Starting new experiment ...
+[2021-02-24 13:55:29,499 INFO main.py line 26 10776] Load data
+[2021-02-24 13:55:29,890 INFO main.py line 29 10776] Perform preprocessing
+[2021-02-24 13:55:29,903 INFO preprocessing.py line 147 10776] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 13:55:30,119 INFO preprocessing.py line 147 10776] Starting tokenization ...
+[2021-02-24 13:55:35,348 INFO main.py line 37 10776] Start clustering
+[2021-02-24 13:55:35,348 INFO clustering.py line 132 10776] applying TD-IDF
+[2021-02-24 13:55:35,462 INFO clustering.py line 132 10776] performing lsa embedding
+[2021-02-24 13:55:35,539 INFO clustering.py line 132 10776] using Birch-Model
+[2021-02-24 13:55:36,076 INFO main.py line 50 10776] Save results to results/birch/lsa/
+[2021-02-24 13:55:36,144 INFO main.py line 57 10776] Saving model to results/birch/lsa/
+[2021-02-24 13:55:36,149 INFO main.py line 61 10776] Evaluate Results
+[2021-02-24 13:55:47,950 INFO main.py line 23 6084] Namespace(config='C:\\Users\\Jessi\\Documents\\Studium\\WS20_21\\text analytics\\ita_ws20\\src\\configurations\\birch_lsa.yaml')
+[2021-02-24 13:55:47,950 INFO main.py line 24 6084] => Starting new experiment ...
+[2021-02-24 13:55:47,951 INFO main.py line 26 6084] Load data
+[2021-02-24 13:55:48,399 INFO main.py line 29 6084] Perform preprocessing
+[2021-02-24 13:55:48,417 INFO preprocessing.py line 147 6084] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 13:55:48,681 INFO preprocessing.py line 147 6084] Starting tokenization ...
+[2021-02-24 13:55:53,215 INFO main.py line 37 6084] Start clustering
+[2021-02-24 13:55:53,216 INFO clustering.py line 132 6084] applying TD-IDF
+[2021-02-24 13:55:53,331 INFO clustering.py line 132 6084] performing lsa embedding
+[2021-02-24 13:55:53,412 INFO clustering.py line 132 6084] using Birch-Model
+[2021-02-24 13:55:54,047 INFO main.py line 50 6084] Save results to results/birch/lsa/
+[2021-02-24 13:55:54,104 INFO main.py line 57 6084] Saving model to results/birch/lsa/
+[2021-02-24 13:55:54,108 INFO main.py line 61 6084] Evaluate Results
+[2021-02-24 13:56:16,874 INFO main.py line 23 21344] Namespace(config='C:\\Users\\Jessi\\Documents\\Studium\\WS20_21\\text analytics\\ita_ws20\\src\\configurations\\birch_lsa.yaml')
+[2021-02-24 13:56:16,875 INFO main.py line 24 21344] => Starting new experiment ...
+[2021-02-24 13:56:16,875 INFO main.py line 26 21344] Load data
+[2021-02-24 13:56:17,079 INFO main.py line 29 21344] Perform preprocessing
+[2021-02-24 13:56:17,086 INFO preprocessing.py line 147 21344] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 13:56:17,356 INFO preprocessing.py line 147 21344] Starting tokenization ...
+[2021-02-24 13:56:23,515 INFO main.py line 37 21344] Start clustering
+[2021-02-24 13:56:23,515 INFO clustering.py line 132 21344] applying TD-IDF
+[2021-02-24 13:56:23,634 INFO clustering.py line 132 21344] performing lsa embedding
+[2021-02-24 13:56:23,716 INFO clustering.py line 132 21344] using Birch-Model
+[2021-02-24 13:56:24,299 INFO main.py line 50 21344] Save results to results/birch/lsa/
+[2021-02-24 13:56:24,355 INFO main.py line 57 21344] Saving model to results/birch/lsa/
+[2021-02-24 13:59:35,814 INFO main.py line 23 13956] Namespace(config='./configurations/birch_lsa.yaml')
+[2021-02-24 13:59:35,814 INFO main.py line 24 13956] => Starting new experiment ...
+[2021-02-24 13:59:35,815 INFO main.py line 26 13956] Load data
+[2021-02-24 13:59:36,353 INFO main.py line 29 13956] Perform preprocessing
+[2021-02-24 13:59:36,371 INFO preprocessing.py line 147 13956] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 13:59:36,662 INFO preprocessing.py line 147 13956] Starting tokenization ...
+[2021-02-24 13:59:43,989 INFO main.py line 37 13956] Start clustering
+[2021-02-24 13:59:43,989 INFO clustering.py line 132 13956] applying TD-IDF
+[2021-02-24 13:59:44,307 INFO clustering.py line 132 13956] performing lsa embedding
+[2021-02-24 13:59:44,403 INFO clustering.py line 132 13956] using Birch-Model
+[2021-02-24 13:59:45,468 INFO main.py line 50 13956] Save results to results/birch/lsa/
+[2021-02-24 13:59:45,550 INFO main.py line 57 13956] Saving model to results/birch/lsa/
+[2021-02-24 13:59:45,557 INFO main.py line 61 13956] Evaluate Results
+[2021-02-24 14:06:04,319 INFO main.py line 23 16048] Namespace(config='./configurations/birch_lsa.yaml')
+[2021-02-24 14:06:04,322 INFO main.py line 24 16048] => Starting new experiment ...
+[2021-02-24 14:06:04,323 INFO main.py line 26 16048] Load data
+[2021-02-24 14:06:04,685 INFO main.py line 29 16048] Perform preprocessing
+[2021-02-24 14:06:04,701 INFO preprocessing.py line 147 16048] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 14:06:04,960 INFO preprocessing.py line 147 16048] Starting tokenization ...
+[2021-02-24 14:09:52,164 INFO main.py line 23 17608] Namespace(config='./configurations/birch_lsa.yaml')
+[2021-02-24 14:09:52,165 INFO main.py line 24 17608] => Starting new experiment ...
+[2021-02-24 14:09:52,165 INFO main.py line 26 17608] Load data
+[2021-02-24 14:09:52,560 INFO main.py line 29 17608] Perform preprocessing
+[2021-02-24 14:09:52,567 INFO preprocessing.py line 147 17608] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 14:09:52,785 INFO preprocessing.py line 147 17608] Starting tokenization ...
+[2021-02-24 14:09:57,671 INFO main.py line 37 17608] Start clustering
+[2021-02-24 14:09:57,671 INFO clustering.py line 132 17608] applying TD-IDF
+[2021-02-24 14:09:57,853 INFO clustering.py line 132 17608] performing lsa embedding
+[2021-02-24 14:09:57,932 INFO clustering.py line 132 17608] using Birch-Model
+[2021-02-24 14:09:58,620 INFO main.py line 50 17608] Save results to results/birch/lsa/
+[2021-02-24 14:09:58,677 INFO main.py line 57 17608] Saving model to results/birch/lsa/
+[2021-02-24 14:09:58,684 INFO main.py line 61 17608] Evaluate Results
+[2021-02-24 14:35:29,904 INFO main.py line 23 6996] Namespace(config='C:\\Users\\Jessi\\Documents\\Studium\\WS20_21\\text analytics\\ita_ws20\\src\\configurations\\birch_lsa.yaml')
+[2021-02-24 14:35:29,905 INFO main.py line 24 6996] => Starting new experiment ...
+[2021-02-24 14:35:29,905 INFO main.py line 26 6996] Load data
+[2021-02-24 14:35:30,236 INFO main.py line 29 6996] Perform preprocessing
+[2021-02-24 14:35:30,251 INFO preprocessing.py line 147 6996] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 14:35:30,495 INFO preprocessing.py line 147 6996] Starting tokenization ...
+[2021-02-24 14:35:38,602 INFO main.py line 37 6996] Start clustering
+[2021-02-24 14:35:38,602 INFO clustering.py line 132 6996] applying TD-IDF
+[2021-02-24 14:35:38,833 INFO clustering.py line 132 6996] performing lsa embedding
+[2021-02-24 14:35:38,928 INFO clustering.py line 132 6996] using Birch-Model
+[2021-02-24 14:35:39,656 INFO main.py line 50 6996] Save results to results/birch/lsa/
+[2021-02-24 14:35:39,702 INFO main.py line 57 6996] Saving model to results/birch/lsa/
+[2021-02-24 14:35:39,705 INFO main.py line 61 6996] Evaluate Results
+[2021-02-24 14:56:24,537 INFO main.py line 23 5280] Namespace(config='./configurations/birch_lsa.yaml')
+[2021-02-24 14:56:24,537 INFO main.py line 24 5280] => Starting new experiment ...
+[2021-02-24 14:56:24,538 INFO main.py line 26 5280] Load data
+[2021-02-24 14:56:24,793 INFO main.py line 29 5280] Perform preprocessing
+[2021-02-24 14:56:24,805 INFO preprocessing.py line 147 5280] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 14:56:25,067 INFO preprocessing.py line 147 5280] Starting tokenization ...
+[2021-02-24 14:56:32,768 INFO main.py line 37 5280] Start clustering
+[2021-02-24 14:56:32,769 INFO clustering.py line 132 5280] applying TD-IDF
+[2021-02-24 14:56:32,963 INFO clustering.py line 132 5280] performing lsa embedding
+[2021-02-24 14:56:33,058 INFO clustering.py line 132 5280] using Birch-Model
+[2021-02-24 14:56:34,033 INFO main.py line 50 5280] Save results to results/birch/lsa/
+[2021-02-24 14:56:34,093 INFO main.py line 57 5280] Saving model to results/birch/lsa/
+[2021-02-24 14:56:34,098 INFO main.py line 61 5280] Evaluate Results
+[2021-02-24 15:22:40,671 INFO main.py line 23 9092] Namespace(config='C:\\Users\\Jessi\\Documents\\Studium\\WS20_21\\text analytics\\ita_ws20\\src\\configurations\\birch_lsa.yaml')
+[2021-02-24 15:22:40,672 INFO main.py line 24 9092] => Starting new experiment ...
+[2021-02-24 15:22:40,672 INFO main.py line 26 9092] Load data
+[2021-02-24 15:22:40,922 INFO main.py line 29 9092] Perform preprocessing
+[2021-02-24 15:22:40,934 INFO preprocessing.py line 147 9092] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 15:22:41,189 INFO preprocessing.py line 147 9092] Starting tokenization ...
+[2021-02-24 15:22:47,423 INFO main.py line 37 9092] Start clustering
+[2021-02-24 15:22:47,424 INFO clustering.py line 126 9092] applying TD-IDF
+[2021-02-24 15:22:47,692 INFO clustering.py line 126 9092] performing lsa embedding
+[2021-02-24 15:22:47,777 INFO clustering.py line 126 9092] using Birch-Model
+[2021-02-24 15:22:48,568 INFO main.py line 50 9092] Save results to results/birch/lsa/
+[2021-02-24 15:22:48,629 INFO main.py line 57 9092] Saving model to results/birch/lsa/
+[2021-02-24 15:22:48,632 INFO main.py line 61 9092] Evaluate Results

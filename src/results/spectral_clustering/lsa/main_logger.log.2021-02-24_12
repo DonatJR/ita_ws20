@@ -1,0 +1,10 @@
+[2021-02-24 12:39:08,507 INFO main.py line 23 18592] Namespace(config='./configurations/spectral_clustering_lsa.yaml')
+[2021-02-24 12:39:08,508 INFO main.py line 24 18592] => Starting new experiment ...
+[2021-02-24 12:39:08,508 INFO main.py line 26 18592] Load data
+[2021-02-24 12:39:08,786 INFO main.py line 29 18592] Perform preprocessing
+[2021-02-24 12:39:08,798 INFO preprocessing.py line 147 18592] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:39:09,061 INFO preprocessing.py line 147 18592] Starting tokenization ...
+[2021-02-24 12:39:18,268 INFO main.py line 37 18592] Start clustering
+[2021-02-24 12:39:18,277 INFO clustering.py line 132 18592] applying TD-IDF
+[2021-02-24 12:39:18,641 INFO clustering.py line 132 18592] performing lsa embedding
+[2021-02-24 12:39:18,733 INFO clustering.py line 132 18592] using SpectralClustering-Model

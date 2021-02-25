@@ -1,0 +1,13 @@
+[2021-02-24 11:19:24,131 INFO main.py line 23 21220] Namespace(config='./configurations/birch.yaml')
+[2021-02-24 11:19:24,132 INFO main.py line 24 21220] => Starting new experiment ...
+[2021-02-24 11:19:24,133 INFO main.py line 26 21220] Load data
+[2021-02-24 11:19:24,407 INFO main.py line 29 21220] Perform preprocessing
+[2021-02-24 11:19:24,424 INFO preprocessing.py line 147 21220] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:19:24,704 INFO preprocessing.py line 147 21220] Starting tokenization ...
+[2021-02-24 11:19:33,462 INFO main.py line 37 21220] Start clustering
+[2021-02-24 11:19:33,463 INFO clustering.py line 132 21220] applying TD-IDF
+[2021-02-24 11:19:33,653 INFO clustering.py line 132 21220] performing no dimensionality reduction
+[2021-02-24 11:19:33,711 INFO clustering.py line 132 21220] using Birch-Model
+[2021-02-24 11:20:24,696 INFO main.py line 50 21220] Save results to results/birch/
+[2021-02-24 11:20:24,781 INFO main.py line 57 21220] Saving model to results/birch/
+[2021-02-24 11:20:27,298 INFO main.py line 60 21220] Evaluate Results

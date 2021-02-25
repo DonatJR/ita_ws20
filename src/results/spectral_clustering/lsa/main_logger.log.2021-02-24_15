@@ -1,0 +1,30 @@
+[2021-02-24 14:02:52,472 INFO main.py line 23 16012] Namespace(config='./configurations/spectral_clustering_lsa.yaml')
+[2021-02-24 14:02:52,476 INFO main.py line 24 16012] => Starting new experiment ...
+[2021-02-24 14:02:52,476 INFO main.py line 26 16012] Load data
+[2021-02-24 14:02:52,676 INFO main.py line 29 16012] Perform preprocessing
+[2021-02-24 14:39:58,563 INFO main.py line 23 13620] Namespace(config='./configurations/spectral_clustering_lsa.yaml')
+[2021-02-24 14:39:58,564 INFO main.py line 24 13620] => Starting new experiment ...
+[2021-02-24 14:39:58,564 INFO main.py line 26 13620] Load data
+[2021-02-24 14:39:58,798 INFO main.py line 29 13620] Perform preprocessing
+[2021-02-24 14:39:58,810 INFO preprocessing.py line 147 13620] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 14:39:59,044 INFO preprocessing.py line 147 13620] Starting tokenization ...
+[2021-02-24 14:40:04,559 INFO main.py line 37 13620] Start clustering
+[2021-02-24 14:40:04,559 INFO clustering.py line 132 13620] applying TD-IDF
+[2021-02-24 14:40:04,812 INFO clustering.py line 132 13620] performing lsa embedding
+[2021-02-24 14:40:04,902 INFO clustering.py line 132 13620] using SpectralClustering-Model
+[2021-02-24 14:53:03,194 INFO main.py line 50 13620] Save results to results/spectral_clustering/lsa/
+[2021-02-24 14:53:03,253 INFO main.py line 57 13620] Saving model to results/spectral_clustering/lsa/
+[2021-02-24 14:53:03,352 INFO main.py line 61 13620] Evaluate Results
+[2021-02-24 15:24:03,856 INFO main.py line 23 8732] Namespace(config='C:\\Users\\Jessi\\Documents\\Studium\\WS20_21\\text analytics\\ita_ws20\\src\\configurations\\spectral_clustering_lsa.yaml')
+[2021-02-24 15:24:03,856 INFO main.py line 24 8732] => Starting new experiment ...
+[2021-02-24 15:24:03,856 INFO main.py line 26 8732] Load data
+[2021-02-24 15:24:04,062 INFO main.py line 29 8732] Perform preprocessing
+[2021-02-24 15:24:04,075 INFO preprocessing.py line 147 8732] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 15:24:04,285 INFO preprocessing.py line 147 8732] Starting tokenization ...
+[2021-02-24 15:24:09,181 INFO main.py line 37 8732] Start clustering
+[2021-02-24 15:24:09,181 INFO clustering.py line 126 8732] applying TD-IDF
+[2021-02-24 15:24:09,338 INFO clustering.py line 126 8732] performing lsa embedding
+[2021-02-24 15:24:09,418 INFO clustering.py line 126 8732] using SpectralClustering-Model
+[2021-02-24 15:33:10,928 INFO main.py line 50 8732] Save results to results/spectral_clustering/lsa/
+[2021-02-24 15:33:10,972 INFO main.py line 57 8732] Saving model to results/spectral_clustering/lsa/
+[2021-02-24 15:33:11,073 INFO main.py line 61 8732] Evaluate Results

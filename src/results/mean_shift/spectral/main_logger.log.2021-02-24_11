@@ -1,0 +1,13 @@
+[2021-02-24 11:57:28,178 INFO main.py line 23 14956] Namespace(config='./configurations/mean_shift_spectral.yaml')
+[2021-02-24 11:57:28,178 INFO main.py line 24 14956] => Starting new experiment ...
+[2021-02-24 11:57:28,179 INFO main.py line 26 14956] Load data
+[2021-02-24 11:57:28,437 INFO main.py line 29 14956] Perform preprocessing
+[2021-02-24 11:57:28,453 INFO preprocessing.py line 147 14956] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:57:28,724 INFO preprocessing.py line 147 14956] Starting tokenization ...
+[2021-02-24 11:57:34,982 INFO main.py line 37 14956] Start clustering
+[2021-02-24 11:57:34,990 INFO clustering.py line 132 14956] applying TD-IDF
+[2021-02-24 11:57:35,244 INFO clustering.py line 132 14956] performing spectral embedding
+[2021-02-24 11:57:36,630 INFO clustering.py line 132 14956] using MeanShift-Model
+[2021-02-24 11:57:47,197 INFO main.py line 50 14956] Save results to results/mean_shift/spectral
+[2021-02-24 11:57:47,232 INFO main.py line 57 14956] Saving model to results/mean_shift/spectral
+[2021-02-24 11:57:47,234 INFO main.py line 60 14956] Evaluate Results

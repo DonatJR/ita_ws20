@@ -1,0 +1,26 @@
+[2021-02-24 11:13:43,287 INFO main.py line 23 7108] Namespace(config='./configurations/dbscan_spectral.yaml')
+[2021-02-24 11:13:43,287 INFO main.py line 24 7108] => Starting new experiment ...
+[2021-02-24 11:13:43,288 INFO main.py line 26 7108] Load data
+[2021-02-24 11:13:43,429 INFO main.py line 29 7108] Perform preprocessing
+[2021-02-24 11:13:43,435 INFO preprocessing.py line 147 7108] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:13:43,627 INFO preprocessing.py line 147 7108] Starting tokenization ...
+[2021-02-24 11:13:48,223 INFO main.py line 37 7108] Start clustering
+[2021-02-24 11:13:48,223 INFO clustering.py line 132 7108] applying TD-IDF
+[2021-02-24 11:13:48,401 INFO clustering.py line 132 7108] performing spectral embedding
+[2021-02-24 11:13:49,458 INFO clustering.py line 132 7108] using DBSCAN-Model
+[2021-02-24 11:13:49,820 INFO main.py line 50 7108] Save results to results/dbscan/spectral/
+[2021-02-24 11:13:49,853 INFO main.py line 57 7108] Saving model to results/dbscan/spectral/
+[2021-02-24 11:13:49,856 INFO main.py line 60 7108] Evaluate Results
+[2021-02-24 11:23:19,860 INFO main.py line 23 21248] Namespace(config='./configurations/dbscan_spectral.yaml')
+[2021-02-24 11:23:19,860 INFO main.py line 24 21248] => Starting new experiment ...
+[2021-02-24 11:23:19,860 INFO main.py line 26 21248] Load data
+[2021-02-24 11:23:20,098 INFO main.py line 29 21248] Perform preprocessing
+[2021-02-24 11:23:20,116 INFO preprocessing.py line 147 21248] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:23:20,422 INFO preprocessing.py line 147 21248] Starting tokenization ...
+[2021-02-24 11:23:27,612 INFO main.py line 37 21248] Start clustering
+[2021-02-24 11:23:27,612 INFO clustering.py line 132 21248] applying TD-IDF
+[2021-02-24 11:23:27,819 INFO clustering.py line 132 21248] performing spectral embedding
+[2021-02-24 11:23:29,408 INFO clustering.py line 132 21248] using DBSCAN-Model
+[2021-02-24 11:23:30,042 INFO main.py line 50 21248] Save results to results/dbscan/spectral/
+[2021-02-24 11:23:30,085 INFO main.py line 57 21248] Saving model to results/dbscan/spectral/
+[2021-02-24 11:23:30,088 INFO main.py line 60 21248] Evaluate Results

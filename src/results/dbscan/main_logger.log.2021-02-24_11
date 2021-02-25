@@ -1,0 +1,26 @@
+[2021-02-24 11:12:36,184 INFO main.py line 23 6264] Namespace(config='./configurations/dbscan.yaml')
+[2021-02-24 11:12:36,185 INFO main.py line 24 6264] => Starting new experiment ...
+[2021-02-24 11:12:36,185 INFO main.py line 26 6264] Load data
+[2021-02-24 11:12:36,329 INFO main.py line 29 6264] Perform preprocessing
+[2021-02-24 11:12:36,334 INFO preprocessing.py line 147 6264] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:12:36,561 INFO preprocessing.py line 147 6264] Starting tokenization ...
+[2021-02-24 11:12:40,694 INFO main.py line 37 6264] Start clustering
+[2021-02-24 11:12:40,695 INFO clustering.py line 132 6264] applying TD-IDF
+[2021-02-24 11:12:40,825 INFO clustering.py line 132 6264] performing no dimensionality reduction
+[2021-02-24 11:12:40,870 INFO clustering.py line 132 6264] using DBSCAN-Model
+[2021-02-24 11:13:14,626 INFO main.py line 50 6264] Save results to results/dbscan/
+[2021-02-24 11:13:14,653 INFO main.py line 57 6264] Saving model to results/dbscan/
+[2021-02-24 11:13:14,655 INFO main.py line 60 6264] Evaluate Results
+[2021-02-24 11:21:33,372 INFO main.py line 23 13636] Namespace(config='./configurations/dbscan.yaml')
+[2021-02-24 11:21:33,373 INFO main.py line 24 13636] => Starting new experiment ...
+[2021-02-24 11:21:33,373 INFO main.py line 26 13636] Load data
+[2021-02-24 11:21:33,688 INFO main.py line 29 13636] Perform preprocessing
+[2021-02-24 11:21:33,704 INFO preprocessing.py line 147 13636] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:21:33,991 INFO preprocessing.py line 147 13636] Starting tokenization ...
+[2021-02-24 11:21:44,749 INFO main.py line 37 13636] Start clustering
+[2021-02-24 11:21:44,749 INFO clustering.py line 132 13636] applying TD-IDF
+[2021-02-24 11:21:45,070 INFO clustering.py line 132 13636] performing no dimensionality reduction
+[2021-02-24 11:21:45,175 INFO clustering.py line 132 13636] using DBSCAN-Model
+[2021-02-24 11:22:32,819 INFO main.py line 50 13636] Save results to results/dbscan/
+[2021-02-24 11:22:32,848 INFO main.py line 57 13636] Saving model to results/dbscan/
+[2021-02-24 11:22:32,852 INFO main.py line 60 13636] Evaluate Results

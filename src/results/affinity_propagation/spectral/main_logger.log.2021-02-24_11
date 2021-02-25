@@ -1,0 +1,13 @@
+[2021-02-24 11:07:40,302 INFO main.py line 23 14668] Namespace(config='./configurations/affinity_propagation_spectral.yaml')
+[2021-02-24 11:07:40,302 INFO main.py line 24 14668] => Starting new experiment ...
+[2021-02-24 11:07:40,303 INFO main.py line 26 14668] Load data
+[2021-02-24 11:07:40,585 INFO main.py line 29 14668] Perform preprocessing
+[2021-02-24 11:07:40,598 INFO preprocessing.py line 147 14668] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:07:40,828 INFO preprocessing.py line 147 14668] Starting tokenization ...
+[2021-02-24 11:07:45,462 INFO main.py line 37 14668] Start clustering
+[2021-02-24 11:07:45,463 INFO clustering.py line 132 14668] applying TD-IDF
+[2021-02-24 11:07:45,631 INFO clustering.py line 132 14668] performing spectral embedding
+[2021-02-24 11:07:46,807 INFO clustering.py line 132 14668] using AffinityPropagation-Model
+[2021-02-24 11:08:26,994 INFO main.py line 50 14668] Save results to results/affinity_propagation/spectral/
+[2021-02-24 11:08:26,995 INFO main.py line 57 14668] Saving model to results/affinity_propagation/spectral/
+[2021-02-24 11:08:27,095 INFO main.py line 60 14668] Evaluate Results

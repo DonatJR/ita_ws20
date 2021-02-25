@@ -1,0 +1,13 @@
+[2021-02-24 11:11:02,560 INFO main.py line 23 20016] Namespace(config='./configurations/agglomerative_clustering_stopwords.yaml')
+[2021-02-24 11:11:02,560 INFO main.py line 24 20016] => Starting new experiment ...
+[2021-02-24 11:11:02,561 INFO main.py line 26 20016] Load data
+[2021-02-24 11:11:02,708 INFO main.py line 29 20016] Perform preprocessing
+[2021-02-24 11:11:02,715 INFO preprocessing.py line 147 20016] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:11:02,934 INFO preprocessing.py line 147 20016] Starting tokenization ...
+[2021-02-24 11:11:08,439 INFO main.py line 37 20016] Start clustering
+[2021-02-24 11:11:08,448 INFO clustering.py line 132 20016] applying TD-IDF
+[2021-02-24 11:11:08,638 INFO clustering.py line 132 20016] performing no dimensionality reduction
+[2021-02-24 11:11:08,682 INFO clustering.py line 132 20016] using AgglomerativeClustering-Model
+[2021-02-24 11:11:39,885 INFO main.py line 50 20016] Save results to results/agglomerative_clustering/stopwords/
+[2021-02-24 11:11:39,929 INFO main.py line 57 20016] Saving model to results/agglomerative_clustering/stopwords/
+[2021-02-24 11:11:39,938 INFO main.py line 60 20016] Evaluate Results

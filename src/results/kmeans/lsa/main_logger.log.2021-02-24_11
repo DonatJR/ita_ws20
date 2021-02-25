@@ -1,0 +1,13 @@
+[2021-02-24 11:39:43,538 INFO main.py line 23 22328] Namespace(config='./configurations/kmeans_lsa.yaml')
+[2021-02-24 11:39:43,539 INFO main.py line 24 22328] => Starting new experiment ...
+[2021-02-24 11:39:43,539 INFO main.py line 26 22328] Load data
+[2021-02-24 11:39:43,962 INFO main.py line 29 22328] Perform preprocessing
+[2021-02-24 11:39:43,975 INFO preprocessing.py line 147 22328] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:39:44,236 INFO preprocessing.py line 147 22328] Starting tokenization ...
+[2021-02-24 11:39:53,476 INFO main.py line 37 22328] Start clustering
+[2021-02-24 11:39:53,484 INFO clustering.py line 132 22328] applying TD-IDF
+[2021-02-24 11:39:53,703 INFO clustering.py line 132 22328] performing lsa embedding
+[2021-02-24 11:39:53,794 INFO clustering.py line 132 22328] using KMeans-Model
+[2021-02-24 11:39:54,926 INFO main.py line 50 22328] Save results to results/kmeans/lsa/
+[2021-02-24 11:39:54,990 INFO main.py line 57 22328] Saving model to results/kmeans/lsa/
+[2021-02-24 11:39:55,002 INFO main.py line 60 22328] Evaluate Results

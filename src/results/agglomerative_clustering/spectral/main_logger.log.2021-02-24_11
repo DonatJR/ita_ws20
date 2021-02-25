@@ -1,0 +1,13 @@
+[2021-02-24 11:10:41,765 INFO main.py line 23 1988] Namespace(config='./configurations/agglomerative_clustering_spectral.yaml')
+[2021-02-24 11:10:41,766 INFO main.py line 24 1988] => Starting new experiment ...
+[2021-02-24 11:10:41,766 INFO main.py line 26 1988] Load data
+[2021-02-24 11:10:41,913 INFO main.py line 29 1988] Perform preprocessing
+[2021-02-24 11:10:41,919 INFO preprocessing.py line 147 1988] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:10:42,123 INFO preprocessing.py line 147 1988] Starting tokenization ...
+[2021-02-24 11:10:47,430 INFO main.py line 37 1988] Start clustering
+[2021-02-24 11:10:47,439 INFO clustering.py line 132 1988] applying TD-IDF
+[2021-02-24 11:10:47,689 INFO clustering.py line 132 1988] performing spectral embedding
+[2021-02-24 11:10:48,824 INFO clustering.py line 132 1988] using AgglomerativeClustering-Model
+[2021-02-24 11:10:49,467 INFO main.py line 50 1988] Save results to results/agglomerative_clustering/spectral/
+[2021-02-24 11:10:49,517 INFO main.py line 57 1988] Saving model to results/agglomerative_clustering/spectral/
+[2021-02-24 11:10:49,527 INFO main.py line 60 1988] Evaluate Results

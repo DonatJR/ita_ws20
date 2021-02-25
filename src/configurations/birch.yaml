@@ -1,5 +1,5 @@
 input_path: "data/data_2021-02-01_22-27-13.862993_labeled.json"
-output_path: "results/"
+output_path: "results/birch/"
 use_title: False
 preprocessing:
   stemming: False
@@ -10,7 +10,8 @@ preprocessing:
   custom_stopwords: []
 clustering:
   model: "Birch"
-  n_clusters: 15
+  n_clusters: 38
+  birch_threshold: 0.014
 embedding:
-  dimensionality_reduction: "lsa"
+  dimensionality_reduction: None
   n_components: 2

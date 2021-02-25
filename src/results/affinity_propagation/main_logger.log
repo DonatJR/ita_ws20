@@ -1,0 +1,13 @@
+[2021-02-25 13:58:17,973 INFO main.py line 23 16424] => Starting new experiment ...
+[2021-02-25 13:58:17,974 INFO main.py line 25 16424] Load data
+[2021-02-25 13:58:18,119 INFO main.py line 28 16424] Perform preprocessing
+[2021-02-25 13:58:18,126 INFO preprocessing.py line 146 16424] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 13:58:18,328 INFO preprocessing.py line 146 16424] Starting tokenization ...
+[2021-02-25 13:58:24,302 INFO main.py line 36 16424] Start clustering
+[2021-02-25 13:58:24,303 INFO clustering.py line 126 16424] applying TD-IDF
+[2021-02-25 13:58:24,430 INFO clustering.py line 126 16424] performing lsa embedding
+[2021-02-25 13:58:24,483 INFO clustering.py line 126 16424] using AffinityPropagation-Model
+[2021-02-25 13:59:04,096 INFO main.py line 49 16424] Save results to results/affinity_propagation/
+[2021-02-25 13:59:04,098 INFO main.py line 56 16424] Saving model to results/affinity_propagation/
+[2021-02-25 13:59:04,194 INFO main.py line 60 16424] Evaluate Results
+[2021-02-25 13:59:04,196 ERROR eval.py line 145 16424] Only one cluster found: Number of labels is 1. Valid values are 2 to n_samples - 1 (inclusive)

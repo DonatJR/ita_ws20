@@ -1,0 +1,12 @@
+[2021-02-25 15:12:50,539 INFO main.py line 23 6156] => Starting new experiment ...
+[2021-02-25 15:12:50,545 INFO main.py line 25 6156] Load data
+[2021-02-25 15:12:50,779 INFO main.py line 28 6156] Perform preprocessing
+[2021-02-25 15:12:50,787 INFO preprocessing.py line 146 6156] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 15:12:51,107 INFO preprocessing.py line 146 6156] Starting tokenization ...
+[2021-02-25 15:12:55,522 INFO main.py line 36 6156] Start clustering
+[2021-02-25 15:12:55,522 INFO clustering.py line 126 6156] applying TD-IDF
+[2021-02-25 15:12:55,640 INFO clustering.py line 126 6156] performing lsa embedding
+[2021-02-25 15:12:55,727 INFO clustering.py line 126 6156] using SpectralClustering-Model
+[2021-02-25 15:17:37,018 INFO main.py line 49 6156] Save results to results/spectral_clustering/lsa/
+[2021-02-25 15:17:37,042 INFO main.py line 56 6156] Saving model to results/spectral_clustering/lsa/
+[2021-02-25 15:17:37,111 INFO main.py line 60 6156] Evaluate Results

@@ -1,0 +1,13 @@
+[2021-02-24 11:10:23,790 INFO main.py line 23 14404] Namespace(config='./configurations/agglomerative_clustering_lsa.yaml')
+[2021-02-24 11:10:23,791 INFO main.py line 24 14404] => Starting new experiment ...
+[2021-02-24 11:10:23,791 INFO main.py line 26 14404] Load data
+[2021-02-24 11:10:23,976 INFO main.py line 29 14404] Perform preprocessing
+[2021-02-24 11:10:23,983 INFO preprocessing.py line 147 14404] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:10:24,174 INFO preprocessing.py line 147 14404] Starting tokenization ...
+[2021-02-24 11:10:28,523 INFO main.py line 37 14404] Start clustering
+[2021-02-24 11:10:28,524 INFO clustering.py line 132 14404] applying TD-IDF
+[2021-02-24 11:10:28,781 INFO clustering.py line 132 14404] performing lsa embedding
+[2021-02-24 11:10:28,866 INFO clustering.py line 132 14404] using AgglomerativeClustering-Model
+[2021-02-24 11:10:29,464 INFO main.py line 50 14404] Save results to results/agglomerative_clustering/lsa/
+[2021-02-24 11:10:29,514 INFO main.py line 57 14404] Saving model to results/agglomerative_clustering/lsa/
+[2021-02-24 11:10:29,517 INFO main.py line 60 14404] Evaluate Results

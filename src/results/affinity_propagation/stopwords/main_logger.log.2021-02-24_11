@@ -1,0 +1,13 @@
+[2021-02-24 11:08:37,843 INFO main.py line 23 13940] Namespace(config='./configurations/affinity_propagation_stopwords.yaml')
+[2021-02-24 11:08:37,844 INFO main.py line 24 13940] => Starting new experiment ...
+[2021-02-24 11:08:37,844 INFO main.py line 26 13940] Load data
+[2021-02-24 11:08:38,074 INFO main.py line 29 13940] Perform preprocessing
+[2021-02-24 11:08:38,080 INFO preprocessing.py line 147 13940] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:08:38,287 INFO preprocessing.py line 147 13940] Starting tokenization ...
+[2021-02-24 11:08:42,682 INFO main.py line 37 13940] Start clustering
+[2021-02-24 11:08:42,690 INFO clustering.py line 132 13940] applying TD-IDF
+[2021-02-24 11:08:42,862 INFO clustering.py line 132 13940] performing no dimensionality reduction
+[2021-02-24 11:08:42,904 INFO clustering.py line 132 13940] using AffinityPropagation-Model
+[2021-02-24 11:09:21,285 INFO main.py line 50 13940] Save results to results/affinity_propagation/stopwords/
+[2021-02-24 11:09:21,288 INFO main.py line 57 13940] Saving model to results/affinity_propagation/stopwords/
+[2021-02-24 11:09:21,387 INFO main.py line 60 13940] Evaluate Results

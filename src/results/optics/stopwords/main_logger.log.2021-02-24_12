@@ -1,0 +1,10 @@
+[2021-02-24 12:36:38,424 INFO main.py line 23 16504] Namespace(config='./configurations/optics_stopwords.yaml')
+[2021-02-24 12:36:38,425 INFO main.py line 24 16504] => Starting new experiment ...
+[2021-02-24 12:36:38,425 INFO main.py line 26 16504] Load data
+[2021-02-24 12:36:38,745 INFO main.py line 29 16504] Perform preprocessing
+[2021-02-24 12:36:38,764 INFO preprocessing.py line 147 16504] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:36:39,012 INFO preprocessing.py line 147 16504] Starting tokenization ...
+[2021-02-24 12:36:47,134 INFO main.py line 37 16504] Start clustering
+[2021-02-24 12:36:47,142 INFO clustering.py line 132 16504] applying TD-IDF
+[2021-02-24 12:36:47,458 INFO clustering.py line 132 16504] performing no dimensionality reduction
+[2021-02-24 12:36:47,544 INFO clustering.py line 132 16504] using OPTICS-Model

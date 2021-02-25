@@ -1,0 +1,13 @@
+[2021-02-25 14:36:08,479 INFO main.py line 23 92] => Starting new experiment ...
+[2021-02-25 14:36:08,483 INFO main.py line 25 92] Load data
+[2021-02-25 14:36:08,647 INFO main.py line 28 92] Perform preprocessing
+[2021-02-25 14:36:08,653 INFO preprocessing.py line 146 92] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:36:08,850 INFO preprocessing.py line 146 92] Starting tokenization ...
+[2021-02-25 14:36:12,979 INFO main.py line 36 92] Start clustering
+[2021-02-25 14:36:12,979 INFO clustering.py line 126 92] applying TD-IDF
+[2021-02-25 14:36:13,106 INFO clustering.py line 126 92] performing no dimensionality reduction
+[2021-02-25 14:36:13,169 INFO clustering.py line 126 92] using OPTICS-Model
+[2021-02-25 14:49:48,854 INFO main.py line 49 92] Save results to results/optics/
+[2021-02-25 14:49:48,882 INFO main.py line 56 92] Saving model to results/optics/
+[2021-02-25 14:49:48,883 INFO main.py line 60 92] Evaluate Results
+[2021-02-25 14:49:48,929 ERROR eval.py line 145 92] Only one cluster found: Number of labels is 1. Valid values are 2 to n_samples - 1 (inclusive)

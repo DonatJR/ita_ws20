@@ -1,0 +1,12 @@
+[2021-02-25 14:49:58,938 INFO main.py line 23 21988] => Starting new experiment ...
+[2021-02-25 14:49:58,951 INFO main.py line 25 21988] Load data
+[2021-02-25 14:49:59,117 INFO main.py line 28 21988] Perform preprocessing
+[2021-02-25 14:49:59,130 INFO preprocessing.py line 146 21988] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:49:59,355 INFO preprocessing.py line 146 21988] Starting tokenization ...
+[2021-02-25 14:50:03,287 INFO main.py line 36 21988] Start clustering
+[2021-02-25 14:50:03,288 INFO clustering.py line 126 21988] applying TD-IDF
+[2021-02-25 14:50:03,402 INFO clustering.py line 126 21988] performing lsa embedding
+[2021-02-25 14:50:03,492 INFO clustering.py line 126 21988] using OPTICS-Model
+[2021-02-25 14:54:01,564 INFO main.py line 49 21988] Save results to results/optics/lsa/
+[2021-02-25 14:54:01,686 INFO main.py line 56 21988] Saving model to results/optics/lsa/
+[2021-02-25 14:54:01,688 INFO main.py line 60 21988] Evaluate Results

@@ -1,0 +1,12 @@
+[2021-02-25 14:02:10,725 INFO main.py line 23 17292] => Starting new experiment ...
+[2021-02-25 14:02:10,725 INFO main.py line 25 17292] Load data
+[2021-02-25 14:02:10,932 INFO main.py line 28 17292] Perform preprocessing
+[2021-02-25 14:02:10,939 INFO preprocessing.py line 146 17292] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:02:11,138 INFO preprocessing.py line 146 17292] Starting tokenization ...
+[2021-02-25 14:02:17,036 INFO main.py line 36 17292] Start clustering
+[2021-02-25 14:02:17,037 INFO clustering.py line 126 17292] applying TD-IDF
+[2021-02-25 14:02:17,169 INFO clustering.py line 126 17292] performing no dimensionality reduction
+[2021-02-25 14:02:17,211 INFO clustering.py line 126 17292] using AgglomerativeClustering-Model
+[2021-02-25 14:02:48,432 INFO main.py line 49 17292] Save results to results/agglomerative_clustering/
+[2021-02-25 14:02:48,483 INFO main.py line 56 17292] Saving model to results/agglomerative_clustering/
+[2021-02-25 14:02:48,485 INFO main.py line 60 17292] Evaluate Results

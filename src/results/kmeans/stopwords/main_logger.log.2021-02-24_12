@@ -1,0 +1,26 @@
+[2021-02-24 12:54:56,444 INFO main.py line 23 18632] Namespace(config='./configurations/kmeans_stopwords.yaml')
+[2021-02-24 12:54:56,447 INFO main.py line 24 18632] => Starting new experiment ...
+[2021-02-24 12:54:56,448 INFO main.py line 26 18632] Load data
+[2021-02-24 12:54:56,791 INFO main.py line 29 18632] Perform preprocessing
+[2021-02-24 12:54:56,801 INFO preprocessing.py line 147 18632] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:54:57,021 INFO preprocessing.py line 147 18632] Starting tokenization ...
+[2021-02-24 12:55:04,508 INFO main.py line 37 18632] Start clustering
+[2021-02-24 12:55:04,510 INFO clustering.py line 132 18632] applying TD-IDF
+[2021-02-24 12:55:04,713 INFO clustering.py line 132 18632] performing no dimensionality reduction
+[2021-02-24 12:55:04,764 INFO clustering.py line 132 18632] using KMeans-Model
+[2021-02-24 12:55:58,295 INFO main.py line 50 18632] Save results to results/kmeans/stopwords/
+[2021-02-24 12:55:58,362 INFO main.py line 57 18632] Saving model to results/kmeans/stopwords/
+[2021-02-24 12:55:58,372 INFO main.py line 60 18632] Evaluate Results
+[2021-02-24 12:57:27,046 INFO main.py line 23 13520] Namespace(config='./configurations/kmeans_stopwords.yaml')
+[2021-02-24 12:57:27,047 INFO main.py line 24 13520] => Starting new experiment ...
+[2021-02-24 12:57:27,047 INFO main.py line 26 13520] Load data
+[2021-02-24 12:57:27,228 INFO main.py line 29 13520] Perform preprocessing
+[2021-02-24 12:57:27,242 INFO preprocessing.py line 147 13520] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:57:27,470 INFO preprocessing.py line 147 13520] Starting tokenization ...
+[2021-02-24 12:57:34,812 INFO main.py line 37 13520] Start clustering
+[2021-02-24 12:57:34,812 INFO clustering.py line 132 13520] applying TD-IDF
+[2021-02-24 12:57:34,935 INFO clustering.py line 132 13520] performing no dimensionality reduction
+[2021-02-24 12:57:34,980 INFO clustering.py line 132 13520] using KMeans-Model
+[2021-02-24 12:58:27,081 INFO main.py line 50 13520] Save results to results/kmeans/stopwords/
+[2021-02-24 12:58:27,142 INFO main.py line 57 13520] Saving model to results/kmeans/stopwords/
+[2021-02-24 12:58:27,150 INFO main.py line 60 13520] Evaluate Results

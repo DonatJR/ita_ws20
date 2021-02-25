@@ -1,0 +1,12 @@
+[2021-02-25 14:10:02,736 INFO main.py line 23 21940] => Starting new experiment ...
+[2021-02-25 14:10:02,736 INFO main.py line 25 21940] Load data
+[2021-02-25 14:10:02,884 INFO main.py line 28 21940] Perform preprocessing
+[2021-02-25 14:10:02,890 INFO preprocessing.py line 146 21940] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:10:03,079 INFO preprocessing.py line 146 21940] Starting tokenization ...
+[2021-02-25 14:10:07,256 INFO main.py line 36 21940] Start clustering
+[2021-02-25 14:10:07,256 INFO clustering.py line 126 21940] applying TD-IDF
+[2021-02-25 14:10:07,382 INFO clustering.py line 126 21940] performing lsa embedding
+[2021-02-25 14:10:07,468 INFO clustering.py line 126 21940] using KMeans-Model
+[2021-02-25 14:10:08,170 INFO main.py line 49 21940] Save results to results/kmeans/lsa/
+[2021-02-25 14:10:08,230 INFO main.py line 56 21940] Saving model to results/kmeans/lsa/
+[2021-02-25 14:10:08,231 INFO main.py line 60 21940] Evaluate Results

@@ -1,0 +1,26 @@
+[2021-02-25 13:25:11,930 INFO main.py line 23 17636] => Starting new experiment ...
+[2021-02-25 13:25:11,931 INFO main.py line 25 17636] Load data
+[2021-02-25 13:25:12,255 INFO main.py line 28 17636] Perform preprocessing
+[2021-02-25 13:25:12,262 INFO preprocessing.py line 146 17636] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 13:25:12,453 INFO preprocessing.py line 146 17636] Starting tokenization ...
+[2021-02-25 13:25:16,719 INFO main.py line 36 17636] Start clustering
+[2021-02-25 13:25:16,720 INFO clustering.py line 126 17636] applying TD-IDF
+[2021-02-25 13:25:16,845 INFO clustering.py line 126 17636] performing lsa embedding
+[2021-02-25 13:25:16,922 INFO clustering.py line 126 17636] using AffinityPropagation-Model
+[2021-02-25 13:25:57,689 INFO main.py line 49 17636] Save results to results/affinity_propagation/lsa/
+[2021-02-25 13:25:57,691 INFO main.py line 56 17636] Saving model to results/affinity_propagation/lsa/
+[2021-02-25 13:25:57,790 INFO main.py line 60 17636] Evaluate Results
+[2021-02-25 13:25:57,792 ERROR eval.py line 143 17636] Only one cluster found: Number of labels is 1. Valid values are 2 to n_samples - 1 (inclusive)
+[2021-02-25 13:59:14,524 INFO main.py line 23 3664] => Starting new experiment ...
+[2021-02-25 13:59:14,525 INFO main.py line 25 3664] Load data
+[2021-02-25 13:59:14,727 INFO main.py line 28 3664] Perform preprocessing
+[2021-02-25 13:59:14,733 INFO preprocessing.py line 146 3664] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 13:59:14,920 INFO preprocessing.py line 146 3664] Starting tokenization ...
+[2021-02-25 13:59:20,629 INFO main.py line 36 3664] Start clustering
+[2021-02-25 13:59:20,630 INFO clustering.py line 126 3664] applying TD-IDF
+[2021-02-25 13:59:20,751 INFO clustering.py line 126 3664] performing lsa embedding
+[2021-02-25 13:59:20,832 INFO clustering.py line 126 3664] using AffinityPropagation-Model
+[2021-02-25 14:00:04,888 INFO main.py line 49 3664] Save results to results/affinity_propagation/lsa/
+[2021-02-25 14:00:04,889 INFO main.py line 56 3664] Saving model to results/affinity_propagation/lsa/
+[2021-02-25 14:00:04,990 INFO main.py line 60 3664] Evaluate Results
+[2021-02-25 14:00:04,992 ERROR eval.py line 145 3664] Only one cluster found: Number of labels is 1. Valid values are 2 to n_samples - 1 (inclusive)

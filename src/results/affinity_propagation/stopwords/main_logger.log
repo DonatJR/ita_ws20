@@ -1,0 +1,13 @@
+[2021-02-25 14:01:13,609 INFO main.py line 23 12096] => Starting new experiment ...
+[2021-02-25 14:01:13,609 INFO main.py line 25 12096] Load data
+[2021-02-25 14:01:13,823 INFO main.py line 28 12096] Perform preprocessing
+[2021-02-25 14:01:13,829 INFO preprocessing.py line 146 12096] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:01:14,023 INFO preprocessing.py line 146 12096] Starting tokenization ...
+[2021-02-25 14:01:18,017 INFO main.py line 36 12096] Start clustering
+[2021-02-25 14:01:18,018 INFO clustering.py line 126 12096] applying TD-IDF
+[2021-02-25 14:01:18,133 INFO clustering.py line 126 12096] performing no dimensionality reduction
+[2021-02-25 14:01:18,217 INFO clustering.py line 126 12096] using AffinityPropagation-Model
+[2021-02-25 14:01:59,283 INFO main.py line 49 12096] Save results to results/affinity_propagation/stopwords/
+[2021-02-25 14:01:59,284 INFO main.py line 56 12096] Saving model to results/affinity_propagation/stopwords/
+[2021-02-25 14:01:59,374 INFO main.py line 60 12096] Evaluate Results
+[2021-02-25 14:01:59,417 ERROR eval.py line 145 12096] Only one cluster found: Number of labels is 1. Valid values are 2 to n_samples - 1 (inclusive)

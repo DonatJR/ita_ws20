@@ -1,0 +1,13 @@
+[2021-02-24 12:53:04,909 INFO main.py line 23 18892] Namespace(config='./configurations/birch_stopwords.yaml')
+[2021-02-24 12:53:04,909 INFO main.py line 24 18892] => Starting new experiment ...
+[2021-02-24 12:53:04,910 INFO main.py line 26 18892] Load data
+[2021-02-24 12:53:05,157 INFO main.py line 29 18892] Perform preprocessing
+[2021-02-24 12:53:05,172 INFO preprocessing.py line 147 18892] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:53:05,401 INFO preprocessing.py line 147 18892] Starting tokenization ...
+[2021-02-24 12:53:11,086 INFO main.py line 37 18892] Start clustering
+[2021-02-24 12:53:11,094 INFO clustering.py line 132 18892] applying TD-IDF
+[2021-02-24 12:53:11,342 INFO clustering.py line 132 18892] performing no dimensionality reduction
+[2021-02-24 12:53:11,411 INFO clustering.py line 132 18892] using Birch-Model
+[2021-02-24 12:53:51,175 INFO main.py line 50 18892] Save results to results/birch/stopwords/
+[2021-02-24 12:53:51,238 INFO main.py line 57 18892] Saving model to results/birch/stopwords/
+[2021-02-24 12:53:52,963 INFO main.py line 60 18892] Evaluate Results

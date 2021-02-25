@@ -1,0 +1,12 @@
+[2021-02-25 14:05:12,122 INFO main.py line 23 6612] => Starting new experiment ...
+[2021-02-25 14:05:12,122 INFO main.py line 25 6612] Load data
+[2021-02-25 14:05:12,302 INFO main.py line 28 6612] Perform preprocessing
+[2021-02-25 14:05:12,316 INFO preprocessing.py line 146 6612] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:05:12,536 INFO preprocessing.py line 146 6612] Starting tokenization ...
+[2021-02-25 14:05:16,710 INFO main.py line 36 6612] Start clustering
+[2021-02-25 14:05:16,710 INFO clustering.py line 126 6612] applying TD-IDF
+[2021-02-25 14:05:16,855 INFO clustering.py line 126 6612] performing lsa embedding
+[2021-02-25 14:05:16,927 INFO clustering.py line 126 6612] using Birch-Model
+[2021-02-25 14:05:17,431 INFO main.py line 49 6612] Save results to results/birch/lsa/
+[2021-02-25 14:05:17,490 INFO main.py line 56 6612] Saving model to results/birch/lsa/
+[2021-02-25 14:05:17,496 INFO main.py line 60 6612] Evaluate Results

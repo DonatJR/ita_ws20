@@ -1,0 +1,13 @@
+[2021-02-24 11:09:32,274 INFO main.py line 23 13944] Namespace(config='./configurations/agglomerative_clustering.yaml')
+[2021-02-24 11:09:32,275 INFO main.py line 24 13944] => Starting new experiment ...
+[2021-02-24 11:09:32,276 INFO main.py line 26 13944] Load data
+[2021-02-24 11:09:32,483 INFO main.py line 29 13944] Perform preprocessing
+[2021-02-24 11:09:32,492 INFO preprocessing.py line 147 13944] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:09:32,710 INFO preprocessing.py line 147 13944] Starting tokenization ...
+[2021-02-24 11:09:37,789 INFO main.py line 37 13944] Start clustering
+[2021-02-24 11:09:37,798 INFO clustering.py line 132 13944] applying TD-IDF
+[2021-02-24 11:09:37,995 INFO clustering.py line 132 13944] performing no dimensionality reduction
+[2021-02-24 11:09:38,052 INFO clustering.py line 132 13944] using AgglomerativeClustering-Model
+[2021-02-24 11:10:09,224 INFO main.py line 50 13944] Save results to results/agglomerative_clustering/
+[2021-02-24 11:10:09,320 INFO main.py line 57 13944] Saving model to results/agglomerative_clustering/
+[2021-02-24 11:10:09,322 INFO main.py line 60 13944] Evaluate Results

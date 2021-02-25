@@ -1,0 +1,10 @@
+[2021-02-24 12:51:20,308 INFO main.py line 23 14528] Namespace(config='./configurations/spectral_clustering_spectral.yaml')
+[2021-02-24 12:51:20,309 INFO main.py line 24 14528] => Starting new experiment ...
+[2021-02-24 12:51:20,309 INFO main.py line 26 14528] Load data
+[2021-02-24 12:51:20,569 INFO main.py line 29 14528] Perform preprocessing
+[2021-02-24 12:51:20,581 INFO preprocessing.py line 147 14528] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:51:20,830 INFO preprocessing.py line 147 14528] Starting tokenization ...
+[2021-02-24 12:51:26,735 INFO main.py line 37 14528] Start clustering
+[2021-02-24 12:51:26,735 INFO clustering.py line 132 14528] applying TD-IDF
+[2021-02-24 12:51:26,875 INFO clustering.py line 132 14528] performing spectral embedding
+[2021-02-24 12:51:27,952 INFO clustering.py line 132 14528] using SpectralClustering-Model

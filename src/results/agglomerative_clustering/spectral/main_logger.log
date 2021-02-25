@@ -1,0 +1,12 @@
+[2021-02-25 14:03:22,324 INFO main.py line 23 15820] => Starting new experiment ...
+[2021-02-25 14:03:22,325 INFO main.py line 25 15820] Load data
+[2021-02-25 14:03:22,558 INFO main.py line 28 15820] Perform preprocessing
+[2021-02-25 14:03:22,571 INFO preprocessing.py line 146 15820] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:03:22,815 INFO preprocessing.py line 146 15820] Starting tokenization ...
+[2021-02-25 14:03:27,826 INFO main.py line 36 15820] Start clustering
+[2021-02-25 14:03:27,826 INFO clustering.py line 126 15820] applying TD-IDF
+[2021-02-25 14:03:27,951 INFO clustering.py line 126 15820] performing spectral embedding
+[2021-02-25 14:03:29,020 INFO clustering.py line 126 15820] using AgglomerativeClustering-Model
+[2021-02-25 14:03:29,630 INFO main.py line 49 15820] Save results to results/agglomerative_clustering/spectral/
+[2021-02-25 14:03:29,674 INFO main.py line 56 15820] Saving model to results/agglomerative_clustering/spectral/
+[2021-02-25 14:03:29,676 INFO main.py line 60 15820] Evaluate Results

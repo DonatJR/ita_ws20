@@ -1,0 +1,26 @@
+[2021-02-24 11:13:27,262 INFO main.py line 23 21340] Namespace(config='./configurations/dbscan_lsa.yaml')
+[2021-02-24 11:13:27,263 INFO main.py line 24 21340] => Starting new experiment ...
+[2021-02-24 11:13:27,263 INFO main.py line 26 21340] Load data
+[2021-02-24 11:13:27,419 INFO main.py line 29 21340] Perform preprocessing
+[2021-02-24 11:13:27,430 INFO preprocessing.py line 147 21340] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:13:27,649 INFO preprocessing.py line 147 21340] Starting tokenization ...
+[2021-02-24 11:13:31,835 INFO main.py line 37 21340] Start clustering
+[2021-02-24 11:13:31,843 INFO clustering.py line 132 21340] applying TD-IDF
+[2021-02-24 11:13:32,032 INFO clustering.py line 132 21340] performing lsa embedding
+[2021-02-24 11:13:32,119 INFO clustering.py line 132 21340] using DBSCAN-Model
+[2021-02-24 11:13:32,530 INFO main.py line 50 21340] Save results to results/dbscan/lsa/
+[2021-02-24 11:13:32,549 INFO main.py line 57 21340] Saving model to results/dbscan/lsa/
+[2021-02-24 11:13:32,559 INFO main.py line 60 21340] Evaluate Results
+[2021-02-24 11:22:51,057 INFO main.py line 23 14932] Namespace(config='./configurations/dbscan_lsa.yaml')
+[2021-02-24 11:22:51,058 INFO main.py line 24 14932] => Starting new experiment ...
+[2021-02-24 11:22:51,058 INFO main.py line 26 14932] Load data
+[2021-02-24 11:22:51,302 INFO main.py line 29 14932] Perform preprocessing
+[2021-02-24 11:22:51,315 INFO preprocessing.py line 147 14932] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:22:51,566 INFO preprocessing.py line 147 14932] Starting tokenization ...
+[2021-02-24 11:23:02,290 INFO main.py line 37 14932] Start clustering
+[2021-02-24 11:23:02,291 INFO clustering.py line 132 14932] applying TD-IDF
+[2021-02-24 11:23:02,621 INFO clustering.py line 132 14932] performing lsa embedding
+[2021-02-24 11:23:02,722 INFO clustering.py line 132 14932] using DBSCAN-Model
+[2021-02-24 11:23:03,315 INFO main.py line 50 14932] Save results to results/dbscan/lsa/
+[2021-02-24 11:23:03,352 INFO main.py line 57 14932] Saving model to results/dbscan/lsa/
+[2021-02-24 11:23:03,355 INFO main.py line 60 14932] Evaluate Results

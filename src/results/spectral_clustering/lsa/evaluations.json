@@ -1,0 +1,1 @@
+{"silhouette_score": 0.25483118653214365, "calinski_harabasz": 1554.803927624169, "davies_bouldin_score": 0.6373962469752514, "purity": 0.7159090909090909, "adjusted_rand_score": 0.022177903503715908, "adjusted_mutual_info_score": 0.032564356497156256, "precision": 0.7683651504443367, "recall": 0.055, "f1": 0.03947043941543559, "accuracy": 0.055}

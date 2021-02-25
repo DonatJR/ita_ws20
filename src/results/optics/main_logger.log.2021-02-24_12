@@ -1,0 +1,13 @@
+[2021-02-24 12:13:54,684 INFO main.py line 23 9240] Namespace(config='./configurations/optics.yaml')
+[2021-02-24 12:13:54,685 INFO main.py line 24 9240] => Starting new experiment ...
+[2021-02-24 12:13:54,685 INFO main.py line 26 9240] Load data
+[2021-02-24 12:13:54,878 INFO main.py line 29 9240] Perform preprocessing
+[2021-02-24 12:13:54,891 INFO preprocessing.py line 147 9240] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:13:55,115 INFO preprocessing.py line 147 9240] Starting tokenization ...
+[2021-02-24 12:14:00,882 INFO main.py line 37 9240] Start clustering
+[2021-02-24 12:14:00,883 INFO clustering.py line 132 9240] applying TD-IDF
+[2021-02-24 12:14:01,139 INFO clustering.py line 132 9240] performing no dimensionality reduction
+[2021-02-24 12:14:01,187 INFO clustering.py line 132 9240] using OPTICS-Model
+[2021-02-24 12:31:44,828 INFO main.py line 50 9240] Save results to results/optics/
+[2021-02-24 12:31:44,876 INFO main.py line 57 9240] Saving model to results/optics/
+[2021-02-24 12:31:44,880 INFO main.py line 60 9240] Evaluate Results

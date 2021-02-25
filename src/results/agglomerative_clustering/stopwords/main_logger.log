@@ -1,0 +1,12 @@
+[2021-02-25 14:03:40,254 INFO main.py line 23 14648] => Starting new experiment ...
+[2021-02-25 14:03:40,255 INFO main.py line 25 14648] Load data
+[2021-02-25 14:03:40,478 INFO main.py line 28 14648] Perform preprocessing
+[2021-02-25 14:03:40,490 INFO preprocessing.py line 146 14648] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:03:40,707 INFO preprocessing.py line 146 14648] Starting tokenization ...
+[2021-02-25 14:03:44,897 INFO main.py line 36 14648] Start clustering
+[2021-02-25 14:03:44,898 INFO clustering.py line 126 14648] applying TD-IDF
+[2021-02-25 14:03:45,063 INFO clustering.py line 126 14648] performing no dimensionality reduction
+[2021-02-25 14:03:45,108 INFO clustering.py line 126 14648] using AgglomerativeClustering-Model
+[2021-02-25 14:04:09,185 INFO main.py line 49 14648] Save results to results/agglomerative_clustering/stopwords/
+[2021-02-25 14:04:09,227 INFO main.py line 56 14648] Saving model to results/agglomerative_clustering/stopwords/
+[2021-02-25 14:04:09,228 INFO main.py line 60 14648] Evaluate Results

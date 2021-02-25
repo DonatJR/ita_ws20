@@ -1,0 +1,26 @@
+[2021-02-24 11:14:00,380 INFO main.py line 23 6352] Namespace(config='./configurations/dbscan_stopwords.yaml')
+[2021-02-24 11:14:00,381 INFO main.py line 24 6352] => Starting new experiment ...
+[2021-02-24 11:14:00,381 INFO main.py line 26 6352] Load data
+[2021-02-24 11:14:00,523 INFO main.py line 29 6352] Perform preprocessing
+[2021-02-24 11:14:00,529 INFO preprocessing.py line 147 6352] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:14:00,716 INFO preprocessing.py line 147 6352] Starting tokenization ...
+[2021-02-24 11:14:05,236 INFO main.py line 37 6352] Start clustering
+[2021-02-24 11:14:05,245 INFO clustering.py line 132 6352] applying TD-IDF
+[2021-02-24 11:14:05,415 INFO clustering.py line 132 6352] performing no dimensionality reduction
+[2021-02-24 11:14:05,459 INFO clustering.py line 132 6352] using DBSCAN-Model
+[2021-02-24 11:14:39,478 INFO main.py line 50 6352] Save results to results/dbscan/stopwords/
+[2021-02-24 11:14:39,507 INFO main.py line 57 6352] Saving model to results/dbscan/stopwords/
+[2021-02-24 11:14:39,519 INFO main.py line 60 6352] Evaluate Results
+[2021-02-24 11:23:42,943 INFO main.py line 23 9680] Namespace(config='./configurations/dbscan_stopwords.yaml')
+[2021-02-24 11:23:42,944 INFO main.py line 24 9680] => Starting new experiment ...
+[2021-02-24 11:23:42,944 INFO main.py line 26 9680] Load data
+[2021-02-24 11:23:43,224 INFO main.py line 29 9680] Perform preprocessing
+[2021-02-24 11:23:43,235 INFO preprocessing.py line 147 9680] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:23:43,465 INFO preprocessing.py line 147 9680] Starting tokenization ...
+[2021-02-24 11:23:49,995 INFO main.py line 37 9680] Start clustering
+[2021-02-24 11:23:49,995 INFO clustering.py line 132 9680] applying TD-IDF
+[2021-02-24 11:23:50,131 INFO clustering.py line 132 9680] performing no dimensionality reduction
+[2021-02-24 11:23:50,178 INFO clustering.py line 132 9680] using DBSCAN-Model
+[2021-02-24 11:24:36,400 INFO main.py line 50 9680] Save results to results/dbscan/stopwords/
+[2021-02-24 11:24:36,433 INFO main.py line 57 9680] Saving model to results/dbscan/stopwords/
+[2021-02-24 11:24:36,436 INFO main.py line 60 9680] Evaluate Results

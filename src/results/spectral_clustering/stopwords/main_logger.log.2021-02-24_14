@@ -1,0 +1,17 @@
+[2021-02-24 14:03:15,604 INFO main.py line 23 16204] Namespace(config='./configurations/spectral_clustering_stopwords.yaml')
+[2021-02-24 14:03:15,604 INFO main.py line 24 16204] => Starting new experiment ...
+[2021-02-24 14:03:15,605 INFO main.py line 26 16204] Load data
+[2021-02-24 14:03:15,830 INFO main.py line 29 16204] Perform preprocessing
+[2021-02-24 14:54:00,493 INFO main.py line 23 14164] Namespace(config='./configurations/spectral_clustering_stopwords.yaml')
+[2021-02-24 14:54:00,493 INFO main.py line 24 14164] => Starting new experiment ...
+[2021-02-24 14:54:00,494 INFO main.py line 26 14164] Load data
+[2021-02-24 14:54:00,696 INFO main.py line 29 14164] Perform preprocessing
+[2021-02-24 14:54:00,707 INFO preprocessing.py line 147 14164] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 14:54:00,951 INFO preprocessing.py line 147 14164] Starting tokenization ...
+[2021-02-24 14:54:07,274 INFO main.py line 37 14164] Start clustering
+[2021-02-24 14:54:07,274 INFO clustering.py line 132 14164] applying TD-IDF
+[2021-02-24 14:54:07,477 INFO clustering.py line 132 14164] performing no dimensionality reduction
+[2021-02-24 14:54:07,562 INFO clustering.py line 132 14164] using SpectralClustering-Model
+[2021-02-24 14:54:10,837 INFO main.py line 50 14164] Save results to results/spectral_clustering/stopwords/
+[2021-02-24 14:54:10,890 INFO main.py line 57 14164] Saving model to results/spectral_clustering/stopwords/
+[2021-02-24 14:54:10,993 INFO main.py line 61 14164] Evaluate Results

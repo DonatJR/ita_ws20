@@ -1,0 +1,13 @@
+[2021-02-25 14:24:19,435 INFO main.py line 23 5312] => Starting new experiment ...
+[2021-02-25 14:24:19,439 INFO main.py line 25 5312] Load data
+[2021-02-25 14:24:19,602 INFO main.py line 28 5312] Perform preprocessing
+[2021-02-25 14:24:19,609 INFO preprocessing.py line 146 5312] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:24:19,810 INFO preprocessing.py line 146 5312] Starting tokenization ...
+[2021-02-25 14:24:23,745 INFO main.py line 36 5312] Start clustering
+[2021-02-25 14:24:23,746 INFO clustering.py line 126 5312] applying TD-IDF
+[2021-02-25 14:24:23,876 INFO clustering.py line 126 5312] performing no dimensionality reduction
+[2021-02-25 14:24:23,968 INFO clustering.py line 126 5312] using MeanShift-Model
+[2021-02-25 14:35:50,908 INFO main.py line 49 5312] Save results to results/mean_shift/stopwords/
+[2021-02-25 14:35:51,101 INFO main.py line 56 5312] Saving model to results/mean_shift/stopwords/
+[2021-02-25 14:35:51,110 INFO main.py line 60 5312] Evaluate Results
+[2021-02-25 14:35:51,260 ERROR eval.py line 145 5312] Only one cluster found: Number of labels is 1. Valid values are 2 to n_samples - 1 (inclusive)

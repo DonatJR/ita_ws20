@@ -1,0 +1,13 @@
+[2021-02-24 11:58:01,396 INFO main.py line 23 22028] Namespace(config='./configurations/mean_shift_stopwords.yaml')
+[2021-02-24 11:58:01,396 INFO main.py line 24 22028] => Starting new experiment ...
+[2021-02-24 11:58:01,397 INFO main.py line 26 22028] Load data
+[2021-02-24 11:58:01,620 INFO main.py line 29 22028] Perform preprocessing
+[2021-02-24 11:58:01,635 INFO preprocessing.py line 147 22028] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:58:01,871 INFO preprocessing.py line 147 22028] Starting tokenization ...
+[2021-02-24 11:58:08,455 INFO main.py line 37 22028] Start clustering
+[2021-02-24 11:58:08,456 INFO clustering.py line 132 22028] applying TD-IDF
+[2021-02-24 11:58:08,690 INFO clustering.py line 132 22028] performing no dimensionality reduction
+[2021-02-24 11:58:08,738 INFO clustering.py line 132 22028] using MeanShift-Model
+[2021-02-24 12:13:39,275 INFO main.py line 50 22028] Save results to results/mean_shift/stopwords/
+[2021-02-24 12:13:39,508 INFO main.py line 57 22028] Saving model to results/mean_shift/stopwords/
+[2021-02-24 12:13:39,528 INFO main.py line 60 22028] Evaluate Results

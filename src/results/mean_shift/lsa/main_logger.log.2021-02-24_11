@@ -1,0 +1,13 @@
+[2021-02-24 11:56:53,424 INFO main.py line 23 6276] Namespace(config='./configurations/mean_shift_lsa.yaml')
+[2021-02-24 11:56:53,425 INFO main.py line 24 6276] => Starting new experiment ...
+[2021-02-24 11:56:53,425 INFO main.py line 26 6276] Load data
+[2021-02-24 11:56:53,675 INFO main.py line 29 6276] Perform preprocessing
+[2021-02-24 11:56:53,689 INFO preprocessing.py line 147 6276] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:56:53,907 INFO preprocessing.py line 147 6276] Starting tokenization ...
+[2021-02-24 11:57:00,689 INFO main.py line 37 6276] Start clustering
+[2021-02-24 11:57:00,689 INFO clustering.py line 132 6276] applying TD-IDF
+[2021-02-24 11:57:00,914 INFO clustering.py line 132 6276] performing lsa embedding
+[2021-02-24 11:57:01,010 INFO clustering.py line 132 6276] using MeanShift-Model
+[2021-02-24 11:57:15,907 INFO main.py line 50 6276] Save results to results/mean_shift/lsa/
+[2021-02-24 11:57:15,937 INFO main.py line 57 6276] Saving model to results/mean_shift/lsa/
+[2021-02-24 11:57:15,947 INFO main.py line 60 6276] Evaluate Results

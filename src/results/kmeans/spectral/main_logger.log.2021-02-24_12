@@ -1,0 +1,26 @@
+[2021-02-24 12:54:32,326 INFO main.py line 23 18844] Namespace(config='./configurations/kmeans_spectral.yaml')
+[2021-02-24 12:54:32,329 INFO main.py line 24 18844] => Starting new experiment ...
+[2021-02-24 12:54:32,329 INFO main.py line 26 18844] Load data
+[2021-02-24 12:54:32,599 INFO main.py line 29 18844] Perform preprocessing
+[2021-02-24 12:54:32,613 INFO preprocessing.py line 147 18844] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:54:32,833 INFO preprocessing.py line 147 18844] Starting tokenization ...
+[2021-02-24 12:54:41,172 INFO main.py line 37 18844] Start clustering
+[2021-02-24 12:54:41,180 INFO clustering.py line 132 18844] applying TD-IDF
+[2021-02-24 12:54:41,485 INFO clustering.py line 132 18844] performing spectral embedding
+[2021-02-24 12:54:42,777 INFO clustering.py line 132 18844] using KMeans-Model
+[2021-02-24 12:54:43,903 INFO main.py line 50 18844] Save results to results/kmeans/spectral/
+[2021-02-24 12:54:43,967 INFO main.py line 57 18844] Saving model to results/kmeans/spectral/
+[2021-02-24 12:54:43,969 INFO main.py line 60 18844] Evaluate Results
+[2021-02-24 12:57:04,266 INFO main.py line 23 8788] Namespace(config='./configurations/kmeans_spectral.yaml')
+[2021-02-24 12:57:04,267 INFO main.py line 24 8788] => Starting new experiment ...
+[2021-02-24 12:57:04,267 INFO main.py line 26 8788] Load data
+[2021-02-24 12:57:04,512 INFO main.py line 29 8788] Perform preprocessing
+[2021-02-24 12:57:04,533 INFO preprocessing.py line 147 8788] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:57:04,790 INFO preprocessing.py line 147 8788] Starting tokenization ...
+[2021-02-24 12:57:11,078 INFO main.py line 37 8788] Start clustering
+[2021-02-24 12:57:11,079 INFO clustering.py line 132 8788] applying TD-IDF
+[2021-02-24 12:57:11,320 INFO clustering.py line 132 8788] performing spectral embedding
+[2021-02-24 12:57:12,553 INFO clustering.py line 132 8788] using KMeans-Model
+[2021-02-24 12:57:13,768 INFO main.py line 50 8788] Save results to results/kmeans/spectral/
+[2021-02-24 12:57:13,830 INFO main.py line 57 8788] Saving model to results/kmeans/spectral/
+[2021-02-24 12:57:13,832 INFO main.py line 60 8788] Evaluate Results

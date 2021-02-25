@@ -1,0 +1,13 @@
+[2021-02-25 14:07:47,357 INFO main.py line 23 18472] => Starting new experiment ...
+[2021-02-25 14:07:47,358 INFO main.py line 25 18472] Load data
+[2021-02-25 14:07:47,502 INFO main.py line 28 18472] Perform preprocessing
+[2021-02-25 14:07:47,508 INFO preprocessing.py line 146 18472] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:07:47,694 INFO preprocessing.py line 146 18472] Starting tokenization ...
+[2021-02-25 14:07:53,013 INFO main.py line 36 18472] Start clustering
+[2021-02-25 14:07:53,013 INFO clustering.py line 126 18472] applying TD-IDF
+[2021-02-25 14:07:53,289 INFO clustering.py line 126 18472] performing spectral embedding
+[2021-02-25 14:07:54,909 INFO clustering.py line 126 18472] using DBSCAN-Model
+[2021-02-25 14:07:55,520 INFO main.py line 49 18472] Save results to results/dbscan/spectral/
+[2021-02-25 14:07:55,554 INFO main.py line 56 18472] Saving model to results/dbscan/spectral/
+[2021-02-25 14:07:55,556 INFO main.py line 60 18472] Evaluate Results
+[2021-02-25 14:07:55,558 ERROR eval.py line 145 18472] Only one cluster found: Number of labels is 1. Valid values are 2 to n_samples - 1 (inclusive)

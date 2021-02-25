@@ -1,0 +1,12 @@
+[2021-02-25 15:18:23,822 INFO main.py line 23 20372] => Starting new experiment ...
+[2021-02-25 15:18:23,825 INFO main.py line 25 20372] Load data
+[2021-02-25 15:18:23,992 INFO main.py line 28 20372] Perform preprocessing
+[2021-02-25 15:18:23,999 INFO preprocessing.py line 146 20372] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 15:18:24,189 INFO preprocessing.py line 146 20372] Starting tokenization ...
+[2021-02-25 15:18:28,240 INFO main.py line 36 20372] Start clustering
+[2021-02-25 15:18:28,241 INFO clustering.py line 126 20372] applying TD-IDF
+[2021-02-25 15:18:28,381 INFO clustering.py line 126 20372] performing no dimensionality reduction
+[2021-02-25 15:18:28,472 INFO clustering.py line 126 20372] using SpectralClustering-Model
+[2021-02-25 15:18:31,341 INFO main.py line 49 20372] Save results to results/spectral_clustering/stopwords/
+[2021-02-25 15:18:31,379 INFO main.py line 56 20372] Saving model to results/spectral_clustering/stopwords/
+[2021-02-25 15:18:31,474 INFO main.py line 60 20372] Evaluate Results

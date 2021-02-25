@@ -1,0 +1,13 @@
+[2021-02-25 11:35:42,197 INFO main.py line 23 9308] Namespace(config='C:\\Users\\Jessi\\Documents\\Studium\\WS20_21\\text analytics\\ita_ws20\\src\\configurations\\kmeans_lsa.yaml')
+[2021-02-25 11:35:42,202 INFO main.py line 24 9308] => Starting new experiment ...
+[2021-02-25 11:35:42,202 INFO main.py line 26 9308] Load data
+[2021-02-25 11:35:42,408 INFO main.py line 29 9308] Perform preprocessing
+[2021-02-25 11:35:42,419 INFO preprocessing.py line 146 9308] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 11:35:42,627 INFO preprocessing.py line 146 9308] Starting tokenization ...
+[2021-02-25 11:35:47,341 INFO main.py line 37 9308] Start clustering
+[2021-02-25 11:35:47,342 INFO clustering.py line 126 9308] applying TD-IDF
+[2021-02-25 11:35:47,530 INFO clustering.py line 126 9308] performing lsa embedding
+[2021-02-25 11:35:47,611 INFO clustering.py line 126 9308] using KMeans-Model
+[2021-02-25 11:35:48,386 INFO main.py line 50 9308] Save results to results/kmeans/lsa/
+[2021-02-25 11:35:48,500 INFO main.py line 57 9308] Saving model to results/kmeans/lsa/
+[2021-02-25 11:35:48,502 INFO main.py line 61 9308] Evaluate Results

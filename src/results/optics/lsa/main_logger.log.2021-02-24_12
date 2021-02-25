@@ -1,0 +1,19 @@
+[2021-02-24 12:31:57,863 INFO main.py line 23 13648] Namespace(config='./configurations/optics_lsa.yaml')
+[2021-02-24 12:31:57,864 INFO main.py line 24 13648] => Starting new experiment ...
+[2021-02-24 12:31:57,864 INFO main.py line 26 13648] Load data
+[2021-02-24 12:31:58,141 INFO main.py line 29 13648] Perform preprocessing
+[2021-02-24 12:31:58,157 INFO preprocessing.py line 147 13648] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:31:58,387 INFO preprocessing.py line 147 13648] Starting tokenization ...
+[2021-02-24 12:32:05,457 INFO main.py line 37 13648] Start clustering
+[2021-02-24 12:32:05,466 INFO clustering.py line 132 13648] applying TD-IDF
+[2021-02-24 12:32:05,739 INFO clustering.py line 132 13648] performing lsa embedding
+[2021-02-24 12:32:05,828 INFO clustering.py line 132 13648] using OPTICS-Model
+[2021-02-24 12:36:06,790 INFO main.py line 50 13648] Save results to results/optics/lsa/
+[2021-02-24 12:36:06,904 INFO main.py line 57 13648] Saving model to results/optics/lsa/
+[2021-02-24 12:36:06,908 INFO main.py line 60 13648] Evaluate Results
+[2021-02-24 12:56:14,055 INFO main.py line 23 11496] Namespace(config='./configurations/optics_lsa.yaml')
+[2021-02-24 12:56:14,056 INFO main.py line 24 11496] => Starting new experiment ...
+[2021-02-24 12:56:14,056 INFO main.py line 26 11496] Load data
+[2021-02-24 12:56:14,246 INFO main.py line 29 11496] Perform preprocessing
+[2021-02-24 12:56:14,258 INFO preprocessing.py line 147 11496] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 12:56:14,482 INFO preprocessing.py line 147 11496] Starting tokenization ...

@@ -1,0 +1,13 @@
+[2021-02-25 14:07:29,684 INFO main.py line 23 76] => Starting new experiment ...
+[2021-02-25 14:07:29,684 INFO main.py line 25 76] Load data
+[2021-02-25 14:07:29,835 INFO main.py line 28 76] Perform preprocessing
+[2021-02-25 14:07:29,841 INFO preprocessing.py line 146 76] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:07:30,019 INFO preprocessing.py line 146 76] Starting tokenization ...
+[2021-02-25 14:07:34,751 INFO main.py line 36 76] Start clustering
+[2021-02-25 14:07:34,752 INFO clustering.py line 126 76] applying TD-IDF
+[2021-02-25 14:07:34,909 INFO clustering.py line 126 76] performing lsa embedding
+[2021-02-25 14:07:34,996 INFO clustering.py line 126 76] using DBSCAN-Model
+[2021-02-25 14:07:35,398 INFO main.py line 49 76] Save results to results/dbscan/lsa/
+[2021-02-25 14:07:35,432 INFO main.py line 56 76] Saving model to results/dbscan/lsa/
+[2021-02-25 14:07:35,434 INFO main.py line 60 76] Evaluate Results
+[2021-02-25 14:07:35,436 ERROR eval.py line 145 76] Only one cluster found: Number of labels is 1. Valid values are 2 to n_samples - 1 (inclusive)

@@ -1,0 +1,13 @@
+[2021-02-24 11:42:12,182 INFO main.py line 23 12748] Namespace(config='./configurations/mean_shift.yaml')
+[2021-02-24 11:42:12,183 INFO main.py line 24 12748] => Starting new experiment ...
+[2021-02-24 11:42:12,183 INFO main.py line 26 12748] Load data
+[2021-02-24 11:42:12,459 INFO main.py line 29 12748] Perform preprocessing
+[2021-02-24 11:42:12,472 INFO preprocessing.py line 147 12748] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:42:12,751 INFO preprocessing.py line 147 12748] Starting tokenization ...
+[2021-02-24 11:42:22,009 INFO main.py line 37 12748] Start clustering
+[2021-02-24 11:42:22,017 INFO clustering.py line 132 12748] applying TD-IDF
+[2021-02-24 11:42:22,343 INFO clustering.py line 132 12748] performing no dimensionality reduction
+[2021-02-24 11:42:22,436 INFO clustering.py line 132 12748] using MeanShift-Model
+[2021-02-24 11:56:38,756 INFO main.py line 50 12748] Save results to results/mean_shift/
+[2021-02-24 11:56:38,785 INFO main.py line 57 12748] Saving model to results/mean_shift/
+[2021-02-24 11:56:38,789 INFO main.py line 60 12748] Evaluate Results

@@ -1,0 +1,10 @@
+[2021-02-25 11:32:29,449 INFO main.py line 23 12540] Namespace(config='C:\\Users\\Jessi\\Documents\\Studium\\WS20_21\\text analytics\\ita_ws20\\src\\configurations\\spectral_clustering_lsa.yaml')
+[2021-02-25 11:32:29,453 INFO main.py line 24 12540] => Starting new experiment ...
+[2021-02-25 11:32:29,453 INFO main.py line 26 12540] Load data
+[2021-02-25 11:32:29,606 INFO main.py line 29 12540] Perform preprocessing
+[2021-02-25 11:32:29,614 INFO preprocessing.py line 146 12540] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 11:32:29,958 INFO preprocessing.py line 146 12540] Starting tokenization ...
+[2021-02-25 11:32:34,498 INFO main.py line 37 12540] Start clustering
+[2021-02-25 11:32:34,499 INFO clustering.py line 126 12540] applying TD-IDF
+[2021-02-25 11:32:34,617 INFO clustering.py line 126 12540] performing lsa embedding
+[2021-02-25 11:32:34,719 INFO clustering.py line 126 12540] using SpectralClustering-Model

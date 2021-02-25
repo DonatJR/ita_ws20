@@ -1,0 +1,13 @@
+[2021-02-25 14:05:28,060 INFO main.py line 23 6000] => Starting new experiment ...
+[2021-02-25 14:05:28,061 INFO main.py line 25 6000] Load data
+[2021-02-25 14:05:28,232 INFO main.py line 28 6000] Perform preprocessing
+[2021-02-25 14:05:28,244 INFO preprocessing.py line 146 6000] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:05:28,466 INFO preprocessing.py line 146 6000] Starting tokenization ...
+[2021-02-25 14:05:33,003 INFO main.py line 36 6000] Start clustering
+[2021-02-25 14:05:33,003 INFO clustering.py line 126 6000] applying TD-IDF
+[2021-02-25 14:05:33,176 INFO clustering.py line 126 6000] performing spectral embedding
+[2021-02-25 14:05:34,238 INFO clustering.py line 126 6000] using Birch-Model
+[2021-02-25 14:05:34,597 INFO main.py line 49 6000] Save results to results/birch/spectral/
+[2021-02-25 14:05:34,630 INFO main.py line 56 6000] Saving model to results/birch/spectral/
+[2021-02-25 14:05:34,632 INFO main.py line 60 6000] Evaluate Results
+[2021-02-25 14:05:34,634 ERROR eval.py line 145 6000] Only one cluster found: Number of labels is 1. Valid values are 2 to n_samples - 1 (inclusive)

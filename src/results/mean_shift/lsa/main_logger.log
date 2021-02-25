@@ -1,0 +1,13 @@
+[2021-02-25 14:23:20,627 INFO main.py line 23 20468] => Starting new experiment ...
+[2021-02-25 14:23:20,632 INFO main.py line 25 20468] Load data
+[2021-02-25 14:23:20,815 INFO main.py line 28 20468] Perform preprocessing
+[2021-02-25 14:23:20,827 INFO preprocessing.py line 146 20468] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:23:21,048 INFO preprocessing.py line 146 20468] Starting tokenization ...
+[2021-02-25 14:23:25,089 INFO main.py line 36 20468] Start clustering
+[2021-02-25 14:23:25,090 INFO clustering.py line 126 20468] applying TD-IDF
+[2021-02-25 14:23:25,216 INFO clustering.py line 126 20468] performing lsa embedding
+[2021-02-25 14:23:25,314 INFO clustering.py line 126 20468] using MeanShift-Model
+[2021-02-25 14:23:42,290 INFO main.py line 49 20468] Save results to results/mean_shift/lsa/
+[2021-02-25 14:23:42,318 INFO main.py line 56 20468] Saving model to results/mean_shift/lsa/
+[2021-02-25 14:23:42,320 INFO main.py line 60 20468] Evaluate Results
+[2021-02-25 14:23:42,322 ERROR eval.py line 145 20468] Only one cluster found: Number of labels is 1. Valid values are 2 to n_samples - 1 (inclusive)

@@ -1,0 +1,12 @@
+[2021-02-25 14:54:12,040 INFO main.py line 23 18004] => Starting new experiment ...
+[2021-02-25 14:54:12,044 INFO main.py line 25 18004] Load data
+[2021-02-25 14:54:12,183 INFO main.py line 28 18004] Perform preprocessing
+[2021-02-25 14:54:12,188 INFO preprocessing.py line 146 18004] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:54:12,381 INFO preprocessing.py line 146 18004] Starting tokenization ...
+[2021-02-25 14:54:16,028 INFO main.py line 36 18004] Start clustering
+[2021-02-25 14:54:16,028 INFO clustering.py line 126 18004] applying TD-IDF
+[2021-02-25 14:54:16,143 INFO clustering.py line 126 18004] performing spectral embedding
+[2021-02-25 14:54:17,200 INFO clustering.py line 126 18004] using OPTICS-Model
+[2021-02-25 14:58:15,092 INFO main.py line 49 18004] Save results to results/optics/spectral/
+[2021-02-25 14:58:15,189 INFO main.py line 56 18004] Saving model to results/optics/spectral/
+[2021-02-25 14:58:15,191 INFO main.py line 60 18004] Evaluate Results

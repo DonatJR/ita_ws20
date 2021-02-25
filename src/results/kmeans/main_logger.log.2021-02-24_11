@@ -1,0 +1,13 @@
+[2021-02-24 11:37:58,149 INFO main.py line 23 10704] Namespace(config='./configurations/kmeans.yaml')
+[2021-02-24 11:37:58,150 INFO main.py line 24 10704] => Starting new experiment ...
+[2021-02-24 11:37:58,150 INFO main.py line 26 10704] Load data
+[2021-02-24 11:37:58,360 INFO main.py line 29 10704] Perform preprocessing
+[2021-02-24 11:37:58,373 INFO preprocessing.py line 147 10704] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:37:58,640 INFO preprocessing.py line 147 10704] Starting tokenization ...
+[2021-02-24 11:38:08,687 INFO main.py line 37 10704] Start clustering
+[2021-02-24 11:38:08,688 INFO clustering.py line 132 10704] applying TD-IDF
+[2021-02-24 11:38:08,988 INFO clustering.py line 132 10704] performing no dimensionality reduction
+[2021-02-24 11:38:09,062 INFO clustering.py line 132 10704] using KMeans-Model
+[2021-02-24 11:39:25,307 INFO main.py line 50 10704] Save results to results/kmeans/
+[2021-02-24 11:39:25,416 INFO main.py line 57 10704] Saving model to results/kmeans/
+[2021-02-24 11:39:25,427 INFO main.py line 60 10704] Evaluate Results

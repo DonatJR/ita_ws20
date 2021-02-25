@@ -1,0 +1,12 @@
+[2021-02-25 14:10:36,424 INFO main.py line 23 17960] => Starting new experiment ...
+[2021-02-25 14:10:36,425 INFO main.py line 25 17960] Load data
+[2021-02-25 14:10:36,622 INFO main.py line 28 17960] Perform preprocessing
+[2021-02-25 14:10:36,635 INFO preprocessing.py line 146 17960] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:10:36,839 INFO preprocessing.py line 146 17960] Starting tokenization ...
+[2021-02-25 14:10:40,874 INFO main.py line 36 17960] Start clustering
+[2021-02-25 14:10:40,874 INFO clustering.py line 126 17960] applying TD-IDF
+[2021-02-25 14:10:40,993 INFO clustering.py line 126 17960] performing no dimensionality reduction
+[2021-02-25 14:10:41,036 INFO clustering.py line 126 17960] using KMeans-Model
+[2021-02-25 14:11:29,649 INFO main.py line 49 17960] Save results to results/kmeans/stopwords/
+[2021-02-25 14:11:29,710 INFO main.py line 56 17960] Saving model to results/kmeans/stopwords/
+[2021-02-25 14:11:29,719 INFO main.py line 60 17960] Evaluate Results

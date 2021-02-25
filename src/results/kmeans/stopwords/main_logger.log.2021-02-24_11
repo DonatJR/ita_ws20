@@ -1,0 +1,13 @@
+[2021-02-24 11:40:42,046 INFO main.py line 23 7660] Namespace(config='./configurations/kmeans_stopwords.yaml')
+[2021-02-24 11:40:42,046 INFO main.py line 24 7660] => Starting new experiment ...
+[2021-02-24 11:40:42,047 INFO main.py line 26 7660] Load data
+[2021-02-24 11:40:42,397 INFO main.py line 29 7660] Perform preprocessing
+[2021-02-24 11:40:42,405 INFO preprocessing.py line 147 7660] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:40:42,594 INFO preprocessing.py line 147 7660] Starting tokenization ...
+[2021-02-24 11:40:51,438 INFO main.py line 37 7660] Start clustering
+[2021-02-24 11:40:51,446 INFO clustering.py line 132 7660] applying TD-IDF
+[2021-02-24 11:40:51,745 INFO clustering.py line 132 7660] performing no dimensionality reduction
+[2021-02-24 11:40:51,853 INFO clustering.py line 132 7660] using KMeans-Model
+[2021-02-24 11:41:53,543 INFO main.py line 50 7660] Save results to results/kmeans/stopwords/
+[2021-02-24 11:41:53,641 INFO main.py line 57 7660] Saving model to results/kmeans/stopwords/
+[2021-02-24 11:41:53,654 INFO main.py line 60 7660] Evaluate Results

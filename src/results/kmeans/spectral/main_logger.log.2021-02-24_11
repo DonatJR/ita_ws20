@@ -1,0 +1,13 @@
+[2021-02-24 11:40:10,666 INFO main.py line 23 2768] Namespace(config='./configurations/kmeans_spectral.yaml')
+[2021-02-24 11:40:10,666 INFO main.py line 24 2768] => Starting new experiment ...
+[2021-02-24 11:40:10,667 INFO main.py line 26 2768] Load data
+[2021-02-24 11:40:11,135 INFO main.py line 29 2768] Perform preprocessing
+[2021-02-24 11:40:11,149 INFO preprocessing.py line 147 2768] Dropping 1 entries of corpus, due to nan ...
+[2021-02-24 11:40:11,468 INFO preprocessing.py line 147 2768] Starting tokenization ...
+[2021-02-24 11:40:22,583 INFO main.py line 37 2768] Start clustering
+[2021-02-24 11:40:22,583 INFO clustering.py line 132 2768] applying TD-IDF
+[2021-02-24 11:40:22,906 INFO clustering.py line 132 2768] performing spectral embedding
+[2021-02-24 11:40:24,617 INFO clustering.py line 132 2768] using KMeans-Model
+[2021-02-24 11:40:26,005 INFO main.py line 50 2768] Save results to results/kmeans/spectral/
+[2021-02-24 11:40:26,075 INFO main.py line 57 2768] Saving model to results/kmeans/spectral/
+[2021-02-24 11:40:26,084 INFO main.py line 60 2768] Evaluate Results

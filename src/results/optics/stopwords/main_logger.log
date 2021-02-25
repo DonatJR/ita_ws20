@@ -1,0 +1,12 @@
+[2021-02-25 14:58:25,672 INFO main.py line 23 13956] => Starting new experiment ...
+[2021-02-25 14:58:25,685 INFO main.py line 25 13956] Load data
+[2021-02-25 14:58:25,845 INFO main.py line 28 13956] Perform preprocessing
+[2021-02-25 14:58:25,852 INFO preprocessing.py line 146 13956] Dropping 1 entries of corpus, due to nan ...
+[2021-02-25 14:58:26,060 INFO preprocessing.py line 146 13956] Starting tokenization ...
+[2021-02-25 14:58:29,668 INFO main.py line 36 13956] Start clustering
+[2021-02-25 14:58:29,668 INFO clustering.py line 126 13956] applying TD-IDF
+[2021-02-25 14:58:29,777 INFO clustering.py line 126 13956] performing no dimensionality reduction
+[2021-02-25 14:58:29,819 INFO clustering.py line 126 13956] using OPTICS-Model
+[2021-02-25 15:12:15,095 INFO main.py line 49 13956] Save results to results/optics/stopwords/
+[2021-02-25 15:12:15,122 INFO main.py line 56 13956] Saving model to results/optics/stopwords/
+[2021-02-25 15:12:15,124 INFO main.py line 60 13956] Evaluate Results
