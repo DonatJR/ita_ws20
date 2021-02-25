@@ -1,5 +1,5 @@
 input_path: "data/data_2021-02-01_22-27-13.862993.json"
-output_path: "results/"
+output_path: "data/"
 use_title: False
 preprocessing:
   stemming: False
