@@ -89,18 +89,13 @@ def parse_xml(root, filename):
         datasource_url,
     ]
 
-    if abstract == []:
-        abstract = nan
-    else:
-        abstract = abstract[0]
-
     papers.append(dict(zip(keys, vals)))
 
 
 def create_data_file():
     """ Create and save JSON with extracted data """
     with open(
-        "../data/data_{}.json".format(datetime.datetime.now()).replace(":", "-"), "w"
+        "../data/data.json", "w"
     ) as f:
         json.dump({"papers": papers}, f, ensure_ascii=False, indent=4)
 
