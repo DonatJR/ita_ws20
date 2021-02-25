@@ -56,10 +56,9 @@ def main():
     )
     model = clustering.perform_clustering()
 
-    print(np.unique(model.labels_))
     logger.info(f"Save results to {config.output_path}")
     corpus["label"] = model.labels_
-    io.write_json(config.input_path + "labels.json", corpus)
+    io.write_json(config.input_path.split(".")[0] + "_labeled.json", corpus)
 
 
 if __name__ == "__main__":
