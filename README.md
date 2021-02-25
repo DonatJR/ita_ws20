@@ -33,26 +33,58 @@ https://github.com/DonatJR/ita_ws20/blob/main/milestone/milestone.md
 ## Project
 
 ### Main project goals
-Our main goal is to make it easier for users to search and explore scientific papers belonging to a specific topic or theme.
-For this we want to specifically arrive at a clustering (representation) that, for one, separates the different documents into correct clusters, but is also easy to work with in downstream tasks (e.g. the mentioned inclusion in some search site).
-To achieve this we basically interpret the steps mentioned in the subsection \ref{subsec:pipeline} as some coarse sub goals, which can then be worked on by different team members.
-Some of these sub goals can also be further divided, for example downloading and preprocessing data from different sources or implementing distinct clustering algorithms can be done by a single team member respectively.
+This repository contains scripts to download and cluster the research papers found on https://www.jmlr.org.
 
-### Requirements
+Our main goal is to make it easier for users to search and explore scientific papers belonging to the topic of machine learning.
+For this we want to specifically arrive at a clustering (representation) that, for one, separates the different documents into correct clusters, but is also easy to work with in downstream tasks (e.g. the mentioned inclusion in some search site).
+
+## Dataset
+The dataset containing the scraped research papers is saved in the `data_2021-02-01_22-27-13.862993.json` . An example of a research paper can be seen here:
+''' json
+{
+            "title": "Multiple-Instance Learning from Distributions",
+            "abstract": [
+                "We propose a new theoretical framework for analyzing the multiple-instance learning (MIL) setting. In MIL, training examples are provided to a learning algorithm in the form of labeled sets, or \"bags,\" of instances. Applications of MIL include 3-D quantitative structure activity relationship prediction for drug discovery and content-based image retrieval for web search. The goal of an algorithm is to learn a function that correctly labels new bags or a function that correctly labels new instances. We propose that bags should be treated as latent distributions from which samples are observed. We show that it is possible to learn accurate instance-and bag-labeling functions in this setting as well as functions that correctly rank bags or instances under weak assumptions. Additionally, our theoretical results suggest that it is possible to learn to rank efficiently using traditional, well-studied \"supervised\" learning approaches. We perform an extensive empirical evaluation that supports the theoretical predictions entailed by the new framework. The proposed theoretical framework leads to a better understanding of the relationship between the MI and standard supervised learning settings, and it provides new methods for learning from MI data that are more accurate, more efficient, and have better understood theoretical properties than existing MI-specific algorithms."
+            ],
+            "keywords": [
+                "multiple-instance learning",
+                "learning theory",
+                "ranking",
+                "classification"
+            ],
+            "author": [
+                "Gary Doran"
+            ],
+            "ref": "https://jmlr.csail.mit.edu//papers/volume17/15-171/15-171.pdf",
+            "datasource": "Journal of Machine Learning Research",
+            "datasource_url": "https://jmlr.csail.mit.edu"
+        }
+'''
+
+## Requirements
 The requirements can be found in `requirements.txt` and can be installed with
 ```
 pip install -r requirements.txt
 ```
+## Usage
+There are two ways to go about running the project:
+* Extracting the data, creating ground truth labels and then clustering.
+In this case, you must follow all three steps listed bellow.
 
-### Data extraction
+NOTE: If you choose to follow all three steps, you should change the `input_path` parameter with the name of the newly created __json__ in step one in the __yaml__ configs used for step two and three.
+
+* Clustering with the existing data
+In this case, you should jump to step three.
+
+### Step one (data extraction):
 We have also included `extraction.sh`, the script responsible for extracting our data. Once run, the script will automatically start scraping all the PDFs found on https://www.jmlr.org. It will then clone the two GitHub Grobid repositories (https://github.com/kermitt2/grobid.git, and https://github.com/kermitt2/grobid_client_python) needed for setting up the Grobid server. Finally, it will set up the Grobid server, convert the scraped PDFs into XMLs and create a JSON file from the parsed XMLs.
 
 NOTE: If the script throws an error, please make sure that Grobid is installed in a path with no parent directories containing spaces.
 
-### Create ground truth labels
+### Step two (create ground truth labels):
 For generating ground truth labels run the file `create_gt.py` with a `--config` argument pointing to a valid yaml configuration file (`gt.yaml`).
 
-### Running the code
+### Step three (clustering and evaluation):
 The project code can be run by executing the `main.py` script with a `--config` argument pointing to a valid yaml configuration file. If no configuration file is given, the default value `config.yaml` is used and a corresponding file has to exist in the same folder as `main.py`.
 
 We support a variety of different options for the configuration, but encourage the usage of the provided configuration files as their configuration combinations are (well) tested.
