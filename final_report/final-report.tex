@@ -1,0 +1,109 @@
+% This template was initially provided by Dulip Withanage.
+% Modifications for the database systems research group
+% were made by Conny Junghans,  Jannik Strötgen and Michael Gertz
+
+\documentclass[
+     12pt,         % font size
+     a4paper,      % paper format
+     BCOR10mm,     % binding correction
+     DIV14,        % stripe size for margin calculation
+     ]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% PACKAGES:
+
+% Use German :
+\usepackage[english]{babel}
+% Input and font encoding
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+% Index-generation
+\usepackage{makeidx}
+% Einbinden von URLs:
+\usepackage{url}
+% Special \LaTex symbols (e.g. \BibTeX):
+%\usepackage{doc}
+% Include Graphic-files:
+\usepackage{graphicx}
+% Include doc++ generated tex-files:
+%\usepackage{docxx}
+
+% Fuer anderthalbzeiligen Textsatz
+\usepackage{setspace}
+
+\usepackage[title]{appendix}
+
+% hyperrefs in the documents
+\PassOptionsToPackage{hyphens}{url}\usepackage[bookmarks=true,colorlinks,pdfpagelabels,pdfstartview = FitH,bookmarksopen = true,bookmarksnumbered = true,linkcolor = black,plainpages = false,hypertexnames = false,citecolor = black,urlcolor=black]{hyperref}
+%\usepackage{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% OTHER SETTINGS:
+
+% Choose language
+\newcommand{\setlang}[1]{\selectlanguage{#1}\nonfrenchspacing}
+
+
+\begin{document}
+
+% TITLE:
+\pagenumbering{roman} 
+\begin{titlepage}
+
+
+\vspace*{1cm}
+\begin{center}
+\vspace*{3cm}
+\textbf{ 
+\Large Heidelberg University\\
+\smallskip
+\Large Institute of Computer Science\\
+\smallskip
+\Large Database Systems Research Group\\
+\smallskip
+}
+
+\vspace{3cm}
+
+\textbf{\large Project Report - Text Analytics}
+
+\vspace{0.5\baselineskip}
+{\huge
+\textbf{Scientific paper clustering}
+}
+\end{center}
+
+\vfill 
+
+{\large
+\begin{tabular}[l]{ll}
+Team Member: & Daniela Fichiu, 3552717, BSc Applied Computer Science,\\
+  & BSc Mathematics\\
+  & daniela.fichiu@stud.uni-heidelberg.de\\
+Team Member: & Christian Homeyer, 3606476, PhD Computer Science \\
+  & ox182@uni-heidelberg.de\\
+Team Member: & Jessica Kaechele, 3588787, MSc Applied Computer Science\\
+  & Uo251@stud.uni-heidelberg.de\\
+Team Member: & Jonas Reinwald, 3600238, MSc Applied Computer Science\\
+  & am248@stud.uni-Heidelberg.de\\
+  
+\end{tabular}
+}
+
+{
+  \textbf{GitHub Repository: \url{https://github.com/DonatJR/ita_ws20}}
+}
+
+\end{titlepage}
+
+\pagenumbering{arabic} 
+
+% \input{<file>}
+\cite{dummy}
+
+\bibliographystyle{plain}
+\bibliography{bibtex/references}
+
+\end{document}
