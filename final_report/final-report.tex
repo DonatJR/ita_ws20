@@ -45,6 +45,8 @@
 % Choose language
 \newcommand{\setlang}[1]{\selectlanguage{#1}\nonfrenchspacing}
 
+% Written by comment
+\newcommand{\comment}[1]{\vspace{-1em}\hspace{27pt}{\small\textit{#1}}\bigskip\par}
 
 \begin{document}
 
@@ -101,7 +103,7 @@ Team Member: & Jonas Reinwald, 3600238, MSc Applied Computer Science\\
 \pagenumbering{arabic} 
 
 % \input{<file>}
-\cite{dummy}
+\input{related_work}
 
 \bibliographystyle{plain}
 \bibliography{bibtex/references}
