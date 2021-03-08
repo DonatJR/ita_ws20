@@ -1,0 +1,65 @@
+\subsection{Clustering}
+There are plenty of different clustering algorithms, that perform differently depending on the nature of the data.
+The algorithms tested in this project are described below.
+
+\subsubsection{K-Means}
+\subsubcomment{Written by Jessica Kaechele}
+The goal of K-Means is that data points that are within a cluster are as similar as possible, while two different clusters are as different as possible.
+To achieve this, a centroid is randomly selected for each of the $k$ clusters.
+Then the sum of squared distance between each data point and centroid is calculated.
+Based on this calculation, the data points are assigned to the closest centroid.
+Now, new centroids per cluster are calculated by taking the average of all data points within that cluster.
+These steps are repeated until the centroids no longer change \cite{kmeans}.
+
+With K-Means, the number of clusters $k$ must be defined. If $k$ is not known, it can be determined using the elbow method, for example.
+In this method, the sum of squared distances between the data points and their cluster centroid is calculated for different $k$.
+It can often be seen that the sum of squared distances drops significantly at the beginning and then remains at approximately the same level.
+An example of this can be seen in figure (TODO: insert figure here).
+The optimal $k$ can be found at the point where the curve starts to flatten out\cite{kmeans}.
+
+\subsubsection{Spectral Clustering}
+\subsubcomment{Written by Jessica Kaechele}
+Spectral clustering already includes a dimensionality reduction.
+The first step is to construct a similarity graph.
+Each vertice $v_i$ represents a data point $x_i$.
+An edge between two vertices $v_i$ and $v_j$ exists if the similarity $s_ij$ is higher than a previously defined threshold.
+These similarities can be used as weights $w_ij$ in a weight matrix $W$.
+If there is no edge between two vertices, the weight is $0$.
+With the help of this weight matrix, a degree matrix can be calculated.
+Therefore, the degree is calculated for each vertice by summing the weights:
+$$
+d_i = \sum_{j=1}^n{w_{ij}}
+$$
+Then the graph laplacian matrix is calculated by subtracting the weight matrix from the degree matrix:
+$$
+L = D - W
+$$
+Afterwards, the first $k$ smallest eigenvectors of the matrix $L$ are calculated.
+Finally, the newly created data points are clustered using K-Means \cite{spectral_clustering}.
+
+The graph laplacian matrix can also be calculated as a normalized graph laplacian \cite{spectral_clustering}.
+This changes the algorithm slightly, but this is not discussed in detail here, as the functionality of the algorithm does not change.
+
+\subsubsection{BIRCH}
+\subsubcomment{Written by Jessica Kaechele}
+BIRCH also reduces the scale of the dataset by defining subclusters.
+These subclusters are called clustering features(CF).
+The information that is retained is the number of data points that are included, the linear sum of the included data points, and the squared sum.
+Also, a CF can contain other CFs.
+The CFs are now arranged in a tree, with each node containing at most $B$ entries.
+An entry in a non-leaf node consists of a CF and a pointer to a child node.
+A leaf node consists of at most $L$ CFs.
+In addition, there is a threshold $T$, which determines the maximum diameter of the entries of the leaf node.
+The diameter is the average pairwise distance within a cluster.
+
+If a new CF or data point is inserted, the tree is descended recursively by selecting the closest child node based on a distance metric.
+Once a leaf node is reached, the closest CF entry is searched for, which can absorb the new CF entry without exceeding $T$.
+However, if $T$ is exceeded, a new CF entry is appended.
+If the leaf node already contains $L$ entries, it must be split.
+
+Now all CF entries of the parent nodes are updated.
+In case of a split, a new entry must be added to the parent node.
+If $B$ entries are already contained there, this node must also be split again, etc.
+
+When building the tree it is ensured that the complete tree can be loaded in the memory by increasing $T$ if necessary.
+The clustering is performed by any clustering algorithm, which clusters the CFs in the leaf nodes\cite{birch}.
