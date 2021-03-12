@@ -6,20 +6,19 @@ The algorithms tested in this project are described below.
 \subsubcomment{Written by Jessica Kaechele}
 The goal of K-Means is that data points that are within a cluster are as similar as possible, while two different clusters are as different as possible.
 To achieve this, a centroid is randomly selected for each of the $k$ clusters.
-Then the sum of squared distance between each data point and centroid is calculated.
+Then the sum of squared distance between each data point and the cluster centroid are calculated.
 Based on this calculation, the data points are assigned to the closest centroid.
 Now, new centroids per cluster are calculated by taking the average of all data points within that cluster.
-These steps are repeated until the centroids no longer change \cite{kmeans}.
+These steps are repeated until the centroids no longer change.\cite{kmeans}
 
 With K-Means, the number of clusters $k$ must be defined. If $k$ is not known, it can be determined using the elbow method, for example.
 In this method, the sum of squared distances between the data points and their cluster centroid is calculated for different $k$.
 It can often be seen that the sum of squared distances drops significantly at the beginning and then remains at approximately the same level.
-An example of this can be seen in figure (TODO: insert figure here).
-The optimal $k$ can be found at the point where the curve starts to flatten out\cite{kmeans}.
+The optimal $k$ can be found at the point where the curve starts to flatten out.\cite{kmeans}
 
 \subsubsection{Spectral Clustering}
 \subsubcomment{Written by Jessica Kaechele}
-Spectral clustering already includes a dimensionality reduction.
+Spectral Clustering already includes a dimensionality reduction.
 The first step is to construct a similarity graph.
 Each vertice $v_i$ represents a data point $x_i$.
 An edge between two vertices $v_i$ and $v_j$ exists if the similarity $s_ij$ is higher than a previously defined threshold.
@@ -35,7 +34,7 @@ $$
 L = D - W
 $$
 Afterwards, the first $k$ smallest eigenvectors of the matrix $L$ are calculated.
-Finally, the newly created data points are clustered using K-Means \cite{spectral_clustering}.
+Finally, the newly created data points are clustered using K-Means.\cite{spectral_clustering}
 
 The graph laplacian matrix can also be calculated as a normalized graph laplacian \cite{spectral_clustering}.
 This changes the algorithm slightly, but this is not discussed in detail here, as the functionality of the algorithm does not change.
@@ -62,4 +61,4 @@ In case of a split, a new entry must be added to the parent node.
 If $B$ entries are already contained there, this node must also be split again, etc.
 
 When building the tree it is ensured that the complete tree can be loaded in the memory by increasing $T$ if necessary.
-The clustering is performed by any clustering algorithm, which clusters the CFs in the leaf nodes\cite{birch}.
+The clustering is performed by any clustering algorithm, which clusters the CFs in the leaf nodes.\cite{birch}

@@ -1,0 +1,12 @@
+\subsection{Dimensionality Reduction}
+It is possible to perform a dimensionality reduction before doing the clustering.
+This often reduces the computation time, and by using only the most important features of the data, the results can sometimes be improved.  
+
+\subsubsection{Latent Semantic Analysis }
+\subsubcomment{Written by Jessica Kaechele}
+Latent Semantic Analysis (LSA) can be used for the dimensionality reduction of texts.
+The documents are first represented as a term-document matrix, where the rows represent a word and the columns represent a document.
+The cells contain the frequency in which the terms occur in a document.
+The tf-idf matrix is then calculated from this matrix, by multiplying frequencies with the inverse document frequency.
+Afterward, a singular vector decomposition is performed.\cite{lsa}
+In addition to dimensionality reduction, LSA can also be used for topic modeling.
