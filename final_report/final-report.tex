@@ -35,7 +35,18 @@
 \usepackage[title]{appendix}
 
 % hyperrefs in the documents
-\PassOptionsToPackage{hyphens}{url}\usepackage[bookmarks=true,colorlinks,pdfpagelabels,pdfstartview = FitH,bookmarksopen = true,bookmarksnumbered = true,linkcolor = black,plainpages = false,hypertexnames = false,citecolor = black,urlcolor=black]{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage[
+  bookmarks=true,
+  colorlinks,
+  pdfpagelabels,
+  pdfstartview = FitH,
+  bookmarksopen = true,
+  bookmarksnumbered = true,
+  linkcolor = black,
+  plainpages = false,
+  hypertexnames = false,
+  citecolor = black,
+  urlcolor=black]{hyperref}
 %\usepackage{hyperref}
 
 % subfigures
@@ -110,9 +121,11 @@ Team Member: & Jonas Reinwald, 3600238, MSc Applied Computer Science\\
 \pagenumbering{arabic} 
 
 % \input{<file>}
+\input{abstract}
 \input{related_work}
 \input{methods}
 \input{experimental_setup_results}
+\input{conclusion}
 
 \bibliographystyle{plain}
 \bibliography{bibtex/references}
