@@ -1,0 +1,14 @@
+\subsection{Experimental Setup}
+Before implementing our final pipeline we used Jupyter notebooks to experiment with various clustering algorithms, to get a feel for their behavior and find a set of good performing parameters.
+
+The insights and written code from these experiments were then used to create the clustering pipeline. It performs these steps in succession of each other:
+\begin{enumerate}
+    \item Loading the data
+    \item Setting up the pre-processor and applying it to the data
+    \item Perform clustering on the pre-processed data
+    \item Extracting and saving results from the generated clusters
+    \item [Optional] Evaluating the results by comparing it with ground-truth data
+\end{enumerate}
+
+The code must be provided with a configuration file which includes options to alter the pipeline execution. These options include but are not limited to the data input and output path, the library and type of pre-processing which is to be done on the input data, the kind of (optional) dimensionality reduction and the clustering method, with some changeable parameters, to use.
+We provide one default configuration file for all included clustering approaches with which the results in the following sections can be reproduced. 
