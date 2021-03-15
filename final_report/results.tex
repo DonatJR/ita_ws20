@@ -263,6 +263,9 @@ In these cases Affinity Propagation produced a lot of clusters, most of them con
 \subsubsection{Agglomerative Clustering}
 \subsubcomment{Written by Jonas Reinwald}
 
+As with Affinity Propagation, Agglomerative Clustering shows the same pattern for scores. In comparison with the former and shown in table \ref{tab:scores_agglomerative}, clustering on the raw pre-processed data produces a better Calinski-Harabasz Index, indicating slightly denser clusters, but a worse Davies-Bouldin Index, indicating less separation between clusters.
+Using dimensionality reduction improves all metrics by a large margin, with LSA having one of the best scores overall. Figure \ref{fig:agglomerative} visually confirms this, with Spectral Embedding showing some perceivable distinction and LSA showing almost perfect distinction between clusters.
+
 \begin{table}[]
   \centering
   \begin{tabular}{c|c|c|c}
@@ -308,6 +311,11 @@ In these cases Affinity Propagation produced a lot of clusters, most of them con
 \subsubsection{DBSCAN}
 \subsubcomment{Written by Jonas Reinwald}
 
+DBSCAN did not yield any desirable results at all. As can be seen in table \ref{tab:scores_dbscan} scores without dimensionality reduction are just as bad as with other methods and scored with dimensionality reduction are missing completely. This is because in our experiments almost all parameter settings produced only one single big cluster for normal data and one single big cluster for all tested parameter settings with LSA or Spectral Embedding, making score calculation impossible.
+This is also the reason why all data points in figure \ref{fig:dbscan}, except for a few in the first subplot, are colored the same.
+
+Because of the data-dependent threshold value (see section \ref{subsubsec:dbscan}), it might be possible to achieve better clustering by testing even more parameter values or using some kind of heuristic to find appropriate values.
+
 \begin{table}[]
   \centering
   \begin{tabular}{c|c|c|c}
@@ -343,7 +351,7 @@ In these cases Affinity Propagation produced a lot of clusters, most of them con
     \label{fig:dbscan_spectral}
   \end{subfigure}
   \caption{Two-dimensional representation of clusters retrieved by DBSCAN with different dimensionality reduction methods}
-  \label{fig:affinity_propagation}
+  \label{fig:dbscan}
 \end{figure}
 
 \subsubsection{OPTICS}
