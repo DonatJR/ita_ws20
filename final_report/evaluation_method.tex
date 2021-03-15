@@ -1,16 +1,53 @@
-\subsection{Evaluation Method}
-\subsubsection{Finding the Ground Truth}
-\subsubcomment{Written by Daniela Fichiu}
-An unlabeled data set put us in the position of having to find the ground truth on our own. The process of discovering, or better said, creating it, began with a thorough exploration of our data and an observation. 
+\newpage
+\subsection{Evaluation}
+\subcomment{Written by Christian Homeyer}
+Evaluation of a clustering algorithm is fundamentally different depending on whether ground truth labels are available or not. We therefore distinguish between a supervised and unsupervised evaluation. An unlabeled data set puts us in the position of having to find the ground truth on our own. It is shown in subsection \ref{sec:create_gt}, how this task is a non-trivial problem itself. 
 
+\subsubsection{Metrics}
+There exist several clustering metrics for evaluation. Since we will not use anything out of the ordinary, we refer to \cite{aggarwal2015data}. In general we can distinguish between \textit{internal} and \textit{external} measures. This directly corresponds to degrees of supervision. 
 
-An abstract can contain nonrelevant information, but the keywords are supposed to be distilled truth. They describe the paper contents in the least number of words. In the light of these facts, we decided to use the keywords to create the ground truth. The term keyword refers to multiple words describing a concept (e.g., "behavioral data in strategic settings"). 
+\paragraph{Unsupervised Clustering.}
+Data is divided into clusters without knowing ground truth clusters, such that data inside share max. similarity w.r.t. a specific data attribute. Classification requires knowing the label set $ \mathcal{L} $, which we do not know in this case. Because no ground truth exists, internal measures are highly dependent on the application. Typical internal measures depend on the number of clusters, intra- and inter-cluster distance distributions. Examples are the \textit{Davies-Bouldin index}, \textit{Dunn index} or the \textit{Silhouette coefficient}. However, we usually do not know much about the underlying data, which makes it hard to compare algorithms this way as internal measures only indicate if one algorithms is better than another in some situations. In the end, we might however not know if an algorithms produces more valid results than another.
+\todo{Insert reference to results later. "It can be seen in Section X , that internal measures and the data distribution are hard to interpret, because it lies on a high dimensional manifold.}
 
+\paragraph{Supervised Clustering.}
+\todo{Include rand-mutual information}
+\todo{Include formulas}
+Supervised clustering allows validating an algorithm based the ground truth labels $ \mathcal{L} $. Typical evaluation metrics include: \textit{Precision}, \textit{Recall}, \textit{F1-score}, \textit{Jaccard index} or a \textit{confusion matrix}. 
+
+\subsubsection{Creating a ground truth}
+\label{sec:create_gt}
+A general idea of our project is to exploit the paper submission process for evaluating our clustering algorithms. Every paper submission is accompanied by a set of key words $ \mathcal{K} = \{ K_{1},\; K_{2},\; \dots ,\; K_{N} \} $, that best describe the content of the paper. We make the following assumption: 
+\begin{center}
+	\textit{An abstract can contain non-relevant information, but the keywords are supposed to be distilled truth.}
+\end{center}
+They describe the paper contents in the least number of words. In the light of these facts, we decided to use the keywords to create an integer label ground truth. 
+\todo{CH: Maybe use a different example}
+The term keyword refers to multiple words describing a concept (e.g., "behavioral data in strategic settings"). Each paper has multiple of such sets.
+
+\paragraph{Problem.} Given a set of papers $ \mathcal{P} = \{ P_{1},\; P_{2},\; \dots,\; P_{N} \} $, each assigned a set of key words $ K_{i} = \{ k_{i1},\; \dots ,\; k_{im} \} $, find an integer labeling $ \mathcal{L} = \{ L_{1},\; \dots,\; L_{N} \} \in \mathbb{N}^{N} $ that divides $ \mathcal{P} $ into $ k $ separate clusters. The number of clusters $ k $ is not known a priori. Papers do not have key word sets with the same cardinality.\\
+
+We identified several problems to come up in practice: 
+\begin{enumerate}
+	\item Multiple key words correspond to the same information. Again, this is the general problem with text data, that we have to lemmatize words or group them to a common semantic meaning.
+	\item In practice, our initial assumption may not be correct, because key words may not accurately describe a paper. These can be highly subjective and some authors assign their papers key words with an agenda.
+	\item We have to make an assumption about the importance of individual key words. We assume all key words to be equally informative, while in reality some key words are much more important for distinguishing papers.
+\end{enumerate}
+
+Because the total number of clusters is unknown it is unclear what measure to take for creating the ground truth. Essentially this problem is similar to our general problem, only that we are working on the key words instead of the text body. We address 1. by applying the same preprocessing techniques on the key words as on the text body, i.e. lemmatization, stop word removal, etc., resulting in a set of word tokens for each paper.
+
+In order to create an integer label we need to be able to compute a distance between elements of $ \mathcal{P} $. Our first question is therefore, how to measure distance/similarity between sets of key words/tokens. 
+
+\paragraph{Naive.}
+We first naively computed a superset of all key words $ \mathcal{K}_{super} = \bigcup_{i=1}^{N} \mathcal{K}_{i} $, that only contains distinct elements. From this superset we create binary feature vectors $ F_{i} \in \{0,\; 1 \}^{|\mathcal{K}_{super}|} $ for each paper, indicating if a word from the superset is assigned or not. We then compute the Hamming distance between papers for clustering. We found this to not work very well, because the resulting feature vectors are very sparse. This will also result in many small distances and clusters, since most papers only have few key words in common. 
+
+\todo{Is this really correct? I thought we computed TFIDF vectors?}
+\paragraph{Better.}
 We split the keywords into separate tokens to account for different forms of the same concept and hierarchical categories. A paper containing the keyword "Bayesian learning," should have a certain similarity degree to one containing the keyword "machine learning." We preprocessed the resulting tokens and created one-hot vectors for each research paper. We've then computed the cosine similarity between the research papers and manually checked randomly sampled papers with different similarity scores. Scientific papers with a cosine similarity score of above .7 shared an average of six words. Six was not a negligible number, as most research papers had, on average, four keywords. 
 
-We decided to cluster the research papers with DBSCAN, using the one-hot vectors to compute the cosine distance matrix and obtain the labels. We called these labels ground truth. We used them to check whether the abstract clusters matched the keywords clusters.
-We chose DBSCAN to cluster the keywords as it doesn't require the expected number of clusters as input. 
+We decided to cluster the research papers with DBSCAN, using the one-hot vectors to compute the cosine distance matrix and obtain the labels. We called these labels ground truth. We used them to check whether the abstract clusters matched the keywords clusters. We chose DBSCAN to cluster the keywords as it doesn't require the expected number of clusters as input. 
 
-\subsubsection{The Ground Truth}
-\subsubcomment{Written by Christian Homeyer}
+\todo{We need to viszualize something here or report numbers}
+\subsubsection{Results}
+\todo{What epsilon?}
 The clustering results were sensitive to the value of epsilon. Values over .4 produce many outliers and only a handful of clusters. 
