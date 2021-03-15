@@ -7,7 +7,7 @@ The scores used in this chapter are from our notebook experiments as we worked w
 \subsubcomment{Written by Jessica Kaechele}
 By using the topic modeling methods LSA and LDA, first insights into the nature of the data can be gained.
 
-Table \ref{tab:lda_lsa_topwords} shows the top words when forming two clusters using LDA and LSA.
+Table \ref{tab:lda_lsa_topwords} shows the top words of each cluster when forming two clusters using LDA and LSA.
 \begin{table}[]
     \centering
     \caption{Top words of two clusters retrieved by LDA and LSA}
@@ -143,8 +143,7 @@ The Silhouette Score is only $0.0117$, the Calinski-Harabasz-Score is $4.57$ and
 If one compares these values with the results obtained using Spectral Embedding and K-Means (see table \ref{tab:scores_kmeans}), it can be seen that the results are significantly worse.
 The reason for this could be different parameters.
 However, even after using the same parameters in both approaches, it is not possible to achieve similarly good results. 
-Another reason could be that in the sklearn implementation the \textit{drop\_first} parameter is False.
-But why the results are so different needs further investigation.
+Why the results are so different needs further investigation.
 
 
 
@@ -195,7 +194,11 @@ This can also be seen in the two-dimensional representation(see figure \ref{fig:
 \label{fig:birch}
 \end{figure}
 In addition, the best results are also achieved by using two components.
-But the optimal number of clusters cannot be determined using the Elbow Method because the cluster centroids are not known.
+When using BIRCH with a dimensionality reduction it is necessary, that the threshold $T$ needs to be decreased.
+Otherwise, only one cluster is detected.
+By decreasing it to $T=0.014$ it is again possible to extract clusters.
+
+Because the cluster centroids are not known, the optimal number of clusters cannot be determined using the Elbow Method.
 Instead, the Silhouette Score, Calinski-Harabasz-Score, and Davies-Bouldin-Score are used.
 It turns out that, similar to K-Means, 10 to 15 clusters are ideal.
 
