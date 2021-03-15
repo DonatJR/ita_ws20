@@ -76,7 +76,15 @@ In figure \ref{fig:elbow} it can be seen that no kink is formed and therefore th
     \caption{Elbow Method with K-Means}
     \label{fig:elbow}
 \end{figure}
-The reason for this can be clearly seen in figure \ref{fig:kmeans_no_dim}.
+The reason for this can be clearly seen in figure \ref{fig:kmeans_no_dim}. Because a cluster contains fewer data points the more clusters have formed the sum of squared distances becomes smaller.
+But an ideal value for $k$ does not arise, because of the centroids which are all located exactly in the center of the dataset.
+
+If a dimensionality reduction using LSA or Spectral Embedding is applied before clustering, an elbow can be seen.
+The data is reduced to two components, with both dimensionality reduction methods, since it leads to the best scores.
+Additionally, the optimal number of clusters seems to be 15 since the elbow flattens at this point.
+The scores improve significantly compared to K-Means without dimensionality reduction as can be seen in table \ref{tab:scores_kmeans}. Visually, clusters are now clearly visible and the cluster centroids are better distributed.
+This can be seen in figure \ref{fig:kmeans}.
+
 \begin{figure}
 \centering
 \begin{subfigure}{.3\textwidth}
@@ -100,13 +108,8 @@ The reason for this can be clearly seen in figure \ref{fig:kmeans_no_dim}.
 \caption{two-dimensional representation of 15 clusters retrieved by K-Means with their centroids with different dimensionality reductions}
 \label{fig:kmeans}
 \end{figure}
-Because a cluster contains fewer data points the more clusters have formed the sum of squared distances becomes smaller.
-But an ideal value for $k$ does not arise, because of the centroids which are all located exactly in the center of the dataset.
 
-If a dimensionality reduction using LSA or Spectral Embedding is applied before clustering, an elbow can be seen.
-The data is reduced to two components, with both dimensionality reduction methods, since it leads to the best scores.
-Additionally, the optimal number of clusters seems to be 15 since the elbow flattens at this point.
-The scores improve significantly compared to K-Means without dimensionality reduction as can be seen in table \ref{tab:scores_kmeans}.
+
 \begin{table}[]
     \centering
     \begin{tabular}{c|c|c|c}
@@ -125,8 +128,7 @@ The scores improve significantly compared to K-Means without dimensionality redu
     \caption{Metrics retrieved with K-Means extracting 15 clusters}
     \label{tab:scores_kmeans}
 \end{table}
-Visually, clusters are now clearly visible and the cluster centroids are better distributed.
-This can be seen in figure \ref{fig:kmeans}.
+
 
 It can be observed that terms like \textit{algorithm}, \textit{method}, \textit{data} appear in the top words of many clusters.
 By removing these words, it might be possible to separate the clusters even better. 
@@ -257,7 +259,7 @@ In these cases Affinity Propagation produced a lot of clusters, most of them con
 \subsubsection{Agglomerative Clustering}
 \subsubcomment{Written by Jonas Reinwald}
 
-As with Affinity Propagation, Agglomerative Clustering shows the same pattern for scores. In comparison with the former and shown in table \ref{tab:scores_agglomerative}, clustering on the raw pre-processed data produces a better Calinski-Harabasz Index, indicating slightly denser clusters, but a worse Davies-Bouldin Index, indicating less separation between clusters.
+As with Affinity Propagation, Agglomerative Clustering shows the same pattern for scores. In comparison with the former and shown in table \ref{tab:scores_agglomerative}, clustering on the raw preprocessed data produces a better Calinski-Harabasz Index, indicating slightly denser clusters, but a worse Davies-Bouldin Index, indicating less separation between clusters.
 Using dimensionality reduction improves all metrics by a large margin, with LSA having one of the best scores overall. Figure \ref{fig:agglomerative} visually confirms this, with Spectral Embedding showing some perceivable distinction and LSA showing almost perfect distinction between clusters.
 
 \begin{table}[]
@@ -351,7 +353,7 @@ Because of the data-dependent threshold value (see section \ref{subsubsec:dbscan
 \subsubsection{OPTICS}
 \subsubcomment{Written by Jonas Reinwald}
 
-Even though OPTICS is an improvement to the DBSCAN algorithm, results on the raw pre-processed data, as can be seen in table \ref{tab:scores_optics}, did not improve much compared to it. Depending on the parameters used OPTICS produced between 2 and 4 big clusters, with most samples belonging to the same cluster. Using dimensionality reduction only shows marginal improvements. In figure \ref{fig:optics} it is evident that more clusters are found when using dimensionality reduction, but most data points still belong to the same cluster, with LSA less so than Spectral Embedding.
+Even though OPTICS is an improvement to the DBSCAN algorithm, results on the raw preprocessed data, as can be seen in table \ref{tab:scores_optics}, did not improve much compared to it. Depending on the parameters used OPTICS produced between 2 and 4 big clusters, with most samples belonging to the same cluster. Using dimensionality reduction only shows marginal improvements. In figure \ref{fig:optics} it is evident that more clusters are found when using dimensionality reduction, but most data points still belong to the same cluster, with LSA less so than Spectral Embedding.
 
 \begin{table}[]
   \centering
@@ -398,7 +400,7 @@ Even though OPTICS is an improvement to the DBSCAN algorithm, results on the raw
 \subsubsection{MeanShift}
 \subsubcomment{Written by Jonas Reinwald}
 
-In contrast to DBSCAN, where experiments with dimensionality reduction resulted in only one big cluster, MeanShift does the exact opposite. Clustering with raw pre-processed data resulted in only one cluster, whereas LSA and Spectral Embedding worked better but still worse than a lot of other methods.
+In contrast to DBSCAN, where experiments with dimensionality reduction resulted in only one big cluster, MeanShift does the exact opposite. Clustering with raw preprocessed data resulted in only one cluster, whereas LSA and Spectral Embedding worked better but still worse than a lot of other methods.
 When looking at table \ref{tab:scores_mean_shift}, the scores for dimensionality reduction, especially LSA, are looking quite good. Unfortunately these scores do not reflect the performance of MeanShift accurately, as only two and three clusters for LSA and Spectral Embedding respectively were produced. The separation of these clusters is good, however, as can be seen in figure \ref{fig:mean_shift}.  
 
 \begin{table}[]
