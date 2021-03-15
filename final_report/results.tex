@@ -1,6 +1,7 @@
 \subsection{Results and Analysis}
 
 In the following sections, results from each method discussed in chapter \ref{clustering_methods} are shown and described.
+The scores used in this chapter are from our notebook experiments as we worked with them for the majority of the project duration and are thus most familiar with them. Results from the main clustering pipeline with similar parameters can and will differ slightly.
 
 \subsubsection{LDA and LSA}
 \subsubcomment{Written by Jessica Kaechele}
@@ -156,7 +157,7 @@ But why the results are so different needs further investigation.
 
 \subsubsection{BIRCH}
 \subsubcomment{Written by Jessica Kaechele}
-Similar to K-Means, BIRCH combined with a dimensionality reduction achieves better results, as can be seen in table \ref{tab:scores_birch}..
+Similar to K-Means, BIRCH combined with a dimensionality reduction achieves better results, as can be seen in table \ref{tab:scores_birch}.
 \begin{table}[]
     \centering
     \begin{tabular}{c|c|c|c}
@@ -214,14 +215,219 @@ However, whether the clustering improves by the removal is difficult to say with
 \subsubsection{Affinity Propagation}
 \subsubcomment{Written by Jonas Reinwald}
 
+As with most of the tested clustering methods, using some kind of dimensionality reduction significantly increases all metrics. As can be seen in table \ref{tab:scores_affinity_propagation} scores without dimensionality reduction are very poor.
+In these cases Affinity Propagation produced a lot of clusters, most of them containing very similar data. This is also evident in figure \ref{fig:affinity_propagation}, where the first plot shows no clear clusters at all. In contrast, the two subplots with LSA and Spectral Embedding show better clustering, albeit with still quite some overlap. 
+
+\begin{table}[]
+  \centering
+  \begin{tabular}{c|c|c|c}
+    Model &  \shortstack[c]{Silhouette \\ Score} & \shortstack[c]{Calinski-Harabasz \\ Score} &  \shortstack[c]{Davies-Bouldin \\ Score}  \\
+    \hline
+    \hline
+    Affinity Propagation & 0.030495 & 2.134269 & 2.853512 \\
+    \hline
+    \shortstack[c]{Affinity Propagation with \\ LSA} & 0.193265 & 180.728882 & 1.26669 \\
+    \hline
+    \shortstack[c]{Affinity Propagation with \\ Spectral Embedding} & 0.188029 & 199.463342 & 1.30149 \\
+    \hline
+    \shortstack[c]{Affinity Propagation with \\ custom stopword removal} & 0.031234 & 2.141206 & 2.839059 \\
+   \end{tabular}
+  \caption{Metrics retrieved with Affinity Propagation}
+  \label{tab:scores_affinity_propagation}
+\end{table}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{.3\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{imgs/affinity_propagation.png}
+      \caption{No dimensionality reduction}
+      \label{fig:affinity_propagation_no_dim}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imgs/affinity_propagation_lsa.png}
+    \caption{LSA}
+    \label{fig:affinity_propagation_lsa}
+  \end{subfigure}%
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imgs/affinity_propagation_spectral.png}
+    \caption{Spectral Embedding}
+    \label{fig:affinity_propagation_spectral}
+  \end{subfigure}
+  \caption{Two-dimensional representation of clusters retrieved by Affinity Propagation with different dimensionality reduction methods}
+  \label{fig:affinity_propagation}
+\end{figure}
+
 \subsubsection{Agglomerative Clustering}
 \subsubcomment{Written by Jonas Reinwald}
+
+\begin{table}[]
+  \centering
+  \begin{tabular}{c|c|c|c}
+    Model &  \shortstack[c]{Silhouette \\ Score} & \shortstack[c]{Calinski-Harabasz \\ Score} &  \shortstack[c]{Davies-Bouldin \\ Score}  \\
+    \hline
+    \hline
+    Agglomerative Clustering & 0.000467 & 4.084053 & 6.231226 \\
+    \hline
+    \shortstack[c]{Agglomerative Clustering with \\ LSA} & 0.512373 & 10238.480445 & 0.509119 \\
+    \hline
+    \shortstack[c]{Agglomerative Clustering with \\ Spectral Embedding} & 0.300136 & 1029.213757 & 0.904163 \\
+    \hline
+    \shortstack[c]{Agglomerative Clustering with \\ custom stopword removal} & 0.001866 & 4.153627 & 6.278349 \\
+   \end{tabular}
+  \caption{Metrics retrieved with Agglomerative Clustering}
+  \label{tab:scores_agglomerative}
+\end{table}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{.3\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{imgs/agglomerative.png}
+      \caption{No dimensionality reduction}
+      \label{fig:agglomerative_no_dim}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imgs/agglomerative_lsa.png}
+    \caption{LSA}
+    \label{fig:agglomerative_lsa}
+  \end{subfigure}%
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imgs/agglomerative_spectral.png}
+    \caption{Spectral Embedding}
+    \label{fig:agglomerative_spectral}
+  \end{subfigure}
+  \caption{Two-dimensional representation of clusters retrieved by Agglomerative Clustering with different dimensionality reduction methods}
+  \label{fig:agglomerative}
+\end{figure}
 
 \subsubsection{DBSCAN}
 \subsubcomment{Written by Jonas Reinwald}
 
-\subsubsection{MeanShift}
-\subsubcomment{Written by Jonas Reinwald}
+\begin{table}[]
+  \centering
+  \begin{tabular}{c|c|c|c}
+    Model &  \shortstack[c]{Silhouette \\ Score} & \shortstack[c]{Calinski-Harabasz \\ Score} &  \shortstack[c]{Davies-Bouldin \\ Score}  \\
+    \hline
+    \hline
+    DBSCAN & -0.009707 & 2.061513 & 1.887693 \\
+    \hline
+    \shortstack[c]{DBSCAN with \\ custom stopword removal} & -0.010665 & 2.052975 & 1.890026 \\
+   \end{tabular}
+  \caption{Metrics retrieved with DBSCAN}
+  \label{tab:scores_dbscan}
+\end{table}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{.3\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{imgs/dbscan.png}
+      \caption{No dimensionality reduction}
+      \label{fig:dbscan_no_dim}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imgs/dbscan_lsa.png}
+    \caption{LSA}
+    \label{fig:dbscan_lsa}
+  \end{subfigure}%
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imgs/dbscan_spectral.png}
+    \caption{Spectral Embedding}
+    \label{fig:dbscan_spectral}
+  \end{subfigure}
+  \caption{Two-dimensional representation of clusters retrieved by DBSCAN with different dimensionality reduction methods}
+  \label{fig:affinity_propagation}
+\end{figure}
 
 \subsubsection{OPTICS}
 \subsubcomment{Written by Jonas Reinwald}
+
+\begin{table}[]
+  \centering
+  \begin{tabular}{c|c|c|c}
+    Model &  \shortstack[c]{Silhouette \\ Score} & \shortstack[c]{Calinski-Harabasz \\ Score} &  \shortstack[c]{Davies-Bouldin \\ Score}  \\
+    \hline
+    \hline
+    OPTICS & -0.003231 & 2.455650 & 2.620644 \\
+    \hline
+    \shortstack[c]{OPTICS with \\ LSA} & 0.346423 & 41.642624 & 1.53435 \\
+    \hline
+    \shortstack[c]{OPTICS with \\ Spectral Embedding} & -0.191176 & 13.449457 & 1.788995 \\
+    \hline
+    \shortstack[c]{OPTICS with \\ custom stopword removal} & -0.004380 & 2.567746 & 2.628210 \\
+   \end{tabular}
+  \caption{Metrics retrieved with OPTICS}
+  \label{tab:scores_optics}
+\end{table}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{.3\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{imgs/optics.png}
+      \caption{No dimensionality reduction}
+      \label{fig:optics_no_dim}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imgs/optics_lsa.png}
+    \caption{LSA}
+    \label{fig:optics_lsa}
+  \end{subfigure}%
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imgs/optics_spectral.png}
+    \caption{Spectral Embedding}
+    \label{fig:optics_spectral}
+  \end{subfigure}
+  \caption{Two-dimensional representation of clusters retrieved by OPTICS with different dimensionality reduction methods}
+  \label{fig:optics}
+\end{figure}
+
+\subsubsection{MeanShift}
+\subsubcomment{Written by Jonas Reinwald}
+
+\begin{table}[]
+  \centering
+  \begin{tabular}{c|c|c|c}
+    Model &  \shortstack[c]{Silhouette \\ Score} & \shortstack[c]{Calinski-Harabasz \\ Score} &  \shortstack[c]{Davies-Bouldin \\ Score}  \\
+    \hline
+    \hline
+    \shortstack[c]{MeanShift with \\ LSA} & 0.410777 & 2443.830097 & 0.543272 \\
+    \hline
+    \shortstack[c]{MeanShift with \\ Spectral Embedding} & 0.474139 & 646.527661 & 0.799436 \\
+   \end{tabular}
+  \caption{Metrics retrieved with MeanShift}
+  \label{tab:scores_mean_shift}
+\end{table}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{.3\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{imgs/mean_shift.png}
+      \caption{No dimensionality reduction}
+      \label{fig:mean_shift_no_dim}
+  \end{subfigure}
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imgs/mean_shift_lsa.png}
+    \caption{LSA}
+    \label{fig:mean_shift_lsa}
+  \end{subfigure}%
+  \begin{subfigure}{.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{imgs/mean_shift_spectral.png}
+    \caption{Spectral Embedding}
+    \label{fig:mean_shift_spectral}
+  \end{subfigure}
+  \caption{Two-dimensional representation of clusters retrieved by MeanShift with different dimensionality reduction methods}
+  \label{fig:mean_shift}
+\end{figure}
