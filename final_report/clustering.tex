@@ -25,8 +25,8 @@ Afterwards, the clustering algorithm K-Means is applied.
 
 \subsubsection{BIRCH}
 \subsubcomment{Written by Jessica Kaechele}
-BIRCH reduces the scale of the dataset by defining subclusters.
-These subclusters are called clustering features(CF).
+BIRCH reduces the scale of the dataset by defining sub-clusters.
+These sub-clusters are called clustering features(CF).
 The information that is retained is the number of data points that are included, the linear sum of the included data points, and the squared sum.
 Also, a CF can contain other CFs.
 The CFs are now arranged in a tree, with each node containing at most $B$ entries.
@@ -61,7 +61,7 @@ In the Scikit Learn implementation there exists the possibility of adding connec
 \subsubsection{DBSCAN}
 \label{subsubsec:dbscan}
 \subsubcomment{Written by Jonas Reinwald}
-DBSCAN or Density Based Spatial Clustering of Applications with Noise, clusters data by the density of specific areas. Clusters are areas with high density and are separated by areas with low density. High density areas are defined by a minimum number of data points which are closer than a given threshold distance.\cite{dbscan_paper}
+DBSCAN or Density Based Spatial Clustering of Applications with Noise, clusters data by the density of specific areas. Clusters are areas with high density and are separated by areas with low density. High density areas are defined by a minimum number of data points which are closer to each other than a given threshold distance.\cite{dbscan_paper}
 
 The threshold distance is highly dependent on the given data and without an appropriate value either no (i.e. all data points form their own cluster) or one big cluster is formed.
 
