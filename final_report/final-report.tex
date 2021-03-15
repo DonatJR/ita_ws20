@@ -65,7 +65,7 @@
 \newcommand{\subcomment}[1]{\vspace{-0.8em}\hspace{35pt}{\small\textit{#1}}\bigskip\par}
 \newcommand{\subsubcomment}[1]{\vspace{-0.8em}\hspace{39pt}{\small\textit{#1}}\bigskip\par}
 
-
+\setcounter{tocdepth}{2} 
 
 \begin{document}
 
@@ -130,6 +130,15 @@ We  hereby  declare  that  all  material  in  this  project  is  our  own  work 
 
 % \input{<file>}
 \input{abstract}
+
+\newpage
+\tableofcontents
+
+\listoffigures
+\listoftables
+
+\newpage
+
 \input{introduction}
 \input{related_work}
 \input{methods}
