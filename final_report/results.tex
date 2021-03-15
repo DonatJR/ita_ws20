@@ -348,6 +348,8 @@ Because of the data-dependent threshold value (see section \ref{subsubsec:dbscan
 \subsubsection{OPTICS}
 \subsubcomment{Written by Jonas Reinwald}
 
+Even though OPTICS is an improvement to the DBSCAN algorithm, results on the raw pre-processed data, as can be seen in table \ref{tab:scores_optics}, did not improve much compared to it. Depending on the parameters used OPTICS produced between 2 and 4 big clusters, with most samples belonging to the same cluster. Using dimensionality reduction only shows marginal improvements. In figure \ref{fig:optics} it is evident that more clusters are found when using dimensionality reduction, but most data points still belong to the same cluster, with LSA less so than Spectral Embedding.
+
 \begin{table}[]
   \centering
   \begin{tabular}{c|c|c|c}
