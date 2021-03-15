@@ -2,11 +2,13 @@
 \comment{Written by Jessica Kaechele}
 
 There exist various approaches to simplify getting an overview of a research field without extensive research and reading countless papers. By browsing through digital libraries and search engines you can find papers by matching search strings, but to get an overview of an entire research field this is not enough.
+% das könnte weg oder kürzer
 In \cite{Rapid_understanding_of_scientific_paper_collections} a tool is presented that uses different methods to gain insights into research fields.
 Through the citation network, papers can be divided into clusters.
-Another possibility to get insights is the citation context because the key statements of the paper are often summarized concisely.  To know the key statements of the paper, it is still necessary to read the whole paper or at least all citation contexts. For many papers, this is still a very large amount of work. To solve this problem Multi-Document Summarization is used. This summarization is only applied to abstract and citation context.
+Another possibility to get insights is the citation context because there the key statements of the paper are often summarized concisely.  But it is still necessary to read the whole paper or at least all citation contexts. For many papers, this is still a very large amount of work. To solve this problem Multi-Document Summarization is used. This summarization is only applied to the abstracts and citation contexts.
+%
 
-With the help of the techniques mentioned, it should be possible to gain insight into an entire research field more quickly.
+With the help of the mentioned techniques, it should be possible to gain insight into an entire research field more quickly.
 In this project, the focus is only on clustering.
 For many years, attempts have been made to cluster papers in order to simplify the research. In 1973, for example, it had already been tried to cluster journals by comparing reference patterns and looking at mutual references \cite{Clustering_of_scientific_journals}.
 
@@ -20,19 +22,14 @@ There are already some approaches that are using abstracts for clustering.
 In \cite{Clustering_scientific_documents_with_topic_modeling} abstracts and titles are used.
 
 Two types of pre-processing are performed on the texts. 
-%The first method treats each word as a token, and stopwords are deleted. The second method uses term-clumping to find noun phrases with significant commonality.
-Afterward, several topic modeling algorithms are used. 
-The clusters created by the algorithms have to be named manually.
+Afterward, several topic modeling algorithms are used and the created clusters are named manually.
 
 In our project, a similar preprocessing is done.
-Additionally to some topic modeling approaches different clustering algorithms are tested to find out which algorithm fits best to our dataset. 
-Furthermore, a dimensionality reduction will be tested to improve the clustering and the clusters will be named automatically in this project.
+Additionally to some topic modeling approaches different clustering algorithms are tested to find out which algorithm fits our dataset best. 
+Furthermore, a dimensionality reduction will be tested to improve the clustering and the clusters will be named automatically.
 
 Abstracts are also used in \cite{An_Approach_to_Clustering_Abstracts} to perform clustering, by preprocessing, calculating the cosine similarity, and using different clustering methods.
-%First tokenization is used, then stopwords are removed and a stemming algorithm is performed.
-%Because of the shortness of abstracts, the words must have a higher frequency than in a generally balanced corpus of the given language. Then the keywords are grouped and weighted and the closeness of the two documents is calculated using cosine similarity measure. 
-%Additionally, clustering methods are applied to the whole abstract. Three algorithms from three different approaches are used: the k-medoid method from the example-based approach, the nearest neighbor method from the hierarchy-based approach, and the MajorClust method from the density-based approach.
 As dataset 48 abstracts are used, which have been classified by a human.
 
 Again, a similar approach to ours is used. However, with only 48 abstracts, there is a high risk of over-fitting and bias.
-This is to be avoided in this project.
+This is to be avoided in our project.

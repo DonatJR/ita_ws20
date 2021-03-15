@@ -8,7 +8,6 @@ The scores used in this chapter are from our notebook experiments as we worked w
 By using the topic modeling methods LSA and LDA, first insights into the nature of the data can be gained.
 
 Table \ref{tab:lda_lsa_topwords} shows the top words when forming two clusters using LDA and LSA.
-
 \begin{table}[]
     \centering
     \caption{Top words of two clusters retrieved by LDA and LSA}
@@ -20,12 +19,11 @@ Table \ref{tab:lda_lsa_topwords} shows the top words when forming two clusters u
     \end{tabular}
     \label{tab:lda_lsa_topwords}
 \end{table}
-
 While the terms describing cluster 2 are very general, those of cluster 1 are very specific.
 In the case of LDA, they even include names.
 This indicates that many papers are assigned to cluster 2 and only a few to cluster 1.
 This can also be observed when extracting more than two clusters.
-It can also be observed when the papers are mapped in 2 dimensions, which can be seen in figure \ref{fig:lda_lsa}.
+The visualization in 2 dimensions, which can be seen in figure \ref{fig:lda_lsa}, strengthens this assumption.
 \begin{figure}
 \centering
 \begin{subfigure}{.4\textwidth}
@@ -43,7 +41,6 @@ It can also be observed when the papers are mapped in 2 dimensions, which can be
 \caption{two-dimensional representation of 15 clusters}
 \label{fig:lda_lsa}
 \end{figure}
-
 In the case of LDA, a large proportion of the papers are assigned to one cluster, while other culsters appear only rarely.
 With LSA, a few small clusters can be identified, but these are located within a large cluster.
 
@@ -104,12 +101,12 @@ The reason for this can be clearly seen in figure \ref{fig:kmeans_no_dim}.
 \label{fig:kmeans}
 \end{figure}
 Because a cluster contains fewer data points the more clusters have formed the sum of squared distances becomes smaller.
-But an ideal value for k does not arise, because of the centroids which are all located exactly in the center of the dataset.
+But an ideal value for $k$ does not arise, because of the centroids which are all located exactly in the center of the dataset.
 
 If a dimensionality reduction using LSA or Spectral Embedding is applied before clustering, an elbow can be seen.
-When testing different numbers of components to which the dimension is reduced, it turns out that with both dimensionality reduction by LSA and Spectral Embedding, two components are ideal, since the scores then yield the best values.
-The optimal number of clusters seems to be 15 since the elbow flattens at this point.
-The scores improve significantly compared to K-Means without dimensionality reduction as can be seen in \ref{tab:scores_kmeans}.
+The data is reduced to two components, with both dimensionality reduction methods, since it leads to the best scores.
+Additionally, the optimal number of clusters seems to be 15 since the elbow flattens at this point.
+The scores improve significantly compared to K-Means without dimensionality reduction as can be seen in table \ref{tab:scores_kmeans}.
 \begin{table}[]
     \centering
     \begin{tabular}{c|c|c|c}
@@ -131,20 +128,16 @@ The scores improve significantly compared to K-Means without dimensionality redu
 Visually, clusters are now clearly visible and the cluster centroids are better distributed.
 This can be seen in figure \ref{fig:kmeans}.
 
-It can be observed that terns like \textit{algorithm}, \textit{method}, \textit{data} appear in the top words of many clusters.
+It can be observed that terms like \textit{algorithm}, \textit{method}, \textit{data} appear in the top words of many clusters.
 By removing these words, it might be possible to separate the clusters even better. 
-However, it turns out that these terms no longer occur, but other terms appear that occur in many clusters.
+But it turns out, that although these terms no longer appear, other terms do show up, which appear in many clusters.
 Besides, the metrics in table \ref{tab:scores_kmeans} show that the clusters hardly change.
 Only the Calinski-Harabasz-Score deteriorates significantly. This indicates that the clusters are now no longer as dense or easily separable.
 
 
-TODO: auch mal top words erwähnen?
-
-% Wird eine dimensionality reduction verwendet, können die erzielten Ergebnisse erheblich verbessert werden.  
-
 \subsubsection{Spectral Clustering}
 \subsubcomment{Written by Jessica Kaechele}
-Since Spectral Clustering consists of Spectral Embedding and K-Means, it should yield similar results to those obtained in paragraph \ref{subsubsec:kmeans}.
+Since Spectral Clustering consists of Spectral Embedding and K-Means, it should yield similar results to those obtained in section \ref{subsubsec:kmeans}.
 However, this is not the case.
 The Silhouette Score is only $0.0117$, the Calinski-Harabasz-Score is $4.57$ and the Davies-Bouldin-Score is $6.518$.
 If one compares these values with the results obtained using Spectral Embedding and K-Means (see table \ref{tab:scores_kmeans}), it can be seen that the results are significantly worse.
@@ -177,8 +170,7 @@ Similar to K-Means, BIRCH combined with a dimensionality reduction achieves bett
     \caption{Metrics retrieved with BIRCH extracting 15 clusters}
     \label{tab:scores_birch}
 \end{table}
-
-This can also be seen in the two-dimensional representation(see \ref{fig:birch}.
+This can also be seen in the two-dimensional representation(see figure \ref{fig:birch}) where the clusters look well separated with LSA and Spectral Embedding.
 \begin{figure}
 \centering
 \begin{subfigure}{.3\textwidth}
@@ -202,11 +194,10 @@ This can also be seen in the two-dimensional representation(see \ref{fig:birch}.
 \caption{two-dimensional representation of 15 clusters retrieved by BIRCH with different dimensionality reductions}
 \label{fig:birch}
 \end{figure}
-
-In addition, the best results are also achieved with two components of dimensionality reduction.
+In addition, the best results are also achieved by using two components.
 But the optimal number of clusters cannot be determined using the Elbow Method because the cluster centroids are not known.
-Instead, the Silhouette Score, Calinski-Harabasz-Score, and Davies-Bouldin-Score were used.
-It turns out that, similar to K-Means, a number of 10 to 15 clusters is ideal.
+Instead, the Silhouette Score, Calinski-Harabasz-Score, and Davies-Bouldin-Score are used.
+It turns out that, similar to K-Means, 10 to 15 clusters are ideal.
 
 The stopword removal of words that occur in many clusters shows that the composition of the cluster changes a little here.
 The decreasing Davies-Bouldin-Score implies that the separation between two clusters is slightly worsened by the removal, while the increasing Calinski-Harabasz-Score indicates that the clusters are slightly denser.

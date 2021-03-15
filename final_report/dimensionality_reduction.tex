@@ -4,14 +4,14 @@ This often reduces the computation time, and by using only the most important fe
 
 \subsubsection{Latent Semantic Analysis }
 \subsubcomment{Written by Jessica Kaechele}
-Latent Semantic Analysis (LSA) can be used for the dimensionality reduction of texts.
+In addition to Topic Modeling, Latent Semantic Analysis (LSA) can also be used for the dimensionality reduction of texts.
 The documents are first represented as a term-document matrix, where the rows represent a word and the columns represent a document.
 The cells contain the frequency in which the terms occur in a document.
 The tf-idf matrix is then calculated from this matrix, by multiplying frequencies with the inverse document frequency.
 Afterward, a singular vector decomposition is performed.\cite{lsa}
-In addition to dimensionality reduction, LSA can also be used for topic modeling.
 
 \subsubsection{Spectral Embedding}
 \subsubcomment{Written by Jonas Reinwald}
 Spectral Embedding is a general approach for calculating non-linear embeddings. It has locality preserving properties\cite{spectral_embedding_paper}, making it useful for clustering low-dimensional representations of higher dimensional data.
 It works by first constructing an adjacency graph where nodes are connected if they are close to each other. If they are close can be determined by a number of ways, in our experiments we only use a nearest neighbor approach. The edges between close nodes are then weighted and a graph Laplacian is constructed from it. Next, eigenvalues and eigenvectors of the graph Laplacian are computed. Skipping the first eigenvector, the next m eigenvectors are used for embedding in m-dimensional space.\cite{spectral_embedding_paper}
+
