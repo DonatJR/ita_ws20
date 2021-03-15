@@ -398,6 +398,9 @@ Even though OPTICS is an improvement to the DBSCAN algorithm, results on the raw
 \subsubsection{MeanShift}
 \subsubcomment{Written by Jonas Reinwald}
 
+In contrast to DBSCAN, where experiments with dimensionality reduction resulted in only on big cluster, MeanShift does the exact opposite. Clustering with raw pre-processed data resulted in only one cluster, whereas LSA and Spectral Embedding worked better but still worse than a lot of other methods.
+When looking at table \ref{tab:scores_mean_shift} the scores for dimensionality reduction, especially LSA, are looking quite good. Unfortunately these scores do not reflect the performance of MeanShift accurately, as only two and three clusters for LSA and Spectral Embedding respectively were produced. The separation of these clusters is good, however, as can be seen in figure \ref{fig:mean_shift}.  
+
 \begin{table}[]
   \centering
   \begin{tabular}{c|c|c|c}
