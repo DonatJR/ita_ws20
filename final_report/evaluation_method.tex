@@ -1,2 +1,16 @@
 \subsection{Evaluation Method}
+\subsubsection{Finding the Ground Truth}
+\subsubcomment{Written by Daniela Fichiu}
+An unlabeled data set put us in the position of having to find the ground truth on our own. The process of discovering, or better said, creating it, began with a thorough exploration of our data and an observation. 
 
+
+An abstract can contain nonrelevant information, but the keywords are supposed to be distilled truth. They describe the paper contents in the least number of words. In the light of these facts, we decided to use the keywords to create the ground truth. The term keyword refers to multiple words describing a concept (e.g., "behavioral data in strategic settings"). 
+
+We split the keywords into separate tokens to account for different forms of the same concept and hierarchical categories. A paper containing the keyword "Bayesian learning," should have a certain similarity degree to one containing the keyword "machine learning." We preprocessed the resulting tokens and created one-hot vectors for each research paper. We've then computed the cosine similarity between the research papers and manually checked randomly sampled papers with different similarity scores. Scientific papers with a cosine similarity score of above .7 shared an average of six words. Six was not a negligible number, as most research papers had, on average, four keywords. 
+
+We decided to cluster the research papers with DBSCAN, using the one-hot vectors to compute the cosine distance matrix and obtain the labels. We called these labels ground truth. We used them to check whether the abstract clusters matched the keywords clusters.
+We chose DBSCAN to cluster the keywords as it doesn't require the expected number of clusters as input. 
+
+\subsubsection{The Ground Truth}
+\subsubcomment{Written by Christian Homeyer}
+The clustering results were sensitive to the value of epsilon. Values over .4 produce many outliers and only a handful of clusters. 
