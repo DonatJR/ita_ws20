@@ -1,0 +1,13 @@
+\section{Conclusion}
+\comment{Written by Jonas Reinwald}
+In our project, we scraped a couple thousand of machine learning papers and created a dataset of unorganized text. We then created clusters with unsupervised algorithms both on the abstracts and the set of keywords.
+We used the keyword clusters as ground truth for evaluation. Unfortunately, our results are not as good as we hoped they would be.
+
+In theory, if we could achieve better results, our pipeline could be used to turn unorganized paper collections into more meaningful groups, making them organized and reducing the manual workload of researchers.
+If we choose to continue work on this project, a first step towards this goal is to do a conclusive search for the best parameters of each individual algorithm.
+Additionally, we have to extend our dataset to a more balanced one and create a better ground-truth from it. This would also training of learning-based clustering algorithms which might perform better than our previous approaches.
+It is of course vital to then extend the approach to not only work on the subset of machine learning or computer science papers but also on a more general data set for it to be useful to a broader audience.
+
+There are also a number of future applications this project could be used for.
+We might be able to use our pipeline to propose keywords when given abstracts, by mapping generated clusters to a set of keywords and then match the given abstract to a cluster-keyword-set.
+Furthermore, we think it would be possible to build and an API for accessing our results and build visualization tools and website integrations on top of that. 

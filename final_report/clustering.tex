@@ -1,4 +1,6 @@
 \subsection{Clustering}
+\label{clustering_methods}
+
 There are plenty of different clustering algorithms, that perform differently depending on the nature of the data.
 The algorithms tested in this project are described below.
 
@@ -61,3 +63,33 @@ If the node consists already of $B$ entries, it must also be split again.
 
 When building the tree it is ensured that the complete tree can be loaded in the memory by increasing $T$ if necessary.
 The clustering is performed by any clustering algorithm, which clusters the CFs in the leaf nodes.\cite{birch}
+
+\subsubsection{Affinity Propagation}
+\subsubcomment{Written by Jonas Reinwald}
+With Affinity Propagation, clusters are represented by ``exemplars'', or the most representative data point out of a group. To determine these, each data points sends messages to all other data points containing a value indicating how much potential the receiving item has to be a representative of the sending item. The receiving item then responds with a message telling the sending item about its availability as a representative while taking the messages from all other data points into consideration. This is done iteratively until a consensus is reached on which representative is best suited for each data point. All data points with the same ``exemplar'' are then grouped into the same cluster.\cite{affinity_propagation}
+
+A clear advantage of this algorithm is that it determines the number of clusters based on the given data and does not need the user to specify this parameter beforehand. On the other hand, it has a high algorithmic complexity which is why it does not scale with and thus can not be used with huge data sets.
+
+\subsubsection{Agglomerative Clustering}
+\subsubcomment{Written by Jonas Reinwald}
+Agglomerative Clustering is a form of hierarchical clustering. Hierarchical clustering builds clusters either by joining data points to a bigger cluster or splitting clusters into sub-clusters, and Agglomerative Clustering uses the former of both approaches. The clusters are combined based on their distance to each other, which is done until either a distance threshold or a pre-configured number of clusters is reached.\cite{yildirim_2020}
+
+In the Scikit Learn implementation there exists the possibility of adding connectivity constraints, making the algorithm run faster and scale better with larger data sets. Without connectivity constraints Agglomerative Clustering can be slow on huge datasets. We did not use such constraints in our project as we had no a-priori knowledge to base it on.
+
+\subsubsection{DBSCAN}
+\subsubcomment{Written by Jonas Reinwald}
+DBSCAN or Density Based Spatial Clustering of Applications with Noise, clusters data by the density of specific areas. Clusters are areas with high density and are separated by areas with low density. High density areas are defined by a minimum number of data points which are closer than a given threshold distance.\cite{dbscan_paper}
+
+The threshold distance is highly dependent on the given data and without an appropriate value either no (i.e. all data points form their own cluster) or one big cluster is formed.
+
+\subsubsection{OPTICS}
+\subsubcomment{Written by Jonas Reinwald}
+The OPTICS algorithm is based on DBSCAN and is therefore very similar to it. The main difference between both methods is that OPTICS allows data clusters to have variable densities compared to each other. This is done by using a threshold distance range instead of a single value.\cite{optics_paper}
+
+An obvious advantage of this approach in comparison to DBSCAN is that more accurate data clusters might be found, where DBSCAN would consider these clusters either as noise if they have low density in relation to the threshold distance or combine them to larger clusters if they have very high density.
+
+\subsubsection{MeanShift}
+\subsubcomment{Written by Jonas Reinwald}
+MeanShift works by finding centroids in a distribution of data points. Candidates of centroids are first distributed evenly across the feature space and then iteratively updated by shifting them towards the mean of all samples in a neighborhood or window surrounding them (i.e. higher density regions). Once all centroids converge on a location, duplicates within their neighborhood are removed and data points are clustered based on which centroid they were closest to in the beginning.\cite{seif_2021}
+
+Because of its iterative nature, the MeanShift algorithm has high complexity and does not scale with large data sets.

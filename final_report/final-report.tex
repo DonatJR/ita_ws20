@@ -35,7 +35,18 @@
 \usepackage[title]{appendix}
 
 % hyperrefs in the documents
-\PassOptionsToPackage{hyphens}{url}\usepackage[bookmarks=true,colorlinks,pdfpagelabels,pdfstartview = FitH,bookmarksopen = true,bookmarksnumbered = true,linkcolor = black,plainpages = false,hypertexnames = false,citecolor = black,urlcolor=black]{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage[
+  bookmarks=true,
+  colorlinks,
+  pdfpagelabels,
+  pdfstartview = FitH,
+  bookmarksopen = true,
+  bookmarksnumbered = true,
+  linkcolor = black,
+  plainpages = false,
+  hypertexnames = false,
+  citecolor = black,
+  urlcolor=black]{hyperref}
 %\usepackage{hyperref}
 
 % subfigures
@@ -51,6 +62,7 @@
 
 % Written by comment
 \newcommand{\comment}[1]{\vspace{-1em}\hspace{27pt}{\small\textit{#1}}\bigskip\par}
+\newcommand{\subcomment}[1]{\vspace{-0.8em}\hspace{35pt}{\small\textit{#1}}\bigskip\par}
 \newcommand{\subsubcomment}[1]{\vspace{-0.8em}\hspace{39pt}{\small\textit{#1}}\bigskip\par}
 
 
@@ -80,7 +92,7 @@
 
 \vspace{0.5\baselineskip}
 {\huge
-\textbf{Scientific paper clustering}
+\textbf{Scientific papers clustering}
 }
 \end{center}
 
@@ -110,9 +122,12 @@ Team Member: & Jonas Reinwald, 3600238, MSc Applied Computer Science\\
 \pagenumbering{arabic} 
 
 % \input{<file>}
+\input{abstract}
+\input{introduction}
 \input{related_work}
 \input{methods}
 \input{experimental_setup_results}
+\input{conclusion}
 
 \bibliographystyle{plain}
 \bibliography{bibtex/references}
