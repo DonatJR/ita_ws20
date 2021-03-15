@@ -20,31 +20,13 @@ The optimal $k$ can be found at the point where the curve starts to flatten out.
 
 \subsubsection{Spectral Clustering}
 \subsubcomment{Written by Jessica Kaechele}
-Spectral Clustering already includes a dimensionality reduction.
-The first step is to construct a similarity graph.
-Each vertice $v_i$ represents a data point $x_i$.
-An edge between two vertices $v_i$ and $v_j$ exists if the similarity $s_{ij}$ is higher than a previously defined threshold.
-These similarities can be used as weights $w_{ij}$ in a weight matrix $W$.
-If there is no edge between two vertices, the weight is $0$.
-With the help of $W$, a degree matrix can be calculated.
-Therefore, the degree is calculated for each vertice by summing the weights:
-$$
-d_i = \sum_{j=1}^n{w_{ij}}
-$$
-Then the graph laplacian matrix is calculated by subtracting the weight matrix from the degree matrix:
-$$
-L = D - W
-$$
-Afterwards, the first $k$ smallest eigenvectors of the matrix $L$ are calculated.
-Finally, the newly created data points are clustered using K-Means.\cite{spectral_clustering}
-
-The graph laplacian matrix can also be calculated as a normalized graph laplacian \cite{spectral_clustering}.
-This changes the algorithm slightly, but this is not discussed in detail here, as the functionality does not change.
+Spectral Clustering uses the dimensionality reduction algorithm Spectral Embedding, which is explained in section \ref{subsubsec:spectral_embedding}, with the difference that the first eigenvector is not skipped.
+Afterwards, the clustering algorithm K-Means is applied.
 
 \subsubsection{BIRCH}
 \subsubcomment{Written by Jessica Kaechele}
-BIRCH reduces the scale of the dataset by defining subclusters.
-These subclusters are called clustering features(CF).
+BIRCH reduces the scale of the dataset by defining sub-clusters.
+These sub-clusters are called clustering features(CF).
 The information that is retained is the number of data points that are included, the linear sum of the included data points, and the squared sum.
 Also, a CF can contain other CFs.
 The CFs are now arranged in a tree, with each node containing at most $B$ entries.
@@ -79,7 +61,7 @@ In the Scikit Learn implementation there exists the possibility of adding connec
 \subsubsection{DBSCAN}
 \label{subsubsec:dbscan}
 \subsubcomment{Written by Jonas Reinwald}
-DBSCAN or Density Based Spatial Clustering of Applications with Noise, clusters data by the density of specific areas. Clusters are areas with high density and are separated by areas with low density. High density areas are defined by a minimum number of data points which are closer than a given threshold distance.\cite{dbscan_paper}
+DBSCAN or Density Based Spatial Clustering of Applications with Noise, clusters data by the density of specific areas. Clusters are areas with high density and are separated by areas with low density. High density areas are defined by a minimum number of data points which are closer to each other than a given threshold distance.\cite{dbscan_paper}
 
 The threshold distance is highly dependent on the given data and without an appropriate value either no (i.e. all data points form their own cluster) or one big cluster is formed.
 

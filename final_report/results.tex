@@ -5,9 +5,9 @@ The scores used in this chapter are from our notebook experiments as we worked w
 
 \subsubsection{LDA and LSA}
 \subsubcomment{Written by Jessica Kaechele}
-By using the topic modeling methods LSA and LDA, first insights into the nature of the data can be gained.
+By using the topic modelling methods LSA and LDA, first insights into the nature of the data can be gained.
 
-Table \ref{tab:lda_lsa_topwords} shows the top words when forming two clusters using LDA and LSA.
+Table \ref{tab:lda_lsa_topwords} shows the top words of each cluster when forming two clusters using LDA and LSA.
 \begin{table}[]
     \centering
     \caption{Top words of two clusters retrieved by LDA and LSA}
@@ -41,7 +41,7 @@ The visualization in 2 dimensions, which can be seen in figure \ref{fig:lda_lsa}
 \caption{two-dimensional representation of 15 clusters}
 \label{fig:lda_lsa}
 \end{figure}
-In the case of LDA, a large proportion of the papers are assigned to one cluster, while other culsters appear only rarely.
+In the case of LDA, a large proportion of the papers are assigned to one cluster, while other clusters appear only rarely.
 With LSA, a few small clusters can be identified, but these are located within a large cluster.
 
 These results are also found in the evaluation metrics, as can be seen in table \ref{tab:scores_lsa_lda}.
@@ -143,8 +143,7 @@ The Silhouette Score is only $0.0117$, the Calinski-Harabasz-Score is $4.57$ and
 If one compares these values with the results obtained using Spectral Embedding and K-Means (see table \ref{tab:scores_kmeans}), it can be seen that the results are significantly worse.
 The reason for this could be different parameters.
 However, even after using the same parameters in both approaches, it is not possible to achieve similarly good results. 
-Another reason could be that in the sklearn implementation the \textit{drop\_first} parameter is False.
-But why the results are so different needs further investigation.
+Why the results are so different needs further investigation.
 
 
 
@@ -195,18 +194,22 @@ This can also be seen in the two-dimensional representation(see figure \ref{fig:
 \label{fig:birch}
 \end{figure}
 In addition, the best results are also achieved by using two components.
-But the optimal number of clusters cannot be determined using the Elbow Method because the cluster centroids are not known.
+When using BIRCH with a dimensionality reduction it is necessary, that the threshold $T$ needs to be decreased.
+Otherwise, only one cluster is detected.
+By decreasing it to $T=0.014$ it is again possible to extract clusters.
+
+Because the cluster centroids are not known, the optimal number of clusters cannot be determined using the Elbow Method.
 Instead, the Silhouette Score, Calinski-Harabasz-Score, and Davies-Bouldin-Score are used.
 It turns out that, similar to K-Means, 10 to 15 clusters are ideal.
 
-The stopword removal of words that occur in many clusters shows that the composition of the cluster changes a little here.
+The stop word removal of words that occur in many clusters shows that the composition of the cluster changes a little here.
 The decreasing Davies-Bouldin-Score implies that the separation between two clusters is slightly worsened by the removal, while the increasing Calinski-Harabasz-Score indicates that the clusters are slightly denser.
 However, whether the clustering improves by the removal is difficult to say with the scores.
 
 \subsubsection{Affinity Propagation}
 \subsubcomment{Written by Jonas Reinwald}
 
-As with most of the tested clustering methods, using some kind of dimensionality reduction significantly increases all metrics. As can be seen in table \ref{tab:scores_affinity_propagation} scores without dimensionality reduction are very poor.
+As with most of the tested clustering methods, using some kind of dimensionality reduction significantly increases all metrics. As can be seen in table \ref{tab:scores_affinity_propagation}, scores without dimensionality reduction are very poor.
 In these cases Affinity Propagation produced a lot of clusters, most of them containing very similar data. This is also evident in figure \ref{fig:affinity_propagation}, where the first plot shows no clear clusters at all. In contrast, the two subplots with LSA and Spectral Embedding show better clustering, albeit with still quite some overlap. 
 
 \begin{table}[]
@@ -302,7 +305,7 @@ Using dimensionality reduction improves all metrics by a large margin, with LSA 
 \subsubsection{DBSCAN}
 \subsubcomment{Written by Jonas Reinwald}
 
-DBSCAN did not yield any desirable results at all. As can be seen in table \ref{tab:scores_dbscan} scores without dimensionality reduction are just as bad as with other methods and scored with dimensionality reduction are missing completely. This is because in our experiments almost all parameter settings produced only one single big cluster for normal data and one single big cluster for all tested parameter settings with LSA or Spectral Embedding, making score calculation impossible.
+DBSCAN did not yield any desirable results at all. As can be seen in table \ref{tab:scores_dbscan}, scores without dimensionality reduction are just as bad as with other methods and scores with dimensionality reduction are missing completely. This is because in our experiments almost all parameter settings produced only one single big cluster for normal data and one single big cluster for all tested parameter settings with LSA or Spectral Embedding, making score calculation impossible.
 This is also the reason why all data points in figure \ref{fig:dbscan}, except for a few in the first subplot, are colored the same.
 
 Because of the data-dependent threshold value (see section \ref{subsubsec:dbscan}), it might be possible to achieve better clustering by testing even more parameter values or using some kind of heuristic to find appropriate values.
@@ -348,6 +351,8 @@ Because of the data-dependent threshold value (see section \ref{subsubsec:dbscan
 \subsubsection{OPTICS}
 \subsubcomment{Written by Jonas Reinwald}
 
+Even though OPTICS is an improvement to the DBSCAN algorithm, results on the raw pre-processed data, as can be seen in table \ref{tab:scores_optics}, did not improve much compared to it. Depending on the parameters used OPTICS produced between 2 and 4 big clusters, with most samples belonging to the same cluster. Using dimensionality reduction only shows marginal improvements. In figure \ref{fig:optics} it is evident that more clusters are found when using dimensionality reduction, but most data points still belong to the same cluster, with LSA less so than Spectral Embedding.
+
 \begin{table}[]
   \centering
   \begin{tabular}{c|c|c|c}
@@ -392,6 +397,9 @@ Because of the data-dependent threshold value (see section \ref{subsubsec:dbscan
 
 \subsubsection{MeanShift}
 \subsubcomment{Written by Jonas Reinwald}
+
+In contrast to DBSCAN, where experiments with dimensionality reduction resulted in only one big cluster, MeanShift does the exact opposite. Clustering with raw pre-processed data resulted in only one cluster, whereas LSA and Spectral Embedding worked better but still worse than a lot of other methods.
+When looking at table \ref{tab:scores_mean_shift}, the scores for dimensionality reduction, especially LSA, are looking quite good. Unfortunately these scores do not reflect the performance of MeanShift accurately, as only two and three clusters for LSA and Spectral Embedding respectively were produced. The separation of these clusters is good, however, as can be seen in figure \ref{fig:mean_shift}.  
 
 \begin{table}[]
   \centering

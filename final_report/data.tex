@@ -12,18 +12,18 @@ Finding the perfect data set was an iterative process. It also began with a list
 	\item The authors' names, the paper's title, and the link used to access the paper, the ref, should also be available.
 \end{enumerate}
 
-Every process iteration resembled a trial of some sorts, where the potential data candidate was the defendant. After multiple iterations, we settled for the Journal of Machine Learning Research, in short, Jmlr \cite{jmlr}, a peer-reviewed open access scientific journal covering only machine learning scientific papers.
-On Jmlr \cite{jmlr}, research papers are organized into volumes. In the winter of 2020, when our project started, there were twenty available volumes, each one containing anywhere between fifty to two hundred fifty scientific papers. Each paper has three associated links: 
+Every process iteration resembled a trial of some sorts, where the potential data candidate was the defendant. After multiple iterations, we settled for the Journal of Machine Learning Research, in short, JMLR \cite{jmlr}, a peer-reviewed open access scientific journal covering only machine learning scientific papers.
+On JMLR \cite{jmlr}, research papers are organized into volumes. In the winter of 2020, when our project started, there were twenty available volumes, each one containing anywhere between fifty to two hundred fifty scientific papers. Each paper has three associated links: 
 \begin{enumerate}
 	\item The first link leads to a website where the paper's title, abstract, and the authors' names are listed. 
 	\item The second link is used to access the paper in PDF format. 
 	\item The third link, a BibTeX file, contains the paper's bibliography.
 \end{enumerate}
 
-We randomly sampled twenty papers: no abstract had spelling mistakes and each paper had at least four associated keywords. Jmlr \cite{jmlr}, seemed to be the perfect data source, as we had previously rejected Crossref \cite{crossref} because of the poor quality of the papers' abstracts.
+We randomly sampled twenty papers: no abstract had spelling mistakes and each paper had at least four associated keywords. JMLR \cite{jmlr}, seemed to be the perfect data source, as we had previously rejected Crossref \cite{crossref} because of the poor quality of the papers' abstracts.
 
 
-The questions that had to be answered next were how to download the papers and where to store them. We concluded that Jmlr \cite{jmlr} must host anywhere between two thousand to four thousand papers. Saving them locally should not pose a problem. What Jmlr \cite{jmlr} did not offer was an API to download the papers. Manually downloading the papers was a task we were not ready to perform.The structured way the papers were saved on Jmlr \cite{jmlr}  gave rise to the idea of scraping the information we were interested in. 
+The questions that had to be answered next were how to download the papers and where to store them. We concluded that JMLR \cite{jmlr} must host anywhere between two thousand to four thousand papers. Saving them locally should not pose a problem. What JMLR \cite{jmlr} did not offer was an API to download the papers. Manually downloading the papers was a task we were not ready to perform.The structured way the papers were saved on JMLR \cite{jmlr}  gave rise to the idea of scraping the information we were interested in. 
 
 
 Few things run smoothly from the beginning and require no further adjustments. A trial and error process riddled with subsequent tweaks is a rite of passage that transforms a theoretical great idea into a practical great idea.
@@ -59,7 +59,7 @@ The second problem that needed to be addressed was how to efficiently extract in
 \subsubcomment{}
 Below we list some general statistics of our data set:
 \begin{enumerate}
-	\item The data set consists of 2230 research papers on the topic of mache learning.
+	\item The data set consists of 2230 research papers on the topic of machine learning.
 	\item 20 papers posses no abstract.
 	\item 159 papers have no keywords.
 	\item The average number of keywords found in a research paper is 4.7

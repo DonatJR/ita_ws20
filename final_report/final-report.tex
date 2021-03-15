@@ -69,7 +69,7 @@
 \newcommand{\subcomment}[1]{\vspace{-0.8em}\hspace{35pt}{\small\textit{#1}}\bigskip\par}
 \newcommand{\subsubcomment}[1]{\vspace{-0.8em}\hspace{39pt}{\small\textit{#1}}\bigskip\par}
 
-
+\setcounter{tocdepth}{2} 
 
 \begin{document}
 
@@ -78,9 +78,7 @@
 \begin{titlepage}
 
 
-\vspace*{1cm}
 \begin{center}
-\vspace*{3cm}
 \textbf{ 
 \Large Heidelberg University\\
 \smallskip
@@ -90,13 +88,13 @@
 \smallskip
 }
 
-\vspace{3cm}
+\vspace{2cm}
 
 \textbf{\large Project Report - Text Analytics}
 
 \vspace{0.5\baselineskip}
 {\huge
-\textbf{Scientific papers clustering}
+\textbf{Scientific Papers Clustering}
 }
 \end{center}
 
@@ -104,34 +102,51 @@
 
 {\large
 \begin{tabular}[l]{ll}
-Team Member: & Daniela Fichiu, 3552717, BSc Applied Computer Science,\\
+Team Member: & Daniela Fichiu, 3552717,\\& BSc Applied Computer Science,\\
   & BSc Mathematics\\
   & daniela.fichiu@stud.uni-heidelberg.de\\
-Team Member: & Christian Homeyer, 3606476, PhD Computer Science \\
+Team Member: & Christian Homeyer, 3606476,\\ & PhD Computer Science \\
   & ox182@uni-heidelberg.de\\
-Team Member: & Jessica Kaechele, 3588787, MSc Applied Computer Science\\
+Team Member: & Jessica Kaechele, 3588787,\\ & MSc Applied Computer Science\\
   & Uo251@stud.uni-heidelberg.de\\
-Team Member: & Jonas Reinwald, 3600238, MSc Applied Computer Science\\
+Team Member: & Jonas Reinwald, 3600238, \\ & MSc Applied Computer Science\\
   & am248@stud.uni-Heidelberg.de\\
+Mentor: & Dennis Aumiller
   
 \end{tabular}
 }
+\vspace*{1cm}
 
 {
   \textbf{GitHub Repository: \url{https://github.com/DonatJR/ita_ws20}}
 }
+\vspace*{.5cm}
+
+\begin{center}
+{
+We  hereby  declare  that  all  material  in  this  project  is  our  own  work except where there is clear acknowledgement or reference to the work of others. } 
+\end{center}
+
 
 \end{titlepage}
 
 \pagenumbering{arabic} 
 
 % \input{<file>}
+\newpage
+\tableofcontents
+
+\listoffigures
+\listoftables
+
+\newpage
 \input{abstract}
 \input{introduction}
 \input{related_work}
 \input{methods}
 \input{experimental_setup_results}
 \input{conclusion}
+\input{note}
 
 \bibliographystyle{plain}
 \bibliography{bibtex/references}
